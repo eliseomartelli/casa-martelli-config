@@ -1,0 +1,8 @@
+alias: Sala Spegni Modalità Cinema
+trigger:
+  - platform: state
+    entity_id: input_boolean.sala_modalita_cinema
+action:
+  - delay: '1:30:00'
+  - service: input_boolean.turn_off
+    entity_id: input_boolean.sala_modalita_cinema

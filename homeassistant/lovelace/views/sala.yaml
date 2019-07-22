@@ -10,3 +10,6 @@ cards:
     title: Luci
     entities:
       - light.sala_grande
+  - type: entities
+    entities:
+      - input_boolean.sala_modalita_cinema
