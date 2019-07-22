@@ -1,0 +1,53 @@
+version: '3'
+services:
+        homeassistant:
+                container_name: home-assistant
+                image: homeassistant/home-assistant
+                volumes:
+                        - ./homeassistant:/config
+                        - /etc/localtime:/etc/localtime:ro
+                restart: always
+                network_mode: host
+        mosquitto:
+                image: eclipse-mosquitto
+                container_name: mosquitto
+                ports:
+                        - "1883:1883"
+                        - "9001:9001"
+                volumes:
+                        - ./mosquitto/:/mosquitto/config/
+                restart: always
+        motioneye:
+                image: ccrisan/motioneye:master-amd64
+                container_name: motioneye
+                ports:
+                        - "8765:8765"
+                volumes:
+                        - /etc/localtime:/etc/localtime:ro
+                        - ./motioneye/etc:/etc/motioneye
+                        - ./motioneye/lib:/var/lib/motioneye
+                devices:
+                        - "/dev/video1:/dev/video1"
+                restart: always
+        duckdns:
+                image: linuxserver/duckdns
+                container_name: duckdns
+                environment:
+                        - TZ=Europe/Rome
+                        - SUBDOMAINS=${SUBDOMAIN}
+                        - TOKEN=${TOKEN}
+                restart: always
+        caddy:
+                image: abiosoft/caddy
+                container_name: caddy
+                volumes:
+                        - ./caddy/certs/:/etc/caddycerts/
+                        - ./caddy/Caddyfile:/etc/Caddyfile
+                ports:
+                        - "80:80"
+                        - "443:443"
+                        - "2015:2015"
+                environment:
+                        - CADDYPATH=/etc/caddycerts/
+                        - ACME_AGREE=true
+                restart: always

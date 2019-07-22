@@ -80,9 +80,18 @@ homeassistant/notebooks
 
 # Ignore TTS
 homeassistant/tts/*
+
+# ignore community 
 homeassistant/www/community
 homeassistant/custom_components/hacs
 
+.caddy/*
+caddy/*
+
+mosquitto/*
+motioneye/*
+
+.env
 
 # Ignore files created by IDE's
 
