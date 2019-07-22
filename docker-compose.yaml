@@ -20,8 +20,6 @@ services:
         motioneye:
                 image: ccrisan/motioneye:master-amd64
                 container_name: motioneye
-                ports:
-                        - "8765:8765"
                 volumes:
                         - /etc/localtime:/etc/localtime:ro
                         - ./motioneye/etc:/etc/motioneye
@@ -29,6 +27,7 @@ services:
                 devices:
                         - "/dev/video1:/dev/video1"
                 restart: always
+                network_mode: host
         duckdns:
                 image: linuxserver/duckdns
                 container_name: duckdns
