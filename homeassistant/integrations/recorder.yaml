@@ -1,0 +1,5 @@
+recorder:
+  purge_keep_days: 5
+  include:
+    entities:
+      - binary_sensor.presenza_cortile_frontale

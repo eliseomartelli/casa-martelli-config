@@ -1,0 +1,4 @@
+platform: mqtt
+state_topic: cameras/cortile_frontale/motion
+name: Presenza Cortile Frontale
+device_class: occupancy

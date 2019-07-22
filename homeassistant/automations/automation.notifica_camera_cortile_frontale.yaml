@@ -1,0 +1,13 @@
+alias: Notifica Camera Cortile Frontale
+trigger:
+        - platform: state
+          entity_id: binary_sensor.presenza_cortile_frontale
+          to: 'on'
+action:
+        service: notify.family
+        data:
+                message: Notifica movimento.
+                data:
+                        photo:
+                                - url: !secret camera_cortile_esterno_url
+                                  caption: Ehi, ho rilevato del movimento sul cortile frontale.

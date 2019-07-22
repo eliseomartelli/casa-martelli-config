@@ -1,0 +1,7 @@
+platform: mqtt
+name: Sala Grande
+state_topic: shellies/shelly1-BA3900/relay/0
+command_topic: shellies/shelly1-BA3900/relay/0/command
+payload_on: "on"
+payload_off: "off"
+retain: "false"

@@ -1,0 +1,4 @@
+notify:
+  - platform: telegram
+    chat_id: !secret telegram_family_chat_id
+    name: Family

@@ -1,0 +1,21 @@
+id: home
+title: Home
+icon: mdi:home
+cards:
+  - type: custom:simple-weather-card
+    entity: weather.casa
+    name: " "
+    backdrop: true
+  - title: Informazioni
+    type: glance
+    entities:
+      - sensor.rifiuti_di_domani
+  - type: custom:monster-card
+    show_empty: false
+    card:
+      type: entities
+      title: Luci accese
+    filter:
+      include:
+        - domain: light
+          state: 'on'

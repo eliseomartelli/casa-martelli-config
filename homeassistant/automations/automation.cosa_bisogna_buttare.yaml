@@ -1,0 +1,36 @@
+alias: Cosa bisogna buttare?
+trigger:
+  - platform: time
+    at: '19:30:00'
+action:
+  - service: notify.family
+    data_template:
+      message: >
+        Domani
+        {%- if 'NOTHING' in states('sensor.rifiuti_di_domani') -%}
+          {{ [' non bisogna buttare niente.',
+              ' la munnezza non passa.',
+              ' senza bidone (non passa nessuno.)',
+              ' EcoLan riposa',
+              ' niente spazzatura.'] | random }}
+        {%- else -%}
+          {{ [' bisogna buttare ',
+              ' si caccia ',
+              ' passa ',
+              ' EcoLan viene a prendersi '] | random }}
+        {%- endif -%}
+        {%- if 'PAPER' in states('sensor.rifiuti_di_domani') -%}
+          la carta
+        {%- endif -%}
+        {%- if 'PLASTIC' in states('sensor.rifiuti_di_domani') -%}
+          il multimateriale
+        {%- endif -%}
+        {%- if 'DRY' in states('sensor.rifiuti_di_domani') -%}
+          il secco
+        {%- endif -%}
+        {%- if 'ORGANIC' in states('sensor.rifiuti_di_domani') -%}
+          l'umido
+        {%- endif -%}
+        {%- if 'GLASS' in states('sensor.rifiuti_di_domani') -%}
+          il vetro
+        {%- endif -%}
