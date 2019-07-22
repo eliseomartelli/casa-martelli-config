@@ -11,12 +11,3 @@ action:
                           photo:
                                   - url: !secret camera_cortile_esterno_url
                                     caption: Ehi, ho rilevato del movimento sul cortile frontale.
-        - condition: time
-          after: '00:08:00'
-          before: '00:23:00'
-        - service: notify.alexa_media_echo_dot_della_sala
-          data:
-                  message: "Sembra ci sia qualcuno nel cortile"
-                  data:
-                          type: announce
-                          method: all
