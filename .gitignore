@@ -83,7 +83,7 @@ homeassistant/tts/*
 
 # ignore community 
 homeassistant/www/community
-homeassistant/custom_components/hacs
+homeassistant/custom_components/*
 
 .caddy/*
 caddy/*
@@ -91,6 +91,7 @@ caddy/*
 mosquitto/*
 motioneye/*
 
+*.pickle
 .env
 
 # Ignore files created by IDE's
