@@ -4,6 +4,8 @@ icon: mdi:sofa
 cards:
   - type: custom:mini-media-player
     entity: media_player.chromecast_salotto
+  - type: custom:mini-media-player
+    entity: media_player.echo_dot_della_sala
   - type: entities
     title: Luci
     entities:
