@@ -1,0 +1,10 @@
+platform: rest
+name: Rifiuti di domani
+resource: https://raw.githubusercontent.com/eliseomartelli/Calendari-Ecolan/master/calendars/MOZZAGROGNA.json
+value_template: >
+  {% set today = value_json.days[now().strftime('%j') | int].garbage %}
+  {% if today | length > 0 %}
+    {{ today[0] }}
+  {% else %}
+    NOTHING
+  {% endif %}

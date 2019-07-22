@@ -1,0 +1,10 @@
+id: sala
+title: Sala
+icon: mdi:sofa
+cards:
+  - type: custom:mini-media-player
+    entity: media_player.chromecast_salotto
+  - type: entities
+    title: Luci
+    entities:
+      - light.sala_grande
