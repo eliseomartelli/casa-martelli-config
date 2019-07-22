@@ -6,6 +6,13 @@ cards:
     entity: weather.casa
     name: " "
     backdrop: true
+  - type: custom:monster-card
+    card:
+            type: glance
+            title: Persone
+    filter:
+            include:
+                    - domain: device_tracker
   - title: Informazioni
     type: glance
     entities:

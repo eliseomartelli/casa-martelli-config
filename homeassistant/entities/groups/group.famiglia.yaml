@@ -1,0 +1,6 @@
+famiglia:
+        name: Famiglia
+        entities:
+                - device_tracker.antonella_telefono
+                - device_tracker.antonio_telefono
+                - device_tracker.gioele_telefono
