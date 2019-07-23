@@ -1,4 +1,4 @@
-alias: Accensione Luci Ritorno
+alias: Cortile Accensione Luci Presenza
 trigger:
   - platform: state
     entity_id: group.famiglia
