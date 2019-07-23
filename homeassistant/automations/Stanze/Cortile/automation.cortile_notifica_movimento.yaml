@@ -1,4 +1,4 @@
-alias: Notifica Camera Cortile Frontale
+alias: Cortile Notifica Movimento
 trigger:
         - platform: state
           entity_id: binary_sensor.presenza_cortile_frontale

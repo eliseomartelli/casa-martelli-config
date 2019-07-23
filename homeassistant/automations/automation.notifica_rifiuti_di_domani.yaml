@@ -1,4 +1,4 @@
-alias: Cosa bisogna buttare?
+alias: Notifica rifiuti di domani
 trigger:
   - platform: time
     at: '19:30:00'

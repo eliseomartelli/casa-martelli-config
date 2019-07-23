@@ -1,4 +1,4 @@
-alias: Sala Spegni Modalità Cinema
+alias: Sala Modalità Cinema Timer
 trigger:
   - platform: state
     entity_id: input_boolean.sala_modalita_cinema

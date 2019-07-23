@@ -1,4 +1,4 @@
-alias: Accensione Luci Tramonto
+alias: Cortile Accensione Luci Tramonto
 trigger:
   - platform: sun
     event: sunset

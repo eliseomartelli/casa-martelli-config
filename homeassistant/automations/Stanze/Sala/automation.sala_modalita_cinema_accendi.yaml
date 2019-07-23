@@ -1,12 +1,12 @@
-alias: Modalità Cinema Spegni Luci
+alias: Sala Modalità Cinema Accendi
 trigger:
         platform: state
         entity_id: media_player.chromecast_salotto
-        from: playing
+        to: playing
 condition:
         condition: state
         entity_id: input_boolean.sala_modalita_cinema
         state: 'on'
 action:
-        service: light.turn_on
+        service: light.turn_off
         entity_id: light.sala_grande
