@@ -2,10 +2,7 @@ alias: Cortile Accensione Luci Tramonto
 trigger:
   - platform: sun
     event: sunset
-    offset: '-00:30:00'
+    offset: '-00:15:00'
 action:
   - service: light.turn_on
-    entity_id: light.cortile_frontale
-  - delay: '3:30:00'
-  - service: light.turn_off
     entity_id: light.cortile_frontale
