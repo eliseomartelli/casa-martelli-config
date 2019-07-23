@@ -1,0 +1,12 @@
+path: impostazioni
+title: Impostazioni
+icon: mdi:settings
+cards:
+        - type: custom:monster-card
+          card:
+                  type: entities
+                  title: Automazioni
+          filter:
+                  include:
+                          - domain: automation
+

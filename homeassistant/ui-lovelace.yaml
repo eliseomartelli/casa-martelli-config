@@ -2,6 +2,4 @@ resources: !include_dir_list lovelace/resources
 
 title: Casa
 views:
-  - !include lovelace/views/home.yaml
-  - !include lovelace/views/sala.yaml
-  - !include lovelace/views/esterno.yaml
+  !include_dir_list lovelace/views
