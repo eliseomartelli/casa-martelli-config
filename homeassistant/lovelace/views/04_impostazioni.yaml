@@ -15,3 +15,8 @@ cards:
           entities:
                   - input_datetime.cortile_orario_spegnimento_estivo
                   - input_datetime.cortile_orario_spegnimento_invernale
+        - type: entities
+          title: Altri Stati
+          show_header_toggle: false
+          entities:
+                  - sensor.server_temperatura  
