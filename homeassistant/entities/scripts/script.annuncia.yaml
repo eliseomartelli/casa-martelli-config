@@ -1,0 +1,12 @@
+annuncia:
+        sequence:
+                - condition: state
+                  entity_id: group.famiglia
+                  state: 'home'
+                - service: notify.alexa_media_echo_dot_della_sala
+                  data:
+                          type: announce
+                          method: speak
+                  data_template:
+                          message: >-
+                                  {{ message }}

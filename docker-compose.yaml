@@ -28,6 +28,17 @@ services:
                         - "/dev/video1:/dev/video1"
                 restart: always
                 network_mode: host
+        coder:
+                image: codercom/code-server
+                container_name: coder
+                command: --allow-http
+                environment:
+                        - PASSWORD=${CODER_PASSWORD}
+                volumes:
+                        - ./:/home/coder/project
+                ports:
+                        - "8443:8443"
+                restart: always
         duckdns:
                 image: linuxserver/duckdns
                 container_name: duckdns
