@@ -4,7 +4,21 @@ resource: https://raw.githubusercontent.com/eliseomartelli/Calendari-Ecolan/mast
 value_template: >
   {% set today = value_json.days[now().strftime('%j') | int].garbage %}
   {% if today | length > 0 %}
-    {{ today[0] }}
+    {%- if 'PAPER' in today[0] -%}
+      la carta
+    {%- endif -%}
+    {%- if 'PLASTIC' in today[0] -%}
+      il multimateriale
+    {%- endif -%}
+    {%- if 'DRY' in today[0] -%}
+      il secco
+    {%- endif -%}
+    {%- if 'ORGANIC' in today[0] -%}
+      l'umido
+    {%- endif -%}
+    {%- if 'GLASS' in today[0] -%}
+      il vetro
+    {%- endif -%}
   {% else %}
-    NOTHING
+    niente
   {% endif %}

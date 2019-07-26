@@ -84,7 +84,7 @@ homeassistant/tts/*
 # ignore community 
 homeassistant/www/community
 homeassistant/custom_components/*
-
+homeassistant/www/pictures
 .caddy/*
 caddy/*
 

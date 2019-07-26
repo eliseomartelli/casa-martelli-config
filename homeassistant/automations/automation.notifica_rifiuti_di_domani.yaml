@@ -7,7 +7,7 @@ action:
     data_template:
       message: >
         Domani
-        {%- if 'NOTHING' in states('sensor.rifiuti_di_domani') -%}
+        {%- if 'niente' in states('sensor.rifiuti_di_domani') -%}
           {{ [' non bisogna buttare niente.',
               ' la munnezza non passa.',
               ' senza bidone (non passa nessuno.)',
@@ -19,18 +19,4 @@ action:
               ' passa ',
               ' EcoLan viene a prendersi '] | random }}
         {%- endif -%}
-        {%- if 'PAPER' in states('sensor.rifiuti_di_domani') -%}
-          la carta
-        {%- endif -%}
-        {%- if 'PLASTIC' in states('sensor.rifiuti_di_domani') -%}
-          il multimateriale
-        {%- endif -%}
-        {%- if 'DRY' in states('sensor.rifiuti_di_domani') -%}
-          il secco
-        {%- endif -%}
-        {%- if 'ORGANIC' in states('sensor.rifiuti_di_domani') -%}
-          l'umido
-        {%- endif -%}
-        {%- if 'GLASS' in states('sensor.rifiuti_di_domani') -%}
-          il vetro
-        {%- endif -%}
+        {{ states('sensor.rifiuti_di_domani') }}
