@@ -1,0 +1,4 @@
+coder:
+  title: Coder
+  icon: mdi:code-braces
+  url: !secret coder_url
