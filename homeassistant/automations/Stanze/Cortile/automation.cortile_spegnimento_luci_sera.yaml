@@ -1,13 +1,7 @@
 alias: Cortile Spegnimento Luci Tramonto
 trigger:
   - platform: template
-    value_template: > 
-        {%- if states('sensor.season') in ['summer', 'spring'] -%}
-                {{ states('sensor.time') == (state_attr('input_datetime.cortile_orario_spegnimento_estivo', 'timestamp') | int | timestamp_custom('%H:%M', False)) }}
-        {%- else -%}
-                {{ states('sensor.time') == (state_attr('input_datetime.cortile_orario_spegnimento_invernale', 'timestamp') | int | timestamp_custom('%H:%M', False)) }}
-        {%- endif -%}
-
+    value_template: !include ../../../jinja_templates/template.orario_con_stagione.yaml
 action:
   - service: light.turn_off
     entity_id: light.cortile_frontale
