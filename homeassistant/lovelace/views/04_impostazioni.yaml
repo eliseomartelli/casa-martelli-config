@@ -4,6 +4,13 @@ icon: mdi:settings
 cards:
         - type: custom:monster-card
           card:
+                  type: glance
+                  title: Stampante
+          filter:
+                  include:
+                          - entity_id: sensor.corridoio_stampante*
+        - type: custom:monster-card
+          card:
                   type: entities
                   title: Automazioni
           filter:

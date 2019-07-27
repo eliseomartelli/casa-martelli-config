@@ -1,24 +1,4 @@
 platform: rest
 name: Rifiuti di domani
 resource: https://raw.githubusercontent.com/eliseomartelli/Calendari-Ecolan/master/calendars/MOZZAGROGNA.json
-value_template: >
-  {% set today = value_json.days[now().strftime('%j') | int].garbage %}
-  {% if today | length > 0 %}
-    {%- if 'PAPER' in today[0] -%}
-      la carta
-    {%- endif -%}
-    {%- if 'PLASTIC' in today[0] -%}
-      il multimateriale
-    {%- endif -%}
-    {%- if 'DRY' in today[0] -%}
-      il secco
-    {%- endif -%}
-    {%- if 'ORGANIC' in today[0] -%}
-      l'umido
-    {%- endif -%}
-    {%- if 'GLASS' in today[0] -%}
-      il vetro
-    {%- endif -%}
-  {% else %}
-    niente
-  {% endif %}
+value_template: !include ../../jinja_templates/template.nomi_rifiuti.yaml

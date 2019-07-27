@@ -13,8 +13,7 @@ cards:
     filter:
             include:
                     - domain: device_tracker
-  - title: Informazioni
-    type: glance
+  - type: entities
     entities:
       - sensor.rifiuti_di_domani
   - type: custom:monster-card
