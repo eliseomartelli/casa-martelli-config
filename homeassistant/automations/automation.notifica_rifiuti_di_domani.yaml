@@ -18,5 +18,6 @@ action:
               ' si caccia ',
               ' passa ',
               ' EcoLan viene a prendersi '] | random }}
+          {{ states('sensor.rifiuti_di_domani') }}
         {%- endif -%}
-        {{ states('sensor.rifiuti_di_domani') }}
+        
