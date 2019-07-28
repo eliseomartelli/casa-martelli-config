@@ -1,13 +1,25 @@
 alias: Cortile Notifica Movimento
 trigger:
-        - platform: state
-          entity_id: binary_sensor.presenza_cortile_frontale
-          to: 'on'
+  - platform: state
+    entity_id: binary_sensor.presenza_cortile_frontale
+    to: 'on'
 action:
-        - service: notify.family
-          data:
-                  message: Notifica movimento.
-                  data:
-                          photo:
-                                  - url: !secret camera_cortile_esterno_url
-                                    caption: Ehi, ho rilevato del movimento sul cortile frontale.
+  - service: notify.family
+    data_template:
+      message: Notifica movimento.
+      data:
+        photo:
+          - url: !secret camera_cortile_esterno_url
+            caption: >
+              {{
+                [
+                  'Ehi, mi sembra di aver visto del movimento nel %s.',
+                  'Aspetta, mi sembra ci sia qualcosa nel %s.',
+                  "C\'é qualcosa che si muove nel %s. Potete controllare?",
+                  'Vi dispiace controllare il %s? Ho visto qualcosa muoversi.',
+                  'Boop boop, i miei sistemi hanno rilevato qualcosa nel %s.',
+                  'Ho scattato una foto nel %s, mi sembra ci sia qualcosa.'
+                ] 
+                | random 
+                | replace("%s", "cortile frontale")
+              }}
