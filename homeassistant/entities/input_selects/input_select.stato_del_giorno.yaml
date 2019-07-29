@@ -1,0 +1,7 @@
+stato_del_giorno:
+  name: Modo di operazione
+  options:
+    - Mattina
+    - Pomeriggio
+    - Sera
+    - Notte

@@ -2,28 +2,31 @@ path: impostazioni
 title: Impostazioni
 icon: mdi:settings
 cards:
-        - type: custom:monster-card
-          card:
-                  type: glance
-                  title: Stampante
-          filter:
-                  include:
-                          - entity_id: sensor.corridoio_stampante*
-        - type: custom:monster-card
-          card:
-                  type: entities
-                  title: Automazioni
-          filter:
-                  include:
-                          - domain: automation
-        - type: entities
-          title: Orari
-          show_header_toggle: false
-          entities:
-                  - input_datetime.cortile_orario_spegnimento_estivo
-                  - input_datetime.cortile_orario_spegnimento_invernale
-        - type: entities
-          title: Altri Stati
-          show_header_toggle: false
-          entities:
-                  - sensor.server_temperatura  
+  - type: custom:monster-card
+    card:
+      type: glance
+      title: Stampante
+    filter:
+            include:
+                    - entity_id: sensor.corridoio_stampante*
+  - type: custom:monster-card
+    card:
+      type: entities
+      title: Automazioni
+    filter:
+      include:
+        - domain: automation
+      exclude:
+        - entity_id: automation.sistema*
+  - type: entities
+    title: Orari
+    show_header_toggle: false
+    entities:
+      - input_select.stato_del_giorno
+      - input_datetime.cortile_orario_spegnimento_estivo
+      - input_datetime.cortile_orario_spegnimento_invernale
+  - type: entities
+    title: Altri Stati
+    show_header_toggle: false
+    entities:
+      - sensor.server_temperatura  

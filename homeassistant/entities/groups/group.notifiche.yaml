@@ -1,0 +1,5 @@
+notifiche:
+  name: Notifiche
+  entities:
+          - input_boolean.annunci
+          - input_boolean.messaggi
