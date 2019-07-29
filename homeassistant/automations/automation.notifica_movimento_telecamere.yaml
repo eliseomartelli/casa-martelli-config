@@ -1,0 +1,9 @@
+alias: Notifica Movimento Telecamere
+trigger:
+  - platform: state
+    entity_id: binary_sensor.presenza_cortile_frontale
+    to: 'on'
+action:
+  - service: script.notifica_famiglia_cctv
+    data_template:
+      camera: "camera.cortile_frontale"
