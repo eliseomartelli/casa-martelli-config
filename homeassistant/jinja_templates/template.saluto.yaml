@@ -1,0 +1,26 @@
+>
+  {% macro saluta(utente) %}
+    {% set greeting =
+      [
+        "Hei",
+        "Ciao",
+        "%saluto",
+        "Salve"
+      ] 
+      | random
+    %}
+    {% if "%saluto" in greeting %}
+      {% set saluto = "Buon" %}
+      {% if states.input_select.stato_del_giorno.state[-1] in ['e', 'a']  %}
+        {% set saluto = saluto + "a" %}
+      {% endif %}
+      {% set saluto = saluto + " " + states.input_select.stato_del_giorno.state %}
+    {% endif %}
+    {{ greeting | replace("%saluto", saluto) }}
+  {% endmacro %}
+
+  {% if bisogna_salutare %}
+    {{ saluta(utente) }}
+  {% endif %}
+
+  {{ message }}

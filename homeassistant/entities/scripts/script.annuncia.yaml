@@ -17,4 +17,4 @@ annuncia:
         data:
           type: announce
           method: speak
-        message: "{{ message }}"
+        message: !include ../../jinja_templates/template.saluto.yaml
