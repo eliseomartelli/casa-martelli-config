@@ -4,13 +4,9 @@ trigger:
     entity_id: light.cortile_frontale
     to: 'on'
 condition:
-  condition: and
-  conditions:
-    - condition: template
-      value_template: !include ../../../jinja_templates/template.orario_con_stagione.yaml
-    - condition: state
-      entity_id: sun.sun
-      state: below_horizon
+  - condition: state
+    entity_id: input_select.stato_del_giorno
+    state: 'Notte'
 action:
   - delay: '00:15:00'
   - service: light.turn_off

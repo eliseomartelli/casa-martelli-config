@@ -1,0 +1,18 @@
+notifica_famiglia_cctv:
+  sequence:
+    - service: script.notifica_famiglia_con_foto
+      data_template:
+        message: >
+          {{
+            [
+              'Ehi, mi sembra di aver visto del movimento nel %s.',
+              'Aspetta, mi sembra ci sia qualcosa nel %s.',
+              "C\'é qualcosa che si muove nel %s. Potete controllare?",
+              'Vi dispiace controllare il %s? Ho visto qualcosa muoversi.',
+              'Boop boop, i miei sistemi hanno rilevato qualcosa nel %s.',
+              'Ho scattato una foto nel %s, mi sembra ci sia qualcosa.'
+              ] 
+            | random 
+            | replace("%s", state_attr(camera, 'friendly_name') | lower)
+          }}
+        url: "{{ states.sensor.sistema_base_url.state }}{{ state_attr(camera, 'entity_picture') }}"

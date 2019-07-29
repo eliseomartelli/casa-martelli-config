@@ -1,8 +1,8 @@
-alias: Cortile Accensione Luci Tramonto
+alias: Cortile Accensione Luci Sera
 trigger:
-  - platform: sun
-    event: sunset
-#   offset: '-00:15:00'
+  - platform: state
+    entity_id: input_select.stato_del_giorno
+    to: 'Sera'
 action:
   - service: light.turn_on
     entity_id: light.cortile_frontale

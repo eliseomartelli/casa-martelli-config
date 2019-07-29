@@ -3,7 +3,7 @@ trigger:
   - platform: time
     at: '19:30:00'
 action:
-  - service: notify.family
+  - service: script.notifica_famiglia
     data_template:
       message: >
         Domani
