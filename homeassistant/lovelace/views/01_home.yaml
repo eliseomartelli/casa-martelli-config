@@ -6,13 +6,21 @@ cards:
     entity: weather.casa
     name: " "
     backdrop: true
+
   - type: custom:monster-card
     card:
-            type: glance
-            title: Persone
+      type: glance
+      title: Persone
     filter:
-            include:
-                    - domain: device_tracker
+      include:
+        - domain: device_tracker
+
+  - type: custom:group-card
+    group: group.notifiche
+    card:
+      type: entities
+      title: Notifiche
+
   - type: entities
     entities:
       - sensor.rifiuti_di_domani

@@ -1,0 +1,5 @@
+messaggi:
+  name: Messaggi
+  initial: on
+  icon: mdi:android-messages
+

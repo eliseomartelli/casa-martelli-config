@@ -1,9 +1,9 @@
 homeassistant:
-        name: Casa
-        latitude: !secret zone_home_latitude
-        longitude: !secret zone_home_longitude
-        elevation: !secret zone_home_altitude
-        unit_system: metric
-        time_zone: Europe/Rome
+  name: Casa
+  latitude: !secret zone_home_latitude
+  longitude: !secret zone_home_longitude
+  elevation: !secret zone_home_altitude
+  unit_system: metric
+  time_zone: Europe/Rome
 
-        packages: !include_dir_named integrations
+  packages: !include_dir_named integrations
