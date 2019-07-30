@@ -1,0 +1,61 @@
+>
+  {% macro macro_bisogna_salutare(utente) %}
+    {% set greeting =
+      [
+        "Hei",
+        "Ciao",
+        "%saluto",
+        "Salve"
+      ] 
+      | random
+    %}
+    {% if "%saluto" in greeting %}
+      {% set saluto = "Buon" %}
+      {% if states.input_select.stato_del_giorno.state[-1] in ['e', 'a']  %}
+        {% set saluto = saluto + "a" %}
+      {% endif %}
+      {% set saluto = saluto + " " + states.input_select.stato_del_giorno.state %}
+    {% endif %}
+    {{ greeting | replace("%saluto", saluto) }}{{ " " }}
+    {{- utente }}
+  {% endmacro %}
+
+  {% macro macro_meteo() %}
+    {{
+      [
+        "Al momento",
+        "Ora",
+        "Oggi",
+      ]
+      | random
+    }} ci sono {{ (state_attr("weather.casa", "temperature") | string ).split(".")[0] }} gradi
+    {% set conditions = {
+      "clear-night": "ed è sereno",
+      "cloudy": "e sarà nuvoloso",
+      "fog": "e c'é nebbia",
+      "hail": "ci sarà la grandine",
+      "lightning": "e ci saranno temporali",
+      "lightning-rainy": "e ci saranno temporali",
+      "partlycloudy": "ed è parzialmente nuvoloso",
+      "pouring": "e piove",
+      "rainy": "e piove",
+      "snowy": "e nevica",
+      "snowy-rainy": "e ci sarà acqua neve",
+      "sunny": "ed è soleggiato",
+      "windy": "e ci sarà vento",
+      "windy-variant": "e ci sarà vento",
+      "exceptional": "e fai attenzione. ALLERTA METEO."
+    }
+    %}{{ " " }}
+    {{- conditions[states("weather.casa")] }}
+  {% endmacro %}
+
+  {% if bisogna_salutare %}
+    {{ macro_bisogna_salutare(utente) }}
+  {% endif %}
+
+  {% if meteo %}
+    {{ macro_meteo() }}
+  {% endif %}
+
+  {{ message }}

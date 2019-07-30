@@ -5,19 +5,7 @@ trigger:
 action:
   - service: script.notifica_famiglia
     data_template:
-      message: >
-        Domani
-        {%- if 'niente' in states('sensor.rifiuti_di_domani') -%}
-          {{ [' non bisogna buttare niente.',
-              ' la munnezza non passa.',
-              ' senza bidone (non passa nessuno.)',
-              ' EcoLan riposa',
-              ' niente spazzatura.'] | random }}
-        {%- else -%}
-          {{ [' bisogna buttare ',
-              ' si caccia ',
-              ' passa ',
-              ' EcoLan viene a prendersi '] | random }}
-          {{- states('sensor.rifiuti_di_domani') -}}
-        {%- endif -%}
-        
+      message: !include ../jinja_templates/template.messaggio_rifiuti.yaml
+  - service: script.annuncia
+    data_template:
+      message: !include ../jinja_templates/template.messaggio_rifiuti.yaml
