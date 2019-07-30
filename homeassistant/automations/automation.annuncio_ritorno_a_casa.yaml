@@ -8,7 +8,7 @@ trigger:
       - device_tracker.eliseo_telefono
     to: 'home'
     for:
-      minutes: 5
+      minutes: 2
 action:
   - service: script.annuncia
     data_template:
