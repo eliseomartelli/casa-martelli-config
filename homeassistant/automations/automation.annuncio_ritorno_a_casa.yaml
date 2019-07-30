@@ -1,0 +1,18 @@
+alias: Annuncio Ritorno A Casa
+trigger:
+  - platform: state
+    entity_id:
+      - device_tracker.antonella_telefono
+      - device_tracker.antonio_telefono
+      - device_tracker.gioele_telefono
+      - device_tracker.eliseo_telefono
+    to: 'home'
+    for:
+      minutes: 5
+action:
+  - service: script.annuncia
+    data_template:
+      bisogna_salutare: True
+      meteo: True
+      utente: >
+        {{ trigger.from_state.name }}
