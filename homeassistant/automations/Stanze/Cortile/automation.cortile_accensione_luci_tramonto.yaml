@@ -6,3 +6,14 @@ trigger:
 action:
   - service: light.turn_on
     entity_id: light.cortile_frontale
+  - service: script.annuncia
+    data_template:
+      message: > 
+        {{ 
+          [
+            "Inizia ad essere buio, accendo le luci fuori.",
+            "Il sole sta tramontando, accendo le luci.",
+            "Arrivederci Sole! Illumino il cortile."
+          ] 
+          | random
+        }}

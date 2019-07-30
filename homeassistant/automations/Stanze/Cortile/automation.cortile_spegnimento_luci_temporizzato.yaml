@@ -4,9 +4,17 @@ trigger:
     entity_id: light.cortile_frontale
     to: 'on'
 condition:
-  - condition: state
-    entity_id: input_select.stato_del_giorno
-    state: 'Notte'
+  condition: or
+  conditions:
+    - condition: state
+      entity_id: input_select.stato_del_giorno
+      state: 'Notte'
+    - condition: state
+      entity_id: input_select.stato_del_giorno
+      state: 'Mattina'
+    - condition: state
+      entity_id: input_select.stato_del_giorno
+      state: 'Pomeriggio'
 action:
   - delay: '00:15:00'
   - service: light.turn_off
