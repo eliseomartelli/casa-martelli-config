@@ -8,4 +8,5 @@ action:
       message: !include ../jinja_templates/template.messaggio_rifiuti.yaml
   - service: script.annuncia
     data_template:
+      bisogna_salutare: True
       message: !include ../jinja_templates/template.messaggio_rifiuti.yaml
