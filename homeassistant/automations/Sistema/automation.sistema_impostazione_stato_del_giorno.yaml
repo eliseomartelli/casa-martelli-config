@@ -1,0 +1,17 @@
+alias: Sistema Impostazione Stato del Giorno
+trigger:
+  # MATTINA
+  - platform: sun
+    event: sunrise
+  # POMERIGGIO
+  - platform: time
+    at: '12:00:00'
+  # SERA
+  - platform: sun
+    event: sunset
+  # NOTTE
+  - platform: template
+    value_template: !include ../../jinja_templates/template.orario_con_stagione.yaml
+action:
+  - service: input_select.select_next
+    entity_id: input_select.stato_del_giorno

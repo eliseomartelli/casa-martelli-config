@@ -1,8 +1,0 @@
-alias: Sistema Impostazione Mattina
-trigger:
-  - platform: sun
-    event: sunrise
-action:
-  - service: input_select.select_option
-    data:
-      option: Mattina

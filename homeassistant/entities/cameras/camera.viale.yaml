@@ -1,4 +1,4 @@
 platform: mjpeg
 still_image_url: !secret camera_cortile_esterno_url
 mjpeg_url: !secret camera_cortile_esterno_mjpeg
-name: Cortile Frontale
+name: Viale

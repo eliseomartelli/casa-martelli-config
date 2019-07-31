@@ -1,0 +1,4 @@
+luci_esterne:
+  name: Luci Esterne
+  entities:
+    - light.cortile_frontale
