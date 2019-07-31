@@ -1,8 +1,0 @@
-alias: Sistema Impostazione Sera
-trigger:
-  - platform: sun
-    event: sunset
-action:
-  - service: input_select.select_option
-    data:
-      option: Sera

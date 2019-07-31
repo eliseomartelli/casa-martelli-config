@@ -4,8 +4,8 @@ trigger:
     entity_id: input_select.stato_del_giorno
     to: 'Sera'
 action:
-  - service: light.turn_on
-    entity_id: light.cortile_frontale
+  - service: homeassistant.turn_on
+    entity_id: group.luci_esterne
   - service: script.annuncia
     data_template:
       message: > 

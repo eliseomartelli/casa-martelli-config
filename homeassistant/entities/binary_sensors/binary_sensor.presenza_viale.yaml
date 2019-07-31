@@ -1,0 +1,4 @@
+platform: mqtt
+state_topic: cameras/viale/motion
+name: Presenza Viale
+device_class: occupancy

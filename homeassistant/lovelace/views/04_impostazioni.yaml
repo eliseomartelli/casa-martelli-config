@@ -7,8 +7,8 @@ cards:
       type: glance
       title: Stampante
     filter:
-            include:
-                    - entity_id: sensor.corridoio_stampante*
+      include:
+        - entity_id: sensor.corridoio_stampante*
   - type: custom:monster-card
     card:
       type: entities

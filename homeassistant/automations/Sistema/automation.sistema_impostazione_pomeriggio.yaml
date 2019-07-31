@@ -1,8 +1,0 @@
-alias: Sistema Impostazione Pomeriggio
-trigger:
-  - platform: time
-    at: '12:00:00'
-action:
-  - service: input_select.select_option
-    data:
-      option: Pomeriggio

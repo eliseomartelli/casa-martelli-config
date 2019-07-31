@@ -1,9 +1,13 @@
 alias: Notifica Movimento Telecamere
 trigger:
   - platform: state
-    entity_id: binary_sensor.presenza_cortile_frontale
+    entity_id: 
+      - binary_sensor.presenza_viale
     to: 'on'
 action:
   - service: script.notifica_famiglia_cctv
     data_template:
-      camera: "camera.cortile_frontale"
+      camera: >
+        {%- if "viale" in trigger.from_state.entity_id %}
+          camera.viale
+        {% endif %}

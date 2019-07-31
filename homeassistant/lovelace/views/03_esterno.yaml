@@ -3,13 +3,14 @@ title: Esterno
 icon: mdi:tree
 cards:
   - type: picture-entity
-    entity: camera.cortile_frontale
+    entity: camera.viale
     show_state: false
     show_name: false
   - type: entities
     entities:
-      - binary_sensor.presenza_cortile_frontale
-  - type: entities
-    title: Luci
-    entities:
-      - light.cortile_frontale
+      - binary_sensor.presenza_viale
+  - type: custom:group-card
+    group: group.luci_esterne
+    card:
+      type: entities
+      title: Luci

@@ -1,7 +1,7 @@
 alias: Cortile Spegnimento Luci Temporizzato
 trigger:
   - platform: state
-    entity_id: light.cortile_frontale
+    entity_id: group.luci_esterne
     to: 'on'
 condition:
   condition: or
@@ -17,5 +17,5 @@ condition:
       state: 'Pomeriggio'
 action:
   - delay: '00:15:00'
-  - service: light.turn_off
-    entity_id: light.cortile_frontale
+  - service: homeassistant.turn_off
+    entity_id: group.luci_esterne
