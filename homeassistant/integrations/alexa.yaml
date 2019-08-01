@@ -1,2 +1,9 @@
 alexa:
   smart_home:
+    filter:
+      include_domains:
+        - light
+      include_entities:
+        - input_boolean.sala_modalita_cinema
+        - script.alexa_gateway_rifiuti_di_domani
+        - media_player.chromecast_salotto
