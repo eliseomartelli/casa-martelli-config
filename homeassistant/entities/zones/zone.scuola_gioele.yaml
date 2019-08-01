@@ -1,0 +1,5 @@
+name: Scuola
+latitude: !secret zone_scuola_lat
+longitude: !secret zone_scuola_long
+radius: 250
+icon: mdi:school

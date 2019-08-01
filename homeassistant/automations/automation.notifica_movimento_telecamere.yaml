@@ -4,6 +4,10 @@ trigger:
     entity_id: 
       - binary_sensor.presenza_viale
     to: 'on'
+condition:
+  - condition: state
+    entity_id: 'group.famiglia'
+    state: 'not_home'
 action:
   - service: script.notifica_famiglia_cctv
     data_template:
