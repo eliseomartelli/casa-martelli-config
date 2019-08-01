@@ -8,9 +8,9 @@ annuncia:
       data_template:
         volume_level: >
           {% if "Sera" in states.input_select.stato_del_giorno.state %}
-            0.33
-          {% else %}
             0.5
+          {% else %}
+            0.75
           {% endif %}
     - service: notify.alexa_media_echo_dot_della_sala
       data_template:
