@@ -8,6 +8,4 @@ action:
   - service: script.notifica_famiglia_cctv
     data_template:
       camera: >
-        {%- if "viale" in trigger.from_state.entity_id %}
-          camera.viale
-        {% endif %}
+        {{ trigger.from_state.entity_id.split(".")[1] | replace("presenza_", "camera.") }}
