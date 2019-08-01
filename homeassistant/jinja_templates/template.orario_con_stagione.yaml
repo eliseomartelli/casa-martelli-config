@@ -1,6 +1,6 @@
 >
   {%- if states('sensor.season') in ['summer', 'spring'] -%}
-    {{ states('sensor.time') == (state_attr('input_datetime.cortile_orario_spegnimento_estivo', 'timestamp') | int | timestamp_custom('%H:%M', False)) }}
+    {{ states('sensor.time') == (state_attr('input_datetime.sistema_inizio_notte_estivo', 'timestamp') | int | timestamp_custom('%H:%M', False)) }}
   {%- else -%}
-    {{ states('sensor.time') == (state_attr('input_datetime.cortile_orario_spegnimento_invernale', 'timestamp') | int | timestamp_custom('%H:%M', False)) }}
+    {{ states('sensor.time') == (state_attr('input_datetime.sistema_inizio_notte_invernale', 'timestamp') | int | timestamp_custom('%H:%M', False)) }}
   {%- endif -%}

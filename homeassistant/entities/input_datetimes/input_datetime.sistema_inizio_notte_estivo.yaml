@@ -1,0 +1,3 @@
+sistema_inizio_notte_estivo:
+        name: Inizio Notte Estivo
+        has_time: true
