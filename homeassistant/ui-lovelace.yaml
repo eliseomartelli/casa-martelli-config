@@ -1,5 +1,4 @@
 resources: !include_dir_list lovelace/resources
-
 title: Casa
 views:
   !include_dir_list lovelace/views

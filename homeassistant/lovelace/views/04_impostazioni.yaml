@@ -23,8 +23,8 @@ cards:
     show_header_toggle: false
     entities:
       - input_select.stato_del_giorno
-      - input_datetime.cortile_orario_spegnimento_estivo
-      - input_datetime.cortile_orario_spegnimento_invernale
+      - input_datetime.sistema_inizio_notte_estivo
+      - input_datetime.sistema_inizio_notte_invernale
   - type: entities
     title: Altri Stati
     show_header_toggle: false
