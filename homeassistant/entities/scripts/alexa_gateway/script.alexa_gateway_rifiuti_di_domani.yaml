@@ -1,5 +1,7 @@
 alexa_gateway_rifiuti_di_domani:
   sequence:
-    - service: script.annuncia
+    - service: notify.alexa_media_echo_dot_della_sala
       data_template:
+        data:
+          type: tts
         message: !include ../../../jinja_templates/template.messaggio_rifiuti.yaml
