@@ -12,6 +12,7 @@ annuncia:
           {% else %}
             0.75
           {% endif %}
+    - delay: 00:00:05
     - service: notify.alexa_media_echo_dot_della_sala
       data_template:
         data:
