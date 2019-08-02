@@ -9,6 +9,9 @@ cards:
     filter:
       include:
         - entity_id: sensor.corridoio_stampante*
+  - type: entities
+    entities:
+      - binary_sensor.soffitta_lavatrice_hoover
   - type: custom:monster-card
     card:
       type: entities

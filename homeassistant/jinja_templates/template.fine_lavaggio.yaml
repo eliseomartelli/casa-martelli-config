@@ -1,0 +1,20 @@
+>
+  {% set data = trigger.from_state.entity_id.split(".")[1].split("_") %}
+  {% if "lavatrice" in data[1] %}
+    {% set prog = "lavaggio" %}
+  {% else %}
+    {% set prog = "asciugatura" %}
+  {% endif %}
+  {{
+    [
+      'La %2 %3 ha terminato il programma di %4',
+      'Hei, sembra che La %2 %3 in %1 ha concluso il programma: %4',
+      'Toc toc, volevo avvisarvi che la %2 %3 ha finito il programma %4',
+      'Il programma %4 è stato concluso dalla %2 %3'
+    ] 
+    | random 
+    | replace("%1", data[0])
+    | replace("%2", data[1])
+    | replace("%3", data[2])
+    | replace("%4", prog)
+  }}
