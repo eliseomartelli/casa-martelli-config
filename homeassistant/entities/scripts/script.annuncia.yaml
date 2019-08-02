@@ -3,6 +3,11 @@ annuncia:
     - condition: state
       entity_id: input_boolean.annunci
       state: 'on'
+    - service: var.set
+      entity_id: var.alexa_volume
+      data_template:
+        value: >
+          {{ state_attr("media_player.echo_dot_della_sala", "volume_level") }}
     - service: media_player.volume_set 
       entity_id: media_player.echo_dot_della_sala
       data_template:
@@ -19,3 +24,9 @@ annuncia:
           type: announce
           method: speak
         message: !include ../../jinja_templates/template.annuncio.yaml
+    - delay: 00:00:05
+    - service: media_player.volume_set 
+      entity_id: media_player.echo_dot_della_sala
+      data_template:
+        volume_level: >
+          {{ states("var.alexa_volume") }}
