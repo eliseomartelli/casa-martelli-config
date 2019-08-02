@@ -1,0 +1,14 @@
+alias: Notifica Fine Lavatrice
+trigger:
+  - platform: state
+    entity_id: 
+      - binary_sensor.soffitta_lavatrice_hoover
+    to: 'off'
+action:
+  - service: script.notifica_famiglia
+    data_template:
+      message: !include ../jinja_templates/template.fine_lavaggio.yaml
+  - service: script.annuncia
+    data_template:
+      bisogna_salutare: True
+      message: !include ../jinja_templates/template.fine_lavaggio.yaml
