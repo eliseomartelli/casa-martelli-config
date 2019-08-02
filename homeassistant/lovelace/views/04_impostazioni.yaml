@@ -9,9 +9,7 @@ cards:
     filter:
       include:
         - entity_id: sensor.corridoio_stampante*
-  - type: entities
-    entities:
-      - binary_sensor.soffitta_lavatrice_hoover
+
   - type: custom:monster-card
     card:
       type: entities
@@ -21,6 +19,7 @@ cards:
         - domain: automation
       exclude:
         - entity_id: automation.sistema*
+
   - type: entities
     title: Orari
     show_header_toggle: false
@@ -28,6 +27,7 @@ cards:
       - input_select.stato_del_giorno
       - input_datetime.sistema_inizio_notte_estivo
       - input_datetime.sistema_inizio_notte_invernale
+
   - type: entities
     title: Altri Stati
     show_header_toggle: false

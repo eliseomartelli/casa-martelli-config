@@ -24,6 +24,8 @@ cards:
   - type: entities
     entities:
       - sensor.rifiuti_di_domani
+      - binary_sensor.soffitta_lavatrice_hoover
+
   - type: custom:monster-card
     show_empty: false
     card:
