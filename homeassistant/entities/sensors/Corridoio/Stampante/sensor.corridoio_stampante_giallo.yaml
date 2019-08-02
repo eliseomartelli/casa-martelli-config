@@ -1,0 +1,4 @@
+platform: mqtt
+name: 'Corridoio Stampante Giallo'
+state_topic: sensors/printer/ink/yellow
+unit_of_measurement: '%'

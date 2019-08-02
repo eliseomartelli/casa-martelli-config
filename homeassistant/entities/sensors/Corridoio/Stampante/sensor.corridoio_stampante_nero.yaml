@@ -1,0 +1,4 @@
+platform: mqtt
+name: 'Corridoio Stampante Nero'
+state_topic: sensors/printer/ink/black
+unit_of_measurement: '%'
