@@ -30,7 +30,7 @@ annuncia:
           {{ states("var.last_announcement") }}
     - delay:
         seconds: >
-          {{ (states("var.last_announcement").split(" ") | count * 0.5) | int }}
+          {{ (states("var.last_announcement").split(" ") | count * 0.75) | int }}
     - service: media_player.volume_set 
       entity_id: media_player.echo_dot_della_sala
       data_template:
