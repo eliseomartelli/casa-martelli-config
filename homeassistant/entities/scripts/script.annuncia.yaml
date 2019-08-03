@@ -8,6 +8,10 @@ annuncia:
       data_template:
         value: >
           {{ state_attr("media_player.echo_dot_della_sala", "volume_level") }}
+    - service: var.set
+      entity_id: var.last_announcement
+      data_template:
+        value: !include ../../jinja_templates/template.annuncio.yaml
     - service: media_player.volume_set 
       entity_id: media_player.echo_dot_della_sala
       data_template:
@@ -17,16 +21,16 @@ annuncia:
           {% else %}
             0.5
           {% endif %}
-    - delay: 00:00:01
     - service: notify.alexa_media_echo_dot_della_sala
       data_template:
         data:
           type: announce
           method: speak
-        message: !include ../../jinja_templates/template.annuncio.yaml
+        message: >
+          {{ states("var.last_announcement") }}
     - delay:
         seconds: >
-          {{ (message.split(" ") | count * 0.75) | int + 1 }}
+          {{ (states("var.last_announcement").split(" ") | count * 0.5) | int }}
     - service: media_player.volume_set 
       entity_id: media_player.echo_dot_della_sala
       data_template:
