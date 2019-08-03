@@ -13,18 +13,20 @@ annuncia:
       data_template:
         volume_level: >
           {% if "Sera" in states.input_select.stato_del_giorno.state %}
-            0.5
+            0.4
           {% else %}
-            0.75
+            0.5
           {% endif %}
-    - delay: 00:00:05
+    - delay: 00:00:01
     - service: notify.alexa_media_echo_dot_della_sala
       data_template:
         data:
           type: announce
           method: speak
         message: !include ../../jinja_templates/template.annuncio.yaml
-    - delay: 00:00:05
+    - delay:
+        seconds: >
+          {{ (message.split(" ") | count * 0.5) | int + 1 }}
     - service: media_player.volume_set 
       entity_id: media_player.echo_dot_della_sala
       data_template:
