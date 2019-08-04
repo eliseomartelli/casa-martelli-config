@@ -9,16 +9,18 @@ cards:
     filter:
       include:
         - entity_id: sensor.corridoio_stampante*
-
-  - type: custom:monster-card
-    card:
-      type: entities
-      title: Automazioni
-    filter:
-      include:
-        - domain: automation
-      exclude:
-        - entity_id: automation.sistema*
+  - type: custom:love-lock-card
+    popup: confirm
+    cards:
+      - type: custom:monster-card
+        card:
+          type: entities
+          title: Automazioni
+        filter:
+          include:
+            - domain: automation
+          exclude:
+            - entity_id: automation.sistema*
 
   - type: entities
     title: Orari
