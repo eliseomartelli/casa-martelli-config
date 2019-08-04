@@ -2,6 +2,11 @@ path: lavanderia
 title: Lavanderia
 icon: mdi:washing-machine
 cards:
-  - type: picture-entity
-    entity: binary_sensor.soffitta_lavatrice_hoover
-    image: /local/pictures/hoover_washing_machine.jpg
+  - type: horizontal-stack
+    cards:
+      - type: picture-entity
+        entity: binary_sensor.soffitta_lavatrice_hoover
+        image: /local/pictures/hoover_washing_machine.jpg
+        name: Lavasciuga
+      - type: picture
+        image: /local/pictures/haier_dryer.jpg
