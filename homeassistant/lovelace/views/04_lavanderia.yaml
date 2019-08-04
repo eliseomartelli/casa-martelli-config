@@ -1,0 +1,7 @@
+path: lavanderia
+title: Lavanderia
+icon: mdi:washing-machine
+cards:
+  - type: picture-entity
+    entity: binary_sensor.soffitta_lavatrice_hoover
+    image: /local/pictures/hoover_washing_machine.jpg

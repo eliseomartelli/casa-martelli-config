@@ -3,10 +3,10 @@ title: Sala
 icon: mdi:sofa
 cards:
   - type: custom:mini-media-player
-    entity: media_player.chromecast_salotto
+    entity: media_player.sala_chromecast
 
   - type: custom:mini-media-player
-    entity: media_player.echo_dot_della_sala
+    entity: media_player.sala_echo_dot
 
   - type: entities
     title: Luci
