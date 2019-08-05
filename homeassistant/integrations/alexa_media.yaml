@@ -1,5 +1,7 @@
 alexa_media:
-        accounts:
-                - email: !secret amazon_user
-                  password: !secret amazon_password
-                  url: amazon.it
+  accounts:
+    - email: !secret amazon_user
+      password: !secret amazon_password
+      url: amazon.it
+      exclude_devices:
+        - "This Device"

@@ -1,12 +1,12 @@
-alias: Notifica rifiuti di domani
+alias: Notifica Rifiuti Di Domani
 trigger:
   - platform: time
     at: '19:30:00'
 action:
   - service: script.notifica_famiglia
     data_template:
-      message: !include ../jinja_templates/template.messaggio_rifiuti.yaml
+      message: !include ../jinja_templates/template.notifica_rifiuti_di_domani.yaml
   - service: script.annuncia
     data_template:
       bisogna_salutare: True
-      message: !include ../jinja_templates/template.messaggio_rifiuti.yaml
+      message: !include ../jinja_templates/template.notifica_rifiuti_di_domani.yaml

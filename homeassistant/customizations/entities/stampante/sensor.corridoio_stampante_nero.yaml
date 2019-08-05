@@ -1,0 +1,3 @@
+sensor.corridoio_stampante_nero:
+  friendly_name: Nero
+  entity_picture: /local/ink_k.png

@@ -1,0 +1,4 @@
+platform: mqtt
+state_topic: cameras/piazzale/motion
+name: Presenza Cortile Piazzale
+device_class: occupancy

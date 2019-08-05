@@ -1,4 +1,4 @@
 sala_modalita_cinema:
-        name: Modalità Cinema
-        initial: off
-        icon: mdi:movie
+  name: Modalità Cinema
+  initial: off
+  icon: mdi:movie

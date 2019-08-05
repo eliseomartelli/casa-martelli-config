@@ -10,6 +10,10 @@
     {{ [' bisogna buttare ',
         ' si caccia ',
         ' passa ',
+        ' bisogna portare fuori ',
+        ' c\'è da tirare fuori ',
+        ' vengono a prendersi ',
+        ' passerà ',
         ' Eco Lan viene a prendersi '] | random }}
     {{- states('sensor.rifiuti_di_domani') -}}
   {%- endif -%}
