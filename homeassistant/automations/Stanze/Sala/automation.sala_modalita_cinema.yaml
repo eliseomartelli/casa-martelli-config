@@ -1,11 +1,11 @@
-alias: Sala Modalità Cinema Accendi
+alias: Sala Modalità Cinema
 trigger:
-        platform: state
-        entity_id: media_player.chromecast_salotto
+  - platform: state
+    entity_id: media_player.chromecast_salotto
 condition:
-        condition: state
-        entity_id: input_boolean.sala_modalita_cinema
-        state: 'on'
+  - condition: state
+    entity_id: input_boolean.sala_modalita_cinema
+    state: 'on'
 action:
   - service_template: >
       {% if "playing" in states.media_player.chromecast_salotto.state %}

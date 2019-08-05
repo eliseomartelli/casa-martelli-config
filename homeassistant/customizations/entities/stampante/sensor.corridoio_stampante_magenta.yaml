@@ -1,0 +1,3 @@
+sensor.corridoio_stampante_magenta:
+  friendly_name: Magenta
+  entity_picture: /local/ink_m.png

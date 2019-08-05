@@ -2,5 +2,6 @@ recorder:
   purge_keep_days: 5
   include:
     entities:
-      - binary_sensor.presenza_viale
+      - binary_sensor.presenza_cortile_viale
+      - binary_sensor.presenza_cortile_piazzale
       - binary_sensor.soffitta_lavatrice_hoover

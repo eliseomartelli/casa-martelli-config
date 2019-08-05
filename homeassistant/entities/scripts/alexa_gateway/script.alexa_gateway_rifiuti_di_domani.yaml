@@ -4,4 +4,4 @@ alexa_gateway_rifiuti_di_domani:
       data_template:
         data:
           type: tts
-        message: !include ../../../jinja_templates/template.messaggio_rifiuti.yaml
+        message: !include ../../../jinja_templates/template.notifica_rifiuti_di_domani.yaml

@@ -1,4 +1,4 @@
-alias: Notifica Fine Lavatrice
+alias: Notifica Fine Elettrodomestici
 trigger:
   - platform: state
     entity_id: 
@@ -7,8 +7,8 @@ trigger:
 action:
   - service: script.notifica_famiglia
     data_template:
-      message: !include ../jinja_templates/template.fine_lavaggio.yaml
+      message: !include ../jinja_templates/template.notifica_fine_elettrodomestici.yaml
   - service: script.annuncia
     data_template:
       bisogna_salutare: True
-      message: !include ../jinja_templates/template.fine_lavaggio.yaml
+      message: !include ../jinja_templates/template.notifica_fine_elettrodomestici.yaml

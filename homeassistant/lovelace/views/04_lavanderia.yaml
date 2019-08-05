@@ -8,5 +8,3 @@ cards:
         entity: binary_sensor.soffitta_lavatrice_hoover
         image: /local/pictures/hoover_washing_machine.jpg
         name: Lavasciuga
-      - type: picture
-        image: /local/pictures/haier_dryer.jpg

@@ -1,4 +1,4 @@
 platform: mqtt
 state_topic: cameras/viale/motion
-name: Presenza Viale
+name: Presenza Cortile Viale
 device_class: occupancy
