@@ -1,14 +1,14 @@
 alias: Sala Modalità Cinema
 trigger:
   - platform: state
-    entity_id: media_player.chromecast_salotto
+    entity_id: media_player.sala_chromecast
 condition:
   - condition: state
     entity_id: input_boolean.sala_modalita_cinema
     state: 'on'
 action:
   - service_template: >
-      {% if "playing" in states.media_player.chromecast_salotto.state %}
+      {% if "playing" in trigger.to_state.state %}
         light.turn_off
       {% else %}
         light.turn_on
