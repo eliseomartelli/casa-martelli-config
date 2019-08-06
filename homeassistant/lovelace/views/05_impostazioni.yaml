@@ -9,6 +9,21 @@ cards:
     filter:
       include:
         - entity_id: sensor.corridoio_stampante*
+
+  - type: horizontal-stack
+    cards:
+      - type: sensor
+        entity: sensor.modem_banda_download
+        name: Download
+        graph: line
+        icon: mdi:download
+
+      - type: sensor
+        entity: sensor.modem_banda_upload
+        name: Upload
+        graph: line
+        icon: mdi:upload
+
   - type: custom:love-lock-card
     popup: confirm
     cards:

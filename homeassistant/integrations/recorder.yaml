@@ -4,4 +4,8 @@ recorder:
     entities:
       - binary_sensor.presenza_cortile_viale
       - binary_sensor.presenza_cortile_piazzale
+
       - binary_sensor.soffitta_lavatrice_hoover
+
+      - sensor.modem_banda_download
+      - sensor.modem_banda_upload
