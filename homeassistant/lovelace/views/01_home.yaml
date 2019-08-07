@@ -1,19 +1,16 @@
 path: home
 title: Home
 icon: mdi:home
+badges:
+  - device_tracker.antonella_telefono
+  - device_tracker.antonio_telefono
+  - device_tracker.eliseo_telefono
+  - device_tracker.gioele_telefono
 cards:
   - type: custom:simple-weather-card
     entity: weather.casa
     name: " "
     backdrop: true
-
-  - type: custom:monster-card
-    card:
-      type: glance
-      title: Persone
-    filter:
-      include:
-        - domain: device_tracker
 
   - type: custom:group-card
     group: group.notifiche
