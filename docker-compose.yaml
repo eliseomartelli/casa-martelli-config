@@ -40,6 +40,16 @@ services:
                 ports:
                         - "8443:8443"
                 restart: always
+        grocy:
+                image: linuxserver/grocy
+                container_name: grocy
+                environment:
+                        - TZ=Europe/Rome
+                volumes:
+                        - ./grocy:/config
+                ports:
+                        - "9283:80"
+                restart: always
         duckdns:
                 image: linuxserver/duckdns
                 container_name: duckdns
