@@ -61,4 +61,5 @@ services:
                 environment:
                         - CADDYPATH=/etc/caddycerts/
                         - ACME_AGREE=true
+                        - DOMAIN=${DOMAIN}
                 restart: always

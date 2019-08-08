@@ -86,7 +86,7 @@ homeassistant/www/community
 homeassistant/custom_components/*
 homeassistant/www/pictures/people
 .caddy/*
-caddy/*
+caddy/certs
 
 mosquitto/*
 motioneye/*
