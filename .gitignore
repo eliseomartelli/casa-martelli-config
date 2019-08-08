@@ -88,7 +88,7 @@ homeassistant/www/pictures/people
 .caddy/*
 caddy/certs
 
-mosquitto/*
+mosquitto/passwd
 motioneye/*
 
 *.pickle
