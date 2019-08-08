@@ -85,11 +85,14 @@ homeassistant/tts/*
 homeassistant/www/community
 homeassistant/custom_components/*
 homeassistant/www/pictures/people
+
 .caddy/*
 caddy/certs
 
 mosquitto/passwd
 motioneye/*
+
+grocy/*
 
 *.pickle
 .env

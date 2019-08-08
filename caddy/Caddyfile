@@ -5,7 +5,13 @@
 	}
 }
 coder.{$DOMAIN} {
-	proxy / http://192.168.0.88:8443 {
+	proxy / http://coder:8443 {
+		websocket
+		transparent
+	}
+}
+grocy.{$DOMAIN} {
+	proxy / http://grocy:80 {
 		websocket
 		transparent
 	}
