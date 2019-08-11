@@ -1,8 +1,12 @@
 notifica_famiglia:
   sequence:
-    - condition: state
-      entity_id: input_boolean.messaggi
-      state: 'on'
+    - condition: or
+      conditions:
+      - condition: state
+        entity_id: input_boolean.messaggi
+        state: 'on'
+      - condition: template
+        value_template: '{{ urgente }}'
     - service: notify.family
       data_template:
         message: "{{ message }}"
