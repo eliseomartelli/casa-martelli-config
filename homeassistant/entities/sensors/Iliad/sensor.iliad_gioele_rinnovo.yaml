@@ -1,0 +1,5 @@
+platform: template
+sensors:
+  iliad_gioele_rinnovo:
+    value_template: >
+      {{ ((as_timestamp(state_attr("sensor.iliad_gioele", "next_renewal")) - as_timestamp(now())) / (3600*24)) | int }}
