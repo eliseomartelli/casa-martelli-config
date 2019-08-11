@@ -49,4 +49,17 @@ cards:
     title: Altri Stati
     show_header_toggle: false
     entities:
-      - sensor.server_temperatura  
+      - sensor.server_temperatura
+
+  - type: horizontal-stack
+    cards:
+      - type: entities
+        entities:
+          - sensor.iliad_antonella
+          - entity: sensor.iliad_antonella_rinnovo
+            name: Giorni al rinnovo
+      - type: entities
+        entities:
+          - sensor.iliad_gioele
+          - entity: sensor.iliad_gioele_rinnovo
+            name: Giorni al rinnovo
