@@ -11,12 +11,15 @@ cards:
     entity: weather.casa
     name: " "
     backdrop: true
-
-  - type: custom:group-card
-    group: group.notifiche
-    card:
-      type: entities
-      title: Notifiche
+  
+  - type: horizontal-stack
+    cards:
+      - type: custom:button-card
+        entity: group.notifiche
+      - type: custom:button-card
+        entity: input_boolean.annunci
+      - type: custom:button-card
+        entity: input_boolean.messaggi
 
   - type: entities
     entities:

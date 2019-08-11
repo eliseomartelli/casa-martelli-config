@@ -1,0 +1,10 @@
+platform: template
+sensors:
+  feed_sasi_mozzagrogna:
+    value_template: >
+      {%- set entry = states.sensor.feed_sasi.attributes.entries[0] %}
+      {%- if entry | string | regex_search('(?i)Mozzagrogna') %}
+        {{- entry.published }}
+      {%- else %}
+        none
+      {%- endif %}

@@ -1,0 +1,4 @@
+platform: feedparser
+name: Feed Sasi
+feed_url: https://www.sasispa.it/feed/
+date_format: '%a, %b %d %I:%M %p'
