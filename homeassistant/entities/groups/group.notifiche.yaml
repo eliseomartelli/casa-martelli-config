@@ -1,4 +1,5 @@
 notifiche:
+  icon: mdi:bell
   name: Notifiche
   entities:
     - input_boolean.annunci
