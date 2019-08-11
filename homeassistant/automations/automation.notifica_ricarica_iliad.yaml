@@ -1,0 +1,27 @@
+alias: Notifica Ricarica Iliad
+trigger:
+  - platform: time
+    at: '08:30:00'
+condition:
+  - condition: or
+    conditions:
+      - condition: state
+        entity_id: sensor.iliad_gioele_rinnovo
+        state: '3'
+      - condition: state
+        entity_id: sensor.iliad_antonella_rinnovo
+        state: '3'
+action:
+  - service: script.notifica_famiglia
+    data_template:
+      message: >
+        {% macro ricarica(sensor) %}
+          L'offerta di {{ sensor.split("_")[1] }} si rinnova fra {{ states(sensor) }} giorni. Al momento ha € {{ states(sensor | replace("_rinnovo", "")) }}.
+        {% endmacro %}
+        {% if states("sensor.iliad_antonella_rinnovo") == "3" %}
+          {{ ricarica("sensor.iliad_antonella_rinnovo") }}
+        {% endif %}
+        {% if states("sensor.iliad_gioele_rinnovo") == "3" %}
+          {{ ricarica("sensor.iliad_gioele_rinnovo") }}
+        {% endif %}
+      
