@@ -1,10 +1,11 @@
 language: python
 
-python: "3.6.4"
+python: "3.7"
 
 before_install:
   - mv .stubs/secrets.yaml homeassistant/secrets.yaml
   - rm homeassistant/integrations/hacs.yaml
+  - pip3 install -r homeassistant/ci-requirements.txt
 
 install: pip3 install homeassistant
 
