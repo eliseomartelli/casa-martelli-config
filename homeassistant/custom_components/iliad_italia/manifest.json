@@ -1,0 +1,8 @@
+{
+    "domain": "iliad_italia",
+    "name": "Iliad Italia",
+    "documentation": "",
+    "dependencies": [],
+    "codeowners": ["@eliseomartelli"],
+    "requirements": ["aioiliad==0.3.1"]
+}
