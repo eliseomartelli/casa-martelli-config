@@ -9,7 +9,15 @@ before_install:
 
 install: pip3 install homeassistant
 
+stages:
+  - test
+  - name: deploy
+    if: branch = master
+
 jobs:
   include:
     - stage: test
       script: hass -c homeassistant/ --script check_config --info all
+    - stage: deploy
+      provider: script
+      script: echo "Hello"
