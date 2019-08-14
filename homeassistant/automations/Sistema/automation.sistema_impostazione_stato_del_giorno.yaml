@@ -1,3 +1,7 @@
+# Automazione di sistema.
+#
+# Avanza lo stato del giorno.
+
 alias: Sistema Impostazione Stato del Giorno
 trigger:
   # MATTINA

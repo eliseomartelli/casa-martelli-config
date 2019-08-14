@@ -1,3 +1,7 @@
+# Automazione di sistema.
+#
+# Spegne le notifiche di notte.
+
 alias: Sistema Impostazione Notifiche
 trigger:
   - platform: state
