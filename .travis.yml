@@ -9,15 +9,7 @@ install:
   - pip3 install homeassistant
   - pip3 install -r ci-requirements.txt
 
-stages:
-  - test
-  - name: deploy
-    if: branch = master
-
 jobs:
   include:
     - stage: test
       script: hass -c homeassistant/ --script check_config --info all
-    - stage: deploy
-      provider: script
-      script: echo "Hello"
