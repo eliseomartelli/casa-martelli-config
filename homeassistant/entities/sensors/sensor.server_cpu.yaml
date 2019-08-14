@@ -1,0 +1,4 @@
+platform: mqtt
+name: Server CPU
+state_topic: sensors/server/cpu
+unit_of_measurement: '%'
