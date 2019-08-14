@@ -85,6 +85,7 @@ homeassistant/tts/*
 homeassistant/www/community
 homeassistant/www/pictures/people
 homeassistant/custom_components/*
+
 .caddy/*
 caddy/certs
 
