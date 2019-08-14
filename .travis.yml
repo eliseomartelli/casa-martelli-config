@@ -5,9 +5,10 @@ python: "3.7"
 before_install:
   - mv .stubs/secrets.yaml homeassistant/secrets.yaml
   - rm homeassistant/integrations/hacs.yaml
-  - pip3 install -r ci-requirements.txt
 
-install: pip3 install homeassistant
+install:
+  - pip3 install homeassistant
+  - pip3 install -r ci-requirements.txt
 
 stages:
   - test
