@@ -50,6 +50,8 @@ cards:
     show_header_toggle: false
     entities:
       - sensor.server_temperatura
+      - sensor.server_memoria
+      - sensor.server_cpu
 
   - type: horizontal-stack
     cards:

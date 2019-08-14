@@ -4,6 +4,7 @@ python: "3.6.4"
 
 before_install:
   - mv .stubs/secrets.yaml homeassistant/secrets.yaml
+  - rm homeassistant/integrations/hacs.yaml
 
 install: pip3 install homeassistant
 
