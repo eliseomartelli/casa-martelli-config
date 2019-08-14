@@ -22,8 +22,6 @@ from homeassistant.const import (CONF_NAME)
 __version__ = '0.0.6'
 _LOGGER = logging.getLogger(__name__)
 
-REQUIREMENTS = ['feedparser']
-
 CONF_FEED_URL = 'feed_url'
 CONF_DATE_FORMAT = 'date_format'
 CONF_INCLUSIONS = 'inclusions'
