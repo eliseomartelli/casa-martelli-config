@@ -14,4 +14,4 @@ script:
         - hass --script check_config -c homeassistant/ -f
 
 after_success:
-        - curl -d "" -X POST $WEBHOOK_DEPLOY
+        - test $TRAVIS_BRANCH = "master" && curl -d "" -X POST $WEBHOOK_DEPLOY
