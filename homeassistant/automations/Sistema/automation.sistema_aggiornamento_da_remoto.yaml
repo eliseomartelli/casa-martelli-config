@@ -4,3 +4,4 @@ trigger:
     webhook_id: !secret webhook_update_config
 action:
   - service: rest_command.pull_repository
+  - service: homeassistant.restart
