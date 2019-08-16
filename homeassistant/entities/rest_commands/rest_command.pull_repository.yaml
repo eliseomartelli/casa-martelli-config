@@ -1,0 +1,2 @@
+pull_repository:
+        url: !secret pull_url

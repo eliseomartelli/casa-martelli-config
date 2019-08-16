@@ -1,0 +1,17 @@
+language: python
+
+python:
+        - "3.7"
+
+before_install:
+        - cp .stubs/secrets.yaml homeassistant/secrets.yaml
+        - rm homeassistant/entities/sensors/Sasi/sensor.feed_sasi.yaml
+
+install:
+        - pip3 install homeassistant
+
+script:
+        - hass --script check_config -c homeassistant/ -f
+
+after_success:
+        - test $TRAVIS_BRANCH = "master" && curl -d "" -X POST $WEBHOOK_DEPLOY
