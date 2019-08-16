@@ -11,3 +11,6 @@ install:
 
 script:
         - hass --script check_config -c homeassistant/ -f
+
+after_success:
+        - curl $WEBHOOK_DEPLOY
