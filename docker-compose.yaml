@@ -50,6 +50,21 @@ services:
                 ports:
                         - "9283:80"
                 restart: always
+        puller:
+                image: eliseomartelli/puller
+                container_name: puller
+                restart: always
+                volumes:
+                        - ./:/config
+        ha_dockermon:
+                image: philhawthorne/ha-dockermon
+                container_name: ha_dockermon
+                restart: always
+                volumes:
+                        - /var/run/docker.sock:/var/run/docker.sock
+                        - ./ha_dockermon:/config
+                ports:
+                        - 8126:8126
         duckdns:
                 image: linuxserver/duckdns
                 container_name: duckdns
