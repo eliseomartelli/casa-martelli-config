@@ -3,6 +3,8 @@ trigger:
   - platform: state
     entity_id: group.luci_esterne
     to: 'on'
+    for:
+      minutes: 15
 condition:
   condition: or
   conditions:
@@ -16,6 +18,5 @@ condition:
       entity_id: input_select.stato_del_giorno
       state: 'Pomeriggio'
 action:
-  - delay: '00:15:00'
   - service: homeassistant.turn_off
     entity_id: group.luci_esterne
