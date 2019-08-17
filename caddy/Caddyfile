@@ -4,15 +4,3 @@
 		transparent
 	}
 }
-coder.{$DOMAIN} {
-	proxy / http://coder:8443 {
-		websocket
-		transparent
-	}
-}
-grocy.{$DOMAIN} {
-	proxy / http://grocy:80 {
-		websocket
-		transparent
-	}
-}

@@ -29,27 +29,6 @@ services:
                         - "/dev/video2:/dev/video2"
                 restart: always
                 network_mode: host
-        coder:
-                image: codercom/code-server
-                container_name: coder
-                command: --allow-http
-                environment:
-                        - PASSWORD=${CODER_PASSWORD}
-                volumes:
-                        - ./:/home/coder/project
-                ports:
-                        - "8443:8443"
-                restart: always
-        grocy:
-                image: linuxserver/grocy
-                container_name: grocy
-                environment:
-                        - TZ=Europe/Rome
-                volumes:
-                        - ./grocy:/config
-                ports:
-                        - "9283:80"
-                restart: always
         puller:
                 image: eliseomartelli/puller
                 container_name: puller
