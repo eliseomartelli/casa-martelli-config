@@ -1,4 +1,0 @@
-grocy:
-  title: Grocy
-  icon: mdi:cart
-  url: !secret grocy_url
