@@ -8,7 +8,11 @@ trigger:
 condition:
   - condition: template
     value_template: >
-      {{ not is_state("input_select.stato_del_giorno", "Sera") }}
+      {{
+        not is_state("input_select.stato_del_giorno", "Sera") 
+        or
+        not is_state("input_select.stato_del_giorno", "Letto")
+      }}
 action:
   - service: homeassistant.turn_off
     entity_id: group.luci_esterne
