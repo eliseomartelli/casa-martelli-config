@@ -1,0 +1,5 @@
+platform: waze_travel_time
+name: Tempo Casa Scuola
+origin: zone.home
+destination: zone.scuola
+region: 'EU'
