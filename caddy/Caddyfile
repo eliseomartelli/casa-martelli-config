@@ -4,3 +4,9 @@
 		transparent
 	}
 }
+gc.{$DOMAIN} {
+	proxy / guacamole:8080 {
+		websocket
+		transparent
+	}
+}
