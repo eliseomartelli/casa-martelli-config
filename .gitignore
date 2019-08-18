@@ -90,8 +90,7 @@ caddy/certs
 
 mosquitto/passwd
 motioneye/*
-
-grocy/*
+guacamole/*
 
 *.pickle
 .env
