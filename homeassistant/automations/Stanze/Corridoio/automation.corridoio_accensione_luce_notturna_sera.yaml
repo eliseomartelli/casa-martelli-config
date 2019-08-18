@@ -1,0 +1,16 @@
+alias: Corridoio Accensione Luce Notturna Sera
+trigger:
+  - platform: state
+    entity_id: input_select.stato_del_giorno
+    to: 'Sera'
+  - platform: state
+    entity_id: input_select.stato_del_giorno
+    to: 'Mattina'
+action:
+  - service_template: >
+      {% if "Mattina" in trigger.to_state.state %}
+        homeassistant.turn_off
+      {% elif "Sera" in trigger.to_state.state %}
+        homeassistant.turn_on
+      {% endif %}
+    entity_id: group.dummy
