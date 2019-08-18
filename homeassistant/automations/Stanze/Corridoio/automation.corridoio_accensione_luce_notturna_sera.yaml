@@ -1,8 +1,8 @@
-alias: Corridoio Accensione Luce Notturna Sera
+alias: Corridoio Accensione Luce Notturna Letto
 trigger:
   - platform: state
     entity_id: input_select.stato_del_giorno
-    to: 'Sera'
+    to: 'Letto'
   - platform: state
     entity_id: input_select.stato_del_giorno
     to: 'Mattina'
@@ -10,7 +10,7 @@ action:
   - service_template: >
       {% if "Mattina" in trigger.to_state.state %}
         homeassistant.turn_off
-      {% elif "Sera" in trigger.to_state.state %}
+      {% elif "Letto" in trigger.to_state.state %}
         homeassistant.turn_on
       {% endif %}
     entity_id: group.dummy
