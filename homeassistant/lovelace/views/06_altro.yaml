@@ -1,0 +1,10 @@
+path: altro
+title: Altro
+icon: mdi:plus
+cards:
+  - type: entities
+    title: Altro
+    show_header_toggle: false
+    entities:
+      - light.corridoio_notturna
+      - switch.generico_1
