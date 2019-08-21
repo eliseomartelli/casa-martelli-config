@@ -1,0 +1,4 @@
+platform: switch
+entity_id: switch.corridoio_notturna
+name: Corridoio Notturna
+
