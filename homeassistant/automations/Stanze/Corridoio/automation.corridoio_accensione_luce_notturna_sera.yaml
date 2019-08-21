@@ -13,4 +13,4 @@ action:
       {% elif "Letto" in trigger.to_state.state %}
         homeassistant.turn_on
       {% endif %}
-    entity_id: group.dummy
+    entity_id: light.corridoio_notturna
