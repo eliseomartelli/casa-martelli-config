@@ -1,0 +1,14 @@
+alias: Corridoio Spegnimento Luci Temporizzato
+trigger:
+  - platform: state
+    entity_id: light.corridoio_notturna
+    to: 'on'
+    for:
+      minutes: 5
+condition:
+  - condition: template
+    value_template: >
+      {{ not states("input_select.stato_del_giorno") in ["Letto", "Notte", "Mattina"] }}
+action:
+  - service: homeassistant.turn_off
+    entity_id: light.corridoio_notturna
