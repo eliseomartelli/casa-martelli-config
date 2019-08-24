@@ -8,7 +8,7 @@ trigger:
 condition:
   - condition: template
     value_template: >
-      {{ not states("input_select.stato_del_giorno") in ["Letto", "Notte", "Mattina"] }}
+      {{ not states("input_select.stato_del_giorno") in ["Letto", "Notte"] }}
 action:
   - service: homeassistant.turn_off
     entity_id: light.corridoio_notturna
