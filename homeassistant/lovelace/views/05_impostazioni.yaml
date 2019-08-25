@@ -9,7 +9,10 @@ cards:
     filter:
       include:
         - entity_id: sensor.corridoio_stampante*
-
+  - type: entities
+    entities:
+      - switch.adguard_filtering
+      - sensor.adguard_dns_queries_blocked
   - type: horizontal-stack
     cards:
       - type: sensor
