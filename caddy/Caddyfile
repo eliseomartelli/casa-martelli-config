@@ -10,3 +10,9 @@ gc.{$DOMAIN} {
 		transparent
 	}
 }
+ag.{$DOMAIN} {
+	proxy / adguard:3000 {
+		websocket
+		transparent
+	}
+}

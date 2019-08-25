@@ -1,0 +1,3 @@
+adguard:
+  title: AdGuard
+  url: !secret url_adguard
