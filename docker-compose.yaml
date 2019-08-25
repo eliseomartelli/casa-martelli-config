@@ -61,7 +61,6 @@ services:
                 ports:
                         - 192.168.0.88:53:53
                         - 192.168.0.88:53:53/udp
-                        - 3000:3000
         duckdns:
                 image: linuxserver/duckdns
                 container_name: duckdns
