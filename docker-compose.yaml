@@ -52,6 +52,15 @@ services:
                         - ./ha_dockermon:/config
                 ports:
                         - 8126:8126
+        adguard:
+                image: adguard/adguardhome
+                container_name: adguard
+                restart: always
+                volumes:
+                        - ./adguard:/opt/adguardhome/conf
+                ports:
+                        - 53:53
+                        - 3000:3000
         duckdns:
                 image: linuxserver/duckdns
                 container_name: duckdns

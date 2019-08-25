@@ -88,6 +88,8 @@ homeassistant/www/pictures/people
 .caddy/*
 caddy/certs
 
+adguard/*
+
 mosquitto/passwd
 motioneye/*
 guacamole/*

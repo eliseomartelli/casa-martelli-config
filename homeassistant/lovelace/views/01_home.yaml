@@ -7,6 +7,8 @@ badges:
   - device_tracker.eliseo_telefono
   - device_tracker.gioele_telefono
 cards:
+  - type: custom:search-card
+    max_results: 5
   - type: custom:simple-weather-card
     entity: weather.casa
     name: " "
