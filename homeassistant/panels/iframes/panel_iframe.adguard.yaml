@@ -1,3 +1,4 @@
 adguard:
   title: AdGuard
   url: !secret url_adguard
+  icon: mdi:application
