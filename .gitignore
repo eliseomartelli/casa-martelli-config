@@ -97,6 +97,8 @@ guacamole/*
 *.pickle
 .env
 
+!homeassistant/.storage/hacs.installed 
+
 # Ignore files created by IDE's
 
 .vscode

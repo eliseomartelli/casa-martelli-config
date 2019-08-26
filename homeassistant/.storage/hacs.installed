@@ -1,0 +1,65 @@
+{
+    "data": {
+        "custom-components/feedparser": {
+            "version_type": "version",
+            "version_installed": "0.0.9",
+            "version_available": "0.0.9"
+        },
+        "keatontaylor/alexa_media_player": {
+            "version_type": "version",
+            "version_installed": "v2.0.0",
+            "version_available": "v2.0.0"
+        },
+        "custom-cards/button-card": {
+            "version_type": "version",
+            "version_installed": "2.0.5",
+            "version_available": "2.0.5"
+        },
+        "custom-cards/group-card": {
+            "version_type": "version",
+            "version_installed": "0.0.3",
+            "version_available": "0.0.3"
+        },
+        "custom-cards/monster-card": {
+            "version_type": "version",
+            "version_installed": "0.2.4",
+            "version_available": "0.2.4"
+        },
+        "maykar/compact-custom-header": {
+            "version_type": "version",
+            "version_installed": "1.3.5",
+            "version_available": "1.3.5"
+        },
+        "kalkih/mini-media-player": {
+            "version_type": "version",
+            "version_installed": "v1.2.2",
+            "version_available": "v1.3.0"
+        },
+        "kalkih/simple-weather-card": {
+            "version_type": "version",
+            "version_installed": "v0.5.0",
+            "version_available": "v0.5.0"
+        },
+        "CyrisXD/love-lock-card": {
+            "version_type": "commit",
+            "version_installed": "a63e851",
+            "version_available": "a63e851"
+        },
+        "snarky-snark/home-assistant-variables": {
+            "version_type": "version",
+            "version_installed": "v0.7.0",
+            "version_available": "v0.7.0"
+        },
+        "eliseomartelli/hass_iliad_italia": {
+            "version_type": "version",
+            "version_installed": "1.1.0",
+            "version_available": "1.1.0"
+        },
+        "postlund/search-card": {
+            "version_type": "commit",
+            "version_installed": "9187bd5",
+            "version_available": "01505ac"
+        }
+    },
+    "schema": "5"
+}
