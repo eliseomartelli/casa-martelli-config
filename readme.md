@@ -43,8 +43,8 @@ On top of that there's **Docker** (installed with snap).
 *(oznu/guacamole)*
 - **Puller** 
 *(eliseomartelli/puller)*
-- **Ha**-
-*Dockermon (philhawthorne/ha-dockermon);
+- **HaDockermon** 
+*(philhawthorne/ha-dockermon)*
 - **AdGuard** 
 *(adguard/adguardhome)*
 - **DuckDNS** 
