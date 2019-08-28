@@ -54,11 +54,6 @@
             "version_type": "version",
             "version_installed": "1.1.0",
             "version_available": "1.1.0"
-        },
-        "postlund/search-card": {
-            "version_type": "commit",
-            "version_installed": "01505ac",
-            "version_available": "01505ac"
         }
     },
     "schema": "5"
