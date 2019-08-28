@@ -32,18 +32,13 @@
         },
         "kalkih/mini-media-player": {
             "version_type": "version",
-            "version_installed": "v1.2.2",
+            "version_installed": "v1.3.0",
             "version_available": "v1.3.0"
         },
         "kalkih/simple-weather-card": {
             "version_type": "version",
             "version_installed": "v0.5.0",
             "version_available": "v0.5.0"
-        },
-        "CyrisXD/love-lock-card": {
-            "version_type": "commit",
-            "version_installed": "a63e851",
-            "version_available": "a63e851"
         },
         "snarky-snark/home-assistant-variables": {
             "version_type": "version",
@@ -54,6 +49,11 @@
             "version_type": "version",
             "version_installed": "1.1.0",
             "version_available": "1.1.0"
+        },
+        "CyrisXD/love-lock-card": {
+            "version_type": "commit",
+            "version_installed": "a63e851",
+            "version_available": "a63e851"
         }
     },
     "schema": "5"
