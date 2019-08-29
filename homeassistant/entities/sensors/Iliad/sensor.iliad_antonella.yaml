@@ -1,4 +1,0 @@
-platform: iliad_italia
-username: !secret iliad_user_antonella
-password: !secret iliad_password_antonella
-name: Iliad Antonella
