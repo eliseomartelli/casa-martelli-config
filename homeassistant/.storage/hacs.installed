@@ -45,11 +45,6 @@
             "version_installed": "v0.7.0",
             "version_available": "v0.7.0"
         },
-        "eliseomartelli/hass_iliad_italia": {
-            "version_type": "version",
-            "version_installed": "1.1.0",
-            "version_available": "1.1.0"
-        },
         "CyrisXD/love-lock-card": {
             "version_type": "commit",
             "version_installed": "a63e851",
