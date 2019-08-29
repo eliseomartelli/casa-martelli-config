@@ -1,4 +1,0 @@
-platform: iliad_italia
-username: !secret iliad_user_gioele
-password: !secret iliad_password_gioele
-name: Iliad Gioele
