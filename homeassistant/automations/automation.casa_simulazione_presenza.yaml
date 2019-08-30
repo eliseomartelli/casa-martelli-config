@@ -23,7 +23,8 @@ condition:
 action:
   - service: homeassistant.turn_on
     data_template:
-      entity_id: {{ states.group.all_lights.attributes.entity_id | random }}
+      entity_id: >
+        {{ states.group.all_lights.attributes.entity_id | random }}
   - delay: '00:00:{{ (range(3, 10) | random) }}'
   - service: homeassistant.turn_off
     entity_id: group.all_lights
