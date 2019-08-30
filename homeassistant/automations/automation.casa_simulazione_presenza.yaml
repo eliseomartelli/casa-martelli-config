@@ -7,7 +7,6 @@ trigger:
     event_type: casa_simulazione_presenza
   - platform: state
     entity_id: input_select.stato_del_giorno
-    to: 'Sera'
 condition:
   condition: and
   conditions:
