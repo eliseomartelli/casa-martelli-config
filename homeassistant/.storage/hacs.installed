@@ -5,11 +5,6 @@
             "version_installed": "0.0.9",
             "version_available": "0.0.9"
         },
-        "keatontaylor/alexa_media_player": {
-            "version_type": "version",
-            "version_installed": "v2.0.0",
-            "version_available": "v2.0.0"
-        },
         "custom-cards/button-card": {
             "version_type": "version",
             "version_installed": "2.0.5",
@@ -49,6 +44,11 @@
             "version_type": "commit",
             "version_installed": "a63e851",
             "version_available": "a63e851"
+        },
+        "keatontaylor/alexa_media_player": {
+            "version_type": "version",
+            "version_installed": "v2.0.0",
+            "version_available": "v2.0.0"
         }
     },
     "schema": "5"
