@@ -1,4 +1,4 @@
 simula_presenza:
   name: Simula Presenza
   initial: off
-  icon: mdi:user
+  icon: mdi:account-group
