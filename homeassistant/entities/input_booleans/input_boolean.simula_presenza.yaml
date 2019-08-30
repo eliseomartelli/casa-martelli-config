@@ -1,0 +1,4 @@
+simula_resenza:
+  name: Simula Presenza
+  initial: off
+  icon: mdi:user

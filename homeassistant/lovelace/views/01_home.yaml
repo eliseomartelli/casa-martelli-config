@@ -24,6 +24,7 @@ cards:
   - type: entities
     entities:
       - sensor.rifiuti_di_domani
+      - input_boolean.simula_presenza
 
   - type: custom:monster-card
     show_empty: false
