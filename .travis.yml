@@ -5,7 +5,6 @@ python:
 
 before_install:
         - cp .stubs/secrets.yaml homeassistant/secrets.yaml
-        - rm homeassistant/entities/sensors/Sasi/sensor.feed_sasi.yaml
 
 install:
         - pip3 install homeassistant

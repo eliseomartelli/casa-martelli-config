@@ -24,8 +24,6 @@ cards:
   - type: entities
     entities:
       - sensor.rifiuti_di_domani
-      - entity: sensor.feed_sasi_mozzagrogna
-        name: Ultima notizia da SASI
 
   - type: custom:monster-card
     show_empty: false
