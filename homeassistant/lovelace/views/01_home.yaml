@@ -20,7 +20,7 @@ cards:
         entity: input_boolean.annunci
       - type: custom:button-card
         entity: input_boolean.messaggi
-        service_data
+
   - type: entities
     entities:
       - sensor.rifiuti_di_domani
@@ -31,6 +31,7 @@ cards:
         action_name: Inizia
         service_data:
           entity_id: automation.casa_simulazione_presenza
+
   - type: custom:monster-card
     show_empty: false
     card:
