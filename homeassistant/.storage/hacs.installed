@@ -45,10 +45,10 @@
             "version_installed": "a63e851",
             "version_available": "a63e851"
         },
-        "keatontaylor/alexa_media_player": {
+        "custom-components/alexa_media_player": {
             "version_type": "version",
-            "version_installed": "v2.0.0",
-            "version_available": "v2.0.0"
+            "version_installed": "v2.0.1",
+            "version_available": "v2.1.0"
         }
     },
     "schema": "5"
