@@ -3,7 +3,7 @@ title: Sala
 icon: mdi:sofa
 cards:
   - type: custom:mini-media-player
-    entity: media_player.sala_chromecast
+    entity: media_player.sala_tv
 
   - type: custom:mini-media-player
     entity: media_player.sala_echo_dot
