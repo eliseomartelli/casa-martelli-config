@@ -3,4 +3,4 @@
   {%- if states('sensor.season') in ['summer', 'spring'] -%}
     {%- set tstamp = state_attr('input_datetime.sistema_inizio_notte_estivo', 'timestamp') -%}
   {%- endif -%}
-  {{ ((tstamp | int - 5400) | timestamp_custom('%H:%M', False)) == states('sensor.time') }}
+  {{ ((tstamp | int - 7200) | timestamp_custom('%H:%M', False)) == states('sensor.time') }}
