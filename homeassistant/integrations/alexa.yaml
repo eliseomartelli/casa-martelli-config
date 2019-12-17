@@ -7,3 +7,4 @@ alexa:
         - input_boolean.sala_modalita_cinema
         - script.alexa_gateway_rifiuti_di_domani
         - media_player.sala_chromecast
+        - switch.generico_1

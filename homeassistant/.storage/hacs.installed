@@ -8,7 +8,7 @@
         "custom-cards/button-card": {
             "version_type": "version",
             "version_installed": "2.0.5",
-            "version_available": "2.0.5"
+            "version_available": "3.0.0"
         },
         "custom-cards/group-card": {
             "version_type": "version",
@@ -18,17 +18,17 @@
         "custom-cards/monster-card": {
             "version_type": "version",
             "version_installed": "0.2.4",
-            "version_available": "0.2.4"
+            "version_available": "0.2.5"
         },
         "maykar/compact-custom-header": {
             "version_type": "version",
             "version_installed": "1.3.7",
-            "version_available": "1.3.7"
+            "version_available": "1.4.9"
         },
         "kalkih/mini-media-player": {
             "version_type": "version",
             "version_installed": "v1.3.1",
-            "version_available": "v1.3.1"
+            "version_available": "v1.4.2"
         },
         "kalkih/simple-weather-card": {
             "version_type": "version",
@@ -38,7 +38,7 @@
         "snarky-snark/home-assistant-variables": {
             "version_type": "version",
             "version_installed": "v0.7.0",
-            "version_available": "v0.7.0"
+            "version_available": "v0.8.0"
         },
         "CyrisXD/love-lock-card": {
             "version_type": "commit",
@@ -48,7 +48,7 @@
         "custom-components/alexa_media_player": {
             "version_type": "version",
             "version_installed": "v2.2.0",
-            "version_available": "v2.2.0"
+            "version_available": "v2.3.4"
         }
     },
     "schema": "5"
