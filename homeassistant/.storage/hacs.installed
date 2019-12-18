@@ -37,7 +37,7 @@
         },
         "snarky-snark/home-assistant-variables": {
             "version_type": "version",
-            "version_installed": "v0.7.0",
+            "version_installed": "v0.9.2",
             "version_available": "v0.9.2"
         },
         "CyrisXD/love-lock-card": {
