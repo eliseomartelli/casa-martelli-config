@@ -1,4 +1,4 @@
-alias: Casa Simulazione Presenza
+alias: Casa Reset Simulazione Presenza
 trigger:
   - platform: state
     entity_id: input_boolean.simula_presenza
