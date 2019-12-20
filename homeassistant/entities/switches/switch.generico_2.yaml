@@ -1,0 +1,11 @@
+platform: mqtt
+name: "Generico 2"
+state_topic: "stat/generico2/RESULT"
+value_template: "{{ value_json.POWER }}"
+command_topic: "cmnd/generico2/POWER"
+availability_topic: "tele/generico2/LWT"
+qos: 1
+payload_on: "ON"
+payload_off: "OFF"
+payload_available: "Online"
+payload_not_available: "Offline"

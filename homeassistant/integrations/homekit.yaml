@@ -1,1 +1,2 @@
 homekit:
+    filter: !include ../to_export.yaml
