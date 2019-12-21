@@ -2,10 +2,10 @@ path: home
 title: Home
 icon: mdi:home
 badges:
-  - device_tracker.antonella_telefono
-  - device_tracker.antonio_telefono
-  - device_tracker.eliseo_telefono
-  - device_tracker.gioele_telefono
+  - person.antonella
+  - person.antonio
+  - person.eliseo
+  - person.gioele
 cards:
   - type: custom:simple-weather-card
     entity: weather.casa
