@@ -1,4 +1,11 @@
-platform: switch
-entity_id: switch.corridoio_notturna
-name: Corridoio Notturna
-
+platform: mqtt
+name: "Corridoio Notturna"
+state_topic: "stat/p0001/RESULT"
+value_template: "{{ value_json.POWER }}"
+command_topic: "cmnd/p0001/POWER"
+availability_topic: "tele/p0001/LWT"
+qos: 1
+payload_on: "ON"
+payload_off: "OFF"
+payload_available: "Online"
+payload_not_available: "Offline"

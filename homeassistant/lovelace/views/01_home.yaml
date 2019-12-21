@@ -41,3 +41,6 @@ cards:
       include:
         - domain: light
           state: 'on'
+        - domain: switch
+          state: 'on'
+          entity_id: "*generico*"
