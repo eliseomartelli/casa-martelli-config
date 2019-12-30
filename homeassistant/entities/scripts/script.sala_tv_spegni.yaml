@@ -1,0 +1,5 @@
+sala_tv_spegni:
+        sequence:
+                - service: rest_command.assistant_relay
+                  data:
+                          command: "Spegni Sala TV"
