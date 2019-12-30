@@ -43,6 +43,13 @@ services:
                 restart: always
                 volumes:
                         - ./:/config
+        assistant_relay:
+                image: eliseomartelli/assistant-relay-docker
+                container_name: assistantrelay
+                restart: always
+                ports:
+                        - 3000:3000
+
         ha_dockermon:
                 image: philhawthorne/ha-dockermon
                 container_name: ha_dockermon

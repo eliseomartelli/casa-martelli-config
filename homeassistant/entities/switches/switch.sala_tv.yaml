@@ -1,0 +1,11 @@
+platform: template
+switches:
+        sala_tv:
+                friendly_name: Sala TV
+                value_template: "{{ is_state('binary_sensor.sala_tv', 'on') }}"
+                turn_off:
+                        service: script.sala_tv_spegni
+                turn_on:
+                        service: switch.turn_on
+                        data:
+                                entity_id: switch.sala_tv

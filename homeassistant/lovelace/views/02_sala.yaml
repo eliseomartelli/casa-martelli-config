@@ -9,6 +9,10 @@ cards:
     entity: media_player.sala_echo_dot
 
   - type: entities
+    entities:
+      - switch.sala_tv
+
+  - type: entities
     title: Luci
     entities:
       - light.sala_grande
