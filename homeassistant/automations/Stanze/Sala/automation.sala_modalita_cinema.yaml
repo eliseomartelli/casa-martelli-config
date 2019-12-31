@@ -1,7 +1,7 @@
 alias: Sala Modalità Cinema
 trigger:
   - platform: state
-    entity_id: media_player.sala_tv
+    entity_id: media_player.sala_tv_chromecast
 condition:
   - condition: state
     entity_id: input_boolean.sala_modalita_cinema

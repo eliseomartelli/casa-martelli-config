@@ -2,15 +2,15 @@ path: sala
 title: Sala
 icon: mdi:sofa
 cards:
-  - type: custom:mini-media-player
-    entity: media_player.sala_tv
-
-  - type: custom:mini-media-player
-    entity: media_player.sala_echo_dot
-
   - type: entities
     entities:
       - switch.sala_tv
+
+  - type: custom:mini-media-player
+    entity: media_player.sala_tv_chromecast
+
+  - type: custom:mini-media-player
+    entity: media_player.sala_echo_dot
 
   - type: entities
     title: Luci

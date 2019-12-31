@@ -12,8 +12,8 @@ services:
                 image: eclipse-mosquitto
                 container_name: mosquitto
                 ports:
-                        - "1883:1883"
-                        - "9001:9001"
+                        - 1883:1883
+                        - 9001:9001
                 volumes:
                         - ./mosquitto/:/mosquitto/config/
                 restart: always
@@ -35,8 +35,6 @@ services:
                 restart: always
                 volumes:
                         - ./guacamole:/config
-                ports:
-                        - 8080:8080
         puller:
                 image: eliseomartelli/puller
                 container_name: puller
@@ -49,7 +47,6 @@ services:
                 restart: always
                 ports:
                         - 3000:3000
-
         ha_dockermon:
                 image: philhawthorne/ha-dockermon
                 container_name: ha_dockermon
@@ -57,8 +54,6 @@ services:
                 volumes:
                         - /var/run/docker.sock:/var/run/docker.sock
                         - ./ha_dockermon:/config
-                ports:
-                        - 8126:8126
         adguard:
                 image: adguard/adguardhome
                 container_name: adguard
@@ -83,9 +78,9 @@ services:
                         - ./caddy/certs/:/etc/caddycerts/
                         - ./caddy/Caddyfile:/etc/Caddyfile
                 ports:
-                        - "80:80"
-                        - "443:443"
-                        - "2015:2015"
+                        - 80:80
+                        - 443:443
+                        - 2015:2015
                 environment:
                         - CADDYPATH=/etc/caddycerts/
                         - ACME_AGREE=true
