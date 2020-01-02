@@ -1,0 +1,4 @@
+luci_sala:
+  name: Luci Sala
+  entities:
+    - light.sala_grande
