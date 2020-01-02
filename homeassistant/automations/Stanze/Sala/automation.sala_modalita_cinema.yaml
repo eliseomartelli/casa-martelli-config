@@ -1,6 +1,9 @@
 alias: Sala Modalità Cinema
 trigger:
   - platform: state
+    entity_id: group.luci_sala
+
+  - platform: state
     entity_id: media_player.sala_tv_chromecast
 condition:
   - condition: state
@@ -8,9 +11,23 @@ condition:
     state: 'on'
 action:
   - service_template: >
-      {% if "playing" in trigger.to_state.state %}
-        light.turn_off
+      {% if "group.luci_sala" in trigger.to_state.entity_id %}
+        {% if "off" in trigger.to_state.state %}
+          media_player.media_play
+        {% else %}
+          media_player.media_pause
+        {% endif %}
       {% else %}
-        light.turn_on
+        {% if "playing" in trigger.to_state.state %}
+          light.turn_off
+        {% else %}
+          light.turn_on
+        {% endif %}
       {% endif %}
-    entity_id: light.sala_grande
+    data_template:
+      entity_id: >
+        {% if "group.luci_sala" in trigger.to_state.entity_id %}
+          media_player.sala_tv_chromecast
+        {% else %}
+          group.luci_sala
+        {% endif %}
