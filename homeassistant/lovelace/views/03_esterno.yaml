@@ -2,25 +2,17 @@ path: esterno
 title: Esterno
 icon: mdi:tree
 cards:
-  - type: vertical-stack
+  - type: horizontal-stack
     cards:
-      - type: picture-entity
-        entity: camera.cortile_viale
+      - type: picture-glance
+        camera_image: camera.cortile_viale
         show_state: false
-        show_name: false
-
-      - type: entities
         entities:
           - binary_sensor.presenza_cortile_viale
-
-  - type: vertical-stack
-    cards:
-      - type: picture-entity
-        entity: camera.cortile_piazzale
-        show_state: false
-        show_name: false
       
-      - type: entities
+      - type: picture-glance
+        camera_image: camera.cortile_piazzale
+        show_state: false
         entities:
           - binary_sensor.presenza_cortile_piazzale
 
