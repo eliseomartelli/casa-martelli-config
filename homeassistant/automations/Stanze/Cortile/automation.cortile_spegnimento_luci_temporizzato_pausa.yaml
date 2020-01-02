@@ -1,0 +1,22 @@
+alias: Cortile Spegnimento Luci Temporizzato Pausa
+trigger:
+  - platform: state
+    entity_id: group.luci_esterne
+    to: 'on'
+condition:
+  - condition: template
+    value_template: >
+      {{ not states("input_select.stato_del_giorno") in ["Sera", "Letto"] }}
+action:
+  - service: script.notifica_famiglia_interattivo
+    data_template:
+      urgente: true
+      message: >
+        {{
+          [
+            "Le luci fuori si spegneranno fra 15 minuti.\nVuoi lasciarle accese?",
+            "Hei, io le luci tra un po' le spengo. Vuoi che le lasci accese?"
+          ]
+          | random
+        }}
+      inline_keyboard: "Sì:/cortile_spegnimento_luci_temporizzato_override"
