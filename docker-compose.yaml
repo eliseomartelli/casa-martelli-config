@@ -29,12 +29,6 @@ services:
                         - "/dev/video2:/dev/video2"
                 restart: always
                 network_mode: host
-        guacamole:
-                image: oznu/guacamole
-                container_name: guacamole
-                restart: always
-                volumes:
-                        - ./guacamole:/config
         puller:
                 image: eliseomartelli/puller
                 container_name: puller
