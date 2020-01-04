@@ -2,7 +2,12 @@ include_domains:
         - light
 include_entities:
         - input_boolean.sala_modalita_cinema
+
         - script.alexa_gateway_rifiuti_di_domani
+
         - media_player.sala_tv_chromecast
+
         - switch.generico_1
         - switch.sala_tv
+
+        - lock.cortile_pedonale
