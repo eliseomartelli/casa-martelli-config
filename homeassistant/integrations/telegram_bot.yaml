@@ -3,3 +3,7 @@ telegram_bot:
     api_key: !secret telegram_api_key
     allowed_chat_ids:
       - !secret telegram_family_chat_id
+      - !secret telegram_eliseo_chat_id
+      - !secret telegram_gioele_chat_id
+      - !secret telegram_antonella_chat_id
+      - !secret telegram_antonio_chat_id
