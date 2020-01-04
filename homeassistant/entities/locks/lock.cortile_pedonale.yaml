@@ -1,0 +1,10 @@
+platform: mqtt
+name: Cortile Pedonale
+state_topic: "home-assistant/frontdoor/"
+command_topic: "home-assistant/frontdoor/set"
+payload_lock: "LOCK"
+payload_unlock: "UNLOCK"
+optimistic: true
+qos: 1
+retain: true
+value_template: '{{ value.x }}'
