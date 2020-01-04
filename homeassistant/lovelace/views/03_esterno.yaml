@@ -21,3 +21,7 @@ cards:
     card:
       type: entities
       title: Luci
+
+  - type: entities
+    entities:
+      - lock.cortile_pedonale
