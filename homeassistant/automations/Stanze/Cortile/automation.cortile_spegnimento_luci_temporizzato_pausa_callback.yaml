@@ -13,5 +13,5 @@ action:
     entity_id: automation.cortile_spegnimento_luci_temporizzato
   - delay: "00:00:01"
   - service: homeassistant.turn_on
-    entity_id: automation.cortile_spegnimento_luci_temporizzato<Paste>
+    entity_id: automation.cortile_spegnimento_luci_temporizzato
  
