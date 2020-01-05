@@ -1,0 +1,5 @@
+alexa_gateway_apri_cancello:
+  sequence:
+    - service: lock.unlock
+      entity_id: lock.cortile_pedonale
+
