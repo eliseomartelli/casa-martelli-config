@@ -8,4 +8,3 @@ cards:
     entities:
       - light.corridoio_notturna
       - switch.generico_1
-      - switch.generico_2
