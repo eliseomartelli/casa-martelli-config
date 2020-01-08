@@ -13,7 +13,7 @@ condition:
     state: 'Notte'
   - condition: template
     value_template: >
-      {{ as_timestamp(now()) - as_timestamp(state_attr('automation.cortile_accensione_luci_presenza','last_triggered')) > 30*3600 }}
+      {{ (as_timestamp(now()) - as_timestamp(state_attr('automation.cortile_accensione_luci_presenza','last_triggered'))) > 3600 }}
 action:
   - service: homeassistant.turn_on
     entity_id: group.luci_esterne
