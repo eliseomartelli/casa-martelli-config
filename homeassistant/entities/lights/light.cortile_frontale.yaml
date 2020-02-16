@@ -1,6 +1,0 @@
-platform: mqtt
-name: Cortile Frontale
-state_topic: shellies/shelly1-BA3681/relay/0
-command_topic: shellies/shelly1-BA3681/relay/0/command
-payload_on: "on"
-payload_off: "off"
