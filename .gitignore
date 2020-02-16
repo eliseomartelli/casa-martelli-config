@@ -112,3 +112,12 @@ guacamole/*
 # Specific keeps
 
 !.gitkeep
+
+
+addons/
+addons.json
+config.json
+dns.json
+dns/
+updater.json
+homeassistant.json

@@ -20,7 +20,7 @@ from .constrains import check_constans
 from .hacsbase import Hacs
 from .hacsbase.configuration import Configuration
 from .hacsbase.data import HacsData
-from .setup import add_sensor, load_hacs_repository, setup_frontend, setup_extra_stores
+from .setup import add_sensor, load_hacs_repository, setup_frontend
 
 SCHEMA = hacs_base_config_schema()
 SCHEMA[vol.Optional("options")] = hacs_config_option_schema()
@@ -36,6 +36,7 @@ async def async_setup(hass, config):
     Hacs.configuration = Configuration.from_dict(
         config[DOMAIN], config[DOMAIN].get("options")
     )
+    Hacs.configuration.config = config
     Hacs.configuration.config_type = "yaml"
     await startup_wrapper_for_yaml(Hacs)
     hass.async_create_task(
@@ -56,6 +57,7 @@ async def async_setup_entry(hass, config_entry):
             )
         return False
     Hacs.hass = hass
+
     Hacs.configuration = Configuration.from_dict(
         config_entry.data, config_entry.options
     )
@@ -158,8 +160,6 @@ async def hacs_startup(hacs):
                 "Configuration option 'theme' is deprecated and you should remove it from your configuration, HACS will know if you use 'theme' in your Home Assistant configuration, this option will be removed in a future release."
             )
 
-    await hacs.hass.async_add_executor_job(setup_extra_stores, hacs)
-
     # Setup startup tasks
     if hacs.configuration.config_type == "yaml":
         hacs.hass.bus.async_listen_once(
@@ -167,6 +167,9 @@ async def hacs_startup(hacs):
         )
     else:
         async_call_later(hacs.hass, 5, hacs().startup_tasks())
+
+    # Show the configuration
+    hacs.configuration.print()
 
     # Mischief managed!
     return True
