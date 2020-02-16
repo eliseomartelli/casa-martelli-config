@@ -66,15 +66,6 @@ services:
                 volumes:
                         - /var/run/docker.sock:/var/run/docker.sock
                         - ./ha_dockermon:/config
-        adguard:
-                image: adguard/adguardhome
-                container_name: adguard
-                restart: always
-                volumes:
-                        - ./adguard:/opt/adguardhome/conf
-                ports:
-                        - 192.168.0.88:53:53
-                        - 192.168.0.88:53:53/udp
         duckdns:
                 image: linuxserver/duckdns
                 container_name: duckdns
