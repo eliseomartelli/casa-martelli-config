@@ -35,6 +35,9 @@ services:
                 volumes:
                         - ./mosquitto/:/mosquitto/config/
                 restart: always
+                networks:
+                        - default
+                        - hassio
         motioneye:
                 image: ccrisan/motioneye:master-amd64
                 container_name: motioneye
@@ -89,3 +92,11 @@ services:
                         - ACME_AGREE=true
                         - DOMAIN=${DOMAIN}
                 restart: always
+                networks:
+                        - default
+                        - hassio
+
+networks:
+        hassio:
+                external:
+                        name: hassio

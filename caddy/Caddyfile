@@ -4,15 +4,3 @@
 		transparent
 	}
 }
-gc.{$DOMAIN} {
-	proxy / guacamole:8080 {
-		websocket
-		transparent
-	}
-}
-ag.{$DOMAIN} {
-	proxy / adguard:3000 {
-		websocket
-		transparent
-	}
-}
