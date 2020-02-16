@@ -7,6 +7,7 @@ from aiogithubapi import AIOGitHubException
 from homeassistant.components import websocket_api
 import homeassistant.helpers.config_validation as cv
 from .hacsbase import Hacs
+from .hacsbase.exceptions import HacsException
 from .store import async_load_from_store, async_save_to_store
 
 
@@ -97,6 +98,7 @@ async def hacs_config(hass, connection, msg):
     content["onboarding_done"] = config.onboarding_done
     content["version"] = Hacs().version
     content["dev"] = config.dev
+    content["debug"] = config.debug
     content["country"] = config.country
     content["experimental"] = config.experimental
     content["categories"] = Hacs().common.categories
@@ -135,12 +137,14 @@ async def hacs_repositories(hass, connection, msg):
                 "can_install": repo.can_install,
                 "category": repo.information.category,
                 "country": repo.repository_manifest.country,
+                "config_flow": repo.config_flow,
                 "custom": repo.custom,
                 "default_branch": repo.information.default_branch,
                 "description": repo.information.description,
                 "domain": repo.manifest.get("domain"),
                 "downloads": repo.releases.last_release_object_downloads,
                 "file_name": repo.information.file_name,
+                "first_install": repo.status.first_install,
                 "full_name": repo.information.full_name,
                 "hide": repo.status.hide,
                 "hide_default_branch": repo.repository_manifest.hide_default_branch,
@@ -274,7 +278,9 @@ async def hacs_repository_data(hass, connection, msg):
 
         if not Hacs().get_by_name(repo_id):
             try:
-                await Hacs().register_repository(repo_id, data.lower())
+                registration = await Hacs().register_repository(repo_id, data.lower())
+                if registration is not None:
+                    raise HacsException(registration)
             except Exception as exception:  # pylint: disable=broad-except
                 hass.bus.async_fire(
                     "hacs/error",
@@ -287,7 +293,10 @@ async def hacs_repository_data(hass, connection, msg):
         else:
             hass.bus.async_fire(
                 "hacs/error",
-                {"message": f"Repository '{repo_id}' exists in the store."},
+                {
+                    "action": "add_repository",
+                    "message": f"Repository '{repo_id}' exists in the store.",
+                },
             )
 
         repository = Hacs().get_by_name(repo_id)
