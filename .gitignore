@@ -121,3 +121,6 @@ dns.json
 dns/
 updater.json
 homeassistant.json
+
+apparmor/*
+ingress.json
