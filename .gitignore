@@ -125,3 +125,9 @@ homeassistant.json
 apparmor/*
 ingress.json
 audio.json
+
+audio/
+discovery.json
+services.json
+tmp/
+
