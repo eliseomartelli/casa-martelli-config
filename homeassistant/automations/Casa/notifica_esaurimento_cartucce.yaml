@@ -8,8 +8,12 @@ trigger:
       - sensor.corridoio_stampante_magenta
       - sensor.corridoio_stampante_nero
     below: 20
+condition:
+  - condition: state
+    entity_id: input_boolean.sistema_messaggi
+    state: 'on'
 action:
-  - service: script.notifica_famiglia
+  - service: notify.family
     data_template:
       message: >
         {{
