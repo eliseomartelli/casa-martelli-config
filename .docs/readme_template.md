@@ -31,23 +31,12 @@ This machine runs the latest version of **Ubuntu Server LTS.**
 
 ### Software
 As already stated the *O.S.* of this *itty-bitty* machine is **Ubuntu Server LTS.**
-On top of that there's **Docker** (installed with snap).
+On top of that there's **Docker**.
+
 #### Docker Containers
-- **Home Assistant**
-*(homeassistant/home-assistant)*
-- **Mosquitto** 
-*(eclipse-mosquitto)*
+- **Home Assistant Supervisor**
+*(homeassistant/amd64-hassio-supervisor)*
 - **MotionEye** 
 *(ccrisan/motioneye)*
-- **Guacamole** 
-*(oznu/guacamole)*
-- **Puller** 
-*(eliseomartelli/puller)*
-- **HaDockermon** 
-*(philhawthorne/ha-dockermon)*
-- **AdGuard** 
-*(adguard/adguardhome)*
-- **DuckDNS** 
-*(linuxserver/duckdns)*
 - **Caddy** 
 *(abiosoft/caddy)*
