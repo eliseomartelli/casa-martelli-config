@@ -1,0 +1,10 @@
+sistema_stato_del_giorno:
+  name: Stato del giorno
+  options:
+    - Mattina
+    - Pranzo
+    - Pomeriggio
+    - Sera
+    - Letto
+    - Notte
+  icon: mdi:timer-sand-full

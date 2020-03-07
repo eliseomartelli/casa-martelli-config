@@ -1,6 +1,0 @@
-sistema_notifiche:
-  icon: mdi:bell
-  name: Notifiche
-  entities:
-    - input_boolean.sistema_annunci
-    - input_boolean.sistema_messaggi

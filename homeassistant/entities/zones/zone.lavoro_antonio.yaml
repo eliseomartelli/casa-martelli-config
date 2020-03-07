@@ -1,5 +1,0 @@
-name: Lavoro
-latitude: !secret zone_lavoro_lat
-longitude: !secret zone_lavoro_long
-radius: 250
-icon: mdi:briefcase

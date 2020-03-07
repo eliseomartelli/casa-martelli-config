@@ -1,0 +1,22 @@
+id: 7175DE1A-1C01-4F5D-BF84-A8BC6162EE07
+alias: Corridoio Spegnimento Luci Temporizzato
+trigger:
+  - platform: state
+    entity_id:
+      - light.corridoio_notturna
+    to: 'on'
+    for:
+      minutes: 15
+  - platform: state
+    entity_id: input_select.sistema_stato_del_giorno
+    to: "Mattina"
+    for:
+      hours: 1
+condition:
+  - condition: template
+    value_template: >
+      {{ states("input_select.sistema_stato_del_giorno") not in ["Letto", "Notte"] }}
+action:
+  - service: light.turn_off
+    entity_id: 
+      - light.corridoio_notturna

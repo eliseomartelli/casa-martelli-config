@@ -1,4 +1,0 @@
-platform: mqtt
-name: Server Memoria
-state_topic: sensors/server/memory
-unit_of_measurement: '%'
