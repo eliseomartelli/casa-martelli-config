@@ -1,0 +1,5 @@
+---
+- name: Ensure configuration is present
+  git:
+    repo: https://github.com/eliseomartelli/ParentsHomeAutomation/
+    dest: /home/{{ ansible_user }}/config

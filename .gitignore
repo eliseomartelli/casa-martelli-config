@@ -132,3 +132,6 @@ services.json
 tmp/
 
 .DS_Store
+
+provision/inventory
+provision/variables/default.yaml
