@@ -40,3 +40,9 @@ On top of that there's **Docker**.
 *(ccrisan/motioneye)*
 - **Caddy** 
 *(abiosoft/caddy)*
+
+#### Home Assistant Addons
+- **AdGuard Home**
+- **File Editor**
+- **DuckDNS**
+- **Mosquitto Broker**
