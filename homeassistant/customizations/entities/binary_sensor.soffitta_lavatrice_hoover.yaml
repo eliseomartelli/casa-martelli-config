@@ -1,3 +1,0 @@
-binary_sensor.soffitta_lavatrice_hoover:
-  icon: mdi:washing-machine
-  device_class: power

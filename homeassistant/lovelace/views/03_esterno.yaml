@@ -8,13 +8,13 @@ cards:
         camera_image: camera.cortile_viale
         show_state: false
         entities:
-          - binary_sensor.presenza_cortile_viale
+          - binary_sensor.cortile_viale_presenza
       
       - type: picture-glance
         camera_image: camera.cortile_piazzale
         show_state: false
         entities:
-          - binary_sensor.presenza_cortile_piazzale
+          - binary_sensor.cortile_piazzale_presenza
 
   - type: custom:group-card
     group: group.luci_esterne

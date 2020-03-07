@@ -131,3 +131,4 @@ discovery.json
 services.json
 tmp/
 
+.DS_Store

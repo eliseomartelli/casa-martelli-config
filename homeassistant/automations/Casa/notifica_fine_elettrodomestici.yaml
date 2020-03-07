@@ -1,0 +1,15 @@
+id: F2F379FF-707B-48D7-928C-3700570124D3
+alias: Casa Notifica Fine Elettrodomestici
+trigger:
+  - platform: state
+    entity_id: 
+      - binary_sensor.soffitta_lavatrice_hoover
+    to: 'off'
+action:
+  - service: script.notifica_famiglia
+    data_template:
+      message: !include ../../jinja_templates/template.notifica_fine_elettrodomestici.yaml
+  - service: script.annuncia
+    data_template:
+      bisogna_salutare: True
+      message: !include ../../jinja_templates/template.notifica_fine_elettrodomestici.yaml

@@ -1,0 +1,29 @@
+id: FF1A9B45-4982-451B-90E7-EFDE84DDE3D6
+alias: Cortile Accensione Luci Sera
+trigger:
+  - platform: state
+    entity_id: input_select.stato_del_giorno
+    to: 'Sera'
+  - platform: state
+    entity_id: input_select.stato_del_giorno
+    to: 'Notte'
+action:
+  - service_template: >
+      {% if "Notte" in trigger.to_state.state %}
+        homeassistant.turn_off
+      {% else %}
+        homeassistant.turn_on
+      {% endif %}
+    entity_id: group.luci_esterne
+  - service: script.annuncia
+    data_template:
+      message: > 
+        {{ 
+          [
+            "Inizia ad essere buio, accendo le luci fuori.",
+            "Il sole sta tramontando, accendo le luci.",
+            "Arrivederci Sole! Illumino il cortile.",
+            "Bye bye luce, accendo le luci fuori."
+          ] 
+          | random
+        }}

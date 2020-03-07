@@ -1,0 +1,6 @@
+sistema_notifica_movimento_telecamere:
+  sequence:
+    - service: script.notifica_famiglia_con_foto
+      data_template:
+        message: !include ../../jinja_templates/template.notifica_movimento_telecamere.yaml
+        url: "{{ states.sensor.sistema_base_url.state }}{{ state_attr(camera, 'entity_picture') }}"

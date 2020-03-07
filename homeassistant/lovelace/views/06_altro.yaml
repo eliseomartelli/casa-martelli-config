@@ -7,4 +7,3 @@ cards:
     show_header_toggle: false
     entities:
       - light.corridoio_notturna
-      - switch.generico_1

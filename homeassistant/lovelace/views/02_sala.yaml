@@ -1,9 +1,10 @@
+---
 path: sala
 title: Sala
 icon: mdi:sofa
 cards:
   - type: custom:mini-media-player
-    entity: media_player.sala_tv_chromecast
+    entity: media_player.sala_tv
  
   - type: entities
     entities:

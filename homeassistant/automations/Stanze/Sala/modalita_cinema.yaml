@@ -1,0 +1,34 @@
+id: 2D08779C-7EAF-40CE-8C96-E0FBD8823FA7
+alias: Sala Modalità Cinema
+trigger:
+  - platform: state
+    entity_id: group.luci_sala
+
+  - platform: state
+    entity_id: media_player.sala_tv_chromecast
+condition:
+  - condition: state
+    entity_id: input_boolean.sala_modalita_cinema
+    state: 'on'
+action:
+  - service_template: >
+      {% if "group.luci_sala" in trigger.to_state.entity_id %}
+        {% if "off" in trigger.to_state.state %}
+          media_player.media_play
+        {% else %}
+          media_player.media_pause
+        {% endif %}
+      {% else %}
+        {% if "playing" in trigger.to_state.state %}
+          light.turn_off
+        {% else %}
+          light.turn_on
+        {% endif %}
+      {% endif %}
+    data_template:
+      entity_id: >
+        {% if "group.luci_sala" in trigger.to_state.entity_id %}
+          media_player.sala_tv_chromecast
+        {% else %}
+          group.luci_sala
+        {% endif %}

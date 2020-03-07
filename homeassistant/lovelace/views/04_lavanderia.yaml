@@ -5,6 +5,6 @@ cards:
   - type: horizontal-stack
     cards:
       - type: picture-entity
-        entity: binary_sensor.soffitta_lavatrice_hoover
+        entity: binary_sensor.lavanderia_lavatrice_hoover
         image: /local/pictures/hoover_washing_machine.jpg
         name: Lavasciuga
