@@ -1,0 +1,13 @@
+sistema_notifica_famiglia_con_foto:
+  sequence:
+    - condition: state
+      entity_id: input_boolean.messaggi
+      state: 'on'
+    - service: notify.family
+      data_template:
+        title: "Invio Foto"
+        message: "{{ message }}"
+        data:
+          photo:
+            - url: "{{ url }}"
+              caption: "{{ message }}"

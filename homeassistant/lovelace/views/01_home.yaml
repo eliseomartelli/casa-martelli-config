@@ -8,31 +8,64 @@ badges:
   - person.gioele
 cards:
   - type: custom:simple-weather-card
-    entity: weather.casa
+    entity: weather.home
     name: " "
     backdrop: true
+
+  - type: markdown
+    content: >
+      <table>
+        <tr>
+          <td>
+            <ha-icon icon="mdi:delete-empty"></ha-icon>
+          </td>
+          <td>
+            <h3>Domani bisogna buttare</h3>
+            {{ states.sensor.casa_rifiuti_di_domani.state }}
+          </td>
+        </tr>
+    style: >
+      * {
+        padding: 0;
+        margin: 0;
+      }
+      ha-icon {
+        padding-right: 18px;
+        padding-left: 6px;
+      }
+      h3 {
+        padding-bottom: 4px;
+      }
+      ha-card {
+        background:  
+          {%- if "multimateriale" in states.sensor.casa_rifiuti_di_domani.state %}
+            #ffea00
+          {%- elif "secco" in states.sensor.casa_rifiuti_di_domani.state %}
+            #00e575
+          {%- elif "vetro" in states.sensor.casa_rifiuti_di_domani.state %}
+            #63a4ff
+          {%- elif "organico" in states.sensor.casa_rifiuti_di_domani.state %}
+            #ff5131
+          {%- elif "carta" in states.sensor.casa_rifiuti_di_domani.state %}
+            #fff3e0
+          {%- else %}
+            #fff
+          {%- endif %}
+          ;
+        color: #000;
+      }
+
   
   - type: horizontal-stack
     cards:
       - type: custom:button-card
-        entity: group.notifiche
+        entity: group.sistema_notifiche
       - type: custom:button-card
-        entity: input_boolean.annunci
+        entity: input_boolean.sistema_annunci
       - type: custom:button-card
-        entity: input_boolean.messaggi
+        entity: input_boolean.sistema_messaggi
 
-  - type: entities
-    entities:
-      - sensor.rifiuti_di_domani
-      - input_boolean.simula_presenza
-      - type: call-service
-        name: Inizia Simulazione
-        service: automation.trigger
-        action_name: Inizia
-        service_data:
-          entity_id: automation.casa_simulazione_presenza
-
-  - type: custom:monster-card
+  - type: custom:auto-entities
     show_empty: false
     card:
       type: entities
@@ -41,6 +74,3 @@ cards:
       include:
         - domain: light
           state: 'on'
-        - domain: switch
-          state: 'on'
-          entity_id: "*generico*"

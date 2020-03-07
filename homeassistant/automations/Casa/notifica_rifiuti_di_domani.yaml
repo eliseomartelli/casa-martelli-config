@@ -1,0 +1,13 @@
+id: D1BE4568-7653-4A15-9DDB-9AECCFC77B7F
+alias: Casa Notifica Rifiuti Di Domani
+trigger:
+  - platform: time
+    at: '19:30:00'
+action:
+  - service: script.notifica_famiglia
+    data_template:
+      message: !include ../../jinja_templates/template.notifica_rifiuti_di_domani.yaml
+  - service: script.annuncia
+    data_template:
+      bisogna_salutare: True
+      message: !include ../../jinja_templates/template.notifica_rifiuti_di_domani.yaml

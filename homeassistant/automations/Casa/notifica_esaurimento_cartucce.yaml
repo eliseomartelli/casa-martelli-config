@@ -1,0 +1,23 @@
+id: C385CA23-566B-404A-B752-799714969C69
+alias: Casa Notifica Esaurimento Cartucce
+trigger:
+  - platform: numeric_state
+    entity_id: 
+      - sensor.corridoio_stampante_ciano
+      - sensor.corridoio_stampante_giallo
+      - sensor.corridoio_stampante_magenta
+      - sensor.corridoio_stampante_nero
+    below: 20
+action:
+  - service: script.notifica_famiglia
+    data_template:
+      message: >
+        {{
+          [
+            "La cartuccia di colore %1 è in esaurimento",
+            "La stampante ha bisogno di una nuova cartuccia di colore %1.",
+            "Il %1 inizia a mancare alla stampante."
+          ]
+          | random
+          | replace("%1", trigger.from_state.name | lower)
+        }}

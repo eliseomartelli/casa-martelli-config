@@ -1,0 +1,2 @@
+binary_sensor.cortile_piazzale_presenza:
+  friendly_name: Presenza Piazzale

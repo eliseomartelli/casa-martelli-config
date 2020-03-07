@@ -1,0 +1,13 @@
+id: 89743C42-BC04-42B5-9D74-62C430B8018A
+alias: Sala Modalità Cinema Timer
+trigger:
+  - platform: template
+    value_template: >
+      {{ "playing" not in states("media_player.sala_chromecast") }}
+    for: '00:30:00'
+  - platform: state
+    entity_id: media_player.sala_chromecast
+    to: 'unavailable'
+action:
+  - service: input_boolean.turn_off
+    entity_id: input_boolean.sala_modalita_cinema

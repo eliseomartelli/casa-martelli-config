@@ -1,4 +1,0 @@
-platform: rest
-name: Rifiuti di domani
-resource: https://raw.githubusercontent.com/eliseomartelli/Calendari-Ecolan/master/calendars/MOZZAGROGNA.json
-value_template: !include ../../jinja_templates/template.nomi_rifiuti.yaml

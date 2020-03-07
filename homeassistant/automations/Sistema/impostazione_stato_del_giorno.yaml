@@ -1,0 +1,26 @@
+# Automazione di sistema.
+#
+# Avanza lo stato del giorno.
+
+id: 72C7A99E-75E5-4A56-881B-4F163CDC4853
+alias: Sistema Impostazione Stato del Giorno
+trigger:
+  # MATTINA
+  - platform: sun
+    event: sunrise
+  # POMERIGGIO
+  - platform: time
+    at: '12:00:00'
+  # SERA
+  - platform: sun
+    event: sunset
+    offset: '00:30:00'
+  # Letto
+  - platform: template
+    value_template: !include ../../jinja_templates/template.sistema_orario_letto.yaml
+  # NOTTE
+  - platform: template
+    value_template: !include ../../jinja_templates/template.sistema_orario_con_stagione.yaml
+action:
+  - service: input_select.select_next
+    entity_id: input_select.stato_del_giorno

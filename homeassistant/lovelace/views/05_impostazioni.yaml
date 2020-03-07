@@ -2,7 +2,7 @@ path: impostazioni
 title: Impostazioni
 icon: mdi:settings
 cards:
-  - type: custom:monster-card
+  - type: custom:auto-entities
     card:
       type: glance
       title: Stampante
@@ -27,24 +27,11 @@ cards:
         graph: line
         icon: mdi:upload
 
-  - type: custom:love-lock-card
-    popup: confirm
-    cards:
-      - type: custom:monster-card
-        card:
-          type: entities
-          title: Automazioni
-        filter:
-          include:
-            - domain: automation
-          exclude:
-            - entity_id: automation.sistema*
-
   - type: entities
     title: Orari
     show_header_toggle: false
     entities:
-      - input_select.stato_del_giorno
+      - input_select.sistema_stato_del_giorno
       - input_datetime.sistema_inizio_notte_estivo
       - input_datetime.sistema_inizio_notte_invernale
 
