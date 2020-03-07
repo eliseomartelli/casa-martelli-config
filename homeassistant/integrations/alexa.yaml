@@ -1,3 +1,0 @@
-alexa:
-  smart_home:
-    filter: !include ../to_export.yaml
