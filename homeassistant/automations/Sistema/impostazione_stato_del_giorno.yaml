@@ -23,4 +23,4 @@ trigger:
     value_template: !include ../../jinja_templates/template.sistema_orario_con_stagione.yaml
 action:
   - service: input_select.select_next
-    entity_id: input_select.stato_del_giorno
+    entity_id: input_select.sistema_stato_del_giorno

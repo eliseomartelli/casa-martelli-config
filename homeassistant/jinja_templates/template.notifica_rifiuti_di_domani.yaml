@@ -1,6 +1,6 @@
 >
   Domani
-  {%- if 'niente' in states('sensor.rifiuti_di_domani') -%}
+  {%- if 'niente' in states('sensor.casa_rifiuti_di_domani') -%}
     {{ [' non bisogna buttare niente.',
         ' la munnezza non passa.',
         ' senza bidone (non passa nessuno.)',
@@ -15,5 +15,5 @@
         ' vengono a prendersi ',
         ' passerà ',
         ' Eco Lan viene a prendersi '] | random }}
-    {{- states('sensor.rifiuti_di_domani') -}}
+    {{- states('sensor.casa_rifiuti_di_domani') -}}
   {%- endif -%}

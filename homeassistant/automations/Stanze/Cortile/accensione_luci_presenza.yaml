@@ -10,7 +10,7 @@ trigger:
     to: 'home'
 condition:
   - condition: state
-    entity_id: input_select.stato_del_giorno
+    entity_id: input_select.sistema_stato_del_giorno
     state: 'Notte'
   - condition: template
     value_template: >

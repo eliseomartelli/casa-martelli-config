@@ -2,10 +2,10 @@ id: 22C87EC7-DF93-4F35-BF6F-3A8BB74A9EA4
 alias: Corridoio Accensione Luce Notturna Letto
 trigger:
   - platform: state
-    entity_id: input_select.stato_del_giorno
+    entity_id: input_select.sistema_stato_del_giorno
     to: 'Letto'
   - platform: state
-    entity_id: input_select.stato_del_giorno
+    entity_id: input_select.sistema_stato_del_giorno
     to: 'Mattina'
     for: '01:00:00'
 action:
