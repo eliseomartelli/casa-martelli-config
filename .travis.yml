@@ -5,12 +5,16 @@ python:
 
 before_install:
         - cp .stubs/secrets.yaml homeassistant/secrets.yaml
+        - cp provision/inventory.stub provision/inventory
+        - cp provision/variables/default.yaml.stub provision/variables/default.yaml
 
 install:
         - pip3 install homeassistant
+        - pip3 install ansible
 
-script:
-        - hass --script check_config -c homeassistant/ -f
-
+jobs:
+        include:
+                - script: hass --script check_config -c homeassistant/ -f
+                - script: cd provision && ansible-playbook playbook.yaml -i inventory --syntax-check
 after_success:
         - test $TRAVIS_BRANCH = "master" && curl -d "" -X POST $WEBHOOK_DEPLOY
