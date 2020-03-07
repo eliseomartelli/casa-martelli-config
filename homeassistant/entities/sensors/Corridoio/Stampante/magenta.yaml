@@ -1,4 +1,0 @@
-platform: mqtt
-name: 'Corridoio Stampante Magenta'
-state_topic: sensors/printer/ink/magenta
-unit_of_measurement: '%'

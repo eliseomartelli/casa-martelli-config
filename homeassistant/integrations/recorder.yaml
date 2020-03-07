@@ -1,11 +1,16 @@
+---
+# Configures the recorder.
+#
+# https://www.home-assistant.io/integrations/recorder/
+#
 recorder:
-  purge_keep_days: 5
   include:
     entities:
-      - binary_sensor.presenza_cortile_viale
-      - binary_sensor.presenza_cortile_piazzale
-
-      - binary_sensor.soffitta_lavatrice_hoover
-
-      - sensor.modem_banda_download
-      - sensor.modem_banda_upload
+      - sensor.bedroom_humidity
+      - sensor.bedroom_temperature
+      - sensor.kitchen_humidity
+      - sensor.kitchen_temperature
+      - sensor.transmission_up_speed
+      - sensor.transmission_down_speed
+      - sensor.speedtest_download
+      - sensor.speedtest_upload

@@ -1,0 +1,5 @@
+platform: rest
+name: Casa Rifiuti di domani
+resource: https://raw.githubusercontent.com/eliseomartelli/Calendari-Ecolan/master/calendars/MOZZAGROGNA.json
+value_template: >
+  {{ value_json.days[now().strftime('%j') | int].garbage }}

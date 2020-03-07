@@ -1,0 +1,62 @@
+id: 112FD1F4-15A0-44B5-91A7-3E684098A937
+alias: Lavanderia Notifica Fine Elettrodomestici
+trigger:
+  - platform: state
+    entity_id: 
+      - binary_sensor.lavanderia_lavatrice_hoover
+    to: 'off'
+condition:
+  - condition: template
+    value_template: >
+      {{ states("input_select.sistema_stato_del_giorno") not in ["Notte"] }}
+action:
+  - service: notify.notify
+    data_template:
+      message: >
+        {% set data = trigger.from_state.entity_id.split(".")[1].split("_") %}
+        {% if "lavatrice" in data[1] %}
+          {% set prog = "lavaggio" %}
+        {% else %}
+          {% set prog = "asciugatura" %}
+        {% endif %}
+        {{
+          [
+            'La %2 %3 ha terminato il programma di %4',
+            'Sembra che La %2 %3 in %1 ha concluso il programma: %4',
+            'Volevo avvisarvi che la %2 %3 ha finito il programma %4',
+            'Il programma %4 è stato concluso dalla %2 %3',
+            'La %2 %3 ha concluso il %4',
+          ] 
+          | random 
+          | replace("%1", data[0])
+          | replace("%2", data[1])
+          | replace("%3", data[2])
+          | replace("%4", prog)
+        }}
+  - service: notify.alexa_media
+    data_template:
+      target:
+        - media_player.soggiorno_speaker
+      data:
+        type: announce
+      message: >
+        {% set data = trigger.from_state.entity_id.split(".")[1].split("_") %}
+        {% if "lavatrice" in data[1] %}
+          {% set prog = "lavaggio" %}
+        {% else %}
+          {% set prog = "asciugatura" %}
+        {% endif %}
+        {{
+          [
+            'La %2 %3 ha terminato il programma di %4',
+            'Sembra che La %2 %3 in %1 ha concluso il programma: %4',
+            'Volevo avvisarvi che la %2 %3 ha finito il programma %4',
+            'Il programma %4 è stato concluso dalla %2 %3',
+            'La %2 %3 ha concluso il %4',
+          ] 
+          | random 
+          | replace("%1", data[0])
+          | replace("%2", data[1])
+          | replace("%3", data[2])
+          | replace("%4", prog)
+        }}
