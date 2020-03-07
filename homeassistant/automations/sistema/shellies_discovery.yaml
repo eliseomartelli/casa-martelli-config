@@ -1,0 +1,13 @@
+id: 'shellies_discovery'
+alias: 'Sistema Shellies Discovery'
+trigger:
+  - platform: mqtt
+    topic: shellies/announce
+action:
+  service: python_script.shellies_discovery
+  data_template:
+    id: '{{ trigger.payload_json.id }}'
+    mac: '{{ trigger.payload_json.mac }}'
+    fw_ver: '{{ trigger.payload_json.fw_ver }}'
+    shelly1-BA3681-relay-0: 'light'
+    shelly1-BA3900-relay-0: 'light'
