@@ -1,1 +1,0 @@
-panel_iframe: !include_dir_merge_named ../panels/iframes

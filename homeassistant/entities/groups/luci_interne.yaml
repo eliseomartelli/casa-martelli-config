@@ -1,4 +1,0 @@
-luci_interne:
-  name: Luci Interne
-  entities:
-    - light.sala_grande

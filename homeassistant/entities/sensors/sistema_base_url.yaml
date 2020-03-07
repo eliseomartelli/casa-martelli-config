@@ -1,4 +1,0 @@
-platform: template
-sensors:
-  sistema_base_url:
-    value_template: !secret base_url
