@@ -1,0 +1,20 @@
+id: 
+alias: Cortile Spegnimento Luci Temporizzato
+trigger:
+  - platform: state
+    entity_id:
+      - light.cortile_frontale
+    to: 'on'
+    for:
+      minutes: 15
+  - platform: state
+    entity_id: input_select.sistema_stato_del_giorno
+    to: "Notte"
+condition:
+  - condition: template
+    value_template: >
+      {{ states("input_select.sistema_stato_del_giorno") not in ["Sera", "Letto"] }}
+action:
+  - service: light.turn_off
+    entity_id: 
+      - light.cortile_frontale
