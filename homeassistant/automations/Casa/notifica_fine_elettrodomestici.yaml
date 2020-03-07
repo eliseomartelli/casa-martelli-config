@@ -3,7 +3,7 @@ alias: Casa Notifica Fine Elettrodomestici
 trigger:
   - platform: state
     entity_id: 
-      - binary_sensor.soffitta_lavatrice_hoover
+      - binary_sensor.lavanderia_lavatrice_hoover
     to: 'off'
 action:
   - service: script.notifica_famiglia

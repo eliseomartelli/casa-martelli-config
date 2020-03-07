@@ -3,8 +3,8 @@ alias: Casa Notifica Movimento Telecamere
 trigger:
   - platform: state
     entity_id: 
-      - binary_sensor.presenza_cortile_viale
-      - binary_sensor.presenza_cortile_piazzale
+      - binary_sensor.cortile_viale_presenza
+      - binary_sensor.cortile_piazzale_presenza
     to: 'on'
 condition:
   - condition: state
@@ -14,4 +14,4 @@ action:
   - service: script.notifica_movimento_telecamere
     data_template:
       camera: >
-        {{ trigger.from_state.entity_id.split(".")[1] | replace("presenza_", "camera.") }}
+        camera.{{ trigger.from_state.entity_id.split(".")[1] | replace("_presenza", "") }}

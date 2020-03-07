@@ -2,10 +2,10 @@ id: FF1A9B45-4982-451B-90E7-EFDE84DDE3D6
 alias: Cortile Accensione Luci Sera
 trigger:
   - platform: state
-    entity_id: input_select.stato_del_giorno
+    entity_id: input_select.sistema_stato_del_giorno
     to: 'Sera'
   - platform: state
-    entity_id: input_select.stato_del_giorno
+    entity_id: input_select.sistema_stato_del_giorno
     to: 'Notte'
 action:
   - service_template: >
@@ -15,7 +15,7 @@ action:
         homeassistant.turn_on
       {% endif %}
     entity_id: group.luci_esterne
-  - service: script.annuncia
+  - service: script.sistema_annuncia
     data_template:
       message: > 
         {{ 

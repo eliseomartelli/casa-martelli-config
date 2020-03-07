@@ -6,12 +6,12 @@ id: F1F4E180-855D-4858-9318-1786D01A378F
 alias: Sistema Impostazione Notifiche
 trigger:
   - platform: state
-    entity_id: input_select.stato_del_giorno
+    entity_id: input_select.sistema_stato_del_giorno
 action:
   - service_template: >
-      {% if "Notte" in states.input_select.stato_del_giorno.state %}
+      {% if "Notte" in states.input_select.sistema_stato_del_giorno.state %}
         homeassistant.turn_off
       {% else %}
         homeassistant.turn_on
       {% endif %}
-    entity_id: group.notifiche
+    entity_id: group.sistema_notifiche
