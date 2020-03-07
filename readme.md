@@ -12,8 +12,8 @@
 				alt="Branch">
 		</a>
 		<img alt="undefined" src="https://img.shields.io/github/license/eliseomartelli/ParentsHomeAutomation.svg">
-		<img src="https://img.shields.io/badge/haversion-0.103.6-blue.svg">
-		<img src="https://img.shields.io/badge/automations-17-purple.svg">
+		<img src="https://img.shields.io/badge/haversion-0.106.5-blue.svg">
+		<img src="https://img.shields.io/badge/automations-19-purple.svg">
 	</p>
 </p>  
 
@@ -31,23 +31,12 @@ This machine runs the latest version of **Ubuntu Server LTS.**
 
 ### Software
 As already stated the *O.S.* of this *itty-bitty* machine is **Ubuntu Server LTS.**
-On top of that there's **Docker** (installed with snap).
+On top of that there's **Docker**.
+
 #### Docker Containers
-- **Home Assistant**
-*(homeassistant/home-assistant)*
-- **Mosquitto** 
-*(eclipse-mosquitto)*
+- **Home Assistant Supervisor**
+*(homeassistant/amd64-hassio-supervisor)*
 - **MotionEye** 
 *(ccrisan/motioneye)*
-- **Guacamole** 
-*(oznu/guacamole)*
-- **Puller** 
-*(eliseomartelli/puller)*
-- **HaDockermon** 
-*(philhawthorne/ha-dockermon)*
-- **AdGuard** 
-*(adguard/adguardhome)*
-- **DuckDNS** 
-*(linuxserver/duckdns)*
 - **Caddy** 
 *(abiosoft/caddy)*
