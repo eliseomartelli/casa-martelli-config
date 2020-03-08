@@ -3,6 +3,19 @@ alias: Cucina Accensione Scaldatazze
 trigger:
   - platform: time
     at: '03:30:00'
+  - platform: homeassistant
+    event: start
+  - platform: state
+    entity_id: input_select.sistema_stato_del_giorno
+condition:
+  - condition: or
+    conditions:
+      - condition: time
+        after: '03:29:00'
+        before: '3:31:00'
+      - condition: template
+        value_template: >
+          {{ states("input_select.sistema_stato_del_giorno") in ["Mattina", "Pranzo", "Pomeriggio", "Sera"] }}
 action:
   - service: switch.turn_on
     entity_id: switch.cucina_scaldatazze

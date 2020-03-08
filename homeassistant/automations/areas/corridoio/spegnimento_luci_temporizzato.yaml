@@ -11,7 +11,7 @@ trigger:
     entity_id: input_select.sistema_stato_del_giorno
     to: "Mattina"
     for:
-      hours: 1
+      minutes: 30
 condition:
   - condition: template
     value_template: >
