@@ -1,0 +1,7 @@
+family:
+  name: Famiglia
+  entities:
+    - person.antonella_di_paolo
+    - person.eliseo_martelli
+    - person.antonio_martelli
+    - person.gioele_martelli
