@@ -1,0 +1,9 @@
+id: 6B25111E-A51A-4547-B77D-B60167FB10C6
+alias: Cucina Spegnimento Scaldatazze
+trigger:
+  - platform: state
+    entity_id: input_select.sistema_stato_del_giorno
+    to: 'Letto'
+action:
+  - service: switch.turn_off
+    entity_id: switch.cucina_scaldatazze
