@@ -4,6 +4,12 @@ trigger:
   - platform: state
     entity_id: input_select.sistema_stato_del_giorno
     to: 'Letto'
+  - platform: homeassistant
+    event: start
+condition:
+  - condition: template
+    value_template: >
+      {{ states("input_select.sistema_stato_del_giorno") in ["Letto", "Notte"] }}  
 action:
   - service: switch.turn_off
     entity_id: switch.cucina_scaldatazze
