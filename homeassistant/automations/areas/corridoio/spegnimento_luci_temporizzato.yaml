@@ -2,8 +2,7 @@ id: 7175DE1A-1C01-4F5D-BF84-A8BC6162EE07
 alias: Corridoio Spegnimento Luci Temporizzato
 trigger:
   - platform: state
-    entity_id:
-      - light.corridoio_notturna
+    entity_id: light.corridoio_notturna
     to: 'on'
     for:
       minutes: 15
@@ -12,11 +11,12 @@ trigger:
     to: "Mattina"
     for:
       minutes: 30
+  - platform: homeassistant
+    event: start
 condition:
   - condition: template
     value_template: >
       {{ states("input_select.sistema_stato_del_giorno") not in ["Letto", "Notte"] }}
 action:
   - service: light.turn_off
-    entity_id: 
-      - light.corridoio_notturna
+    entity_id: light.corridoio_notturna
