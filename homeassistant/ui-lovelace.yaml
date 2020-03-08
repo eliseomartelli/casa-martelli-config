@@ -30,6 +30,11 @@ views:
           - lock.cortile_pedonale
 
       - type: entities
+        title: Cameretta
+        entities:
+          - light.cameretta_testiera
+
+      - type: entities
         title: Lavanderia
         entities:
           - binary_sensor.lavanderia_lavatrice_hoover
