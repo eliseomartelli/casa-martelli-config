@@ -1,0 +1,8 @@
+id: 3D666750-268D-4C09-ADB0-75EDC86A5898
+alias: Cucina Accensione Scaldatazze
+trigger:
+  - platform: time
+    at: '03:30:00'
+action:
+  - service: switch.turn_on
+    entity_id: switch.cucina_scaldatazze
