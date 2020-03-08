@@ -6,11 +6,6 @@
 recorder:
   include:
     entities:
-      - sensor.bedroom_humidity
-      - sensor.bedroom_temperature
-      - sensor.kitchen_humidity
-      - sensor.kitchen_temperature
-      - sensor.transmission_up_speed
-      - sensor.transmission_down_speed
-      - sensor.speedtest_download
-      - sensor.speedtest_upload
+      - binary_sensor.lavanderia_lavatrice_hoover
+      - binary_sensor.cortile_piazzale_presenza
+      - binary_sensor.cortile_viale_presenza
