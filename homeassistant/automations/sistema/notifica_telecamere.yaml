@@ -18,4 +18,5 @@ action:
     data_template:
       message: Mi sembra di aver visto del movimento
       data:
-        image: http://192.168.0.88:8123{{ state_attr("camera." + (trigger.from_state.entity_id.split(".")[1] | replace("_presenza", "")), "entity_picture") }}
+        image: >
+          {{ states("sensor.sistema_base_url") }}{{ state_attr("camera." + (trigger.from_state.entity_id.split(".")[1] | replace("_presenza", "")), "entity_picture") }}
