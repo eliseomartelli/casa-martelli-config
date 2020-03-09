@@ -16,7 +16,7 @@
         name: ansible-tasmota
       vars:
         tasmota_commands:
-          - command: mqttuser
+          - command: mqttpassword
             value: "{{ default.mqtt_pass }}"
 
     - name: Ensure mqtt port is set
@@ -82,4 +82,15 @@
       vars:
         tasmota_commands:
           - command: SetOption19
+            value: 1
+
+- hosts: all
+  gather_facts: no
+  tasks:
+    - name: Restart
+      include_role:
+        name: ansible-tasmota
+      vars:
+        tasmota_commands:
+          - command: Restart
             value: 1
