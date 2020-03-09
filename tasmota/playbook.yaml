@@ -1,37 +1,51 @@
 - hosts: all
   gather_facts: no
-  vars:
-    tasmota_commands:
-      - command: topic
-        value: "{{ friendly_name | lower | replace(' ', '_') }}"
-      - command: FriendlyName
-        value: "{{ friendly_name }}"
-  roles:
-    - ansible-tasmota
+  tasks:
+    - name: Ensure topic is set
+      include_role: 
+        name: ansible-tasmota
+      vars:
+        tasmota_commands:
+          - command: topic
+            value: "{{ friendly_name | lower | replace(' ', '_') }}"
+
+    - name: Ensure friendlyname is set
+      include_role: 
+        name: ansible-tasmota
+      vars:
+        tasmota_commands:
+          - command: FriendlyName
+            value: "{{ friendly_name }}"
 
 - hosts: locks
   gather_facts: no
-  vars:
-    tasmota_commands:
-      - command: Pulsetime
-        value: 1
-  roles:
-    - ansible-tasmota
+  tasks:
+    - name: Set Pulsetime for locks
+      include_role:
+        name: ansible-tasmota
+      vars:
+        tasmota_commands:
+          - command: Pulsetime
+            value: 1
 
 - hosts: plugs
   gather_facts: no
-  vars:
-    tasmota_commands:
-      - command: SetOption30
-        value: "{{ as_light | default('0', True) }}"
-  roles:
-    - ansible-tasmota
+  tasks:
+    - name: Expose Relay as light
+      include_role:
+        name: ansible-tasmota
+      vars:
+        tasmota_commands:
+          - command: SetOption30
+            value: "{{ as_light | default('0', True) }}"
 
 - hosts: all:!locks
   gather_facts: no
-  vars:
-    tasmota_commands:
-      - command: SetOption19
-        value: 1
-  roles:
-    - ansible-tasmota
+  tasks:
+    - name: Set MQTT Discovery
+      include_role:
+        name: ansible-tasmota
+      vars:
+        tasmota_commands:
+          - command: SetOption19
+            value: 1
