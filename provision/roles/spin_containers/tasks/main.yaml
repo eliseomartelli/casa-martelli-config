@@ -14,7 +14,7 @@
     env:
       CADDYPATH: /etc/caddycerts
       ACME_AGREE: "true"
-      DOMAIN: "{{ domain }}"
+      DOMAIN: "{{ default.domain }}"
 
 - name: Create docker container for Home Assistant Supervisor
   docker_container:

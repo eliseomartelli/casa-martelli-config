@@ -7,6 +7,7 @@ before_install:
         - cp .stubs/secrets.yaml homeassistant/secrets.yaml
         - cp provision/inventory.stub provision/inventory
         - cp provision/variables/default.yaml.stub provision/variables/default.yaml
+        - cp tasmota/default.yaml.stub tasmota/default.yaml
 
 install:
         - pip3 install homeassistant
