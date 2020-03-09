@@ -1,2 +1,8 @@
 [locks]
-192.168.0.24    friendly_name="Cortile p"
+192.168.0.24    friendly_name="Cortile Pedonale"    topic="s0001"
+
+[plugs]
+192.168.0.23    friendly_name="Corridoio Notturna"  topic="p0001"    as_light="1"
+
+[lights]
+192.168.0.25    friendly_name="Cameretta Testiera"  topic="cameretta_testiera"
