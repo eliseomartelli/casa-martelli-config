@@ -1,6 +1,40 @@
 - hosts: all
   gather_facts: no
+  vars_files:
+    - default.yaml
   tasks:
+    - name: Ensure mqtt user is set
+      include_role:
+        name: ansible-tasmota
+      vars:
+        tasmota_commands:
+          - command: mqttuser
+            value: "{{ default.mqtt_user }}"
+
+    - name: Ensure mqtt pass is set
+      include_role:
+        name: ansible-tasmota
+      vars:
+        tasmota_commands:
+          - command: mqttuser
+            value: "{{ default.mqtt_pass }}"
+
+    - name: Ensure mqtt port is set
+      include_role:
+        name: ansible-tasmota
+      vars:
+        tasmota_commands:
+          - command: mqttport
+            value: "{{ default.mqtt_port }}"
+
+    - name: Ensure mqtt host is set
+      include_role:
+        name: ansible-tasmota
+      vars:
+        tasmota_commands:
+          - command: mqtthost
+            value: "{{ default.mqtt_host }}"
+
     - name: Ensure topic is set
       include_role: 
         name: ansible-tasmota
