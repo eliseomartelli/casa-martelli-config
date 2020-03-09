@@ -1,0 +1,8 @@
+- hosts: locks
+  gather_facts: no
+  vars:
+    tasmota_commands:
+      - command: Pulsetime
+        value: 1
+  roles:
+    - tobias_richter.tasmota
