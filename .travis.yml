@@ -16,5 +16,6 @@ jobs:
         include:
                 - script: hass --script check_config -c homeassistant/ -f
                 - script: cd provision && ansible-playbook playbook.yaml -i inventory --syntax-check
+                - script: cd tasmota && ansible-playbook playbook.yaml -i inventory --syntax-check
 after_success:
         - test $TRAVIS_BRANCH = "master" && curl -d "" -X POST $WEBHOOK_DEPLOY
