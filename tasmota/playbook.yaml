@@ -3,37 +3,13 @@
   vars_files:
     - default.yaml
   tasks:
-    - name: Ensure mqtt user is set
+    - name: Ensure mqtt configuration is present
       include_role:
         name: ansible-tasmota
       vars:
         tasmota_commands:
-          - command: mqttuser
-            value: "{{ default.mqtt_user }}"
-
-    - name: Ensure mqtt pass is set
-      include_role:
-        name: ansible-tasmota
-      vars:
-        tasmota_commands:
-          - command: mqttpassword
-            value: "{{ default.mqtt_pass }}"
-
-    - name: Ensure mqtt port is set
-      include_role:
-        name: ansible-tasmota
-      vars:
-        tasmota_commands:
-          - command: mqttport
-            value: "{{ default.mqtt_port }}"
-
-    - name: Ensure mqtt host is set
-      include_role:
-        name: ansible-tasmota
-      vars:
-        tasmota_commands:
-          - command: mqtthost
-            value: "{{ default.mqtt_host }}"
+          - command: Backlog
+            value: "mqttuser {{ default.mqtt_user }}; mqttpassword {{ default.mqtt_pass }}; mqttport {{ default.mqtt_port }}; mqtthost {{ default.mqtt_host }};"
 
     - name: Ensure topic is set
       include_role: 
@@ -93,31 +69,11 @@
       vars:
         tasmota_commands:
           - command: Rule1
-            value: >
-              Rule1
-                ON IrReceived#Data=0x00FFB24D DO WebSend [192.168.0.23] Power Toggle ENDON
-                ON IrReceived#Data=0x00F7D02F DO WebSend [192.168.0.23] Power Toggle ENDON
-                ON IrReceived#Data=0x00FFB04F DO Power Toggle ENDON
-                ON IrReceived#Data=0x00F7C03F DO Power Toggle ENDON
-                ON IrReceived#Data=0x00F700FF Do Dimmer + ENDON
-                ON IrReceived#Data=0x00FF906F DO Dimmer + ENDON
-                ON IrReceived#Data=0x00FFB847 Do Dimmer - ENDON
-                ON IrReceived#Data=0x00F7807F DO Dimmer - ENDON
+            value: "ON IrReceived#Data=0x00FFB24D DO WebSend [192.168.0.23] Power Toggle ENDON ON IrReceived#Data=0x00F7D02F DO WebSend [192.168.0.23] Power Toggle ENDON ON IrReceived#Data=0x00FFB04F DO Power Toggle ENDON ON IrReceived#Data=0x00F7C03F DO Power Toggle ENDON ON IrReceived#Data=0x00F700FF Do Dimmer + ENDON ON IrReceived#Data=0x00FF906F DO Dimmer + ENDON ON IrReceived#Data=0x00FFB847 Do Dimmer - ENDON ON IrReceived#Data=0x00F7807F DO Dimmer - ENDON"
           - command: Rule1
             value: 1
           - command: Rule2
-            value: >
-              Rule2
-                ON IrReceived#Data=0x00FF9867 Do Color #FF0000 ENDON
-                ON IrReceived#Data=0x00F720DF Do Color #FF0000 ENDON
-                ON IrReceived#Data=0x00FFD827 Do Color #00FF00 ENDON
-                ON IrReceived#Data=0x00F7A05F Do Color #00FF00 ENDON
-                ON IrReceived#Data=0x00FF8877 Do Color #0000FF ENDON
-                ON IrReceived#Data=0x00F7609F Do Color #0000FF ENDON
-                ON IrReceived#Data=0x00FFA857 DO Color #FFFFFF ENDON
-                ON IrReceived#Data=0x00F7E01F DO Color #FFFFFF ENDON
-                ON IrReceived#Data=0x00F7E817 DO Scheme 2 ENDON
-                ON IrReceived#Data=0x00FF30CF DO Scheme 2 ENDON
+            value: "ON IrReceived#Data=0x00FF9867 Do Color #FF0000 ENDON ON IrReceived#Data=0x00F720DF Do Color #FF0000 ENDON ON IrReceived#Data=0x00FFD827 Do Color #00FF00 ENDON ON IrReceived#Data=0x00F7A05F Do Color #00FF00 ENDON ON IrReceived#Data=0x00FF8877 Do Color #0000FF ENDON ON IrReceived#Data=0x00F7609F Do Color #0000FF ENDON ON IrReceived#Data=0x00FFA857 DO Color #FFFFFF ENDON ON IrReceived#Data=0x00F7E01F DO Color #FFFFFF ENDON ON IrReceived#Data=0x00F7E817 DO Scheme 2 ENDON ON IrReceived#Data=0x00FF30CF DO Scheme 2 ENDON"
           - command: Rule2
             value: 1
 
