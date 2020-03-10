@@ -1,0 +1,4 @@
+platform: mqtt
+name: Sistema Upload
+state_topic: sensors/modem/data_up
+unit_of_measurement: 'Kbit/s'
