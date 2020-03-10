@@ -29,7 +29,7 @@
       cards:
         - !include 
             - ../includes/section.yaml
-            - title: Lights
+            - title: Luci
         - !include
             - ../includes/grid.yaml
             - entities: 
@@ -44,7 +44,7 @@
       cards:
         - !include 
             - ../includes/section.yaml
-            - title: Switches
+            - title: Interruttori
         - !include
             - ../includes/grid.yaml
             - entities: 
@@ -81,7 +81,7 @@
       cards:
         - !include 
           - ../includes/section.yaml
-          - title: More
+          - title: Altro
         - type: entities
           entities:
           {% if room.additional_switches %}
