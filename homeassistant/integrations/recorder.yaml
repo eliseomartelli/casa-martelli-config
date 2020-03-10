@@ -9,3 +9,5 @@ recorder:
       - binary_sensor.lavanderia_lavatrice_hoover
       - binary_sensor.cortile_piazzale_presenza
       - binary_sensor.cortile_viale_presenza
+      - sensor.sistema_upload
+      - sensor.sistema_download
