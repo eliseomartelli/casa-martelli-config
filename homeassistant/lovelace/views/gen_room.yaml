@@ -1,0 +1,98 @@
+# lovelace_gen
+
+{% for room in _global.rooms %}
+- title: {{ room.name }}
+  visible: false
+  path: {{ room.name | lower | replace(" ", "_") }}
+  icon: {{ room.icon | default("mdi:home") }}
+  cards:
+    - !include 
+      - ../includes/header.yaml
+      - title: "{{ room.name }}"
+        navigation_path: "home"
+
+  {% if room.sensors %}
+    - type: horizontal-stack
+      cards:
+      {% for sensor in room.sensors %}
+        - type: custom:decluttering-card
+          template: mini_graph
+          variables:
+            - entity_id: {{ sensor.entity_id }}
+            - color: {{ sensor.color }}
+            - name: {{ sensor.name }} 
+      {% endfor %}
+  {% endif %}
+
+  {% if room.lights %}
+    - type: vertical-stack
+      cards:
+        - !include 
+            - ../includes/section.yaml
+            - title: Lights
+        - !include
+            - ../includes/grid.yaml
+            - entities: 
+              {% for s in room.lights %}
+                - entity_id: {{ s.entity_id }}
+                  name: {{ s.name }}
+              {% endfor %}
+  {% endif %}
+
+  {% if room.switches %}
+    - type: vertical-stack
+      cards:
+        - !include 
+            - ../includes/section.yaml
+            - title: Switches
+        - !include
+            - ../includes/grid.yaml
+            - entities: 
+              {% for s in room.switches %}
+                - entity_id: {{ s.entity_id }}
+                  name: {{ s.name }}
+              {% endfor %}
+  {% endif %}
+
+  {% if room.media_players %}
+    - type: vertical-stack
+      cards:
+        - !include 
+          - ../includes/section.yaml
+          - title: Media
+      {% for media_player in room.media_players %}
+        - type: custom:mini-media-player
+          artwork: cover
+          entity: {{ media_player.entity_id }}
+        {% if media_player.shortcuts %}
+          shortcuts:
+            buttons:
+            {% for shortcut in media_player.shortcuts %}
+              - name: {{ shortcut.name }}
+                type: script
+                id: {{ shortcut.entity_id }}
+            {% endfor %}
+        {% endif %}
+      {% endfor %}
+  {% endif %}
+
+  {% if room.additional_buttons or room.additional_switches %}
+    - type: vertical-stack
+      cards:
+        - !include 
+          - ../includes/section.yaml
+          - title: More
+        - type: entities
+          entities:
+          {% if room.additional_switches %}
+          {% for switch in room.additional_switches %}
+            - {{ switch.entity_id }}
+          {% endfor %}
+          {% endif %}
+          {% if room.additional_buttons %}
+          {% for button in room.additional_buttons %}
+            - {{ button.entity_id }}
+          {% endfor %}
+          {% endif %}
+  {% endif %}
+{% endfor %}

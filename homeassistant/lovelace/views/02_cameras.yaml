@@ -1,0 +1,24 @@
+# lovelace_gen
+
+- title: Cameras
+  icon: mdi:filmstrip
+  path: cameras
+  cards:
+  - !include 
+    - ../includes/header.yaml
+    - title: "Telecamere"
+
+{% for room in _global.rooms %}
+  {% if room.cameras %}
+  - type: vertical-stack
+    cards:
+      - !include 
+        - ../includes/section.yaml
+        - title: {{ room.name }}
+    {% for c in room.cameras %}
+      - type: picture-entity
+        entity: "{{ c.entity_id }}"
+    {% endfor %}
+  {% endif %}
+{% endfor %}
+  

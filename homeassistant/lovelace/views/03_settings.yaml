@@ -1,0 +1,107 @@
+# lovelace_gen
+
+- title: Impostazioni
+  icon: mdi:settings
+  path: settings
+  cards:
+    - !include 
+      - ../includes/header.yaml
+      - title: "Impostazioni"
+    - type: vertical-stack
+      cards:
+        - !include 
+          - ../includes/section.yaml
+          - title: "Internet"
+        - type: horizontal-stack
+          cards:
+
+            - type: custom:decluttering-card
+              template: mini_graph
+              variables:
+                - entity_id: sensor.sistema_upload
+                - color: purple
+                - name: Upload
+
+            - type: custom:decluttering-card
+              template: mini_graph
+              variables:
+                - entity_id: sensor.sistema_download
+                - color: red
+                - name: Download
+
+    # - type: vertical-stack
+    #   cards:
+    #     - !include 
+    #       - ../includes/section.yaml
+    #       - title: "Transmission"
+    #     - type: horizontal-stack
+    #       cards:
+
+    #         - type: custom:decluttering-card
+    #           template: mini_graph
+    #           variables:
+    #             - entity_id: sensor.transmission_up_speed
+    #             - color: purple
+    #             - name: Upload
+
+    #         - type: custom:decluttering-card
+    #           template: mini_graph
+    #           variables:
+    #             - entity_id: sensor.transmission_down_speed
+    #             - color: red
+    #             - name: Download
+
+        # - type: entities
+        #   entities:
+        #     - entity: switch.transmission_switch
+        #       name: Enable
+        #     - entity: sensor.transmission_status
+        #       name: Status
+
+    - type: vertical-stack
+      cards:
+
+        - !include 
+          - ../includes/section.yaml
+          - title: "Stampante"
+        - type: custom:auto-entities
+          card:
+            type: glance
+            show_icon: false
+          filter:
+            include:
+              - entity_id: sensor.corridoio_stampante_*
+
+    - type: vertical-stack
+      cards:
+
+        - !include 
+          - ../includes/section.yaml
+          - title: "Altro"
+        - type: entities
+          entities:
+            - input_select.sistema_stato_del_giorno
+    # - type: vertical-stack
+    #   cards:
+
+    #     - !include 
+    #       - ../includes/section.yaml
+    #       - title: "Addons"
+
+    #     - type: custom:mod-card
+    #       style: |
+    #         ha-card {
+    #           margin: -8px;
+    #         }
+    #       card:
+    #         type: custom:layout-card
+    #         layout: horizontal
+    #         column_width: 50%
+    #         justify_content: start
+    #         cards:
+    #           - type: custom:decluttering-card
+    #             template: "hk_simple_link"
+    #             variables:
+    #               - path: zigbee2mqtt
+    #               - name: Zigbee
+    #               - icon: mdi:zigbee

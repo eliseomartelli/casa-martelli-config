@@ -1,0 +1,5 @@
+name: Cucina
+icon: mdi:stove
+switches:
+  - entity_id: switch.cucina_scaldatazze
+    name: Scaldatazze

@@ -1,0 +1,5 @@
+name: Cameretta
+icon: mdi:bed-double
+lights:
+  - entity_id: light.cameretta_testiera
+    name: Testiera

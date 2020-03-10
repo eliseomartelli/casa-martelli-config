@@ -1,54 +1,5 @@
-views:
-  - title: Home
-    cards: 
-      - type: entities
-        title: Soggiorno
-        entities:
-          - binary_sensor.soggiorno_tv
-          - light.soggiorno_principale
-          - media_player.soggiorno_speaker
-          - media_player.soggiorno_tv
-
-      - type: entities
-        title: Cucina
-        entities:
-          - switch.cucina_scaldatazze
-
-      - type: entities
-        title: Corridoio
-        entities:
-          - light.corridoio_notturna
-
-      - type: entities
-        title: Cortile
-        entities:
-          - light.cortile_frontale
-          - camera.cortile_piazzale
-          - camera.cortile_viale
-          - binary_sensor.cortile_piazzale_presenza
-          - binary_sensor.cortile_viale_presenza
-          - lock.cortile_pedonale
-
-      - type: entities
-        title: Cameretta
-        entities:
-          - light.cameretta_testiera
-
-      - type: entities
-        title: Lavanderia
-        entities:
-          - binary_sensor.lavanderia_lavatrice_hoover
-
-      - type: entities
-        title: Famiglia
-        entities:
-          - person.antonella_di_paolo
-          - person.antonio_martelli
-          - person.eliseo_martelli
-          - person.gioele_martelli
-      
-      - type: entities
-        title: Altro
-        entities:
-          - input_select.sistema_stato_del_giorno
-          - switch.adguard_filtering
+title: Home
+resources: !include_dir_list lovelace/resources
+decluttering_templates: !include_dir_merge_named lovelace/decluttering_templates
+custom_header: !include lovelace/custom_header.yaml
+views: !include_dir_merge_list lovelace/views

@@ -1,0 +1,4 @@
+name: Lavanderia
+icon: mdi:washing-machine
+additional_switches:
+  - entity_id: binary_sensor.lavanderia_lavatrice_hoover
