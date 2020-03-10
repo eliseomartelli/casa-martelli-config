@@ -1,0 +1,5 @@
+name: Corridoio
+icon: mdi:checkbox-blank-outline
+lights:
+  - entity_id: light.corridoio_notturna
+    name: Notturna
