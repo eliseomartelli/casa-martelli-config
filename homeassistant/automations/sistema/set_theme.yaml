@@ -1,0 +1,10 @@
+---
+id: 88DF7D78-CC15-4443-B687-35001BFD2AC5
+alias: System Set Theme
+trigger:
+  - platform: homeassistant
+    event: start
+action:
+  - service: frontend.set_theme
+    data:
+      name: "Google Light Theme"
