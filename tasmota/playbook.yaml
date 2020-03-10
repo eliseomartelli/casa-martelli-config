@@ -3,6 +3,14 @@
   vars_files:
     - default.yaml
   tasks:
+    - name: Ensure template is set
+      include_role:
+        name: ansible-tasmota
+      vars:
+        tasmota_commands:
+          - command: Template
+            value: "{{ template | default('', True) }}"
+
     - name: Ensure mqtt configuration is present
       include_role:
         name: ansible-tasmota
