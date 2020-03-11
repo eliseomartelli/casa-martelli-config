@@ -1,0 +1,5 @@
+include_domains:
+        - light
+        - locks
+include_entities:
+        - switch.cucina_scaldatazze
