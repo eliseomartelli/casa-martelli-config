@@ -2,7 +2,7 @@ platform: mqtt
 name: Cortile Pedonale
 state_topic: "stat/cortile_pedonale/RESULT"
 value_template: "{{ value_json.POWER }}"
-command_topic: "cmnd/s0001/POWER"
+command_topic: "cmnd/cortile_pedonale/POWER"
 availability_topic: "tele/cortile_pedonale/LWT"
 qos: 1
 payload_lock: "OFF"
