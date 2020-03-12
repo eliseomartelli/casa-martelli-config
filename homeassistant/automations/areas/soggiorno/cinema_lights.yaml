@@ -16,3 +16,8 @@ action:
       {% endif %}
     data:
       entity_id: light.soggiorno_principale
+  - condition: template
+    value_template: >
+      {{ trigger.to_state.state == "playing" }}
+  - service: light.turn_off
+    entity_id: light.soggiorno_faretti
