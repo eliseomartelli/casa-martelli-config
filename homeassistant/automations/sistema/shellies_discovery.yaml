@@ -11,3 +11,10 @@ action:
     fw_ver: '{{ trigger.payload_json.fw_ver }}'
     shelly1-BA3681-relay-0: 'light'
     shelly1-BA3900-relay-0: 'light'
+    shellyswitch25-8CAAB505ACA8-relay-0: 'light'
+    shellyswitch25-8CAAB505ACA8-relay-1: 'light'
+    shellyswitch25-98F4ABF2E1F1-relay-0: 'light'
+    shellyswitch25-98F4ABF2E1F1-relay-1: 'light'
+
+
+
