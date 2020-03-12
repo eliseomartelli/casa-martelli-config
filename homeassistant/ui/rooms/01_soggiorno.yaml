@@ -10,6 +10,8 @@ icon: mdi:sofa
 lights:
   - entity_id: light.soggiorno_principale
     name: Principale
+  - entity_id: light.soggiorno_faretti
+    name: Faretti
 #switches:
 #  - entity_id: switch.bedroom_air_freshner
 #    name: Freshner
