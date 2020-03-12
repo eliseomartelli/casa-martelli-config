@@ -119,13 +119,13 @@
             value: 1
 
           - command: Rule3
-            value: "ON IrReceived#Data=0x00F7F00F D0 Websend [192.168.0.27] /relay/0?turn=toggle ENDON"
+            value: "ON IrReceived#Data=0x00F7F00F DO Websend [192.168.0.27] /relay/0?turn=toggle ENDON"
           - command: Rule3
-            value: "+ ON IrReceived#Data=0x00FF00FF Do Websend [192.168.0.27] /relay/0?turn=toggle ENDON"
+            value: "+ ON IrReceived#Data=0x00FF00FF DO Websend [192.168.0.27] /relay/0?turn=toggle ENDON"
           - command: Rule3
-            value: "+ ON IrReceived#Data=0x00F7C837 Websend [192.168.0.27] /relay/1?turn=toggle ENDON"
+            value: "+ ON IrReceived#Data=0x00F7C837 DO Websend [192.168.0.27] /relay/1?turn=toggle ENDON"
           - command: Rule3
-            value: "+ ON IrReceived#Data=0x00FF58A7 Do WebSend Websend [192.168.0.27] /relay/1?turn=toggle ENDON"
+            value: "+ ON IrReceived#Data=0x00FF58A7 Do Websend [192.168.0.27] /relay/1?turn=toggle ENDON"
           - command: Rule3
             value: 1
 
