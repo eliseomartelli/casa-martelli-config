@@ -1,0 +1,18 @@
+id: 691EC33E-BF87-4242-AB1D-60F1471C1B62
+alias: Soggiorno Cinema Playback
+trigger:
+  - platform: state
+    entity_id: group.areas_soggiorno
+condition:
+  - condition: state
+    entity_id: input_boolean.soggiorno_cinema
+    state: 'on'
+action:
+  - service_template: >
+      {% if trigger.to_state.state == "on" %}
+        media_player.media_pause
+      {% else %}
+        media_player.media_play      
+      {% endif %}
+    data:
+      entity_id: media_player.soggiorno_tv
