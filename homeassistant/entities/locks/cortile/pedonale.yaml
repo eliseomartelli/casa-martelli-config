@@ -1,11 +1,14 @@
 platform: mqtt
 name: Cortile Pedonale
-state_topic: "stat/cortile_pedonale/RESULT"
+state_topic: "stat/cortile_pedonale/RESULT"  
 value_template: "{{ value_json.POWER }}"
 command_topic: "cmnd/cortile_pedonale/POWER"
-availability_topic: "tele/cortile_pedonale/LWT"
-qos: 1
-payload_lock: "OFF"
 payload_unlock: "ON"
+payload_lock: "OFF"
+state_locked: "OFF"
+state_unlocked: "ON"
+availability_topic: "tele/cortile_pedonale/LWT"
 payload_available: "Online"
 payload_not_available: "Offline"
+qos: 1
+retain: false
