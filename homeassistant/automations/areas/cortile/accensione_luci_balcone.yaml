@@ -1,0 +1,12 @@
+id: facb9477-4aec-467e-be2d-86d6be8e9228
+alias: Cortile Accensione Luci Balcone
+trigger:
+  - platform: state
+    entity_id: light.cortile_frontale
+    to: 'on'
+condition:
+  - condition: template
+    value_template: "{{ as_timestamp(now()) - as_timestamp(trigger.from_state.last_changed) <= 0.25 }}"
+action:
+  - service: light.turn_on
+    entity_id: light.cortile_balcone
