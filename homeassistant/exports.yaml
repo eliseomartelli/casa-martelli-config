@@ -3,4 +3,5 @@ include_domains:
         - lock
 include_entities:
         - switch.cucina_scaldatazze
+        - switch.soggiorno_tv
         - input_boolean.soggiorno_cinema
