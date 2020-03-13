@@ -8,57 +8,57 @@ ATTR_MODEL_SHELLY1 = "Shelly1"
 ATTR_MODEL_SHELLY1PM = "Shelly1PM"
 ATTR_MODEL_SHELLY2 = "Shelly2"
 ATTR_MODEL_SHELLY25 = "Shelly2.5"
+ATTR_MODEL_SHELLY4PRO = "Shelly4Pro"
+ATTR_MODEL_SHELLYBULB = "Shelly Bulb"
+ATTR_MODEL_SHELLYDIMMER = "Shelly Dimmer"
+ATTR_MODEL_SHELLYDUO = "Shelly DUO"
+ATTR_MODEL_SHELLYDW = "Shelly Door/Window"
+ATTR_MODEL_SHELLYFLOOD = "Shelly Flood"
+ATTR_MODEL_SHELLYHT = "Shelly H&T"
 ATTR_MODEL_SHELLYPLUG = "Shelly Plug"
 ATTR_MODEL_SHELLYPLUG_S = "Shelly Plug S"
-ATTR_MODEL_SHELLY4PRO = "Shelly4Pro"
-ATTR_MODEL_SHELLYHT = "Shelly H&T"
-ATTR_MODEL_SHELLYDW = "Shelly Door/Window"
-ATTR_MODEL_SHELLYSMOKE = "Shelly Smoke"
-ATTR_MODEL_SHELLYSENSE = "Shelly Sense"
 ATTR_MODEL_SHELLYRGBW2 = "Shelly RGBW2"
-ATTR_MODEL_SHELLYBULB = "Shelly Bulb"
-ATTR_MODEL_SHELLYDUO = "Shelly DUO"
+ATTR_MODEL_SHELLYSENSE = "Shelly Sense"
+ATTR_MODEL_SHELLYSMOKE = "Shelly Smoke"
 ATTR_MODEL_SHELLY_3EM = "Shelly 3EM"
 ATTR_MODEL_SHELLY_EM = "Shelly EM"
-ATTR_MODEL_SHELLYFLOOD = "Shelly Flood"
-ATTR_MODEL_SHELLYDIMMER = "Shelly Dimmer"
 
-ATTR_TEMPERATURE = "temperature"
-ATTR_HUMIDITY = "humidity"
 ATTR_BATTERY = "battery"
-ATTR_CURRENT = "current"
-ATTR_LUX = "lux"
-ATTR_ILLUMINANCE = "illuminance"
-ATTR_POWER = "power"
-ATTR_PROBLEM = "problem"
-ATTR_POWER_FACTOR = "pf"
-ATTR_REACTIVE_POWER = "reactive_power"
-ATTR_VOLTAGE = "voltage"
-ATTR_ENERGY = "energy"
-ATTR_RETURNED_ENERGY = "returned_energy"
-ATTR_TOTAL = "total"
-ATTR_TOTAL_RETURNED = "total_returned"
-ATTR_SWITCH = "switch"
-ATTR_LIGHT = "light"
-ATTR_RGBW = "rgbw"
-ATTR_WHITE = "white"
-ATTR_FAN = "fan"
-ATTR_SMOKE = "smoke"
-ATTR_FLOOD = "flood"
-ATTR_MOISTURE = "moisture"
-ATTR_MOTION = "motion"
-ATTR_OPENING = "opening"
 ATTR_CHARGER = "charger"
+ATTR_COVER = "cover"
+ATTR_CURRENT = "current"
+ATTR_ENERGY = "energy"
+ATTR_FAN = "fan"
+ATTR_FLOOD = "flood"
+ATTR_HEAT = "heat"
+ATTR_HUMIDITY = "humidity"
+ATTR_ILLUMINANCE = "illuminance"
 ATTR_INPUT = "input"
 ATTR_INPUT_0 = "input/0"
 ATTR_INPUT_1 = "input/1"
-ATTR_LONGPUSH = "longpush"
-ATTR_OVERTEMPERATURE = "overtemperature"
-ATTR_OVERPOWER = "overpower"
-ATTR_OVERLOAD = "overload"
+ATTR_LIGHT = "light"
 ATTR_LOADERROR = "loaderror"
-ATTR_HEAT = "heat"
-ATTR_COVER = "cover"
+ATTR_LONGPUSH = "longpush"
+ATTR_LUX = "lux"
+ATTR_MOISTURE = "moisture"
+ATTR_MOTION = "motion"
+ATTR_OPENING = "opening"
+ATTR_OVERLOAD = "overload"
+ATTR_OVERPOWER = "overpower"
+ATTR_OVERTEMPERATURE = "overtemperature"
+ATTR_POWER = "power"
+ATTR_POWER_FACTOR = "pf"
+ATTR_PROBLEM = "problem"
+ATTR_REACTIVE_POWER = "reactive_power"
+ATTR_RETURNED_ENERGY = "returned_energy"
+ATTR_RGBW = "rgbw"
+ATTR_SMOKE = "smoke"
+ATTR_SWITCH = "switch"
+ATTR_TEMPERATURE = "temperature"
+ATTR_TOTAL = "total"
+ATTR_TOTAL_RETURNED = "total_returned"
+ATTR_VOLTAGE = "voltage"
+ATTR_WHITE = "white"
 
 ATTR_AC_POWER = "ac_power"
 
@@ -66,6 +66,7 @@ CONF_DEVELOP = "develop"
 CONF_DISCOVERY_PREFIX = "discovery_prefix"
 CONF_FW_VER = "fw_ver"
 CONF_ID = "id"
+CONF_IGNORED_DEVICES = "ignored_devices"
 CONF_MAC = "mac"
 CONF_QOS = "qos"
 
@@ -78,8 +79,8 @@ PL_1_0 = {STATE_ON: "1", STATE_OFF: "0"}
 PL_OPEN_CLOSE = {STATE_ON: "open", STATE_OFF: "close"}
 PL_TRUE_FALSE = {STATE_ON: "true", STATE_OFF: "false"}
 
-TPL_CURRENT = "{{value|float|round(2)}}"
 TPL_BATTERY = "{{value|float|round}}"
+TPL_CURRENT = "{{value|float|round(2)}}"
 TPL_ENERGY_WH = "{{(value|float/1000)|round(2)}}"
 TPL_ENERGY_WMIN = "{{(value|float/60/1000)|round(2)}}"
 TPL_HUMIDITY = "{{value|float|round(1)}}"
@@ -88,7 +89,7 @@ TPL_OVERPOWER = "{% if value_json.overpower == true %}ON{% else %}OFF{% endif %}
 TPL_POWER = "{{value|float|round(1)}}"
 TPL_POWER_FACTOR = "{{value|float*100|round}}"
 TPL_TEMPERATURE = "{{value|float|round(1)}}"
-TPL_TEMPERATURE_EXT = "{{value[1:]|float|round(1)}}"
+TPL_TEMPERATURE_EXT = "{{value|replace(':','')|float|round(1)}}"
 TPL_VOLTAGE = "{{value|float|round(1)}}"
 
 UNIT_AMPERE = "A"
@@ -96,8 +97,8 @@ UNIT_CELSIUS = "°C"
 UNIT_KWH = "kWh"
 UNIT_LUX = "lx"
 UNIT_PERCENT = "%"
-UNIT_VOLT = "V"
 UNIT_VAR = "VAR"
+UNIT_VOLT = "V"
 UNIT_WATT = "W"
 
 expire_after = 43200
@@ -106,10 +107,13 @@ off_delay = 3
 retain = True
 qos = 0
 roller_mode = False
+ignored = []
 
 id = data.get(CONF_ID)
 mac = data.get(CONF_MAC)
 fw_ver = data.get(CONF_FW_VER)
+if data.get(CONF_IGNORED_DEVICES):
+    ignored = [element.lower() for element in data.get(CONF_IGNORED_DEVICES)]
 
 if not id:
     raise ValueError(f"{id} is wrong id argument")
@@ -301,10 +305,10 @@ if id.rsplit("-", 1)[0] == "shellyrgbw2":
     lights_sensors_classes = [ATTR_POWER]
     lights_sensors_units = [UNIT_WATT]
     lights_sensors_tpls = ["{{value_json.power|float|round(1)}}"]
-    lights_bin_sensors = [ATTR_OVERPOWER]
-    lights_bin_sensors_classes = [ATTR_POWER]
-    lights_bin_sensors_tpls = [TPL_OVERPOWER]
-    lights_bin_sensors_pl = [PL_TRUE_FALSE]
+    lights_bin_sensors = [ATTR_OVERPOWER, ATTR_INPUT]
+    lights_bin_sensors_classes = [ATTR_POWER, None]
+    lights_bin_sensors_tpls = [TPL_OVERPOWER, None]
+    lights_bin_sensors_pl = [None, PL_1_0]
 
 if id.rsplit("-", 1)[0] == "shellydimmer":
     model = ATTR_MODEL_SHELLYDIMMER
@@ -334,6 +338,10 @@ if id.rsplit("-", 1)[0] == "shellybulb":
 if id.rsplit("-", 1)[0] == "ShellyBulbDuo":
     model = ATTR_MODEL_SHELLYDUO
     white_lights = 1
+    lights_sensors = [ATTR_ENERGY, ATTR_POWER]
+    lights_sensors_units = [UNIT_KWH, UNIT_WATT]
+    lights_sensors_classes = [ATTR_POWER, ATTR_POWER]
+    lights_sensors_tpls = [TPL_ENERGY_WMIN, TPL_POWER]
 
 if id.rsplit("-", 1)[0] == "shellyem":
     model = ATTR_MODEL_SHELLY_EM
@@ -384,10 +392,46 @@ if id.rsplit("-", 1)[0] == "shellyem3":
     model = ATTR_MODEL_SHELLY_3EM
     relays = 1
     meters = 3
-    meters_sensors = [ATTR_CURRENT, ATTR_POWER, ATTR_POWER_FACTOR, ATTR_VOLTAGE]
-    meters_sensors_units = [UNIT_AMPERE, UNIT_WATT, UNIT_PERCENT, UNIT_VOLT]
-    meters_sensors_classes = [None, ATTR_POWER, None, None]
-    meters_sensors_tpls = [TPL_CURRENT, TPL_POWER, TPL_POWER_FACTOR, TPL_VOLTAGE]
+    meters_sensors = [
+        ATTR_CURRENT,
+        ATTR_POWER,
+        ATTR_POWER_FACTOR,
+        ATTR_VOLTAGE,
+        ATTR_ENERGY,
+        ATTR_RETURNED_ENERGY,
+        ATTR_TOTAL,
+        ATTR_TOTAL_RETURNED,
+    ]
+    meters_sensors_units = [
+        UNIT_AMPERE,
+        UNIT_WATT,
+        UNIT_PERCENT,
+        UNIT_VOLT,
+        UNIT_KWH,
+        UNIT_KWH,
+        UNIT_KWH,
+        UNIT_KWH,
+    ]
+    meters_sensors_classes = [
+        None,
+        ATTR_POWER,
+        None,
+        None,
+        ATTR_POWER,
+        ATTR_POWER,
+        ATTR_POWER,
+        ATTR_POWER,
+    ]
+    meters_sensors_tpls = [
+        TPL_CURRENT,
+        TPL_POWER,
+        TPL_POWER_FACTOR,
+        TPL_VOLTAGE,
+        TPL_ENERGY_WMIN,
+        TPL_ENERGY_WMIN,
+        TPL_ENERGY_WH,
+        TPL_ENERGY_WH,
+    ]
 
 if id.rsplit("-", 1)[0] == "shellyflood":
     model = ATTR_MODEL_SHELLYFLOOD
@@ -442,6 +486,8 @@ for roller_id in range(0, rollers):
         )
     else:
         payload = ""
+    if id.lower() in ignored:
+        payload = ""
     service_data = {
         "topic": config_topic,
         "payload": payload,
@@ -487,6 +533,8 @@ for relay_id in range(0, relays):
             )
         else:
             payload = ""
+        if id.lower() in ignored:
+            payload = ""
         service_data = {
             "topic": config_topic,
             "payload": payload,
@@ -525,6 +573,8 @@ for relay_id in range(0, relays):
                     '"~":"' + default_topic + '"}'
                 )
             else:
+                payload = ""
+            if id.lower() in ignored:
                 payload = ""
             service_data = {
                 "topic": config_topic,
@@ -565,6 +615,8 @@ for relay_id in range(0, relays):
                 '"~":"' + default_topic + '"}'
             )
         else:
+            payload = ""
+        if id.lower() in ignored:
             payload = ""
         service_data = {
             "topic": config_topic,
@@ -627,6 +679,8 @@ for relay_id in range(0, relays):
                 )
         else:
             payload = ""
+        if id.lower() in ignored:
+            payload = ""
         service_data = {
             "topic": config_topic,
             "payload": payload,
@@ -687,6 +741,8 @@ for sensor_id in range(0, len(sensors)):
             '"mf":"' + ATTR_MANUFACTURER + '"},'
             '"~":"' + default_topic + '"}'
         )
+    if id.lower() in ignored:
+        payload = ""
     service_data = {
         "topic": config_topic,
         "payload": payload,
@@ -732,6 +788,8 @@ for sensor_id in range(0, ext_sensors):
                 '"~":"' + default_topic + '"}'
             )
         else:
+            payload = ""
+        if id.lower() in ignored:
             payload = ""
         service_data = {
             "topic": config_topic,
@@ -812,6 +870,8 @@ for bin_sensor_id in range(0, len(bin_sensors)):
             '"mf":"' + ATTR_MANUFACTURER + '"},'
             '"~":"' + default_topic + '"}'
         )
+    if id.lower() in ignored:
+        payload = ""
     service_data = {
         "topic": config_topic,
         "payload": payload,
@@ -893,6 +953,8 @@ for light_id in range(0, rgbw_lights):
         )
     else:
         payload = ""
+    if id.lower() in ignored:
+        payload = ""
     service_data = {
         "topic": config_topic,
         "payload": payload,
@@ -904,30 +966,116 @@ for light_id in range(0, rgbw_lights):
 
     # color light's binary sensors
     for bin_sensor_id in range(0, len(lights_bin_sensors)):
-        unique_id = f"{id}-color-{lights_bin_sensors[bin_sensor_id]}-{light_id}"
-        config_topic = f"{disc_prefix}/binary_sensor/{id}-color-{lights_bin_sensors[bin_sensor_id]}-{light_id}/config"
+
+        # fix for RGBW2 input binary sensor issue
+        if lights_bin_sensors[bin_sensor_id] == ATTR_INPUT and light_id == 0:
+            unique_id = f"{id}-{lights_bin_sensors[bin_sensor_id]}-{light_id}"
+            config_topic = f"{disc_prefix}/binary_sensor/{id}-{lights_bin_sensors[bin_sensor_id]}-{light_id}/config"
+            state_topic = f"~{lights_bin_sensors[bin_sensor_id]}/{light_id}"
+            sensor_name = f"{device_name} {lights_bin_sensors[bin_sensor_id].capitalize()} {light_id}"
+            payload = ""
+            service_data = {
+                "topic": config_topic,
+                "payload": payload,
+                "retain": retain,
+                "qos": qos,
+            }
+            logger.debug("Send to MQTT broker: %s %s", config_topic, payload)
+            hass.services.call("mqtt", "publish", service_data, False)
+        # end of fix
+
         sensor_name = (
             f"{device_name} {lights_bin_sensors[bin_sensor_id].capitalize()} {light_id}"
         )
-        state_topic = f"~color/{light_id}/status"
-        if config_light == ATTR_RGBW:
-            payload = (
-                '{"name":"' + sensor_name + '",'
-                '"stat_t":"' + state_topic + '",'
-                '"val_tpl":"' + lights_bin_sensors_tpls[bin_sensor_id] + '",'
-                '"avty_t":"' + availability_topic + '",'
-                '"pl_avail":"true",'
-                '"pl_not_avail":"false",'
-                '"uniq_id":"' + unique_id + '",'
-                '"qos":"' + str(qos) + '",'
-                '"dev": {"ids": ["' + mac + '"],'
-                '"name":"' + device_name + '",'
-                '"mdl":"' + model + '",'
-                '"sw":"' + fw_ver + '",'
-                '"mf":"' + ATTR_MANUFACTURER + '"},'
-                '"~":"' + default_topic + '"}'
-            )
+        config_topic = f"{disc_prefix}/binary_sensor/{id}-color-{lights_bin_sensors[bin_sensor_id]}-{light_id}/config"
+        unique_id = f"{id}-color-{lights_bin_sensors[bin_sensor_id]}-{light_id}"
+        if lights_bin_sensors[bin_sensor_id] == ATTR_INPUT:
+            state_topic = f"~{lights_bin_sensors[bin_sensor_id]}/{light_id}"
         else:
+            state_topic = f"~color/{light_id}/status"
+        if config_light == ATTR_RGBW:
+            if (
+                lights_bin_sensors_tpls[bin_sensor_id]
+                and lights_bin_sensors_classes[bin_sensor_id]
+            ):
+                payload = (
+                    '{"name":"' + sensor_name + '",'
+                    '"stat_t":"' + state_topic + '",'
+                    '"val_tpl":"' + lights_bin_sensors_tpls[bin_sensor_id] + '",'
+                    '"avty_t":"' + availability_topic + '",'
+                    '"dev_cla":"' + lights_bin_sensors_classes[bin_sensor_id] + '",'
+                    '"pl_avail":"true",'
+                    '"pl_not_avail":"false",'
+                    '"uniq_id":"' + unique_id + '",'
+                    '"qos":"' + str(qos) + '",'
+                    '"dev": {"ids": ["' + mac + '"],'
+                    '"name":"' + device_name + '",'
+                    '"mdl":"' + model + '",'
+                    '"sw":"' + fw_ver + '",'
+                    '"mf":"' + ATTR_MANUFACTURER + '"},'
+                    '"~":"' + default_topic + '"}'
+                )
+            elif lights_bin_sensors_tpls[bin_sensor_id]:
+                payload = (
+                    '{"name":"' + sensor_name + '",'
+                    '"stat_t":"' + state_topic + '",'
+                    '"val_tpl":"' + lights_bin_sensors_tpls[bin_sensor_id] + '",'
+                    '"avty_t":"' + availability_topic + '",'
+                    '"pl_avail":"true",'
+                    '"pl_not_avail":"false",'
+                    '"uniq_id":"' + unique_id + '",'
+                    '"qos":"' + str(qos) + '",'
+                    '"dev": {"ids": ["' + mac + '"],'
+                    '"name":"' + device_name + '",'
+                    '"mdl":"' + model + '",'
+                    '"sw":"' + fw_ver + '",'
+                    '"mf":"' + ATTR_MANUFACTURER + '"},'
+                    '"~":"' + default_topic + '"}'
+                )
+            elif lights_bin_sensors_classes[bin_sensor_id]:
+                payload = (
+                    '{"name":"' + sensor_name + '",'
+                    '"stat_t":"' + state_topic + '",'
+                    '"pl_on":"' + lights_bin_sensors_pl[bin_sensor_id][STATE_ON] + '",'
+                    '"pl_off":"'
+                    + lights_bin_sensors_pl[bin_sensor_id][STATE_OFF]
+                    + '",'
+                    '"avty_t":"' + availability_topic + '",'
+                    '"dev_cla":"' + lights_bin_sensors_classes[bin_sensor_id] + '",'
+                    '"pl_avail":"true",'
+                    '"pl_not_avail":"false",'
+                    '"uniq_id":"' + unique_id + '",'
+                    '"qos":"' + str(qos) + '",'
+                    '"dev": {"ids": ["' + mac + '"],'
+                    '"name":"' + device_name + '",'
+                    '"mdl":"' + model + '",'
+                    '"sw":"' + fw_ver + '",'
+                    '"mf":"' + ATTR_MANUFACTURER + '"},'
+                    '"~":"' + default_topic + '"}'
+                )
+            else:
+                payload = (
+                    '{"name":"' + sensor_name + '",'
+                    '"stat_t":"' + state_topic + '",'
+                    '"pl_on":"' + lights_bin_sensors_pl[bin_sensor_id][STATE_ON] + '",'
+                    '"pl_off":"'
+                    + lights_bin_sensors_pl[bin_sensor_id][STATE_OFF]
+                    + '",'
+                    '"avty_t":"' + availability_topic + '",'
+                    '"pl_avail":"true",'
+                    '"pl_not_avail":"false",'
+                    '"uniq_id":"' + unique_id + '",'
+                    '"qos":"' + str(qos) + '",'
+                    '"dev": {"ids": ["' + mac + '"],'
+                    '"name":"' + device_name + '",'
+                    '"mdl":"' + model + '",'
+                    '"sw":"' + fw_ver + '",'
+                    '"mf":"' + ATTR_MANUFACTURER + '"},'
+                    '"~":"' + default_topic + '"}'
+                )
+        else:
+            payload = ""
+        if id.lower() in ignored:
             payload = ""
         service_data = {
             "topic": config_topic,
@@ -966,6 +1114,8 @@ for light_id in range(0, rgbw_lights):
                 '"~":"' + default_topic + '"}'
             )
         else:
+            payload = ""
+        if id.lower() in ignored:
             payload = ""
         service_data = {
             "topic": config_topic,
@@ -1049,11 +1199,11 @@ for light_id in range(0, white_lights):
             '"avty_t":"' + availability_topic + '",'
             '"pl_avail":"true",'
             '"pl_not_avail":"false",'
-            '"cmd_on_tpl":"{\\"turn\\":\\"on\\"{% if brightness is defined %},\\"brightness\\":{{brightness|float|multiply(0.3922)|round}}{% endif %}{% if white_value is defined %},\\"white\\":{{white_value|float|multiply(0.3922)|round}}{% endif %}}",'
+            '"cmd_on_tpl":"{\\"turn\\":\\"on\\"{% if brightness is defined %},\\"brightness\\":{{brightness|float|multiply(0.3922)|round}}{% endif %}{% if color_temp is defined %},\\"temp\\":{{[([((1000000/(color_temp|int))|round(0,\\"floor\\")),6500]|min),2700]|max}}{% endif %}}",'
             '"cmd_off_tpl":"{\\"turn\\":\\"off\\"}",'
             '"stat_tpl":"{% if value_json.ison %}on{% else %}off{% endif %}",'
             '"bri_tpl":"{{value_json.brightness|float|multiply(2.55)|round}}",'
-            '"white_value_template":"{{value_json.white|float|multiply(2.55)|round}}",'
+            '"clr_temp_tpl":"{{((1000000/(value_json.temp|int))|round(0,\\"floor\\"))}}",'
             '"uniq_id":"' + unique_id + '",'
             '"qos":"' + str(qos) + '",'
             '"dev": {"ids": ["' + mac + '"],'
@@ -1064,6 +1214,8 @@ for light_id in range(0, white_lights):
             '"~":"' + default_topic + '"}'
         )
     else:
+        payload = ""
+    if id.lower() in ignored:
         payload = ""
     service_data = {
         "topic": config_topic,
@@ -1076,39 +1228,131 @@ for light_id in range(0, white_lights):
 
     # white light's binary sensors
     for bin_sensor_id in range(0, len(lights_bin_sensors)):
-        unique_id = f"{id}-white-{lights_bin_sensors[bin_sensor_id]}-{light_id}"
-        config_topic = f"{disc_prefix}/binary_sensor/{id}-white-{lights_bin_sensors[bin_sensor_id]}-{light_id}/config"
-        sensor_name = (
-            f"{device_name} {lights_bin_sensors[bin_sensor_id].capitalize()} {light_id}"
-        )
-        state_topic = f"~white/{light_id}/status"
-        if config_light != ATTR_RGBW:
-            payload = (
-                '{"name":"' + sensor_name + '",'
-                '"stat_t":"' + state_topic + '",'
-                '"val_tpl":"' + lights_bin_sensors_tpls[bin_sensor_id] + '",'
-                '"avty_t":"' + availability_topic + '",'
-                '"pl_avail":"true",'
-                '"pl_not_avail":"false",'
-                '"uniq_id":"' + unique_id + '",'
-                '"qos":"' + str(qos) + '",'
-                '"dev": {"ids": ["' + mac + '"],'
-                '"name":"' + device_name + '",'
-                '"mdl":"' + model + '",'
-                '"sw":"' + fw_ver + '",'
-                '"mf":"' + ATTR_MANUFACTURER + '"},'
-                '"~":"' + default_topic + '"}'
-            )
-        else:
+
+        # fix for RGBW2 input binary sensor issue
+        if lights_bin_sensors[bin_sensor_id] == ATTR_INPUT and light_id == 0:
+            unique_id = f"{id}-{lights_bin_sensors[bin_sensor_id]}-{light_id}"
+            config_topic = f"{disc_prefix}/binary_sensor/{id}-{lights_bin_sensors[bin_sensor_id]}-{light_id}/config"
+            state_topic = f"~{lights_bin_sensors[bin_sensor_id]}/{light_id}"
+            sensor_name = f"{device_name} {lights_bin_sensors[bin_sensor_id].capitalize()} {light_id}"
             payload = ""
-        service_data = {
-            "topic": config_topic,
-            "payload": payload,
-            "retain": retain,
-            "qos": qos,
-        }
-        logger.debug("Send to MQTT broker: %s %s", config_topic, payload)
-        hass.services.call("mqtt", "publish", service_data, False)
+            service_data = {
+                "topic": config_topic,
+                "payload": payload,
+                "retain": retain,
+                "qos": qos,
+            }
+            logger.debug("Send to MQTT broker: %s %s", config_topic, payload)
+            hass.services.call("mqtt", "publish", service_data, False)
+        # end of fix
+
+        if (
+            lights_bin_sensors[bin_sensor_id] == ATTR_INPUT and light_id == 0
+        ) or lights_bin_sensors[bin_sensor_id] != ATTR_INPUT:
+            unique_id = f"{id}-white-{lights_bin_sensors[bin_sensor_id]}-{light_id}"
+            config_topic = f"{disc_prefix}/binary_sensor/{id}-white-{lights_bin_sensors[bin_sensor_id]}-{light_id}/config"
+            if lights_bin_sensors[bin_sensor_id] == ATTR_INPUT:
+                state_topic = f"~{lights_bin_sensors[bin_sensor_id]}/{light_id}"
+            else:
+                state_topic = f"~white/{light_id}/status"
+            sensor_name = f"{device_name} {lights_bin_sensors[bin_sensor_id].capitalize()} {light_id}"
+
+            if config_light != ATTR_RGBW:
+                if (
+                    lights_bin_sensors_tpls[bin_sensor_id]
+                    and lights_bin_sensors_classes[bin_sensor_id]
+                ):
+                    payload = (
+                        '{"name":"' + sensor_name + '",'
+                        '"stat_t":"' + state_topic + '",'
+                        '"val_tpl":"' + lights_bin_sensors_tpls[bin_sensor_id] + '",'
+                        '"dev_cla":"' + lights_bin_sensors_classes[bin_sensor_id] + '",'
+                        '"avty_t":"' + availability_topic + '",'
+                        '"pl_avail":"true",'
+                        '"pl_not_avail":"false",'
+                        '"uniq_id":"' + unique_id + '",'
+                        '"qos":"' + str(qos) + '",'
+                        '"dev": {"ids": ["' + mac + '"],'
+                        '"name":"' + device_name + '",'
+                        '"mdl":"' + model + '",'
+                        '"sw":"' + fw_ver + '",'
+                        '"mf":"' + ATTR_MANUFACTURER + '"},'
+                        '"~":"' + default_topic + '"}'
+                    )
+                elif lights_bin_sensors_tpls[bin_sensor_id]:
+                    payload = (
+                        '{"name":"' + sensor_name + '",'
+                        '"stat_t":"' + state_topic + '",'
+                        '"val_tpl":"' + lights_bin_sensors_tpls[bin_sensor_id] + '",'
+                        '"avty_t":"' + availability_topic + '",'
+                        '"pl_avail":"true",'
+                        '"pl_not_avail":"false",'
+                        '"uniq_id":"' + unique_id + '",'
+                        '"qos":"' + str(qos) + '",'
+                        '"dev": {"ids": ["' + mac + '"],'
+                        '"name":"' + device_name + '",'
+                        '"mdl":"' + model + '",'
+                        '"sw":"' + fw_ver + '",'
+                        '"mf":"' + ATTR_MANUFACTURER + '"},'
+                        '"~":"' + default_topic + '"}'
+                    )
+                elif lights_bin_sensors_classes[bin_sensor_id]:
+                    payload = (
+                        '{"name":"' + sensor_name + '",'
+                        '"stat_t":"' + state_topic + '",'
+                        '"pl_on":"'
+                        + lights_bin_sensors_pl[bin_sensor_id][STATE_ON]
+                        + '",'
+                        '"pl_off":"'
+                        + lights_bin_sensors_pl[bin_sensor_id][STATE_OFF]
+                        + '",'
+                        '"dev_cla":"' + lights_bin_sensors_classes[bin_sensor_id] + '",'
+                        '"avty_t":"' + availability_topic + '",'
+                        '"pl_avail":"true",'
+                        '"pl_not_avail":"false",'
+                        '"uniq_id":"' + unique_id + '",'
+                        '"qos":"' + str(qos) + '",'
+                        '"dev": {"ids": ["' + mac + '"],'
+                        '"name":"' + device_name + '",'
+                        '"mdl":"' + model + '",'
+                        '"sw":"' + fw_ver + '",'
+                        '"mf":"' + ATTR_MANUFACTURER + '"},'
+                        '"~":"' + default_topic + '"}'
+                    )
+                else:
+                    payload = (
+                        '{"name":"' + sensor_name + '",'
+                        '"stat_t":"' + state_topic + '",'
+                        '"pl_on":"'
+                        + lights_bin_sensors_pl[bin_sensor_id][STATE_ON]
+                        + '",'
+                        '"pl_off":"'
+                        + lights_bin_sensors_pl[bin_sensor_id][STATE_OFF]
+                        + '",'
+                        '"avty_t":"' + availability_topic + '",'
+                        '"pl_avail":"true",'
+                        '"pl_not_avail":"false",'
+                        '"uniq_id":"' + unique_id + '",'
+                        '"qos":"' + str(qos) + '",'
+                        '"dev": {"ids": ["' + mac + '"],'
+                        '"name":"' + device_name + '",'
+                        '"mdl":"' + model + '",'
+                        '"sw":"' + fw_ver + '",'
+                        '"mf":"' + ATTR_MANUFACTURER + '"},'
+                        '"~":"' + default_topic + '"}'
+                    )
+            else:
+                payload = ""
+            if id.lower() in ignored:
+                payload = ""
+            service_data = {
+                "topic": config_topic,
+                "payload": payload,
+                "retain": retain,
+                "qos": qos,
+            }
+            logger.debug("Send to MQTT broker: %s %s", config_topic, payload)
+            hass.services.call("mqtt", "publish", service_data, False)
 
     # white light's sensors
     for sensor_id in range(0, len(lights_sensors)):
@@ -1117,11 +1361,15 @@ for light_id in range(0, white_lights):
         sensor_name = (
             f"{device_name} {lights_sensors[sensor_id].capitalize()} {light_id}"
         )
-        if model == ATTR_MODEL_SHELLYDIMMER:
+        if model == ATTR_MODEL_SHELLYDIMMER or model == ATTR_MODEL_SHELLYDUO:
             state_topic = f"~light/{light_id}/{lights_sensors[sensor_id]}"
         else:
             state_topic = f"~white/{light_id}/status"
-        if config_light != ATTR_RGBW or model == ATTR_MODEL_SHELLYDIMMER:
+        if (
+            config_light != ATTR_RGBW
+            or model == ATTR_MODEL_SHELLYDIMMER
+            or model == ATTR_MODEL_SHELLYDUO
+        ):
             payload = (
                 '{"name":"' + sensor_name + '",'
                 '"stat_t":"' + state_topic + '",'
@@ -1141,6 +1389,8 @@ for light_id in range(0, white_lights):
                 '"~":"' + default_topic + '"}'
             )
         else:
+            payload = ""
+        if id.lower() in ignored:
             payload = ""
         service_data = {
             "topic": config_topic,
@@ -1200,6 +1450,8 @@ for meter_id in range(0, meters):
                 '"mf":"' + ATTR_MANUFACTURER + '"},'
                 '"~":"' + default_topic + '"}'
             )
+        if id.lower() in ignored:
+            payload = ""
         service_data = {
             "topic": config_topic,
             "payload": payload,
