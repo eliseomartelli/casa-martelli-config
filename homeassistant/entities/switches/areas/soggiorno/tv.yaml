@@ -1,0 +1,13 @@
+platform: template
+switches:
+  soggiorno_tv:
+    value_template: "{{ states('binary_sensor.soggiorno_tv')}}"
+    turn_on:
+      service: media_player.turn_on
+      data:
+        entity_id: media_player.soggiorno_tv
+    turn_off:
+      service: rest_command.assistant_relay
+      data:
+       command: "Turn Off Soggiorno TV"
+    icon_template: mdi:television
