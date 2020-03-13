@@ -12,9 +12,9 @@ lights:
     name: Principale
   - entity_id: light.soggiorno_faretti
     name: Faretti
-#switches:
-#  - entity_id: switch.bedroom_air_freshner
-#    name: Freshner
+switches:
+  - entity_id: switch.soggiorno_tv
+    name: TV
 media_players:
   - entity_id: media_player.soggiorno_speaker
 #    shortcuts:
@@ -49,5 +49,4 @@ media_players:
 #  - entity_id: input_boolean.bedroom_sync_music_with_lights
 #  - entity_id: input_boolean.bedroom_movie_lights
 additional_switches:
-  - entity_id: binary_sensor.soggiorno_tv
   - entity_id: input_boolean.soggiorno_cinema
