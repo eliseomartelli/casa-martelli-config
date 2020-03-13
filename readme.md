@@ -12,7 +12,7 @@
 				alt="Branch">
 		</a>
 		<img alt="undefined" src="https://img.shields.io/github/license/eliseomartelli/ParentsHomeAutomation.svg">
-		<img src="https://img.shields.io/badge/haversion-0.106.5-blue.svg">
+		<img src="https://img.shields.io/badge/haversion-0.106.6-blue.svg">
 		<img src="https://img.shields.io/badge/automations-19-purple.svg">
 	</p>
 </p>  
@@ -46,3 +46,4 @@ On top of that there's **Docker**.
 - **File Editor**
 - **DuckDNS**
 - **Mosquitto Broker**
+- **Assistant Relay**

@@ -46,3 +46,4 @@ On top of that there's **Docker**.
 - **File Editor**
 - **DuckDNS**
 - **Mosquitto Broker**
+- **Assistant Relay**
