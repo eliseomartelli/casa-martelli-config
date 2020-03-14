@@ -78,10 +78,12 @@
         - type: custom:auto-entities
           card:
             type: glance
-            show_icon: false
           filter:
             include:
-              - entity_id: sensor.corridoio_stampante_*
+              - entity_id: sensor.corridoio_stampante_ink_*
+        - type: entities
+          entities:
+            - sensor.corridoio_stampante_status
 
     - type: vertical-stack
       cards:
