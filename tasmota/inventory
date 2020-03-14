@@ -3,6 +3,7 @@
 
 [plugs]
 192.168.0.23    friendly_name="Corridoio Notturna"  as_light="1"    template='{"NAME":"AWP08L","GPIO":[0,0,56,0,0,0,0,0,0,17,0,21,0],"FLAG":0,"BASE":18}'
+192.168.0.22    friendly_name="Cucina Scolapiatti"   as_light="1"    template='{"NAME":"AWP08L","GPIO":[0,0,56,0,0,0,0,0,0,17,0,21,0],"FLAG":0,"BASE":18}'
 
 [lights]
 192.168.0.25    friendly_name="Cameretta Testiera"  template='{"NAME":"Light Controll","GPIO":[0,0,0,0,51,37,0,0,38,39,0,0,0],"FLAG":0,"BASE":18}'
