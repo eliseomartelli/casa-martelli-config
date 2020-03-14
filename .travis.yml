@@ -5,6 +5,7 @@ python:
 
 before_install:
         - cp .stubs/secrets.yaml homeassistant/secrets.yaml
+        - cp .stubs/google_token.json homeassistant/google_token.json
         - cp provision/inventory.stub provision/inventory
         - cp provision/variables/default.yaml.stub provision/variables/default.yaml
         - cp tasmota/default.yaml.stub tasmota/default.yaml

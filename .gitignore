@@ -137,3 +137,5 @@ provision/inventory
 provision/variables/default.yaml
 
 tasmota/default.yaml
+
+homeassistant/google_token.json

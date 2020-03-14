@@ -1,0 +1,14 @@
+google_assistant:
+  project_id: !secret ga_pid
+  service_account: !include ../google_token.json
+  report_state: true
+  exposed_domains:
+    - light
+    - lock
+  entity_config:
+    switch.cucina_scaldatazze:
+      expose: true
+    switch.soggiorno_tv:
+      expose: true
+    input_boolean.soggiorno_cinem:
+      expose: true
