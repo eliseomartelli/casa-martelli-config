@@ -6,10 +6,20 @@ trigger:
     to: 'Letto'
   - platform: homeassistant
     event: start
+  - platform: state
+    entity_id: group.family
+    to: 'not_home'
+    for:
+      hours: 1
 condition:
-  - condition: template
-    value_template: >
-      {{ states("input_select.sistema_stato_del_giorno") in ["Letto", "Notte"] }}  
+  - condition: or
+    conditions:
+      - condition: template
+        value_template: >
+          {{ states("input_select.sistema_stato_del_giorno") in ["Letto", "Notte"] }}
+      - condition: template
+        value_template: >
+          {{ trigger.to_state.domain == "group" }}
 action:
   - service: switch.turn_off
     entity_id: switch.cucina_scaldatazze
