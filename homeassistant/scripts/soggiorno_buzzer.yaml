@@ -1,0 +1,6 @@
+soggiorno_buzzer:
+  alias: "Soggiorno Buzzer"
+  sequence:
+    - service: automation.trigger
+      data:
+        entity_id: automation.soggiorno_buzzer
