@@ -126,6 +126,10 @@
             value: "+ ON IrReceived#Data=0x00F7C837 DO Websend [192.168.0.27] /relay/1?turn=toggle ENDON"
           - command: Rule3
             value: "+ ON IrReceived#Data=0x00FF58A7 Do Websend [192.168.0.27] /relay/1?turn=toggle ENDON"
+          - command: Rule3 
+            value: "+ ON IrReceived#Data=0x00FFF00F Do Publish home/buzzer on ENDON"
+          - command: Rule3 
+            value: "+ ON IrReceived#Data=0x00F76897 Do Publish home/buzzer on ENDON"
           - command: Rule3
             value: 1
 
