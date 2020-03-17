@@ -41,9 +41,13 @@ On top of that there's **Docker**.
 - **Caddy** 
 *(abiosoft/caddy)*
 
+Docker Containers are currently deployed using [Ansible](https://www.ansible.com/), you can look into the server configuration here: [`./provision/`](https://github.com/eliseomartelli/ParentsHomeAutomation/tree/master/provision).
+
 #### Home Assistant Addons
 - **AdGuard Home**
 - **File Editor**
 - **DuckDNS**
 - **Mosquitto Broker**
 - **Assistant Relay**
+
+Home Assistant Addons are installed manually with the Add-on Store. 
