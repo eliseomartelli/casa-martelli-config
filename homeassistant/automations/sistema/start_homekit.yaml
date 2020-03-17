@@ -1,0 +1,8 @@
+id: A5AEB2C3-7983-4665-B3C7-2367925A41DB
+alias: Sistema Start Homekit
+trigger:
+  - platform: homeassistant
+    event: start
+action:
+  - delay: '00:01:00'
+  - service: homekit.start
