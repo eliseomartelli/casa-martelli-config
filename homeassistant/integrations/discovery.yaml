@@ -1,0 +1,3 @@
+discovery:
+  enable:
+    - dlna_dmr
