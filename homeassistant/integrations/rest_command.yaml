@@ -16,3 +16,9 @@ rest_command:
     method: POST
     content_type: 'application/json'
     payload: '{"command":"{{ command }}", "user":"hass"}'
+
+  cast_site:
+    url: http://192.168.0.88:9898/cast_site
+    method: POST
+    content_type: 'application/json'
+    payload: '{"url":"{{url}}", "device":"{{device}}"}'

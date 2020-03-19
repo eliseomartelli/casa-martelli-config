@@ -1,0 +1,7 @@
+soggiorno_telecamere:
+  alias: "Mostra le telecamere"
+  sequence:
+    - service: rest_command.cast_site
+      data:
+        url: http://192.168.0.88:1234
+        device: "192.168.1.170"
