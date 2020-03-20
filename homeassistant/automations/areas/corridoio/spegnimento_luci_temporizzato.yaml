@@ -8,7 +8,7 @@ trigger:
       minutes: 15
   - platform: state
     entity_id: input_select.sistema_stato_del_giorno
-    to: "Mattina"
+    to: 'Mattina'
     for:
       minutes: 30
   - platform: homeassistant
