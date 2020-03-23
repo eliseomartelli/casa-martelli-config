@@ -1,0 +1,20 @@
+id: 734B88A2-71AA-41B3-B71D-B26074938FB0
+alias: Cameretta Spegnimento LED
+trigger:
+  - platform: state
+    entity_id: binary_sensor.cameretta_scrivania_input
+    to: 'on'
+    for:
+      seconds: 1
+  - platform: state
+    entity_id: binary_sensor.cameretta_scrivania_input
+    to: 'off'
+    for:
+      seconds: 1
+condition:
+  - condition: state
+    entity_id: light.cameretta_scrivania
+    state: 'off'
+action:
+  - service: light.turn_off
+    entity_id: light.cameretta_testiera
