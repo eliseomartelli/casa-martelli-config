@@ -12,8 +12,8 @@
 				alt="Branch">
 		</a>
 		<img alt="undefined" src="https://img.shields.io/github/license/eliseomartelli/ParentsHomeAutomation.svg">
-		<img src="https://img.shields.io/badge/haversion-0.106.6-blue.svg">
-		<img src="https://img.shields.io/badge/automations-19-purple.svg">
+		<img src="https://img.shields.io/badge/haversion-0.107.5-blue.svg">
+		<img src="https://img.shields.io/badge/automations-$COUNT-purple.svg">
 	</p>
 </p>  
 
@@ -36,8 +36,6 @@ On top of that there's **Docker**.
 #### Docker Containers
 - **Home Assistant Supervisor**
 *(homeassistant/amd64-hassio-supervisor)*
-- **MotionEye** 
-*(ccrisan/motioneye)*
 - **Caddy** 
 *(abiosoft/caddy)*
 
@@ -49,5 +47,6 @@ Docker Containers are currently deployed using [Ansible](https://www.ansible.com
 - **DuckDNS**
 - **Mosquitto Broker**
 - **Assistant Relay**
+- **MotionEye** 
 
 Home Assistant Addons are installed manually with the Add-on Store. 
