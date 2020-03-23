@@ -36,10 +36,10 @@ On top of that there's **Docker**.
 #### Docker Containers
 - **Home Assistant Supervisor**
 *(homeassistant/amd64-hassio-supervisor)*
-- **MotionEye** 
-*(ccrisan/motioneye)*
 - **Caddy** 
 *(abiosoft/caddy)*
+
+Docker Containers are currently deployed using [Ansible](https://www.ansible.com/), you can look into the server configuration here: [`./provision/`](https://github.com/eliseomartelli/ParentsHomeAutomation/tree/master/provision).
 
 #### Home Assistant Addons
 - **AdGuard Home**
@@ -47,3 +47,6 @@ On top of that there's **Docker**.
 - **DuckDNS**
 - **Mosquitto Broker**
 - **Assistant Relay**
+- **MotionEye** 
+
+Home Assistant Addons are installed manually with the Add-on Store. 
