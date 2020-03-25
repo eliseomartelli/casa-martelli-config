@@ -10,7 +10,7 @@ trigger:
     entity_id: input_select.sistema_stato_del_giorno
     to: "Mattina"
     for:
-      minutes: 30
+      hours: 1
   - platform: homeassistant
     event: start
 condition:
