@@ -12,6 +12,9 @@ trigger:
   - platform: homeassistant
     event: start
 condition:
+  - condition: state
+    entity_id: group.areas_cortile
+    state: 'on'
   - condition: template
     value_template: >
       {{ states("input_select.sistema_stato_del_giorno") not in ["Sera", "Letto"] }}
