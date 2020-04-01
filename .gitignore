@@ -143,3 +143,5 @@ homeassistant/google_token.json
 share/
 
 backup/
+
+cli.json
