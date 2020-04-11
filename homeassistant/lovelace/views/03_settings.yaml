@@ -80,7 +80,7 @@
             type: glance
           filter:
             include:
-              - entity_id: sensor.corridoio_stampante_ink_*
+              - entity_id: sensor.corridoio_stampante_*_ink
         - type: entities
           entities:
             - sensor.corridoio_stampante_status
