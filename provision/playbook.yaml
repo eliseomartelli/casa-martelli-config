@@ -1,6 +1,10 @@
 - hosts: hosts
   become: true
   roles:
+    # https://github.com/c0sco/ansible-modules-bitwarden
+    - ansible-modules-bitwarden
+    - role: ssh_key
+      tags: ssh_key
     - role: initial_bringup
       tags: initial
 
