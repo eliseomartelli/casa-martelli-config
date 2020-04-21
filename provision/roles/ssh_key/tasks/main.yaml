@@ -6,13 +6,13 @@
     key: "{{ lookup('bitwarden', 'SSH_pub_key') }}"
 
 - name: Disallow password authentication
-  lineinfile: 
+  lineinfile:
     dest: /etc/ssh/sshd_config
     regexp: "^PasswordAuthentication"
     line: "PasswordAuthentication no"
     state: present
 
 - name: Restart ssh
-  service: 
-    name: ssh 
+  service:
+    name: ssh
     state: restarted
