@@ -14,6 +14,7 @@ install:
         - pip3 install homeassistant
         - pip3 install ansible
         - pip3 install ansible-lint
+        - ansible-galaxy install git+https://github.com/c0sco/ansible-modules-bitwarden
 
 jobs:
         include:
