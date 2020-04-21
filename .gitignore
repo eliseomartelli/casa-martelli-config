@@ -145,3 +145,4 @@ share/
 backup/
 
 cli.json
+multicast.json
