@@ -1,0 +1,22 @@
+---
+name: Ansible CI
+
+on:
+  push:
+  pull_request:
+
+jobs:
+  ansible_provision:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checking out code from GitHub
+        uses: actions/checkout@v1
+      - name: Install dependencies
+        run: |
+          python -m pip install --upgrade pip setuptools wheel
+          pip install ansible
+          ansible-galaxy install git+https://github.com/c0sco/ansible-modules-bitwarden
+          pip list
+      - name: Run ansible syntax check
+        run: |
+          cd provision && ansible-playbook playbook.yaml -i inventory --syntax-check
