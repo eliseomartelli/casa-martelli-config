@@ -39,6 +39,8 @@ ATTR_INPUT_1 = "input/1"
 ATTR_LIGHT = "light"
 ATTR_LOADERROR = "loaderror"
 ATTR_LONGPUSH = "longpush"
+ATTR_LONGPUSH_0 = "longpush/0"
+ATTR_LONGPUSH_1 = "longpush/1"
 ATTR_LUX = "lux"
 ATTR_MOISTURE = "moisture"
 ATTR_MOTION = "motion"
@@ -107,13 +109,13 @@ off_delay = 3
 retain = True
 qos = 0
 roller_mode = False
-ignored = []
+
+no_battery_sensor = False
 
 id = data.get(CONF_ID)
 mac = data.get(CONF_MAC)
 fw_ver = data.get(CONF_FW_VER)
-if data.get(CONF_IGNORED_DEVICES):
-    ignored = [element.lower() for element in data.get(CONF_IGNORED_DEVICES)]
+ignored = [element.lower() for element in data.get(CONF_IGNORED_DEVICES, [])]
 
 if not id:
     raise ValueError(f"{id} is wrong id argument")
@@ -145,8 +147,6 @@ relays = 0
 rollers = 0
 meters = 0
 relay_components = [ATTR_SWITCH, ATTR_LIGHT, ATTR_FAN]
-config_component = ATTR_SWITCH
-config_light = ATTR_RGBW
 relays_sensors = []
 relays_sensors_units = []
 relays_sensors_tpls = []
@@ -323,13 +323,15 @@ if id.rsplit("-", 1)[0] == "shellydimmer":
         ATTR_LOADERROR,
         ATTR_INPUT_0,
         ATTR_INPUT_1,
+        ATTR_LONGPUSH_0,
+        ATTR_LONGPUSH_1,
     ]
-    bin_sensors_classes = [ATTR_HEAT, ATTR_POWER, ATTR_PROBLEM, None, None]
-    bin_sensors_pl = [PL_1_0, PL_1_0, PL_1_0, PL_1_0, PL_1_0]
-    lights_sensors = [ATTR_POWER]
-    lights_sensors_units = [UNIT_WATT]
-    lights_sensors_classes = [ATTR_POWER]
-    lights_sensors_tpls = [TPL_POWER]
+    bin_sensors_classes = [ATTR_HEAT, ATTR_POWER, ATTR_PROBLEM, None, None, None, None]
+    bin_sensors_pl = [PL_1_0, PL_1_0, PL_1_0, PL_1_0, PL_1_0, PL_1_0, PL_1_0]
+    lights_sensors = [ATTR_POWER, ATTR_ENERGY]
+    lights_sensors_units = [UNIT_WATT, UNIT_KWH]
+    lights_sensors_classes = [ATTR_POWER, ATTR_POWER]
+    lights_sensors_tpls = [TPL_POWER, TPL_ENERGY_WMIN]
 
 if id.rsplit("-", 1)[0] == "shellybulb":
     model = ATTR_MODEL_SHELLYBULB
@@ -455,10 +457,7 @@ for roller_id in range(0, rollers):
     set_position_topic = f"{state_topic}/command/pos"
     availability_topic = "~online"
     unique_id = f"{id}-roller-{roller_id}"
-    if data.get(id):
-        config_component = data.get(id)
-    elif data.get(id.lower()):
-        config_component = data.get(id.lower())
+    config_component = data.get(id, data.get(id.lower()))
     component = ATTR_COVER
     config_topic = f"{disc_prefix}/{component}/{id}-roller-{roller_id}/config"
     if config_component == component:
@@ -506,10 +505,7 @@ for relay_id in range(0, relays):
     command_topic = f"{state_topic}/command"
     availability_topic = "~online"
     unique_id = f"{id}-relay-{relay_id}"
-    if data.get(unique_id):
-        config_component = data.get(unique_id)
-    elif data.get(unique_id.lower()):
-        config_component = data.get(unique_id.lower())
+    config_component = data.get(unique_id, data.get(unique_id.lower(), ATTR_SWITCH))
     for component in relay_components:
         config_topic = f"{disc_prefix}/{component}/{id}-relay-{relay_id}/config"
         if component == config_component and not roller_mode:
@@ -702,10 +698,12 @@ for sensor_id in range(0, len(sensors)):
         state_topic = f"~{sensors[sensor_id]}"
     else:
         state_topic = f"~sensor/{sensors[sensor_id]}"
-    if data.get(id) or data.get(id.lower()):
-        if (data.get(id) or data.get(id.lower())) == ATTR_AC_POWER:
-            expire_after = 7200
-    if battery_powered:
+    if data.get(id, data.get(id.lower())) == ATTR_AC_POWER:
+        no_battery_sensor = True
+        expire_after = 7200
+    if no_battery_sensor and sensors[sensor_id] == ATTR_BATTERY:
+        payload = ""
+    elif battery_powered:
         payload = (
             '{"name":"' + sensor_name + '",'
             '"stat_t":"' + state_topic + '",'
@@ -756,10 +754,7 @@ for sensor_id in range(0, len(sensors)):
 for sensor_id in range(0, ext_sensors):
     device_name = f"{model} {id.split('-')[-1]}"
     unique_id = f"{id}-ext-{sensor_id}"
-    if data.get(unique_id):
-        ext_sensor_type = data.get(unique_id)
-    elif data.get(unique_id.lower()):
-        ext_sensor_type = data.get(unique_id.lower())
+    ext_sensor_type = data.get(unique_id, data.get(unique_id.lower()))
     if ext_sensor_type:
         config_topic = f"{disc_prefix}/sensor/{id}-ext-{sensor_id}/config"
         default_topic = f"shellies/{id}/"
@@ -891,10 +886,7 @@ for light_id in range(0, rgbw_lights):
     availability_topic = "~online"
     unique_id = f"{id}-light-{light_id}"
     config_topic = f"{disc_prefix}/light/{id}-{light_id}/config"
-    if data.get(id):
-        config_light = data.get(id)
-    elif data.get(id.lower()):
-        config_light = data.get(id.lower())
+    config_light = data.get(id, data.get(id.lower(), ATTR_RGBW))
     if config_light == ATTR_RGBW and model == ATTR_MODEL_SHELLYRGBW2:
         payload = (
             '{"schema":"template",'
@@ -1142,10 +1134,7 @@ for light_id in range(0, white_lights):
         unique_id = f"{id}-light-white-{light_id}"
         config_topic = f"{disc_prefix}/light/{id}-white-{light_id}/config"
     availability_topic = "~online"
-    if data.get(id):
-        config_light = data.get(id)
-    elif data.get(id.lower()):
-        config_light = data.get(id.lower())
+    config_light = data.get(id, data.get(id.lower(), ATTR_RGBW))
     if config_light == ATTR_WHITE and model == ATTR_MODEL_SHELLYRGBW2:
         payload = (
             '{"schema":"template",'
