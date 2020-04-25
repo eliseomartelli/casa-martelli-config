@@ -4,9 +4,9 @@
 	<p align=center>Home Assistant & Friends</p>
 	<br>
 	<p align=center>
-		<a href="https://travis-ci.org/eliseomartelli/ParentsHomeAutomation">
-			<img src="https://travis-ci.org/eliseomartelli/ParentsHomeAutomation.svg?branch=master"/>
-		</a>
+		<img src="https://github.com/eliseomartelli/ParentsHomeAutomation/workflows/Run%20Pre%20Commit/badge.svg">
+		<img src="https://github.com/eliseomartelli/ParentsHomeAutomation/workflows/Home%20Assistant%20CI/badge.svg">
+		<img src="https://github.com/eliseomartelli/ParentsHomeAutomation/workflows/Ansible%20CI/badge.svg">
 		<a href="https://github.com/eliseomartelli/ParentsHomeAutomation/tree/master">
 			<img src="https://img.shields.io/badge/Branch-master-green.svg?longCache=true"
 				alt="Branch">
