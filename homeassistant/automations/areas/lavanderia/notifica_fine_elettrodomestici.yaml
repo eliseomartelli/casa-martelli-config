@@ -2,7 +2,7 @@ id: 112FD1F4-15A0-44B5-91A7-3E684098A937
 alias: Lavanderia Notifica Fine Elettrodomestici
 trigger:
   - platform: state
-    entity_id: 
+    entity_id:
       - binary_sensor.lavanderia_lavatrice_hoover
     to: 'off'
 condition:
@@ -26,8 +26,8 @@ action:
             'Volevo avvisarvi che la %2 %3 ha finito il programma %4',
             'Il programma %4 è stato concluso dalla %2 %3',
             'La %2 %3 ha concluso il %4',
-          ] 
-          | random 
+          ]
+          | random
           | replace("%1", data[0])
           | replace("%2", data[1])
           | replace("%3", data[2])
@@ -53,8 +53,8 @@ action:
             'Volevo avvisarvi che la %2 %3 ha finito il programma %4',
             'Il programma %4 è stato concluso dalla %2 %3',
             'La %2 %3 ha concluso il %4',
-          ] 
-          | random 
+          ]
+          | random
           | replace("%1", data[0])
           | replace("%2", data[1])
           | replace("%3", data[2])

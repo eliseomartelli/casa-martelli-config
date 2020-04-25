@@ -2,7 +2,7 @@ id: CC67FAD1-B90B-4847-9237-95121F117733
 alias: Sistema Notifica Telecamere
 trigger:
   - platform: state
-    entity_id: 
+    entity_id:
       - binary_sensor.cortile_viale_presenza
       - binary_sensor.cortile_piazzale_presenza
     to: 'on'

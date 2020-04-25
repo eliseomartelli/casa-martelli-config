@@ -1,7 +1,7 @@
 id: 01289B98-D603-4421-80B3-E3160F9538B6
 alias: Sistema Cambio Stato Del Giorno
 trigger:
-  
+
   # Mattina
   - platform: sun
     event: sunrise
@@ -9,19 +9,19 @@ trigger:
   # Pranzo
   - platform: time
     at: '12:00:00'
-  
+
   # Pomeriggio
   - platform: time
     at: '13:30:00'
-  
+
   # Sera
   - platform: sun
     event: sunset
-  
+
   # Letto
   - platform: time
     at: '21:15:00'
-  
+
   # Notte
   - platform: time
     at: '23:00:00'

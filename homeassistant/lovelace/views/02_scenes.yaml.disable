@@ -4,7 +4,7 @@
   icon: mdi:filmstrip
   path: scenes
   cards:
-  - !include 
+  - !include
     - ../includes/header.yaml
     - title: "Scenes"
 
@@ -12,7 +12,7 @@
   {% if room.scenes %}
   - type: vertical-stack
     cards:
-      - !include 
+      - !include
         - ../includes/section.yaml
         - title: {{ room.name }}
       - type: custom:mod-card
@@ -42,4 +42,3 @@
     column_width: 50%
     justify_content: start
     cards:
-  

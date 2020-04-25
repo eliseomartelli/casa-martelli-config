@@ -4,12 +4,12 @@
   icon: mdi:settings
   path: settings
   cards:
-    - !include 
+    - !include
       - ../includes/header.yaml
       - title: "Impostazioni"
     - type: vertical-stack
       cards:
-        - !include 
+        - !include
           - ../includes/section.yaml
           - title: "Internet"
         - type: horizontal-stack
@@ -42,7 +42,7 @@
 
     # - type: vertical-stack
     #   cards:
-    #     - !include 
+    #     - !include
     #       - ../includes/section.yaml
     #       - title: "Transmission"
     #     - type: horizontal-stack
@@ -72,7 +72,7 @@
     - type: vertical-stack
       cards:
 
-        - !include 
+        - !include
           - ../includes/section.yaml
           - title: "Stampante"
         - type: custom:auto-entities
@@ -88,7 +88,7 @@
     - type: vertical-stack
       cards:
 
-        - !include 
+        - !include
           - ../includes/section.yaml
           - title: "Altro"
         - type: entities
@@ -97,7 +97,7 @@
     # - type: vertical-stack
     #   cards:
 
-    #     - !include 
+    #     - !include
     #       - ../includes/section.yaml
     #       - title: "Addons"
 

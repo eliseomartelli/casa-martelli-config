@@ -9,7 +9,7 @@ style: >
     color: var(--primary-text-color);
     background-color: transparent;
     margin-top: -4px;
-    border-radius: 0; 
+    border-radius: 0;
     font-weight: bold;
     font-size: 14px;
   }

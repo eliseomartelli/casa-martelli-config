@@ -9,9 +9,9 @@ style: >
     color: var(--primary-text-color);
     background-color: transparent;
     margin-top: 16px;
-    border-radius: 0; 
+    border-radius: 0;
     font-weight: bold;
     font-size: 14px;
   }
-content: | 
+content: |
   <h2>{{ title }}</h2>

@@ -1,6 +1,6 @@
 platform: mqtt
 name: Cortile Pedonale
-state_topic: "stat/cortile_pedonale/RESULT"  
+state_topic: "stat/cortile_pedonale/RESULT"
 value_template: "{{ value_json.POWER }}"
 command_topic: "cmnd/cortile_pedonale/POWER"
 payload_unlock: "ON"

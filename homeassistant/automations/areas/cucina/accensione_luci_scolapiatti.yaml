@@ -2,7 +2,7 @@ id: 0d6718e9-4f62-4468-aa7c-b6add5cc2ba9
 alias: Cucina Accensione Luci Scolapiatti
 trigger:
   - platform: state
-    entity_id: input_select.sistema_stato_del_giorno 
+    entity_id: input_select.sistema_stato_del_giorno
   - platform: time
     at: '19:00:00'
   - platform: state
@@ -38,4 +38,3 @@ action:
         light.turn_on
       {% endif %}
     entity_id: light.cucina_scolapiatti
-

@@ -12,8 +12,8 @@ hk_simple_link:
       navigation_path: "[[path]]"
     styles:
       grid:
-        - grid-template-areas: > 
-            "i n" 
+        - grid-template-areas: >
+            "i n"
         - grid-template-columns: min-content 1fr
         - grid-template-rows: 1fr
       img_cell:

@@ -11,5 +11,5 @@ condition:
       {{ states("input_select.sistema_stato_del_giorno") in ["Sera", "Letto"] }}
 action:
   - service: light.turn_on
-    entity_id: 
+    entity_id:
       - light.cortile_frontale

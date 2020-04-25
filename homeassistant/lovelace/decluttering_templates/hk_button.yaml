@@ -25,7 +25,7 @@ hk_button:
       state:
         - justify-self: start
         - padding-left: 10px
-      icon: 
+      icon:
         - color: var(--button-card-light-color)
     state:
       - value: 'off'

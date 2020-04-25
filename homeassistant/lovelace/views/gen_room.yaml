@@ -6,7 +6,7 @@
   path: {{ room.name | lower | replace(" ", "_") }}
   icon: {{ room.icon | default("mdi:home") }}
   cards:
-    - !include 
+    - !include
       - ../includes/header.yaml
       - title: "{{ room.name }}"
         navigation_path: "home"
@@ -20,19 +20,19 @@
           variables:
             - entity_id: {{ sensor.entity_id }}
             - color: {{ sensor.color }}
-            - name: {{ sensor.name }} 
+            - name: {{ sensor.name }}
       {% endfor %}
   {% endif %}
 
   {% if room.lights %}
     - type: vertical-stack
       cards:
-        - !include 
+        - !include
             - ../includes/section.yaml
             - title: Luci
         - !include
             - ../includes/grid.yaml
-            - entities: 
+            - entities:
               {% for s in room.lights %}
                 - entity_id: {{ s.entity_id }}
                   name: {{ s.name }}
@@ -42,12 +42,12 @@
   {% if room.switches %}
     - type: vertical-stack
       cards:
-        - !include 
+        - !include
             - ../includes/section.yaml
             - title: Interruttori
         - !include
             - ../includes/grid.yaml
-            - entities: 
+            - entities:
               {% for s in room.switches %}
                 - entity_id: {{ s.entity_id }}
                   name: {{ s.name }}
@@ -57,7 +57,7 @@
   {% if room.media_players %}
     - type: vertical-stack
       cards:
-        - !include 
+        - !include
           - ../includes/section.yaml
           - title: Media
       {% for media_player in room.media_players %}
@@ -79,7 +79,7 @@
   {% if room.additional_buttons or room.additional_switches %}
     - type: vertical-stack
       cards:
-        - !include 
+        - !include
           - ../includes/section.yaml
           - title: Altro
         - type: entities

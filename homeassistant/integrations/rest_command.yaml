@@ -4,7 +4,7 @@ rest_command:
     method: POST
     content_type: 'application/json'
     payload: '{"command":"{{ command }}", "user":"hass", "broadcast":true}'
-    
+
   assistant_converse:
     url: http://192.168.0.88:3000/assistant
     method: POST

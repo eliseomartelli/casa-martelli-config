@@ -4,7 +4,7 @@
   visible: false
   path: zigbee2mqtt
   cards:
-    - !include 
+    - !include
         - ../includes/header.yaml
         - title: "Zigbee2MQTT"
           navigation_path: settings

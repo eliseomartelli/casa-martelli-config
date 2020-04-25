@@ -6,4 +6,4 @@ lights:
   - entity_id: light.cameretta_scrivania
     name: Scrivania
   - entity_id: light.cameretta_testiera
-    name: Testiera  
+    name: Testiera

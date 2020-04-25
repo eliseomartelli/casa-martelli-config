@@ -1,5 +1,5 @@
 ---
-- name: Ensure configuration is present
+- name: Ensure configuration is present  # noqa 401
   git:
     repo: https://github.com/eliseomartelli/ParentsHomeAutomation/
     dest: /home/{{ ansible_user }}/config

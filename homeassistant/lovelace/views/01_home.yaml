@@ -4,10 +4,10 @@
   icon: mdi:home
   path: home
   cards:
-    - !include 
+    - !include
       - ../includes/header.yaml
       - title: "Home"
-    
+
     # Home Header
     - type: custom:simple-weather-card
       entity: weather.home
@@ -54,7 +54,7 @@
           padding-bottom: 4px;
         }
         ha-card {
-          background: 
+          background:
               {%- set today = states("sensor.casa_rifiuti_di_domani") %}
               {%- if 'PAPER' in today -%}
                   #424242
@@ -68,7 +68,7 @@
                 #303F9F
               {% else %}
                 #212121
-              {% endif %} 
+              {% endif %}
           ;
           color: #fff;
         }
@@ -77,7 +77,7 @@
     # Rooms
     - type: vertical-stack
       cards:
-        - !include 
+        - !include
           - ../includes/section.yaml
           - title: "Stanze"
         - type: custom:mod-card

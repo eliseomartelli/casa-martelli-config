@@ -15,7 +15,7 @@
 		<img src="https://img.shields.io/badge/haversion-0.107.7-blue.svg">
 		<img src="https://img.shields.io/badge/automations-$COUNT-purple.svg">
 	</p>
-</p>  
+</p>
 
 ---
 
@@ -25,7 +25,7 @@ This Home Automation setup is currently running on a Mini PC [[LINK]](https://am
 The specs are:
 - RAM: 2Gb
 - CPU: Atom x5-Z83500
-- EMMC: 32Gb  
+- EMMC: 32Gb
 
 This machine runs the latest version of **Ubuntu Server LTS.**
 
@@ -36,7 +36,7 @@ On top of that there's **Docker**.
 #### Docker Containers
 - **Home Assistant Supervisor**
 *(homeassistant/amd64-hassio-supervisor)*
-- **Caddy** 
+- **Caddy**
 *(abiosoft/caddy)*
 
 Docker Containers are currently deployed using [Ansible](https://www.ansible.com/), you can look into the server configuration here: [`./provision/`](https://github.com/eliseomartelli/ParentsHomeAutomation/tree/master/provision).
@@ -47,6 +47,6 @@ Docker Containers are currently deployed using [Ansible](https://www.ansible.com
 - **DuckDNS**
 - **Mosquitto Broker**
 - **Assistant Relay**
-- **MotionEye** 
+- **MotionEye**
 
-Home Assistant Addons are installed manually with the Add-on Store. 
+Home Assistant Addons are installed manually with the Add-on Store.

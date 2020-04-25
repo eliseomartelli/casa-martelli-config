@@ -81,7 +81,7 @@ homeassistant/notebooks
 # Ignore TTS
 homeassistant/tts/*
 
-# ignore community 
+# ignore community
 homeassistant/www/community
 homeassistant/www/pictures/people
 
@@ -97,7 +97,7 @@ guacamole/*
 *.pickle
 .env
 
-!homeassistant/.storage/hacs.installed 
+!homeassistant/.storage/hacs.installed
 
 # Ignore files created by IDE's
 

@@ -4,7 +4,7 @@
   icon: mdi:filmstrip
   path: cameras
   cards:
-  - !include 
+  - !include
     - ../includes/header.yaml
     - title: "Telecamere"
 
@@ -12,7 +12,7 @@
   {% if room.cameras %}
   - type: vertical-stack
     cards:
-      - !include 
+      - !include
         - ../includes/section.yaml
         - title: {{ room.name }}
     {% for c in room.cameras %}
@@ -21,4 +21,3 @@
     {% endfor %}
   {% endif %}
 {% endfor %}
-  

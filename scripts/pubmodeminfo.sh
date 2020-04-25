@@ -15,4 +15,3 @@ PROCESSED_DATA=$(echo "$DATA" | grep "Data Rate" | sed 's|.*:\ ||g' | tr --delet
 
 /usr/bin/mosquitto_pub -u $1 -P $2 -h $3 -m "$(echo "$PROCESSED_DATA" | sed -n '1p')" -t "sensors/modem/data_up"
 /usr/bin/mosquitto_pub -u $1 -P $2 -h $3 -m "$(echo "$PROCESSED_DATA" | sed -n '2p')" -t "sensors/modem/data_down"
-

@@ -12,7 +12,7 @@ action:
       {% if trigger.to_state.state == "on" %}
         media_player.media_pause
       {% else %}
-        media_player.media_play      
+        media_player.media_play
       {% endif %}
     data:
       entity_id: media_player.soggiorno_tv
