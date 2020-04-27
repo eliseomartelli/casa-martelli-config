@@ -6,9 +6,14 @@ trigger:
   - platform: state
     entity_id: input_select.sistema_stato_del_giorno
 condition:
-  - condition: template
-    value_template: >
-      {{ states("input_select.sistema_stato_del_giorno") in ["Sera", "Letto"] }}
+  - condition: and
+    conditions:
+      - condition: state
+        entity_id: group.areas_cortile
+        state: 'off'
+      - condition: template
+        value_template: >
+          {{ states("input_select.sistema_stato_del_giorno") in ["Sera", "Letto"] }}
 action:
   - service: light.turn_on
     entity_id:
