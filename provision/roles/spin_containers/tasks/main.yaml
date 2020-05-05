@@ -24,12 +24,18 @@
     restart_policy: always
     security_opts:
       - seccomp:unconfined
+      - apparmor:unconfined
+    comparisons:
+      image: ignore
+      env: strict
+      volumes: allow_more_present
     env:
       HOMEASSISTANT_REPOSITORY: homeassistant/qemux86-64-homeassistant
       SUPERVISOR_SHARE: /home/{{ ansible_user }}/config/
       SUPERVISOR_NAME: hassio_supervisor
       DBUS_SYSTEM_BUS_ADDRESS: unix:path=/var/run/dbus/system_bus_socket
     volumes:
+      - /etc/localtime:/etc/localtime:ro
       - /home/{{ ansible_user }}/config/:/data
       - /var/run/docker.sock:/var/run/docker.sock
       - /var/run/dbus/system_bus_socket:/var/run/dbus/system_bus_socket
