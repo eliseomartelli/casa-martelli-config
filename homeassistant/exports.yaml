@@ -1,6 +1,7 @@
 include_domains:
         - light
         - lock
+        - camera
 include_entities:
         - switch.cucina_scaldatazze
         - switch.soggiorno_tv
