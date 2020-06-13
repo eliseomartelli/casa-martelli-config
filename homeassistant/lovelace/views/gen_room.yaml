@@ -9,7 +9,7 @@
     - !include
       - ../includes/header.yaml
       - title: "{{ room.name }}"
-        navigation_path: "home"
+        navigation_path: "rooms"
 
   {% if room.sensors %}
     - type: horizontal-stack

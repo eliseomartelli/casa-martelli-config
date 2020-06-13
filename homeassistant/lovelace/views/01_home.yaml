@@ -9,10 +9,9 @@
       - title: "Home"
 
     # Home Header
-    - type: custom:simple-weather-card
+    - type: weather-forecast
       entity: weather.home
-      name: " "
-      backdrop: true
+      show_forecast: false
 
     - type: markdown
       content: >
@@ -42,17 +41,6 @@
         {% endraw %}
       style: >
         {% raw %}
-        * {
-          padding: 0;
-          margin: 0;
-        }
-        ha-icon {
-          padding-right: 18px;
-          padding-left: 6px;
-        }
-        h3 {
-          padding-bottom: 4px;
-        }
         ha-card {
           background:
               {%- set today = states("sensor.casa_rifiuti_di_domani") %}
@@ -74,28 +62,26 @@
         }
         {% endraw %}
 
-    # Rooms
-    - type: vertical-stack
-      cards:
-        - !include
-          - ../includes/section.yaml
-          - title: "Stanze"
-        - type: custom:mod-card
-          style: |
-            ha-card {
-              margin-right: -8px;
-            }
-          card:
-            type: custom:layout-card
-            layout: horizontal
-            column_width: 50%
-            justify_content: start
-            cards:
-            {% for room in _global.rooms %}
-              - type: custom:decluttering-card
-                template: "hk_simple_link"
-                variables:
-                  - path: {{ room.name | lower | replace(" ", "_") }}
-                  - name: {{ room.name }}
-                  - icon: {{ room.icon }}
-            {% endfor %}
+    - !include
+      - ../includes/section.yaml
+      - title: Più usati
+    - !include
+      - ../includes/grid.yaml
+      - entities:
+          - entity_id: group.areas_soggiorno
+            name: Soggiorno
+          - entity_id: light.corridoio_notturna
+            name: Corridoio
+          - entity_id: light.cameretta_scrivania
+            name: Scrivania
+          - entity_id: light.cortile_frontale
+            name: Cortile
+          - entity_id: lock.cortile_pedonale
+            name: Pedonale
+
+    - type: custom:decluttering-card
+      template: "hk_simple_link"
+      variables:
+        - path: "rooms"
+        - name: "Tutte le stanze"
+        - icon: mdi:home-circle

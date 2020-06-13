@@ -1,7 +1,7 @@
 # lovelace_gen
 
 - title: Cameras
-  icon: mdi:filmstrip
+  icon: mdi:cctv
   path: cameras
   cards:
   - !include
