@@ -23,11 +23,11 @@
             column_width: 50%
             justify_content: start
             cards:
-            {% for room in _global.rooms %}
+              {% for room in _global.rooms %}
               - type: custom:decluttering-card
                 template: "hk_simple_link"
                 variables:
                   - path: {{ room.name | lower | replace(" ", "_") }}
                   - name: {{ room.name }}
                   - icon: {{ room.icon }}
-            {% endfor %}
+              {% endfor %}
