@@ -18,25 +18,27 @@
         {% raw %}
         <table>
           <tr>
-            <td>
+            <td class="icon-container">
               <ha-icon icon="mdi:delete-empty"></ha-icon>
             </td>
             <td>
-              <h3>Rifiuti</h3>
+              <h1>
               {%- set today = states("sensor.casa_rifiuti_di_domani") %}
               {%- if 'PAPER' in today -%}
-                  la carta
+                  Carta
               {%- elif 'PLASTIC' in today -%}
-                  il multimateriale
+                  Multimateriale
               {%- elif 'DRY' in today -%}
-                il secco
+                  Secco
               {%- elif 'ORGANIC' in today -%}
-                l'umido
+                  Umido      
               {%- elif 'GLASS' in today -%}
-                il vetro
+                  Vetro
               {% else %}
-                niente
+                  Niente
               {% endif %}
+              </h1>
+              Rifiuti
           </tr>
         {% endraw %}
       style: >
@@ -56,8 +58,7 @@
                 #303F9F
               {% else %}
                 #212121
-              {% endif %}
-          ;
+              {% endif %};
           color: #fff;
         }
         {% endraw %}
