@@ -1,0 +1,6 @@
+platform: rest
+resource: https://www.sasispa.it/wp-json/wp/v2/posts?per_page=1
+name: Casa Presenza Acqua
+value_template: >
+  {{ not (value | regex_search("(?i)mozzagrogna")) }}
+device_class: moisture
