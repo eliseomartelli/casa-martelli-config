@@ -1,0 +1,23 @@
+id: 2144017E-820B-497D-B5E6-D1989C39B6CA
+alias: Casa Notifica Acqua
+trigger:
+  - platform: state
+    entity_id: binary_sensor.casa_presenza_acqua
+    to: 'off'
+action:
+  - service: notify.notify
+    data_template:
+      message: "Potrebbero esserci interruzioni sul servizio idrico"
+
+  # Don't speak if it's night.
+  - condition: template
+    value_template: >
+      {{ states("input_select.sistema_stato_del_giorno") not in ["Notte"] }}
+  - service: notify.alexa_media
+    data_template:
+      target:
+        - media_player.soggiorno_speaker
+      data:
+        type: announce
+      message: "Potrebbero esserci interruzioni sul servizio idrico"
+    
