@@ -31,7 +31,7 @@
               {%- elif 'DRY' in today -%}
                   Secco
               {%- elif 'ORGANIC' in today -%}
-                  Umido      
+                  Umido
               {%- elif 'GLASS' in today -%}
                   Vetro
               {% else %}
