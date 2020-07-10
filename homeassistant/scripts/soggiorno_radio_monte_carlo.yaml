@@ -1,0 +1,8 @@
+soggiorno_radio_monte_carlo:
+  alias: "Soggiorno Radio Monte Carlo"
+  sequence:
+    - service: media_player.play_media
+      data:
+        entity_id: media_player.soggiorno_speaker
+        media_content_type: "TUNEIN"
+        media_content_id: "Radio Monte Carlo"
