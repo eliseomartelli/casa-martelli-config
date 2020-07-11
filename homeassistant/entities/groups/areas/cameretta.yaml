@@ -1,0 +1,5 @@
+areas_cameretta:
+  entities:
+    - light.cameretta_principale
+    - light.cameretta_testiera
+    - light.cameretta_scrivania
