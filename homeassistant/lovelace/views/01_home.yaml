@@ -36,8 +36,7 @@
                   Vetro
               {% else %}
                   Niente
-              {% endif %}
-              </h1>
+              {% endif %}</h1>
               Rifiuti
           </tr>
         {% endraw %}
