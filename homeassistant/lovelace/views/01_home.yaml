@@ -37,7 +37,7 @@
 
     - type: markdown
       card-size: 3
-      content: > 
+      content: >
         {% raw %}
         {% set light_count = states.light | selectattr('state','equalto','on') | list | count %}
         {%- if light_count == 1 -%}
@@ -68,12 +68,12 @@
             {%- if not loop.last -%}
               {{ ", " }}
             {%- endif -%}
-          {%- endfor -%} 
+          {%- endfor -%}
         {%- elif people | count == 1 -%}
           A casa c'é
           {%- for p in people -%}
             {{- p.attributes.friendly_name.split(" ")[0] -}}
-          {%- endfor -%} 
+          {%- endfor -%}
         {%- else %}
         A casa non c'é nessuno
         {%- endif -%}.
@@ -89,7 +89,7 @@
         ha-markdown {
           padding-top: 0 !important;
         }
-    
+
     - type: vertical-stack
       cards:
         - !include
