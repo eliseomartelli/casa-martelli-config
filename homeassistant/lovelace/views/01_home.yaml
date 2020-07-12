@@ -36,6 +36,7 @@
             }
 
     - type: markdown
+      card-size: 3
       content: > 
         {% raw %}
         {% set light_count = states.light | selectattr('state','equalto','on') | list | count %}
@@ -85,45 +86,51 @@
           background: none;
           box-shadow: none;
         }
-
-    - !include
-      - ../includes/section.yaml
-      - title: Più usati
-    - !include
-      - ../includes/grid.yaml
-      - entities:
-          - entity_id: group.areas_soggiorno
-            name: Soggiorno
-          - entity_id: light.corridoio_notturna
-            name: Corridoio
-          - entity_id: light.cameretta_scrivania
-            name: Scrivania
-          - entity_id: light.cortile_frontale
-            name: Cortile
-          - entity_id: lock.cortile_pedonale
-            name: Pedonale
-    # Rooms
-    - !include
-      - ../includes/section.yaml
-      - title: Stanze
+    
     - type: vertical-stack
       cards:
-        - type: custom:mod-card
-          style: |
-            ha-card {
-              margin-right: -8px;
-            }
-          card:
-            type: custom:layout-card
-            layout: horizontal
-            column_width: 50%
-            justify_content: start
-            cards:
-              {% for room in _global.rooms %}
-              - type: custom:decluttering-card
-                template: "hk_simple_link"
-                variables:
-                  - path: {{ room.name | lower | replace(" ", "_") }}
-                  - name: {{ room.name }}
-                  - icon: {{ room.icon }}
-              {% endfor %}
+        - !include
+          - ../includes/section.yaml
+          - title: Più usati
+        - !include
+          - ../includes/grid.yaml
+          - entities:
+              - entity_id: group.areas_soggiorno
+                name: Soggiorno
+              - entity_id: light.corridoio_notturna
+                name: Corridoio
+              - entity_id: light.cameretta_scrivania
+                name: Scrivania
+              - entity_id: light.cortile_frontale
+                name: Cortile
+              - entity_id: lock.cortile_pedonale
+                name: Pedonale
+
+    - type: vertical-stack
+      cards:
+        # Rooms
+        - !include
+          - ../includes/section.yaml
+          - title: Stanze
+        - type: vertical-stack
+          cards:
+            - type: custom:mod-card
+              style: |
+                ha-card {
+                  margin-right: -8px;
+                  margin-left: 8px;
+                }
+              card:
+                type: custom:layout-card
+                layout: horizontal
+                column_width: 50%
+                justify_content: start
+                cards:
+                  {% for room in _global.rooms %}
+                  - type: custom:decluttering-card
+                    template: "hk_simple_link"
+                    variables:
+                      - path: {{ room.name | lower | replace(" ", "_") }}
+                      - name: {{ room.name }}
+                      - icon: {{ room.icon }}
+                  {% endfor %}

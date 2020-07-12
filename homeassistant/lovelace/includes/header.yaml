@@ -1,6 +1,7 @@
 # lovelace_gen
 
 type: markdown
+card_size: 2
 style: >
   ha-card {
     box-shadow: none;
