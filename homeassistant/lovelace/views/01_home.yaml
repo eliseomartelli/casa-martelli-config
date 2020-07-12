@@ -4,9 +4,36 @@
   icon: mdi:home
   path: home
   cards:
-    - !include
-      - ../includes/header.yaml
-      - title: "Home"
+    - type: horizontal-stack
+      cards:
+        - !include
+          - ../includes/header.yaml
+          - title: "Home"
+        # Home Header
+        - type: weather-forecast
+          entity: weather.home
+          show_forecast: false
+          style: |
+            ha-card {
+              background: none;
+              box-shadow: none;
+            }
+            .name-state {
+              display: none !important;
+            }
+            .icon-image svg {
+              height: 28px;
+              margin-bottom: -6px !important;
+            }
+            .info, .temp-attribute, .temp, .icon-image, svg, .content {
+              display: inline !important;
+              text-align: right;
+            }
+            .content {
+              margin-top: 22px;
+              position: absolute !important;
+              right: 16px !important;
+            }
 
     - type: markdown
       content: > 
@@ -58,11 +85,6 @@
           background: none;
           box-shadow: none;
         }
-    # Home Header
-    - type: weather-forecast
-      entity: weather.home
-      show_forecast: false
-
 
     - !include
       - ../includes/section.yaml
