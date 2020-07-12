@@ -37,7 +37,7 @@
 
     - type: markdown
       card-size: 3
-      content: > 
+      content: >
         {% raw %}
         {% set light_count = states.light | selectattr('state','equalto','on') | list | count %}
         {%- if light_count == 1 -%}
@@ -89,7 +89,7 @@
         ha-markdown {
           padding-top: 0 !important;
         }
-    
+
     - type: vertical-stack
       cards:
         - !include
