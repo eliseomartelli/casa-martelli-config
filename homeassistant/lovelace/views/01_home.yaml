@@ -8,59 +8,61 @@
       - ../includes/header.yaml
       - title: "Home"
 
+    - type: markdown
+      content: > 
+        {% raw %}
+        {% set light_count = states.light | selectattr('state','equalto','on') | list | count %}
+        {%- if light_count == 1 -%}
+          C'é una luce accesa.
+        {%- else -%}
+          Ci sono {{ light_count }} luci accese.
+        {%- endif -%}
+        {{ " " }}Domani bisogna buttare{{ " " }}
+        {%- set today = states("sensor.casa_rifiuti_di_domani") %}
+        {%- if 'PAPER' in today -%}
+            la carta
+        {%- elif 'PLASTIC' in today -%}
+            il multimateriale
+        {%- elif 'DRY' in today -%}
+            il secco
+        {%- elif 'ORGANIC' in today -%}
+            l'umido
+        {%- elif 'GLASS' in today -%}
+            il vetro
+        {% else %}
+            niente
+        {% endif %}.
+        {% set people = states.person | selectattr('state','equalto','home') | list %}
+        {%- if people | count > 1 -%}
+        A casa ci sono{{ " " }}
+          {%- for p in people -%}
+            {{- p.attributes.friendly_name.split(" ")[0] -}}
+            {%- if not loop.last -%}
+              {{ ", " }}
+            {%- endif -%}
+          {%- endfor -%} 
+        {%- elif people | count == 1 -%}
+          A casa c'é
+          {%- for p in people -%}
+            {{- p.attributes.friendly_name.split(" ")[0] -}}
+          {%- endfor -%} 
+        {%- else %}
+        A casa non c'é nessuno
+        {%- endif -%}.
+        {%- if not states.binary_sensor.casa_presenza_acqua.state -%}
+          Non c'é fornitura di acqua.
+        {%- endif -%}
+        {% endraw %}
+      style: |
+        ha-card {
+          background: none;
+          box-shadow: none;
+        }
     # Home Header
     - type: weather-forecast
       entity: weather.home
       show_forecast: false
 
-    - type: markdown
-      content: >
-        {% raw %}
-        <table>
-          <tr>
-            <td class="icon-container">
-              <ha-icon icon="mdi:delete-empty"></ha-icon>
-            </td>
-            <td>
-              <h1>
-              {%- set today = states("sensor.casa_rifiuti_di_domani") %}
-              {%- if 'PAPER' in today -%}
-                  Carta
-              {%- elif 'PLASTIC' in today -%}
-                  Multimateriale
-              {%- elif 'DRY' in today -%}
-                  Secco
-              {%- elif 'ORGANIC' in today -%}
-                  Umido
-              {%- elif 'GLASS' in today -%}
-                  Vetro
-              {% else %}
-                  Niente
-              {% endif %}</h1>
-              Rifiuti
-          </tr>
-        {% endraw %}
-      style: >
-        {% raw %}
-        ha-card {
-          background:
-              {%- set today = states("sensor.casa_rifiuti_di_domani") %}
-              {%- if 'PAPER' in today -%}
-                  #424242
-              {%- elif 'PLASTIC' in today -%}
-                  #F9A825
-              {%- elif 'DRY' in today -%}
-                #2E7D32
-              {%- elif 'ORGANIC' in today -%}
-                #4E342E
-              {%- elif 'GLASS' in today -%}
-                #303F9F
-              {% else %}
-                #212121
-              {% endif %};
-          color: #fff;
-        }
-        {% endraw %}
 
     - !include
       - ../includes/section.yaml
