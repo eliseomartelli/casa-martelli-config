@@ -61,21 +61,21 @@
             niente
         {% endif %}.
         {% set people = states.person | selectattr('state','equalto','home') | list %}
-        {%- if people | count > 1 -%}
-        A casa ci sono{{ " " }}
+        {%- if people | count > 0 -%}
+          {%- if people | count == 1 -%}
+            A casa c'é
+          {%- else -%}
+            A casa ci sono
+          {%- endif -%}
+          {{ " " }}
           {%- for p in people -%}
             {{- p.attributes.friendly_name.split(" ")[0] -}}
             {%- if not loop.last -%}
               {{ ", " }}
             {%- endif -%}
           {%- endfor -%} 
-        {%- elif people | count == 1 -%}
-          A casa c'é
-          {%- for p in people -%}
-            {{- p.attributes.friendly_name.split(" ")[0] -}}
-          {%- endfor -%} 
         {%- else %}
-        A casa non c'é nessuno
+          A casa non c'é nessuno
         {%- endif -%}.
         {%- if not states.binary_sensor.casa_presenza_acqua.state -%}
           Non c'é fornitura di acqua.
