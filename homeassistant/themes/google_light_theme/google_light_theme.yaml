@@ -12,7 +12,7 @@ Google Light Theme:
   # Main Interface Colors
   primary-color: "#5F9BEA"
   light-primary-color: var(--primary-color)
-  primary-background-color: "#F8F8F8"
+  primary-background-color: "#f1f2f8"
   secondary-background-color: var(--primary-background-color)
   divider-color: var(--primary-background-color)
   # Text

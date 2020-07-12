@@ -118,15 +118,10 @@
         - type: vertical-stack
           cards:
             - type: custom:mod-card
-              style: |
-                ha-card {
-                  margin-right: -8px;
-                  margin-left: 8px;
-                }
               card:
                 type: custom:layout-card
                 layout: horizontal
-                column_width: 50%
+                min_columns: 2
                 justify_content: start
                 cards:
                   {% for room in _global.rooms %}

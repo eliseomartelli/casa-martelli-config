@@ -18,14 +18,14 @@
             - type: custom:decluttering-card
               template: mini_graph
               variables:
-                - entity_id: sensor.sistema_upload
+                - entity_id: sensor.speedtest_upload
                 - color: purple
                 - name: Upload
 
             - type: custom:decluttering-card
               template: mini_graph
               variables:
-                - entity_id: sensor.sistema_download
+                - entity_id: sensor.speedtest_download
                 - color: red
                 - name: Download
 
