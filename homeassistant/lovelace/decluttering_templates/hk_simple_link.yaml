@@ -18,6 +18,8 @@ hk_simple_link:
         - grid-template-rows: 1fr
       img_cell:
         - width: 76px
+        - margin-left: -8px
       name:
         - justify-self: start
         - font-weight: bold
+        - margin-left: -16px

@@ -9,17 +9,18 @@ style: >
     padding: 10px 0px;
     color: var(--primary-text-color);
     background-color: transparent;
-    margin-top: -4px;
     border-radius: 0;
     font-weight: bold;
     font-size: 14px;
   }
-  ha-card a {
+  ha-card a, p {
     color: var(--primary-text-color) !important;
   }
-  ha-card p {
-    margin-bottom: 0px;
-    padding-top: 16px;
+  ha-markdown {
+    padding: 0 16px !important;
+  }
+  a, p, h1 {
+    display: inline !important;
   }
 content: |
   {% if navigation_path %}

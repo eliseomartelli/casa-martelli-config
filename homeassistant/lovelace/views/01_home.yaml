@@ -23,14 +23,14 @@
             }
             .icon-image svg {
               height: 28px;
-              margin-bottom: -6px !important;
+              margin-bottom: -10px !important;
             }
             .info, .temp-attribute, .temp, .icon-image, svg, .content {
               display: inline !important;
               text-align: right;
             }
             .content {
-              margin-top: 22px;
+              margin-top: 12px;
               position: absolute !important;
               right: 16px !important;
             }
@@ -85,6 +85,9 @@
         ha-card {
           background: none;
           box-shadow: none;
+        }
+        ha-markdown {
+          padding-top: 0 !important;
         }
     
     - type: vertical-stack

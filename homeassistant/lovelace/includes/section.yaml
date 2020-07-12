@@ -13,5 +13,8 @@ style: >
     font-weight: bold;
     font-size: 14px;
   }
+  ha-markdown {
+    padding: 0 16px !important;
+  }
 content: |
   <h2>{{ title }}</h2>
