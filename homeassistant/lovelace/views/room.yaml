@@ -1,6 +1,6 @@
 # lovelace_gen
 
-{% for room in _global.rooms %}
+{% for room in _global.home.rooms %}
 - title: {{ room.name }}
   visible: false
   path: {{ room.name | lower | replace(" ", "_") }}

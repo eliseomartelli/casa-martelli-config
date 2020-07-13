@@ -8,10 +8,11 @@
       cards:
         - !include
           - ../includes/header.yaml
-          - title: "Home"
+          - title: {{ _global.home.name }}
+
         # Home Header
         - type: weather-forecast
-          entity: weather.home
+          entity: {{ _global.home.weather }}
           show_forecast: false
           style: |
             ha-card {
@@ -37,50 +38,7 @@
 
     - type: markdown
       card-size: 3
-      content: >
-        {% raw %}
-        {% set light_count = states.light | selectattr('state','equalto','on') | list | count %}
-        {%- if light_count == 1 -%}
-          C'é una luce accesa.
-        {%- else -%}
-          Ci sono {{ light_count }} luci accese.
-        {%- endif -%}
-        {{ " " }}Domani bisogna buttare{{ " " }}
-        {%- set today = states("sensor.casa_rifiuti_di_domani") %}
-        {%- if 'PAPER' in today -%}
-            la carta
-        {%- elif 'PLASTIC' in today -%}
-            il multimateriale
-        {%- elif 'DRY' in today -%}
-            il secco
-        {%- elif 'ORGANIC' in today -%}
-            l'umido
-        {%- elif 'GLASS' in today -%}
-            il vetro
-        {% else %}
-            niente
-        {% endif %}.
-        {% set people = states.person | selectattr('state','equalto','home') | list %}
-        {%- if people | count > 0 -%}
-          {%- if people | count == 1 -%}
-            A casa c'é
-          {%- else -%}
-            A casa ci sono
-          {%- endif -%}
-          {{ " " }}
-          {%- for p in people -%}
-            {{- p.attributes.friendly_name.split(" ")[0] -}}
-            {%- if not loop.last -%}
-              {{ ", " }}
-            {%- endif -%}
-          {%- endfor -%} 
-        {%- else %}
-          A casa non c'é nessuno
-        {%- endif -%}.
-        {%- if not states.binary_sensor.casa_presenza_acqua.state -%}
-          Non c'é fornitura di acqua.
-        {%- endif -%}
-        {% endraw %}
+      content: !include ../../ui/recap.yaml
       style: |
         ha-card {
           background: none;
@@ -89,7 +47,7 @@
         ha-markdown {
           padding-top: 0 !important;
         }
-
+    {% if _global.home.most_used %}
     - type: vertical-stack
       cards:
         - !include
@@ -98,17 +56,13 @@
         - !include
           - ../includes/grid.yaml
           - entities:
-              - entity_id: group.areas_soggiorno
-                name: Soggiorno
-              - entity_id: light.corridoio_notturna
-                name: Corridoio
-              - entity_id: light.cameretta_scrivania
-                name: Scrivania
-              - entity_id: light.cortile_frontale
-                name: Cortile
-              - entity_id: lock.cortile_pedonale
-                name: Pedonale
-
+            {% for e in _global.home.most_used %}
+              - entity_id: {{ e.entity_id }}
+                {% if e.name %}
+                name: {{ e.name }}
+                {% endif %}
+            {% endfor %}
+    {% endif %}
     - type: vertical-stack
       cards:
         # Rooms
@@ -124,7 +78,7 @@
                 min_columns: 2
                 justify_content: start
                 cards:
-                  {% for room in _global.rooms %}
+                  {% for room in _global.home.rooms %}
                   - type: custom:decluttering-card
                     template: "hk_simple_link"
                     variables:

@@ -11,16 +11,12 @@ style: >
     background-color: transparent;
     border-radius: 0;
     font-weight: bold;
-    font-size: 14px;
   }
   ha-card a, p {
     color: var(--primary-text-color) !important;
   }
   ha-markdown {
     padding: 0 16px !important;
-  }
-  a, p, h1 {
-    display: inline !important;
   }
 content: |
   {% if navigation_path %}

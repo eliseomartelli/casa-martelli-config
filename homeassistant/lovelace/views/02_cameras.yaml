@@ -8,7 +8,7 @@
     - ../includes/header.yaml
     - title: "Telecamere"
 
-{% for room in _global.rooms %}
+{% for room in _global.home.rooms %}
   {% if room.cameras %}
   - type: vertical-stack
     cards:
