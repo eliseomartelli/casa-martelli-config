@@ -18,6 +18,9 @@ style: >
   ha-markdown {
     padding: 0 16px !important;
   }
+  h1 {
+    line-height: 32px !important;
+  }
 content: |
   {% if navigation_path %}
   [<ha-icon icon="mdi:arrow-left"></ha-icon>](/lovelace/{{ navigation_path }})
