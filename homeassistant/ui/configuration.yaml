@@ -13,3 +13,5 @@ most_used:
     name: Cortile
   - entity_id: lock.cortile_pedonale
     name: Pedonale
+scenes:
+  - entity_id: scene.cena_fuori

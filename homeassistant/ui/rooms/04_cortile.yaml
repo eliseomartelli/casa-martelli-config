@@ -5,7 +5,9 @@ lights:
     name: Frontale
   - entity_id: light.cortile_balcone
     name: Balcone
-cameras:
+  - entity_id: light.cortile_veranda
+    name: Veranda
+ccameras:
   - entity_id: camera.cortile_piazzale
   - entity_id: camera.cortile_viale
 additional_switches:
