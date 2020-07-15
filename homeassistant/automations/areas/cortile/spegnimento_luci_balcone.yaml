@@ -1,9 +1,10 @@
-id: 713ACE4E-8D99-45D1-A1AA-288892BA6513
-alias: Cortile Spegnimento Luci Balcone
+id: 713ACE4E-8D99-45D1-A1AA-288892BA6516
+alias: Cortile Spegnimento Luci
 trigger:
   - platform: state
     entity_id: light.cortile_frontale
     to: 'off'
 action:
-  - service: light.turn_off
-    entity_id: light.cortile_balcone
+  - service: homeassistant.turn_off
+    entity_id: group.areas_cortile
+
