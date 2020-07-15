@@ -7,4 +7,3 @@ trigger:
 action:
   - service: homeassistant.turn_off
     entity_id: group.areas_cortile
-

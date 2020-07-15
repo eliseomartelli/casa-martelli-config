@@ -33,7 +33,7 @@
         {%- if not loop.last -%}
           {{ ", " }}
         {%- endif -%}
-      {%- endfor -%} 
+      {%- endfor -%}
     {%- else %}
       A casa non c'é nessuno
     {%- endif -%}.

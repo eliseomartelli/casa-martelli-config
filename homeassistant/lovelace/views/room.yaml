@@ -1,9 +1,9 @@
 # lovelace_gen
 
-{% for room in _global.home.rooms %}
+# {% for room in _global.home.rooms %}
 - title: {{ room.name }}
   visible: false
-  path: {{ room.name | lower | replace(" ", "_") }}
+  path: "{{ room.name | lower | replace(' ', '_') }}"
   icon: {{ room.icon | default("mdi:home") }}
   cards:
     - !include
@@ -11,20 +11,20 @@
       - title: "{{ room.name }}"
         navigation_path: "home"
 
-  {% if room.sensors %}
+    # {% if room.sensors %}
     - type: horizontal-stack
       cards:
-      {% for sensor in room.sensors %}
+      # {% for sensor in room.sensors %}
         - type: custom:decluttering-card
           template: mini_graph
           variables:
             - entity_id: {{ sensor.entity_id }}
             - color: {{ sensor.color }}
             - name: {{ sensor.name }}
-      {% endfor %}
-  {% endif %}
+      # {% endfor %}
+    # {% endif %}
 
-  {% if room.lights %}
+    # {% if room.lights %}
     - type: vertical-stack
       cards:
         - !include
@@ -33,13 +33,13 @@
         - !include
             - ../includes/grid.yaml
             - entities:
-              {% for s in room.lights %}
+              # {% for s in room.lights %}
                 - entity_id: {{ s.entity_id }}
                   name: {{ s.name }}
-              {% endfor %}
-  {% endif %}
+              # {% endfor %}
+    # {% endif %}
 
-  {% if room.switches %}
+    # {% if room.switches %}
     - type: vertical-stack
       cards:
         - !include
@@ -48,35 +48,35 @@
         - !include
             - ../includes/grid.yaml
             - entities:
-              {% for s in room.switches %}
+              # {% for s in room.switches %}
                 - entity_id: {{ s.entity_id }}
                   name: {{ s.name }}
-              {% endfor %}
-  {% endif %}
+              # {% endfor %}
+    # {% endif %}
 
-  {% if room.media_players %}
+    # {% if room.media_players %}
     - type: vertical-stack
       cards:
         - !include
           - ../includes/section.yaml
           - title: Media
-      {% for media_player in room.media_players %}
+        # {% for media_player in room.media_players %}
         - type: custom:mini-media-player
           artwork: cover
           entity: {{ media_player.entity_id }}
-        {% if media_player.shortcuts %}
+          # {% if media_player.shortcuts %}
           shortcuts:
             buttons:
-            {% for shortcut in media_player.shortcuts %}
+            # {% for shortcut in media_player.shortcuts %}
               - name: {{ shortcut.name }}
                 type: script
                 id: {{ shortcut.entity_id }}
-            {% endfor %}
-        {% endif %}
-      {% endfor %}
-  {% endif %}
+            # {% endfor %}
+          # {% endif %}
+        # {% endfor %}
+    # {% endif %}
 
-  {% if room.additional_buttons or room.additional_switches %}
+    # {% if room.additional_buttons or room.additional_switches %}
     - type: vertical-stack
       cards:
         - !include
@@ -84,15 +84,15 @@
           - title: Altro
         - type: entities
           entities:
-          {% if room.additional_switches %}
-          {% for switch in room.additional_switches %}
+          # {% if room.additional_switches %}
+          # {% for switch in room.additional_switches %}
             - {{ switch.entity_id }}
-          {% endfor %}
-          {% endif %}
-          {% if room.additional_buttons %}
-          {% for button in room.additional_buttons %}
+          # {% endfor %}
+          # {% endif %}
+          # {% if room.additional_buttons %}
+          # {% for button in room.additional_buttons %}
             - {{ button.entity_id }}
-          {% endfor %}
-          {% endif %}
-  {% endif %}
-{% endfor %}
+          # {% endfor %}
+          # {% endif %}
+    # {% endif %}
+# {% endfor %}
