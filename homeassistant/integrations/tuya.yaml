@@ -1,5 +1,0 @@
-tuya:
-  username: !secret tuya_user
-  password: !secret tuya_pass
-  country_code: "39"
-  platform: smart_life
