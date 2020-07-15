@@ -11,6 +11,7 @@ style: >
     background-color: transparent;
     border-radius: 0;
     font-weight: bold;
+    line-height: 24px !important;
   }
   ha-card a, p {
     color: var(--primary-text-color) !important;
