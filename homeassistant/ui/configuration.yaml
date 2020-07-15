@@ -15,3 +15,4 @@ most_used:
     name: Pedonale
 scenes:
   - entity_id: scene.cena_fuori
+  - entity_id: scene.tutto_spento
