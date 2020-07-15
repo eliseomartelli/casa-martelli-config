@@ -1,0 +1,7 @@
+name: Tutto Spento
+icon: mdi:power
+entities:
+  group.areas_soggiorno: off
+  group.areas_cameretta: off
+  switch.soggiorno_tv: off
+  light.cucina_scolapiatti: off
