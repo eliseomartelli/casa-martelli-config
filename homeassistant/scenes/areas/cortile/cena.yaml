@@ -2,6 +2,7 @@ name: Cena Fuori
 icon: mdi:pasta
 entities:
   light.cortile_veranda: on
+  light.cortile_frontale: on
   switch.soggiorno_tv: off
   group.areas_soggiorno: off
 
