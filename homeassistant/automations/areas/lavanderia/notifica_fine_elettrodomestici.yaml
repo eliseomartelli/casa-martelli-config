@@ -1,3 +1,6 @@
+---
+# Send a notification if the washing machine is done.
+#
 id: 112FD1F4-15A0-44B5-91A7-3E684098A937
 alias: Lavanderia Notifica Fine Elettrodomestici
 trigger:

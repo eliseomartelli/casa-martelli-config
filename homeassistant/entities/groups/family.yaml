@@ -1,3 +1,6 @@
+---
+# Group representing our family.
+#
 family:
   name: Famiglia
   entities:

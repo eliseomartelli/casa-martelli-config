@@ -1,4 +1,6 @@
 ---
+# Announce shelly devices.
+#
 id: shellies_announce
 alias: 'Sistema Shellies Announce'
 trigger:

@@ -1,3 +1,6 @@
+---
+# Turn on night light when it's time for bed and there're people at home.
+#
 id: 93473694-53E8-43C2-9259-39F32D177D26
 alias: Corridoio Accensione Luci Notturna
 trigger:
@@ -5,10 +8,15 @@ trigger:
     event: start
   - platform: state
     entity_id: input_select.sistema_stato_del_giorno
+  - platform: state
+    entity_id: group.family
 condition:
   - condition: template
     value_template: >
       {{ states("input_select.sistema_stato_del_giorno") in ["Letto", "Notte"] }}
+  - condition: state
+    entity_id: group.family
+    state: 'home'
 action:
   - service: light.turn_on
     entity_id:

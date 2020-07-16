@@ -1,3 +1,6 @@
+---
+# Cortile Viale Presence.
+#
 platform: mqtt
 state_topic: cameras/cortile/viale
 name: Cortile Viale Presenza

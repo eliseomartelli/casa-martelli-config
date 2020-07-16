@@ -1,3 +1,6 @@
+---
+# If it's dinner/breakfast/lunch time, turn on kitchen downlights.
+#
 id: 0d6718e9-4f62-4468-aa7c-b6add5cc2ba9
 alias: Cucina Accensione Luci Scolapiatti
 trigger:
@@ -10,18 +13,17 @@ trigger:
     to: 'on'
     for:
       hours: 2
+  - platform: state
+    entity_id: group.family
 condition:
+  - condition: state
+    entity_id: group.family
+    state: 'home'
   - condition: or
     conditions:
       - condition: template
         value_template: >
           {{ states("input_select.sistema_stato_del_giorno") in ["Mattina"] }}
-      - condition: template
-        value_template: >
-          {{ trigger.platform == "time" }}
-      - condition: template
-        value_template: >
-          {{ trigger.from_state.entity_id == "light.cucina_scolapiatti" }}
       - condition: and
         conditions:
           - condition: template

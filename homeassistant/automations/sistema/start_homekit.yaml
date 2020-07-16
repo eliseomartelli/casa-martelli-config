@@ -1,3 +1,6 @@
+---
+# Start homekit after a minute.
+#
 id: A5AEB2C3-7983-4665-B3C7-2367925A41DB
 alias: Sistema Start Homekit
 trigger:

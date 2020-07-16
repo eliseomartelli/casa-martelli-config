@@ -1,3 +1,6 @@
+---
+# Turn on cinema mode if a positive response from Alexa is received.
+#
 id: 908ae950-68bb-4b1a-9150-bdef7448e3d6
 alias: Soggiorno Cinema ON
 trigger:

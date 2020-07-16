@@ -1,3 +1,6 @@
+---
+# Play a sound on the Echo Dot.
+#
 id: 530E50AB-68B2-4F1E-81A9-AF851EF869AA
 alias: Soggiorno Buzzer
 trigger:

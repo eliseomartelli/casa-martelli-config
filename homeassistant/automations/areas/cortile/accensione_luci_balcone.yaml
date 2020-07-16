@@ -1,3 +1,6 @@
+---
+# Turn on more lights if you turn on and off the garden lights rapidly.
+#
 id: facb9477-4aec-467e-be2d-86d6be8e9228
 alias: Cortile Accensione Luci Balcone
 trigger:

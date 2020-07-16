@@ -1,3 +1,6 @@
+---
+# Change state of the day input_select.
+#
 id: 01289B98-D603-4421-80B3-E3160F9538B6
 alias: Sistema Cambio Stato Del Giorno
 trigger:

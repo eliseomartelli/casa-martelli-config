@@ -1,3 +1,6 @@
+---
+# Cortile Piazzale Presence.
+#
 platform: mqtt
 state_topic: cameras/cortile/piazzale
 name: Cortile Piazzale Presenza

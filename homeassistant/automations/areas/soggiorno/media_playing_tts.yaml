@@ -1,3 +1,6 @@
+---
+# Ask if you want to enable cinema mode if a movie starts playing.
+#
 id: 12b9b5f6-9125-4a0d-8df2-2db069f1eb81
 alias: Soggiorno Media Playing TTS
 trigger:

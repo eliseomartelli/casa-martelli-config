@@ -1,3 +1,6 @@
+---
+# Rest sensor to check if there'll be water at night.
+#
 platform: rest
 resource: https://www.sasispa.it/wp-json/wp/v2/posts?per_page=1
 name: Casa Presenza Acqua

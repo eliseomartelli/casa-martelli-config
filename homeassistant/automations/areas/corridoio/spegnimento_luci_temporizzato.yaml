@@ -1,3 +1,6 @@
+---
+# Turn off night light when it's not night.
+#
 id: 3ed45875-bcbd-4d5a-9cba-ae5f119b200e
 alias: Corridoio Spegnimento Luci Temporizzato
 trigger:

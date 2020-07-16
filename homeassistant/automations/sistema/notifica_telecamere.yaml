@@ -1,3 +1,7 @@
+---
+# Send a notification with the camera feed when there's motion and we are
+# outside.
+#
 id: CC67FAD1-B90B-4847-9237-95121F117733
 alias: Sistema Notifica Telecamere
 trigger:

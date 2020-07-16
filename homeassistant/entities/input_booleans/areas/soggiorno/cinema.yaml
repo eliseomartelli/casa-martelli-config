@@ -1,3 +1,6 @@
+---
+# Input boolean for cinema mode.
+#
 soggiorno_cinema:
   name: Soggiorno Cinema
   icon: mdi:filmstrip

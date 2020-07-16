@@ -1,3 +1,6 @@
+---
+# Control the movie with the light switches.
+#
 id: 691EC33E-BF87-4242-AB1D-60F1471C1B62
 alias: Soggiorno Cinema Playback
 trigger:

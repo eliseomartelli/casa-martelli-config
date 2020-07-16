@@ -1,3 +1,6 @@
+---
+# Discover shelly devices.
+#
 id: 'shellies_discovery'
 alias: 'Sistema Shellies Discovery'
 trigger:

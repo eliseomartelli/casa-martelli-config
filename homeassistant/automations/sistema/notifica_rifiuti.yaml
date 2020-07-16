@@ -1,3 +1,6 @@
+---
+# Send a notification to our phones with the recycle bin to take outside.
+#
 id: 6c1d6db3-060b-4233-8745-e68251cff480
 alias: Sistema Notifica Rifiuti
 trigger:

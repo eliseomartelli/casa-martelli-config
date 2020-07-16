@@ -1,3 +1,6 @@
+---
+# Ping sensor to our "internet-connected" washing machine.
+#
 platform: ping
 host: 192.168.0.100
 name: Lavanderia Lavatrice Hoover

@@ -1,3 +1,6 @@
+---
+# Send a notification if there's not going to be water at night.
+#
 id: 2144017E-820B-497D-B5E6-D1989C39B6CA
 alias: Casa Notifica Acqua
 trigger:

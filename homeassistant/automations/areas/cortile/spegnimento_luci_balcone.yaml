@@ -1,3 +1,6 @@
+---
+# Turn off all the lights in the garden when you turn off the main light.
+#
 id: 713ACE4E-8D99-45D1-A1AA-288892BA6516
 alias: Cortile Spegnimento Luci
 trigger:

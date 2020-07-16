@@ -1,9 +1,11 @@
+---
+# Turn off cup heater.
+#
 id: 6B25111E-A51A-4547-B77D-B60167FB10C6
 alias: Cucina Spegnimento Scaldatazze
 trigger:
   - platform: state
     entity_id: input_select.sistema_stato_del_giorno
-    to: 'Letto'
   - platform: homeassistant
     event: start
   - platform: state
@@ -17,6 +19,7 @@ condition:
       - condition: template
         value_template: >
           {{ states("input_select.sistema_stato_del_giorno") in ["Letto", "Notte"] }}
+      # If no one is at home, turn off the cup heater.
       - condition: template
         value_template: >
           {{ trigger.to_state.domain == "group" }}

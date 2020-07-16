@@ -1,3 +1,6 @@
+---
+# Reset cinema mode status if you turn off the media player.
+#
 id: E682504C-3B8B-4071-8DEB-9DA8414AD2AB
 alias: Soggiorno Cinema Reset
 trigger:

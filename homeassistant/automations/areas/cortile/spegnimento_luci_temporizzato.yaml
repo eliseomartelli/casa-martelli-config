@@ -1,3 +1,6 @@
+---
+# If is not night, turn off lights after 15 minutes.
+#
 id: 7175DE1A-1C01-4F5D-BF84-A8BC6162EE07
 alias: Cortile Spegnimento Luci Temporizzato
 trigger:
@@ -12,9 +15,6 @@ trigger:
   - platform: homeassistant
     event: start
 condition:
-  - condition: state
-    entity_id: group.areas_cortile
-    state: 'on'
   - condition: template
     value_template: >
       {{ states("input_select.sistema_stato_del_giorno") not in ["Sera", "Letto"] }}
