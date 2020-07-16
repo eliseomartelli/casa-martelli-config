@@ -5,9 +5,17 @@ trigger:
     entity_id: media_player.soggiorno_tv
     to: 'playing'
 condition:
+    # Only if using video apps 
   - condition: template
     value_template: >
       {{ trigger.to_state.attributes.app_name in ["Prime Video", "Netflix", "Disney+"] }}
+    
+    # And if media is long enough to be considered a movie
+  - condition: template
+    value_template: >
+      {{ trigger.to_state.attributes.media_duration >= 60*45 }}
+
+    # And if cinema mode is not already on
   - condition: state
     entity_id: input_boolean.soggiorno_cinema
     state: 'off'
