@@ -1,4 +1,0 @@
-platform: mqtt
-name: Sistema Download
-state_topic: sensors/modem/data_down
-unit_of_measurement: 'Kbit/s'
