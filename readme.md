@@ -13,7 +13,7 @@
 		</a>
 		<img alt="undefined" src="https://img.shields.io/github/license/eliseomartelli/ParentsHomeAutomation.svg">
 		<img src="https://img.shields.io/badge/haversion-0.109.0-blue.svg">
-		<img src="https://img.shields.io/badge/automations-$COUNT-purple.svg">
+		<img src="https://img.shields.io/badge/automations-26-purple.svg">
 	</p>
 </p>
 
