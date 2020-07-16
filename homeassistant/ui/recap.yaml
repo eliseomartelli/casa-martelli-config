@@ -1,42 +1,62 @@
->
-    {% set light_count = states.light | selectattr('state','equalto','on') | list | count %}
-    {%- if light_count == 1 -%}
-      C'é una luce accesa.
+type: markdown
+card-size: 3
+content: >
+  {% set light_count = states.light | selectattr('state','equalto','on') | list | count %}
+  {%- if light_count == 1 -%}
+    C'é una luce accesa.
+  {%- else -%}
+    Ci sono {{ light_count }} luci accese.
+  {%- endif -%}
+  {{ " " }}Domani bisogna buttare{{ " " }}
+  {%- set today = states("sensor.casa_rifiuti_di_domani") %}
+  {%- if 'PAPER' in today -%}
+      la carta
+  {%- elif 'PLASTIC' in today -%}
+      il multimateriale
+  {%- elif 'DRY' in today -%}
+      il secco
+  {%- elif 'ORGANIC' in today -%}
+      l'umido
+  {%- elif 'GLASS' in today -%}
+      il vetro
+  {%- else -%}
+      niente
+  {%- endif -%}.
+  {% set people = states.person | selectattr('state','equalto','home') | list %}
+  {%- if people | count > 0 -%}
+    {%- if people | count == 1 -%}
+      A casa c'é
     {%- else -%}
-      Ci sono {{ light_count }} luci accese.
+      A casa ci sono
     {%- endif -%}
-    {{ " " }}Domani bisogna buttare{{ " " }}
-    {%- set today = states("sensor.casa_rifiuti_di_domani") %}
-    {%- if 'PAPER' in today -%}
-        la carta
-    {%- elif 'PLASTIC' in today -%}
-        il multimateriale
-    {%- elif 'DRY' in today -%}
-        il secco
-    {%- elif 'ORGANIC' in today -%}
-        l'umido
-    {%- elif 'GLASS' in today -%}
-        il vetro
-    {%- else -%}
-        niente
-    {%- endif -%}.
-    {% set people = states.person | selectattr('state','equalto','home') | list %}
-    {%- if people | count > 0 -%}
-      {%- if people | count == 1 -%}
-        A casa c'é
-      {%- else -%}
-        A casa ci sono
+    {{ " " }}
+    {%- for p in people -%}
+      {{- p.attributes.friendly_name.split(" ")[0] -}}
+      {%- if not loop.last -%}
+        {{ ", " }}
       {%- endif -%}
-      {{ " " }}
-      {%- for p in people -%}
-        {{- p.attributes.friendly_name.split(" ")[0] -}}
-        {%- if not loop.last -%}
-          {{ ", " }}
-        {%- endif -%}
-      {%- endfor -%}
-    {%- else %}
-      A casa non c'é nessuno
-    {%- endif -%}.
-    {%- if not states.binary_sensor.casa_presenza_acqua.state -%}
-      Non c'é fornitura di acqua.
-    {%- endif -%}
+    {%- endfor -%}
+  {%- else %}
+    A casa non c'é nessuno
+  {%- endif -%}.
+  {%- if not states.binary_sensor.casa_presenza_acqua.state -%}
+    Non c'é fornitura di acqua.
+  {%- endif -%}
+style: |
+  ha-card {
+    background: none;
+    box-shadow: none;
+  }
+  ha-markdown {
+    padding-top: 0 !important;
+  }
+entity_id:
+  - group.areas_soggiorno
+  - group.areas_cortile
+  - group.areas_cameretta
+  - light.corridoio_notturna
+  - light.cucina_scolapiatti
+  - group.family
+  - sensor.casa_rifiuti_di_domani
+  - binary_sensor.casa_presenza_acqua
+
