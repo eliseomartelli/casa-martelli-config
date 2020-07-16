@@ -7,7 +7,7 @@ activate_alexa_actionable_notification:
     event_id:
       description: 'Correlation ID for event responses'
       example: 'ask_for_temperature'
-    alexa_device: 
+    alexa_device:
       description: 'Alexa device you want to trigger'
       example: 'media_player.bedroom_echo'
   sequence:
