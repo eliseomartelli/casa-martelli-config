@@ -1,3 +1,6 @@
+---
+# Sensor to get the base URL
+#
 platform: template
 sensors:
   sistema_base_url:

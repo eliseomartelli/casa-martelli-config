@@ -1,3 +1,6 @@
+---
+# Lock for the garden gate.
+#
 platform: mqtt
 name: Cortile Pedonale
 state_topic: "stat/cortile_pedonale/RESULT"

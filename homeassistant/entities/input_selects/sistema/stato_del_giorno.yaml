@@ -1,3 +1,6 @@
+---
+# Input select for the state of the day.
+#
 sistema_stato_del_giorno:
   name: Stato del giorno
   options:

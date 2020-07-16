@@ -1,3 +1,6 @@
+---
+# Sensor for the garbage collection type.
+#
 platform: rest
 name: Casa Rifiuti di domani
 resource: https://raw.githubusercontent.com/eliseomartelli/Calendari-Ecolan/master/calendars/MOZZAGROGNA.json

@@ -1,3 +1,6 @@
+---
+# Template switch to turn off the TV via Google Assistant.
+#
 platform: template
 switches:
   soggiorno_tv:
