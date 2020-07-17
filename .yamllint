@@ -1,7 +1,3 @@
 ---
 ignore: |
     homeassistant/custom_components
-    homeassistant/lovelace/includes/grid.yaml
-    homeassistant/lovelace/views/gen_room.yaml
-    homeassistant/lovelace/views/02_cameras.yaml
-    homeassistant/lovelace/views/01_home.yaml
