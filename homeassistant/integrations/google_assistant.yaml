@@ -5,10 +5,14 @@ google_assistant:
   exposed_domains:
     - light
     - lock
+    - scene
+    - switch
+    - camera
   entity_config:
-    switch.cucina_scaldatazze:
+    switch.adguard_filtering:
+      expose: false
+    input_boolean.soggiorno_cinema:
       expose: true
-    switch.soggiorno_tv:
+    script.soggiorno_telecamere:
       expose: true
-    input_boolean.soggiorno_cinem:
-      expose: true
+

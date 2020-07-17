@@ -3,8 +3,10 @@ include_domains:
         - lock
         - camera
         - scene
+        - switch
 include_entities:
-        - switch.cucina_scaldatazze
-        - switch.soggiorno_tv
         - input_boolean.soggiorno_cinema
         - script.soggiorno_telecamere
+exclude_entities:
+        - switch.adguard_filtering
+
