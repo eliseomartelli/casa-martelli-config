@@ -15,9 +15,9 @@
         - !include
           - ../includes/section.yaml
           - title: {{ room.name }}
-          # {% for c in room.cameras %}
-          - type: picture-entity
-            entity: "{{ c.entity_id }}"
-          # {% endfor %}
+        # {% for c in room.cameras %}
+        - type: picture-entity
+          entity: "{{ c.entity_id }}"
+        # {% endfor %}
   # {% endif %}
 # {% endfor %}
