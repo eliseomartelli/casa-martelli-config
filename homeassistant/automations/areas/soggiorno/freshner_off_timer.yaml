@@ -1,0 +1,15 @@
+---
+# Turn off freshner after 30 minutes.
+#
+id: 4D87FDDB-E0BD-4F4E-81B8-3441FBD74FB5
+alias: Soggiorno Freshner Off Timer
+trigger:
+  - platform: state
+    entity_id: switch.soggiorno_profumatore
+    to: 'on'
+    for:
+      minutes: 30
+action:
+  - service: switch.turn_off
+    entity_id: switch.soggiorno_profumatore
+
