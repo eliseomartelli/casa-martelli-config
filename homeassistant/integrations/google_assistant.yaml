@@ -15,4 +15,3 @@ google_assistant:
       expose: true
     script.soggiorno_telecamere:
       expose: true
-

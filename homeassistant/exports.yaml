@@ -9,4 +9,3 @@ include_entities:
         - script.soggiorno_telecamere
 exclude_entities:
         - switch.adguard_filtering
-
