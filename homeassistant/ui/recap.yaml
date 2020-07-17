@@ -59,4 +59,3 @@ entity_id:
   - group.family
   - sensor.casa_rifiuti_di_domani
   - binary_sensor.casa_presenza_acqua
-
