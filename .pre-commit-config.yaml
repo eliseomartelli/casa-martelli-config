@@ -16,10 +16,10 @@ repos:
     hooks:
       - id: ansible-lint
         args: [provision/playbook.yaml]
-        files: provision\.(yaml|yml)$
+        files: provision\/.*(yaml|yml)$
   - repo: https://github.com/ansible/ansible-lint.git
     rev: v4.2.0
     hooks:
       - id: ansible-lint
         args: [tasmota/playbook.yaml]
-        files: tasmota\.(yaml|yml)$
+        files: tasmota\/.*(yaml|yml)$
