@@ -38,7 +38,7 @@
 
     - !include ../../ui/recap.yaml
 
-   {% if _global.home.scenes %}
+    # {% if _global.home.scenes %}
     - type: vertical-stack
       cards:
         - !include
@@ -52,14 +52,14 @@
             column_width: 50%
             justify_content: start
             cards:
-              {% for s in _global.home.scenes %}
+              # {% for s in _global.home.scenes %}
               - type: custom:decluttering-card
                 template: "hk_scene"
                 variables:
                   - entity_id: {{ s.entity_id }}
-              {% endfor %}
-    {% endif %}
-    {% if _global.home.most_used %}
+              # {% endfor %}
+    # {% endif %}
+    # {% if _global.home.most_used %}
     - type: vertical-stack
       cards:
         - !include
@@ -68,13 +68,13 @@
         - !include
           - ../includes/grid.yaml
           - entities:
-            {% for e in _global.home.most_used %}
+              # {% for e in _global.home.most_used %}
               - entity_id: {{ e.entity_id }}
-                {% if e.name %}
+                # {% if e.name %}
                 name: {{ e.name }}
-                {% endif %}
-            {% endfor %}
-    {% endif %}
+                # {% endif %}
+              # {% endfor %}
+    # {% endif %}
     - type: vertical-stack
       cards:
         # Rooms
@@ -90,11 +90,11 @@
                 min_columns: 2
                 justify_content: start
                 cards:
-                  {% for room in _global.home.rooms %}
+                  # {% for room in _global.home.rooms %}
                   - type: custom:decluttering-card
                     template: "hk_simple_link"
                     variables:
-                      - path: {{ room.name | lower | replace(" ", "_") }}
+                      - path: '{{ room.name | lower | replace(" ", "_") }}'
                       - name: {{ room.name }}
                       - icon: {{ room.icon }}
-                  {% endfor %}
+                  # {% endfor %}

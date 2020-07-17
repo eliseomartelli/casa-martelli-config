@@ -4,20 +4,20 @@
   icon: mdi:cctv
   path: cameras
   cards:
-  - !include
-    - ../includes/header.yaml
-    - title: "Telecamere"
+    - !include
+      - ../includes/header.yaml
+      - title: "Telecamere"
 
-{% for room in _global.home.rooms %}
-  {% if room.cameras %}
-  - type: vertical-stack
-    cards:
-      - !include
-        - ../includes/section.yaml
-        - title: {{ room.name }}
-    {% for c in room.cameras %}
-      - type: picture-entity
-        entity: "{{ c.entity_id }}"
-    {% endfor %}
-  {% endif %}
-{% endfor %}
+# {% for room in _global.home.rooms %}
+  # {% if room.cameras %}
+    - type: vertical-stack
+      cards:
+        - !include
+          - ../includes/section.yaml
+          - title: {{ room.name }}
+          # {% for c in room.cameras %}
+          - type: picture-entity
+            entity: "{{ c.entity_id }}"
+          # {% endfor %}
+  # {% endif %}
+# {% endfor %}

@@ -8,13 +8,13 @@ card:
   justify_content: left
   column_width: 33.333%
   cards:
-  {% for button in entities %}
+  # {% for button in entities %}
     - type: custom:decluttering-card
       template: "hk_button"
       variables:
         - entity_id: {{ button.entity_id }}
         - name: {{ button.name }}
-  {% endfor %}
+  # {% endfor %}
 style: |
   ha-card {
     margin-right: -6px;
