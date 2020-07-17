@@ -71,6 +71,14 @@
 - hosts: 192.168.0.25
   gather_facts: no
   tasks:
+    - name: Setup Fading
+      include_role:
+        name: ansible-tasmota
+      vars:
+        tasmota_commands:
+          - command: Fade
+            value: ON
+
     - name: Setup Remote Mapping
       include_role:
         name: ansible-tasmota
