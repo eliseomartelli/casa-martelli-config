@@ -1,10 +1,10 @@
 # lovelace_gen
 
 # {% for room in _global.home.rooms %}
-- title: {{ room.name }}
+- title: "{{ room.name }}"
   visible: false
   path: "{{ room.name | lower | replace(' ', '_') }}"
-  icon: {{ room.icon | default("mdi:home") }}
+  icon: "{{ room.icon | default('mdi:home') }}"
   cards:
     - !include
       - ../includes/header.yaml
