@@ -1,5 +1,5 @@
 <p align="center">
-	<img src="supporting_files/icon.png" width="200">
+	<img src=".github/supporting_files/icon.png" width="200">
 	<h1 align=center style="margin: 0;">Home Automation</h1>
 	<p align=center>Home Assistant & Friends</p>
 	<br>
