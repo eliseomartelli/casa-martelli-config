@@ -11,8 +11,8 @@ sistema_text_and_announce:
       data_template:
         message: "{{ message }}"
     - service: notify.alexa_media
-      target:
-        - media_player.soggiorno_speaker
-      data:
+      data_template:
         type: announce
         message: "{{ message }}"
+        target:
+          - media_player.soggiorno_speaker
