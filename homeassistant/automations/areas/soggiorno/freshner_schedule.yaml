@@ -1,6 +1,6 @@
 ---
 # Manage schedule for air freshner.
-# 
+#
 id: d168f724-b882-47cd-9964-31dc305debba
 alias: Soggiorno Freshner Schedule
 trigger:
@@ -13,4 +13,3 @@ condition:
 action:
   - service: switch.turn_on
     entity_id: switch.soggiorno_profumatore
-
