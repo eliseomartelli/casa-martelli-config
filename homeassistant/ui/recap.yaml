@@ -40,7 +40,7 @@ content: >
     A casa non c'é nessuno
   {%- endif -%}.
   {%- if is_state("binary_sensor.casa_presenza_acqua", "off") -%}
-    Non c'é fornitura di acqua.
+    {{ " " }}Non c'é fornitura di acqua.
   {%- endif -%}
 style: |
   ha-card {
