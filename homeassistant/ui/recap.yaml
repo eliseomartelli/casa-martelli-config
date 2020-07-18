@@ -39,7 +39,7 @@ content: >
   {%- else %}
     A casa non c'é nessuno
   {%- endif -%}.
-  {%- if not states.binary_sensor.casa_presenza_acqua.state -%}
+  {%- if is_state("binary_sensor.casa_presenza_acqua", "off") -%}
     Non c'é fornitura di acqua.
   {%- endif -%}
 style: |
