@@ -8,8 +8,4 @@ trigger:
     topic: home/buzzer
     payload: 'on'
 action:
-  - service: media_player.play_media
-    data:
-      entity_id: media_player.soggiorno_speaker
-      media_content_type: sound
-      media_content_id: amzn_sfx_doorbell_chime_01
+  - service: script.soggiorno_buzzer

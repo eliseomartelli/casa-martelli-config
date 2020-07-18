@@ -1,6 +1,8 @@
 soggiorno_buzzer:
   alias: "Soggiorno Buzzer"
   sequence:
-    - service: automation.trigger
+    - service: media_player.play_media
       data:
-        entity_id: automation.soggiorno_buzzer
+        entity_id: media_player.soggiorno_speaker
+        media_content_type: sound
+        media_content_id: amzn_sfx_doorbell_chime_01
