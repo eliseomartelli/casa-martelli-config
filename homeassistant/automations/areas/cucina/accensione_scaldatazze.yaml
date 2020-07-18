@@ -15,7 +15,7 @@ trigger:
 condition:
   - condition: template
     value_template: >
-      {{ states("input_select.sistema_stato_del_giorno") in ["Mattina", "Pranzo", "Pomeriggio", "Sera"] }}
+      {{ states("input_select.sistema_stato_del_giorno") not in ["Letto", "Notte"] }}
   - condition: state
     entity_id: group.family
     state: 'home'
