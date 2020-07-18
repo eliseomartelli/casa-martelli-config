@@ -1,0 +1,18 @@
+---
+# Send a notification and speak to tts.
+#
+sistema_text_and_announce:
+  fields:
+    message:
+      description: "What should be notified."
+      example: "Hello, World!"
+  sequence:
+    - service: notify.notify
+      data_template:
+        message: "{{ message }}"
+    - service: notify.alexa_media
+      target:
+        - media_player.soggiorno_speaker
+      data:
+        type: announce
+        message: "{{ message }}"
