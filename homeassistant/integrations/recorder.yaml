@@ -4,6 +4,9 @@
 # https://www.home-assistant.io/integrations/recorder/
 #
 recorder:
+  auto_purge: true
+  purge_keep_days: 7
+  commit_interval: 10
   include:
     entities:
       - binary_sensor.lavanderia_lavatrice_hoover
