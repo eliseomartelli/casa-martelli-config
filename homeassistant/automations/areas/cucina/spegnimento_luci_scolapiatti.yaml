@@ -1,0 +1,17 @@
+---
+# If the light was on for 2 hours, turn it off.
+#
+id: 9d94502f-5265-4844-ae8b-adb10d2177cd
+alias: Cucina Spegnimento Luci Scolapiatti
+trigger:
+  - platform: state
+    entity_id: light.cucina_scolapiatti
+    to: 'on'
+    for:
+      hours: 2
+  - platform: state
+    entity_id: group.family
+    to: 'not_home'
+action:
+  - service: light.turn_off
+    entity_id: light.cucina_scolapiatti

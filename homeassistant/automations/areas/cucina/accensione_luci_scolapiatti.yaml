@@ -9,34 +9,22 @@ trigger:
   - platform: time
     at: '19:00:00'
   - platform: state
-    entity_id: light.cucina_scolapiatti
-    to: 'on'
-    for:
-      hours: 2
-  - platform: state
     entity_id: group.family
+    to: 'home'
 condition:
-  - condition: state
-    entity_id: group.family
-    state: 'home'
   - condition: or
     conditions:
-      - condition: template
-        value_template: >
-          {{ states("input_select.sistema_stato_del_giorno") in ["Mattina"] }}
+      - condition: state
+        entity_id: input_select.sistema_stato_del_giorno
+        state: "Mattina"
       - condition: and
         conditions:
-          - condition: template
-            value_template: >
-              {{ states("input_select.sistema_stato_del_giorno") in ["Pranzo"] }}
+          - condition: state
+            entity_id: input_select.sistema_stato_del_giorno
+            state: "Pranzo"
           - condition: template
             value_template: >
               {{ states("weather.home") not in ["sunny", "partlycloudy"] }}
 action:
-  - service_template: >
-      {% if trigger.from_state.entity_id == "light.cucina_scolapiatti" %}
-        light.turn_off
-      {% else %}
-        light.turn_on
-      {% endif %}
+  - service: light.turn_on
     entity_id: light.cucina_scolapiatti
