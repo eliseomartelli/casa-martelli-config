@@ -13,9 +13,14 @@ trigger:
   - platform: state
     entity_id: group.family
 condition:
-  - condition: template
-    value_template: >
-      {{ states("input_select.sistema_stato_del_giorno") not in ["Letto", "Notte"] }}
+  - condition: or
+    conditions:
+      - condition: template
+        value_template: >
+          {{ states("input_select.sistema_stato_del_giorno") not in ["Letto", "Notte"] }}
+      - condition: template
+        value_template: >
+          {{ trigger.platform == "time" }}
   - condition: state
     entity_id: group.family
     state: 'home'
