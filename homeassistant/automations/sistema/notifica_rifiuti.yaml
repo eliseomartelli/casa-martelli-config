@@ -9,7 +9,7 @@ trigger:
 condition:
   - condition: template
     value_template: >
-      {{ states("input_select.sistema_stato_del_giorno") not in ["Notte"] }}
+      {{ states("sensor.sistema_stato_del_giorno") not in ["Notte"] }}
 action:
   - service: notify.notify
     data_template:

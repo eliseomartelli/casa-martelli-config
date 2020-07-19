@@ -13,7 +13,7 @@ trigger:
 condition:
   - condition: template
     value_template: >
-      {{ states("input_select.sistema_stato_del_giorno") not in ["Notte"] }}
+      {{ states("sensor.sistema_stato_del_giorno") not in ["Notte"] }}
   - condition: state
     entity_id: group.family
     state: "not_home"

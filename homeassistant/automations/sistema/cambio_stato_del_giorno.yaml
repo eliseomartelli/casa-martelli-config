@@ -33,4 +33,4 @@ action:
 
   - service: input_select.select_next
     data_template:
-      entity_id: input_select.sistema_stato_del_giorno
+      entity_id: sensor.sistema_stato_del_giorno

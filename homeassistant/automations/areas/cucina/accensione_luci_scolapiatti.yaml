@@ -7,7 +7,7 @@ trigger:
   - platform: homeassistant
     event: start
   - platform: state
-    entity_id: input_select.sistema_stato_del_giorno
+    entity_id: sensor.sistema_stato_del_giorno
   - platform: time
     at: '19:00:00'
   - platform: state
@@ -17,12 +17,12 @@ condition:
   - condition: or
     conditions:
       - condition: state
-        entity_id: input_select.sistema_stato_del_giorno
+        entity_id: sensor.sistema_stato_del_giorno
         state: "Mattina"
       - condition: and
         conditions:
           - condition: state
-            entity_id: input_select.sistema_stato_del_giorno
+            entity_id: sensor.sistema_stato_del_giorno
             state: "Pranzo"
           - condition: template
             value_template: >

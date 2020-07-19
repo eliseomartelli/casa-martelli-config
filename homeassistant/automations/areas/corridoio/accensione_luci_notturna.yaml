@@ -7,13 +7,13 @@ trigger:
   - platform: homeassistant
     event: start
   - platform: state
-    entity_id: input_select.sistema_stato_del_giorno
+    entity_id: sensor.sistema_stato_del_giorno
   - platform: state
     entity_id: group.family
 condition:
   - condition: template
     value_template: >
-      {{ states("input_select.sistema_stato_del_giorno") in ["Letto", "Notte"] }}
+      {{ states("sensor.sistema_stato_del_giorno") in ["Letto", "Notte"] }}
   - condition: state
     entity_id: group.family
     state: 'home'

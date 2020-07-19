@@ -10,7 +10,7 @@ trigger:
     for:
       minutes: 15
   - platform: state
-    entity_id: input_select.sistema_stato_del_giorno
+    entity_id: sensor.sistema_stato_del_giorno
     to: "Mattina"
     for:
       hours: 1
@@ -19,7 +19,7 @@ trigger:
 condition:
   - condition: template
     value_template: >
-      {{ states("input_select.sistema_stato_del_giorno") not in ["Letto", "Notte"] }}
+      {{ states("sensor.sistema_stato_del_giorno") not in ["Letto", "Notte"] }}
 action:
   - service: light.turn_off
     entity_id: light.corridoio_notturna
