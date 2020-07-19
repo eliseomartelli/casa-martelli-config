@@ -6,7 +6,7 @@ sensors:
   sistema_stato_del_giorno:
     value_template: >
       {% set curtime = states("sensor.time") | replace(":","") | int %}
-      
+
       {% if is_state("sun.sun", "above_horizon") %}
         {% if curtime >= 1330 %}
           Pomeriggio
@@ -16,12 +16,11 @@ sensors:
           Mattina
         {% endif %}
       {% else %}
-        {% if curtime >= 2300 or curtime >= 0 %}
-          Notte
-        {% elif curtime >= 2115 %}
+        {% if curtime < 2300 and curtime >= 2115 %}
           Letto
-        {% else %}
+        {% elif curtime <= 2115 %}
           Sera
+        {% else %}
+          Notte
         {% endif %}
       {% endif %}
-
