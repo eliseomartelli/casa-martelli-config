@@ -1,0 +1,27 @@
+---
+# Template sensor representing the current day state.
+#
+platform: template
+sensors:
+  sistema_stato_del_giorno:
+    value_template: >
+      {% set curtime = states("sensor.time") | replace(":","") | int %}
+      
+      {% if is_state("sun.sun", "above_horizon") %}
+        {% if curtime >= 1330 %}
+          Pomeriggio
+        {% elif curtime >= 1200 %}
+          Pranzo
+        {% else %}
+          Mattina
+        {% endif %}
+      {% else %}
+        {% if curtime >= 2300 or curtime >= 0 %}
+          Notte
+        {% elif curtime >= 2115 %}
+          Letto
+        {% else %}
+          Sera
+        {% endif %}
+      {% endif %}
+
