@@ -1,0 +1,7 @@
+---
+# Input Datetime for the last time we changed the filter of the water purifier.
+#
+cucina_filtro_depuratore_acqua:
+  name: Ultima Sostituzione Filtro Everpure
+  has_date: true
+  has_time: false
