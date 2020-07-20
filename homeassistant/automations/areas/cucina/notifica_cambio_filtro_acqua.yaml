@@ -1,0 +1,24 @@
+---
+# Notify if the water filter needs changing. 
+#
+id: d7c477dc-2efa-496e-bb77-134fb1fbdcc2
+alias: Cucina Notifica Cambio Filtro Acqua
+trigger:
+  - platform: time
+    at: '12:30:00'
+condition:
+  - condition: template
+    value_template: >
+      {{ ((as_timestamp(now()) - states.input_datetime.cucina_filtro_depuratore_acqua.attributes.timestamp) / (60*60*24)) >= 360 }}
+action:
+  - service: script.sistema_text_and_announce
+    data_template:
+      message: >
+        {% set daycount = (365 - ((as_timestamp(now()) - states.input_datetime.cucina_filtro_depuratore_acqua.attributes.timestamp) / (60*60*24))) | int %}
+        Bisogna sostituire il filtro della macchinetta dell'acqua tra 
+        {{ " " }}{%- if daycount == 1 -%}
+          un giorno.
+        {%- else -%}
+          {{ daycount }} giorni.
+        {%- endif -%}
+
