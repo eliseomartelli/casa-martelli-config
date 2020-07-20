@@ -1,0 +1,44 @@
+---
+# Manage lights outside.
+#
+id: 93473694-53E8-43C2-9259-39F32D177C26
+alias: Cortile Luci
+trigger:
+  - platform: homeassistant
+    event: start
+  - platform: state
+    entity_id: input_select.sistema_stato_del_giorno
+  - platform: state
+    entity_id: group.areas_cortile
+    to: 'on'
+    for:
+      minutes: 15
+
+  - platform: state
+    entity_id: light.cortile_frontale
+action:
+  - choose:
+      - conditions:
+          - condition: state
+            entity_id: group.areas_cortile
+            state: "off"
+          - condition: template
+            value_template: >
+              {{ states("input_select.sistema_stato_del_giorno") in ["Sera", "Letto"] }}
+        sequence:
+          - service: light.turn_on
+            entity_id:
+              - light.cortile_frontale
+      - conditions:
+          - condition: state
+            entity_id: light.cortile_frontale
+            state: 'on'
+          - condition: template
+            value_template: "{{ as_timestamp(now()) - as_timestamp(trigger.from_state.last_changed) <= 0.25 }}"
+        sequence:
+          - service: light.turn_on
+            entity_id:
+              - light.cortile_balcone
+    default:
+      - service: homeassistant.turn_off
+        entity_id: group.areas_cortile
