@@ -6,3 +6,6 @@ lights:
 switches:
   - entity_id: switch.cucina_scaldatazze
     name: Scaldatazze
+additional_switches:
+  - entity_id: input_datetime.cucina_filtro_depuratore_acqua
+
