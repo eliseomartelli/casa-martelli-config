@@ -1,0 +1,37 @@
+---
+# Turn on night light when it's time for bed and there're people at home.
+#
+id: 93473694-53E8-43C2-9259-39F32D177D26
+alias: Corridoio Luce Notturna
+trigger:
+  - platform: homeassistant
+    event: start
+  - platform: state
+    entity_id: input_select.sistema_stato_del_giorno
+  - platform: state
+    entity_id: group.family
+  - platform: state
+    entity_id: light.corridoio_notturna
+    to: 'on'
+    for:
+      minutes: 15
+  - platform: state
+    entity_id: input_select.sistema_stato_del_giorno
+    to: "Mattina"
+    for:
+      hours: 1
+condition:
+  - choose:
+      - conditions:
+          - condition: template
+            value_template: >
+              {{ states("input_select.sistema_stato_del_giorno") in ["Letto", "Notte"] }}
+          - condition: state
+            entity_id: group.family
+            state: 'home'
+        sequence:
+          - service: light.turn_on
+            entity_id: light.corridoio_notturna
+    default:
+      - service: light.turn_off
+        entity_id: light.corridoio_notturna
