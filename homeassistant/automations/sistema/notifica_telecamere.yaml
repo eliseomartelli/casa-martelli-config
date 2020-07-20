@@ -24,3 +24,5 @@ action:
       data:
         image: >
           {{ states("sensor.sistema_base_url") }}{{ state_attr("camera." + (trigger.from_state.entity_id.split(".")[1] | replace("_presenza", "")), "entity_picture") }}
+  - delay:
+      minutes: 5
