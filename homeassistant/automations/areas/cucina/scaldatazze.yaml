@@ -17,7 +17,7 @@ trigger:
     to: 'not_home'
     for:
       hours: 1
-condition:
+action:
   - choose:
       - conditions:
           - condition: or
