@@ -13,11 +13,11 @@ trigger:
     to: 'on'
     for:
       minutes: 15
-
   - platform: state
     entity_id: light.cortile_frontale
 action:
   - choose:
+      # Lights off but it's evening or bedtime
       - conditions:
           - condition: state
             entity_id: group.areas_cortile
@@ -29,6 +29,8 @@ action:
           - service: light.turn_on
             entity_id:
               - light.cortile_frontale
+
+      # Cortile frontale is on and changed rapidly
       - conditions:
           - condition: state
             entity_id: light.cortile_frontale
@@ -39,6 +41,12 @@ action:
           - service: light.turn_on
             entity_id:
               - light.cortile_balcone
-    default:
-      - service: homeassistant.turn_off
-        entity_id: group.areas_cortile
+
+      # Cortile frontale is off
+      - conditions:
+          - condition: state
+            entity_id: light.cortile_frontale
+            state: 'off'
+        sequence:
+          - service: homeassistant.turn_off
+            entity_id: group.areas_cortile
