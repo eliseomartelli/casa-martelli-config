@@ -8,4 +8,3 @@ switches:
     name: Scaldatazze
 additional_switches:
   - entity_id: input_datetime.cucina_filtro_depuratore_acqua
-

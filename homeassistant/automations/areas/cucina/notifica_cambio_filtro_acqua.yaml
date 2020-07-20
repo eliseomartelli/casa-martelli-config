@@ -1,5 +1,5 @@
 ---
-# Notify if the water filter needs changing. 
+# Notify if the water filter needs changing.
 #
 id: d7c477dc-2efa-496e-bb77-134fb1fbdcc2
 alias: Cucina Notifica Cambio Filtro Acqua
@@ -15,10 +15,9 @@ action:
     data_template:
       message: >
         {% set daycount = (365 - ((as_timestamp(now()) - states.input_datetime.cucina_filtro_depuratore_acqua.attributes.timestamp) / (60*60*24))) | int %}
-        Bisogna sostituire il filtro della macchinetta dell'acqua tra 
+        Bisogna sostituire il filtro della macchinetta dell'acqua tra
         {{ " " }}{%- if daycount == 1 -%}
           un giorno.
         {%- else -%}
           {{ daycount }} giorni.
         {%- endif -%}
-
