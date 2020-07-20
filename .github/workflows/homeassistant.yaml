@@ -26,7 +26,6 @@ jobs:
           args: python -m homeassistant --config ./homeassistant/ --script check_config --info all
   home_assistant_beta:
       runs-on: ubuntu-latest
-      needs: [yamllint, remarklint]
       steps:
         - name: Getting your configuration from GitHub
           uses: actions/checkout@v1
