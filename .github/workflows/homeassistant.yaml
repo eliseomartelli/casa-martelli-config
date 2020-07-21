@@ -7,6 +7,7 @@ on:
 
 jobs:
   home_assistant_stable:
+    needs: precommit
     runs-on: ubuntu-latest
     steps:
       - name: Getting your configuration from GitHub
@@ -25,6 +26,7 @@ jobs:
         with:
           args: python -m homeassistant --config ./homeassistant/ --script check_config --info all
   home_assistant_beta:
+      needs: precommit
       runs-on: ubuntu-latest
       steps:
         - name: Getting your configuration from GitHub

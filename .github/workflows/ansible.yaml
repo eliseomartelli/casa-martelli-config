@@ -7,6 +7,7 @@ on:
 
 jobs:
   ansible_provision:
+    needs: pre-commit
     runs-on: ubuntu-latest
     steps:
       - name: Checking out code from GitHub
