@@ -30,7 +30,7 @@ action:
             entity_id: group.family
             state: 'home'
           - condition: or
-            condiions:
+            conditions:
               - condition: time
                 after: '05:30:00'
               - condition: and
