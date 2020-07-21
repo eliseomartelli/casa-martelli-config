@@ -4,30 +4,20 @@
 id: 3D666750-268D-4C09-ADB0-75EDC86A5898
 alias: Cucina Scaldatazze
 trigger:
-  - platform: time
-    at: '04:30:00'
   - platform: homeassistant
     event: start
-  - platform: state
-    entity_id: input_select.sistema_stato_del_giorno
+  - platform: time
+    at: '04:30:00'
+  - platform: time
+    at: '21:15:00'
   - platform: state
     entity_id: group.family
-  - platform: state
-    entity_id: group.family
-    to: 'not_home'
-    for:
-      hours: 1
 action:
   - choose:
       - conditions:
-          - condition: or
-            conditions:
-              - condition: template
-                value_template: >
-                  {{ states("input_select.sistema_stato_del_giorno") not in ["Letto", "Notte"] }}
-              - condition: template
-                value_template: >
-                  {{ trigger.platform == "time" }}
+          - condition: time
+            after: '04:30:00'
+            before: '21:15:00'
           - condition: state
             entity_id: group.family
             state: 'home'

@@ -7,7 +7,8 @@ trigger:
   - platform: homeassistant
     event: start
   - platform: state
-    entity_id: input_select.sistema_stato_del_giorno
+    entity_id: sun.sun
+    to: 'below_horizon'
   - platform: state
     entity_id: group.areas_cortile
     to: 'on'
@@ -22,13 +23,15 @@ action:
           - condition: state
             entity_id: group.areas_cortile
             state: "off"
-          - condition: template
-            value_template: >
-              {{ states("input_select.sistema_stato_del_giorno") in ["Sera", "Letto"] }}
+          - condition: state
+            entity_id: sun.sun
+            state: 'below_horizon'
+          - condition: time
+            before: '23:00:00'
         sequence:
-          - service: light.turn_on
-            entity_id:
-              - light.cortile_frontale
+            - service: light.turn_on
+              entity_id:
+                - light.cortile_frontale
 
       # Cortile frontale is on and changed rapidly
       - conditions:
@@ -41,12 +44,6 @@ action:
           - service: light.turn_on
             entity_id:
               - light.cortile_balcone
-
-      # Cortile frontale is off
-      - conditions:
-          - condition: state
-            entity_id: light.cortile_frontale
-            state: 'off'
-        sequence:
-          - service: homeassistant.turn_off
-            entity_id: group.areas_cortile
+    default:
+      - service: homeassistant.turn_off
+        entity_id: group.areas_cortile

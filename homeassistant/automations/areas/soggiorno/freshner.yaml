@@ -22,9 +22,9 @@ action:
           - condition: state
             entity_id: switch.soggiorno_profumatore
             state: 'off'
-          - condition: template
-            value_template: >
-              {{ states.input_select.sistema_stato_del_giorno.state not in ["Notte"] }}
+          - condition: time
+            after: '06:00:00'
+            before: '23:00:00'
         sequence:
           - service: switch.turn_on
             entity_id: switch.soggiorno_profumatore
