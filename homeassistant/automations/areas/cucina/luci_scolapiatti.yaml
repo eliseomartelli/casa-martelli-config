@@ -9,12 +9,11 @@ trigger:
   - platform: time
     at: '05:30:00'
   - platform: time
-    at: '13:00:00'
+    at: '12:30:00'
   - platform: time
     at: '19:00:00'
   - platform: state
     entity_id: group.family
-
   - platform: state
     entity_id: light.cucina_scolapiatti
     to: 'on'
@@ -24,19 +23,18 @@ action:
   - choose:
       - conditions:
           - condition: state
-            entity_id: light.cucina_scolapiatti
-            state: 'off'
-          - condition: state
             entity_id: group.family
             state: 'home'
           - condition: or
             conditions:
               - condition: time
                 after: '05:30:00'
+                before: '07:30:00'
               - condition: and
                 conditions:
                   - condition: time
-                    after: '13:00:00'
+                    after: '12:30:00'
+                    before: '14:30:00'
                   - condition: not
                     conditions:
                       - condition: or
@@ -48,7 +46,8 @@ action:
                             entity_id: weather.home
                             state: 'partlycloudy'
               - condition: time
-                after: "19:00:00"
+                after: '19:00:00'
+                before: '21:00:00'
         sequence:
           - service: light.turn_on
             entity_id: light.cucina_scolapiatti

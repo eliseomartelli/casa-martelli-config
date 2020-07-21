@@ -16,13 +16,11 @@ trigger:
       minutes: 15
   - platform: state
     entity_id: light.cortile_frontale
+    to: 'on'
 action:
   - choose:
       # Lights off but it's evening or bedtime
       - conditions:
-          - condition: state
-            entity_id: group.areas_cortile
-            state: "off"
           - condition: state
             entity_id: sun.sun
             state: 'below_horizon'
