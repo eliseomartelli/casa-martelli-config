@@ -27,7 +27,7 @@ jobs:
           pre-commit run --all-files --show-diff-on-failure
 
   home_assistant_stable:
-    needs: precommit
+    needs: pre-commit
     runs-on: ubuntu-latest
     steps:
       - name: Getting your configuration from GitHub
@@ -46,7 +46,7 @@ jobs:
         with:
           args: python -m homeassistant --config ./homeassistant/ --script check_config --info all
   home_assistant_beta:
-      needs: precommit
+      needs: pre-commit
       runs-on: ubuntu-latest
       steps:
         - name: Getting your configuration from GitHub
@@ -85,6 +85,7 @@ jobs:
         run: |
           cd provision && ansible-playbook playbook.yaml -i inventory --syntax-check
   ansible_tasmota:
+    needs: pre-commit
     runs-on: ubuntu-latest
     steps:
       - name: Checking out code from GitHub
