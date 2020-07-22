@@ -14,8 +14,6 @@ trigger:
     to: 'on'
     for:
       minutes: 15
-  - platform: state
-    entity_id: light.cortile_frontale
   - platform: time
     at: '23:00:00'
 action:
@@ -29,27 +27,7 @@ action:
             before: '23:00:00'
         sequence:
             - service: light.turn_on
-              entity_id:
-                - light.cortile_frontale
-
-      # Cortile frontale is on and changed rapidly
-      - conditions:
-          - condition: state
-            entity_id: light.cortile_frontale
-            state: 'on'
-          - condition: template
-            value_template: "{{ as_timestamp(now()) - as_timestamp(trigger.from_state.last_changed) <= 0.25 }}"
-        sequence:
-          - service: light.turn_on
-            entity_id:
-              - light.cortile_balcone
-      - conditions:
-          - condition: state
-            entity_id: light.cortile_frontale
-            state: 'off'
-        sequence:
-          - service: homeassistant.turn_off
-            entity_id: group.areas_cortile
+              entity_id: light.cortile_frontale
     default:
       - service: homeassistant.turn_off
         entity_id: group.areas_cortile

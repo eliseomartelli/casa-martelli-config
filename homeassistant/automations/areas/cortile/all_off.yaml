@@ -1,0 +1,12 @@
+---
+# Turn all lights off when main light goes off.
+#
+id: b7a49bdb-fa3f-4e07-b480-8610e70cc7b0
+alias: Cortile All Off
+trigger:
+  - platform: state
+    entity_id: light.cortile_frontale
+    to: 'off'
+action:
+  - service: light.turn_off
+    entity_id: group.areas_cortile
