@@ -1,0 +1,29 @@
+---
+# Turn on cup heater for the morning.
+#
+id: 3D666750-268D-4C09-ADB0-75EDC86A5898
+alias: Cucina Scaldatazze
+trigger:
+  - platform: homeassistant
+    event: start
+  - platform: time
+    at: '04:30:00'
+  - platform: time
+    at: '21:15:00'
+  - platform: state
+    entity_id: group.family
+action:
+  - choose:
+      - conditions:
+          - condition: time
+            after: '04:30:00'
+            before: '21:15:00'
+          - condition: state
+            entity_id: group.family
+            state: 'home'
+        sequence:
+          - service: switch.turn_on
+            entity_id: switch.cucina_scaldatazze
+    default:
+      - service: switch.turn_off
+        entity_id: switch.cucina_scaldatazze
