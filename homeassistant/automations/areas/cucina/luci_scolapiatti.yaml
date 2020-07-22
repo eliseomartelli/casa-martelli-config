@@ -4,19 +4,21 @@
 id: 0d6718e9-4f62-4468-aa7c-b6add5cc2ba9
 alias: Cucina Luci Scolapiatti
 trigger:
+  - platform: homeassistant
+    event: start
+  - platform: time
+    at: '05:30:00'
+  - platform: time
+    at: '12:30:00'
+  - platform: time
+    at: '19:00:00'
+  - platform: state
+    entity_id: group.family
   - platform: state
     entity_id: light.cucina_scolapiatti
     to: 'on'
     for:
       hours: 2
-  - platform: homeassistant
-    event: start
-  - platform: state
-    entity_id: input_select.sistema_stato_del_giorno
-  - platform: time
-    at: '19:00:00'
-  - platform: state
-    entity_id: group.family
 action:
   - choose:
       - conditions:
@@ -25,17 +27,27 @@ action:
             state: 'home'
           - condition: or
             conditions:
-              - condition: state
-                entity_id: input_select.sistema_stato_del_giorno
-                state: "Mattina"
+              - condition: time
+                after: '05:30:00'
+                before: '07:30:00'
               - condition: and
                 conditions:
-                  - condition: state
-                    entity_id: input_select.sistema_stato_del_giorno
-                    state: "Pranzo"
-                  - condition: template
-                    value_template: >
-                      {{ states("weather.home") not in ["sunny", "partlycloudy"] }}
+                  - condition: time
+                    after: '12:30:00'
+                    before: '14:30:00'
+                  - condition: not
+                    conditions:
+                      - condition: or
+                        conditions:
+                          - condition: state
+                            entity_id: weather.home
+                            state: 'sunny'
+                          - condition: state
+                            entity_id: weather.home
+                            state: 'partlycloudy'
+              - condition: time
+                after: '19:00:00'
+                before: '21:00:00'
         sequence:
           - service: light.turn_on
             entity_id: light.cucina_scolapiatti

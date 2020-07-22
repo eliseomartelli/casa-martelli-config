@@ -64,5 +64,4 @@
           - title: "Altro"
         - type: entities
           entities:
-            - input_select.sistema_stato_del_giorno
             - binary_sensor.casa_presenza_acqua

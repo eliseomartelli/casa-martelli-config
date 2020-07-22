@@ -6,8 +6,10 @@ alias: Corridoio Luce Notturna
 trigger:
   - platform: homeassistant
     event: start
-  - platform: state
-    entity_id: input_select.sistema_stato_del_giorno
+  - platform: time
+    at: "21:15:00"
+  - platform: time
+    at: "08:20:00"
   - platform: state
     entity_id: group.family
   - platform: state
@@ -15,17 +17,12 @@ trigger:
     to: 'on'
     for:
       minutes: 15
-  - platform: state
-    entity_id: input_select.sistema_stato_del_giorno
-    to: "Mattina"
-    for:
-      hours: 1
 action:
   - choose:
       - conditions:
-          - condition: template
-            value_template: >
-              {{ states("input_select.sistema_stato_del_giorno") in ["Letto", "Notte"] }}
+          - condition: time
+            after: '21:15:00'
+            before: '08:20:00'
           - condition: state
             entity_id: group.family
             state: 'home'
