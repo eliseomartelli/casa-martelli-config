@@ -6,8 +6,12 @@ alias: Casa Notifica Acqua
 trigger:
   - platform: state
     entity_id: binary_sensor.casa_presenza_acqua
-    from: 'on'
-    to: 'off'
+  - platform: time
+    at: '13:30:00'
+condition:
+  - condition: state
+    entity_id: binary_sensor.casa_presenza_acqua
+    state: 'off'
 action:
   - service: script.sistema_text_and_announce
     data_template:
