@@ -17,6 +17,8 @@ trigger:
   - platform: state
     entity_id: light.cortile_frontale
     to: 'on'
+  - platform: time
+    at: '23:00:00'
 action:
   - choose:
       # Lights off but it's evening or bedtime
