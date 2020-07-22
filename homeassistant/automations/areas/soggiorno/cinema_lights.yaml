@@ -12,22 +12,22 @@ condition:
     state: 'on'
 action:
   - choose:
-      - conditions:
-          - condition: not
-            conditions:
-              - condition: state
-                entity_id: media_player.soggiorno_tv
-                state: 'playing'
-        sequence:
-          - service: light.turn_on
-            entity_id: light.soggiorno_principale
-      - conditions:
-          - condition: state
-            entity_id: media_player.soggiorno_tv
-            state: 'off'
-        sequence:
-          - service: input_boolean.turn_off
-            entity_id: input_boolean.soggiorno_cinema
+     - conditions:
+         - condition: state
+           entity_id: media_player.soggiorno_tv
+           state: 'off'
+       sequence:
+         - service: input_boolean.turn_off
+           entity_id: input_boolean.soggiorno_cinema
+     - conditions:
+         - condition: not
+           conditions:
+             - condition: state
+               entity_id: media_player.soggiorno_tv
+               state: 'playing'
+       sequence:
+         - service: light.turn_on
+           entity_id: light.soggiorno_principale
     default:
       - service: light.turn_off
         entity_id: group.areas_soggiorno
