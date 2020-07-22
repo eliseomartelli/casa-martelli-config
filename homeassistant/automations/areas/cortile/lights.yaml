@@ -16,7 +16,6 @@ trigger:
       minutes: 15
   - platform: state
     entity_id: light.cortile_frontale
-    to: 'on'
   - platform: time
     at: '23:00:00'
 action:
