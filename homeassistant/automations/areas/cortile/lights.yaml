@@ -43,7 +43,7 @@ action:
           - service: light.turn_on
             entity_id:
               - light.cortile_balcone
-      - condiitons:
+      - conditions:
           - condition: state
             entity_id: light.cortile_frontale
             state: 'off'
