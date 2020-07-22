@@ -11,9 +11,9 @@ trigger:
       - binary_sensor.cortile_piazzale_presenza
     to: 'on'
 condition:
-  - condition: template
-    value_template: >
-      {{ states("input_select.sistema_stato_del_giorno") not in ["Notte"] }}
+  - condition: time
+    after: '07:30:00'
+    before: '23:00:00'
   - condition: state
     entity_id: group.family
     state: "not_home"
@@ -24,3 +24,5 @@ action:
       data:
         image: >
           {{ states("sensor.sistema_base_url") }}{{ state_attr("camera." + (trigger.from_state.entity_id.split(".")[1] | replace("_presenza", "")), "entity_picture") }}
+  - delay:
+      minutes: 5

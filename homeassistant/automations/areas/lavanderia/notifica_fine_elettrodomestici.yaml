@@ -9,9 +9,9 @@ trigger:
       - binary_sensor.lavanderia_lavatrice_hoover
     to: 'off'
 condition:
-  - condition: template
-    value_template: >
-      {{ states("input_select.sistema_stato_del_giorno") not in ["Notte"] }}
+  - condition: time
+    after: '07:00:00'
+    before: '22:30:00'
 action:
   - service: service.sistema_text_and_announce
     data_template:

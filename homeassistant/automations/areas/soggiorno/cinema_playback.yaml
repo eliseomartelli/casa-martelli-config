@@ -11,11 +11,14 @@ condition:
     entity_id: input_boolean.soggiorno_cinema
     state: 'on'
 action:
-  - service_template: >
-      {% if trigger.to_state.state == "on" %}
-        media_player.media_pause
-      {% else %}
-        media_player.media_play
-      {% endif %}
-    data:
-      entity_id: media_player.soggiorno_tv
+  - choose:
+      - conditions:
+          - condition: state
+            entity_id: group.areas_soggiorno
+            state: 'on'
+        sequence:
+          - service: media_player.media_pause
+            entity_id: media_player.soggiorno_tv
+    default:
+      - service: media_player.media_play
+        entity_id: media_player.soggiorno_tv

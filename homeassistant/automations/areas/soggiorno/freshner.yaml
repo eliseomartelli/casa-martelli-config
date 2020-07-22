@@ -1,0 +1,33 @@
+---
+# Manage schedule for air freshner.
+#
+id: d168f724-b882-47cd-9964-31dc305debba
+alias: Soggiorno Freshner
+trigger:
+  - platform: state
+    entity_id: group.family
+  - platform: state
+    entity_id: switch.soggiorno_profumatore
+    to: 'on'
+    for:
+      minutes: 30
+  - platform: time_pattern
+    hours: '/3'
+action:
+  - choose:
+      - conditions:
+          - condition: state
+            entity_id: group.family
+            state: 'home'
+          - condition: state
+            entity_id: switch.soggiorno_profumatore
+            state: 'off'
+          - condition: time
+            after: '06:00:00'
+            before: '23:00:00'
+        sequence:
+          - service: switch.turn_on
+            entity_id: switch.soggiorno_profumatore
+    default:
+      - service: switch.turn_off
+        entity_id: switch.soggiorno_profumatore
