@@ -1,0 +1,6 @@
+areas_corridoio_stampante_ink:
+  entities:
+    - sensor.corridoio_stampante_cyan_ink
+    - sensor.corridoio_stampante_black_ink
+    - sensor.corridoio_stampante_magenta_ink
+    - sensor.corridoio_stampante_yellow_ink
