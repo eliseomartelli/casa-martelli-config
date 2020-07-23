@@ -8,3 +8,5 @@ name: Casa Presenza Acqua
 value_template: >
   {{ not (value_json[0].content.rendered | regex_search("(?i)mozzagrogna")) }}
 device_class: moisture
+headers:
+  User-Agent: Mozilla/5.0
