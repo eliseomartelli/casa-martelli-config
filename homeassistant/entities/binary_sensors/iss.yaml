@@ -1,0 +1,4 @@
+---
+# Binary sensor for the ISS.
+#
+platform: iss
