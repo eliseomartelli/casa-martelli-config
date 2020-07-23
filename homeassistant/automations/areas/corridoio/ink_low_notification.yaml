@@ -17,4 +17,10 @@ condition:
 action:
   - service: script.sistema_text_and_announce
     data_template:
-      message: Controllare le cartucce della stampante.
+      message: >
+        Controllare le cartucce della stampante.
+        {% set inklist = (expand("group.areas_corridoio_stampante_ink") | selectattr('state', 'lessthan', '16') | list) %}
+
+        {% set letter = "a" if inklist | count == 1 else "e" %}
+
+        L{{ letter }} cartucc{{ "i" if letter == "a" }}{{ letter }}: {{ inklist | map(attribute="name") | join(', ') }} ha{{ "nno" if letter == "e" }} bisogno di essere cambiat{{ letter }}.
