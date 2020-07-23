@@ -65,3 +65,4 @@
         - type: entities
           entities:
             - binary_sensor.casa_presenza_acqua
+            - binary_sensor.iss
