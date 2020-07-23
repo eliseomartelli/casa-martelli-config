@@ -1,0 +1,20 @@
+---
+# Ink low notification.
+#
+id: 66110a38-a718-44ac-aa23-62307edb388d
+alias: Corridoio Ink Low Notification
+trigger:
+  - platform: time
+    at: '09:30:00'
+condition:
+  - condition: numeric_state
+    entity_id:
+      - sensor.corridoio_stampante_black_ink
+      - sensor.corridoio_stampante_cyan_ink
+      - sensor.corridoio_stampante_magenta_ink
+      - sensor.corridoio_stampante_yellow_ink
+    below: 15
+action:
+  - service: script.sistema_text_and_announce
+    data_template:
+      message: Controllare le cartucce della stampante.
