@@ -17,19 +17,23 @@
 
 ---
 
-### System Architecture
+## Casa Martelli
 
-This Home Automation setup is currently running on a Mini PC [[LINK]](https://amzn.to/2MLfRn9).
-The specs are:
-- RAM: 2Gb
-- CPU: Atom x5-Z83500
-- EMMC: 32Gb
+Casa Martelli is our family home in Abruzzo, Italy. It's an happy place located in the historic centre of a little town. Everthing about our house is always a work in progress so expect a lot of updates to this repo.
 
-This machine runs the latest version of **Ubuntu Server LTS.**
+### Why do we automate?
 
-### Software
-As already stated the *O.S.* of this *itty-bitty* machine is **Ubuntu Server LTS.**
-On top of that there's **Docker**.
+Automations in our house are there to help us reduce the number of repetitive tasks so we can focus on more important things.
+
+### Approach to automations
+
+Our automations should adapt to us, not the opposite, they are there to add value to the interactions we have with our living space.
+
+A great article by Paulus Schoutsen can be found [here](https://www.home-assistant.io/blog/2016/01/19/perfect-home-automation/).
+
+## Software
+
+Our automation software of choice is Home Assistant. Our install is "Supervised" by the Home Assistant Supervisor.
 
 #### Docker Containers
 - **Home Assistant Supervisor**
@@ -48,3 +52,19 @@ Docker Containers are currently deployed using [Ansible](https://www.ansible.com
 - **MotionEye**
 
 Home Assistant Addons are installed manually with the Add-on Store.
+
+
+## Hardware
+
+This Home Automation setup is currently running on a Mini PC [[LINK]](https://amzn.to/2MLfRn9).
+The specs are:
+- RAM: 2Gb
+- CPU: Atom x5-Z83500
+- EMMC: 32Gb
+
+This machine runs the latest version of **Ubuntu Server LTS.**
+
+## Issues
+
+Issues in this repo are handled like @ccostan, @jcallaghan or @frenck.
+They are in place to help me track what needs to be done and the priority of these tasks.
