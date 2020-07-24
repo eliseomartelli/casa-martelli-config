@@ -1,6 +1,6 @@
 <p align="center">
 	<img src=".github/supporting_files/icon.png" width="200">
-	<h1 align=center style="margin: 0;">Home Automation</h1>
+	<h1 align=center style="margin: 0;">Casa Martelli</h1>
 	<p align=center>Home Assistant & Friends</p>
 	<br>
 	<p align=center>
@@ -16,8 +16,6 @@
 </p>
 
 ---
-
-## Casa Martelli
 
 Casa Martelli is our family home in Abruzzo, Italy. It's an happy place located in the historic centre of a little town. Everthing about our house is always a work in progress so expect a lot of updates to this repo.
 
