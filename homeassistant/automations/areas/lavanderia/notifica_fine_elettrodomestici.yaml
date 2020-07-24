@@ -25,7 +25,7 @@ action:
         {{
           [
             'La %2 %3 ha terminato il programma di %4',
-            'Sembra che La %2 %3 in %1 ha concluso il programma: %4',
+            'Sembra che La %2 %3 in %1 abbia concluso il programma: %4',
             'Volevo avvisarvi che la %2 %3 ha finito il programma %4',
             'Il programma %4 è stato concluso dalla %2 %3',
             'La %2 %3 ha concluso il %4',
