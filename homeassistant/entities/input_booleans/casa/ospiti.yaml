@@ -1,0 +1,6 @@
+---
+# Input boolean for guest mode.
+#
+casa_ospiti:
+  name: Modalità Ospiti
+  icon: mdi:account-multiple-plus
