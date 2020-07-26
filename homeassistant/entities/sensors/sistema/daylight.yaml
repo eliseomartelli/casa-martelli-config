@@ -1,0 +1,14 @@
+---
+platform: template
+sensors:
+  sistema_daylight:
+    friendly_name: Ore di luce
+    unit_of_measurement: Hours
+    value_template: >
+      {% set r = state_attr("sun.sun", "next_rising") | as_timestamp %}
+      {% set s = state_attr("sun.sun", "next_setting") | as_timestamp %}
+      {% if r > s %}
+        {% set r = r - 60*60*24 %}
+      {% endif %}
+      {{ ((s - r) / (60*60)) | round(1) }}
+    icon: mdi:clock-outline
