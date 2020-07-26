@@ -11,4 +11,3 @@ sensors:
         {% set r = r - 60*60*24 %}
       {% endif %}
       {{ ((s - r) / (60*60)) | round(1) }}
-    icon: mdi:clock-outline
