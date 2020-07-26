@@ -34,3 +34,4 @@ media_players:
         entity_id: script.soggiorno_telecamere
 additional_switches:
   - entity_id: input_boolean.soggiorno_cinema
+  - entity_id: sensor.soggiorno_tv_on_today

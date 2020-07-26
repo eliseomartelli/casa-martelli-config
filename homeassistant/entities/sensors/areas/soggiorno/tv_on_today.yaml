@@ -1,0 +1,8 @@
+---
+platform: history_stats
+name: Soggiorno TV On Today
+entity_id: switch.soggiorno_tv
+state: 'on'
+type: time
+start: '{{ now().replace(hour=0, minute=0, second=0) }}'
+end: '{{ now() }}'
