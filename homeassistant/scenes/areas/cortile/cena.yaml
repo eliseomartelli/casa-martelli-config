@@ -4,4 +4,5 @@ entities:
   light.cortile_veranda: on
   light.cortile_frontale: on
   switch.soggiorno_tv: off
-  group.areas_soggiorno: off
+  light.soggiorno_principale: off
+  light.soggiorno_faretti: on
