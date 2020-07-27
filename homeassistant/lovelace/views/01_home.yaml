@@ -49,7 +49,6 @@
             type: custom:layout-card
             layout: horizontal
             min_columns: 2
-            column_width: 50%
             justify_content: start
             cards:
               # {% for s in _global.home.scenes %}
