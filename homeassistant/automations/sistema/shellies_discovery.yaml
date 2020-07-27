@@ -3,6 +3,8 @@
 #
 id: 'shellies_discovery'
 alias: 'Sistema Shellies Discovery'
+mode: queued
+max: 999
 trigger:
   - platform: mqtt
     topic: shellies/announce
