@@ -4,7 +4,8 @@
 platform: template
 switches:
   soggiorno_tv:
-    value_template: "{{ states('binary_sensor.soggiorno_tv')}}"
+    value_template: >
+      {{ not is_state("media_player.soggiorno_tv", "unavailable") }}
     turn_on:
       service: media_player.turn_on
       data:
