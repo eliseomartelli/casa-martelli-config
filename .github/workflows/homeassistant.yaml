@@ -97,7 +97,7 @@ jobs:
         with:
           entrypoint: "bash"
           args: |
-            for file in $(find ./config/esphome -type f -name "*.yaml" -not -name "secrets.yaml"); do esphome "${file}" config; done
+            for file in $(find ./esphome -type f -name "*.yaml" -not -name "secrets.yaml"); do esphome "${file}" config; done
 
   ansible_tasmota:
     needs: pre-commit
