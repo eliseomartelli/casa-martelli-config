@@ -3,6 +3,7 @@ icon: mdi:pasta
 entities:
   light.cortile_veranda: on
   light.cortile_frontale: on
+  light.cortile_gazebo: on
   switch.soggiorno_tv: off
   light.soggiorno_principale: off
   light.soggiorno_faretti: on

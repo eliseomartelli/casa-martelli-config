@@ -3,3 +3,4 @@ areas_cortile:
     - light.cortile_balcone
     - light.cortile_frontale
     - light.cortile_veranda
+    - light.cortile_gazebo
