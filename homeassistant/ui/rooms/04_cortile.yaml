@@ -7,6 +7,8 @@ lights:
     name: Balcone
   - entity_id: light.cortile_veranda
     name: Veranda
+  - entity_id: light.cortile_gazebo
+    name: Gazebo
 cameras:
   - entity_id: camera.cortile_piazzale
   - entity_id: camera.cortile_viale
