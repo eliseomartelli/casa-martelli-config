@@ -84,6 +84,21 @@ jobs:
       - name: Run ansible syntax check
         run: |
           cd provision && ansible-playbook playbook.yaml -i inventory --syntax-check
+  esphome:
+    runs-on: ubuntu-latest
+    needs: [pre-commit]
+    steps:
+      - name: Getting your configuration from GitHub
+        uses: actions/checkout@v1
+      - name: Copy stub files into configuration folder
+        run: cp -R ./.stubs/esphome_secrets.yaml ./esphome/secrets.yaml
+      - name: ESPHome Check
+        uses: "docker://esphome/esphome:latest"
+        with:
+          entrypoint: "bash"
+          args: |
+            for file in $(find ./config/esphome -type f -name "*.yaml" -not -name "secrets.yaml"); do esphome "${file}" config; done
+
   ansible_tasmota:
     needs: pre-commit
     runs-on: ubuntu-latest
