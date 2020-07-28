@@ -1,0 +1,51 @@
+substitutions:
+  device_name: cortile_veranda
+  device_description: Veranda main light
+  friendly_name: Cortile Veranda
+
+esphome:
+  name: ${device_name}
+  comment: ${device_description}
+  platform: ESP8266
+  board: esp01_1m
+  esp8266_restore_from_flash: true
+
+wifi:
+  ssid: !secret wifissid
+  password: !secret wifipass
+  fast_connect: on
+  ap:
+    ssid: ${friendly_name}_AP
+    password: !secret wifipass
+
+captive_portal:
+
+logger:
+
+api:
+
+ota:
+
+web_server:
+
+output:
+  - platform: gpio
+    pin: GPIO12
+    id: relay_output
+
+binary_sensor:
+  - platform: gpio
+    pin: GPIO04
+    name: ${friendly_name} Switch
+    on_state:
+      then:
+        - light.toggle: relay_light
+    internal: true
+    id: button
+
+light:
+  - platform: binary
+    name: ${friendly_name}
+    output: relay_output
+    id: relay_light
+    restore_mode: RESTORE_DEFAULT_OFF
