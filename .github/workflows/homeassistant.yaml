@@ -101,7 +101,7 @@ jobs:
           python -m pip install --upgrade pip setuptools wheel
           pip install esphome
           pip list
-          pre-commit --version
+          esphome version
       - name: Copy stub files into configuration folder
         run: cp -R ./.stubs/esphome_secrets.yaml ./esphome/secrets.yaml
       - name: Run esphome on all files
