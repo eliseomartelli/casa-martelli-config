@@ -9,7 +9,7 @@ trigger:
   - platform: time
     at: "21:15:00"
   - platform: time
-    at: "08:20:00"
+    at: "08:00:00"
   - platform: state
     entity_id: group.family
   - platform: state
@@ -17,12 +17,16 @@ trigger:
     to: 'on'
     for:
       minutes: 15
+  - platform: state
+    entity_id: sensor.telefono_gioele_battery_state
+    to: 'charging'
 action:
   - choose:
       - conditions:
+          # Time range is bigger than trigger interval.
           - condition: time
-            after: '21:15:00'
-            before: '08:20:00'
+            after: '20:30:00'
+            before: '08:00:00'
           - condition: state
             entity_id: group.family
             state: 'home'
