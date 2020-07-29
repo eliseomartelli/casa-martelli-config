@@ -106,7 +106,7 @@ jobs:
         run: cp -R ./.stubs/esphome_secrets.yaml ./esphome/secrets.yaml
       - name: Run esphome on all files
         run: |
-          for file in $(find ./esphome -type f -name "*.yaml" -not -name "secrets.yaml"); do esphome "${file}" config; done
+          for file in $(find ./esphome -type f -name "*.yaml" -not -name "secrets.yaml" -not -name "*_common.yaml"); do esphome "${file}" config; done
 
   ansible_tasmota:
     needs: pre-commit
