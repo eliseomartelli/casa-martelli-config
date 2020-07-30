@@ -1,0 +1,19 @@
+---
+# Send notification if wind speed is high.
+#
+id: 3472b9ef-3bc6-4015-8de0-bb168861f76f
+alias: Casa Notifica Vento
+mode: single
+trigger:
+  - platform: template
+    value_template: >
+      {{ state_attr("weather.home", "wind_speed") | float > 40 }}
+condition:
+  - condition: state
+    entity_id: group.family
+    state: 'not_home'
+action:
+  - service: script.sistema_text_and_announce
+    data_template:
+      message: "ATTENZIONE\nVelocità vento elevata."
+  - delay: '03:00:00'
