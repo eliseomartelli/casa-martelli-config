@@ -19,5 +19,6 @@ condition:
     state: 'below_horizon'
 action:
   - service: notify.mobile_app_mi_a3
-    message: "Hey, se alzi lo sguardo al cielo potrai vedere la ISS! ✨🚀"
+    data:
+      message: "Hey, se alzi lo sguardo al cielo potrai vedere la ISS! ✨🚀"
   - delay: '02:00:00'
