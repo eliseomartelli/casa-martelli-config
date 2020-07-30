@@ -18,7 +18,7 @@ jobs:
 
       - name: Check for changes
         run: |
-          ! git diff --quiet
+          git diff --quiet || echo "No changes to commit"
 
       - name: Commit changes if required
         if: ${{ success() }}
