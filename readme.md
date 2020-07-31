@@ -11,7 +11,7 @@
 		</a>
 		<img alt="undefined" src="https://img.shields.io/github/license/eliseomartelli/ParentsHomeAutomation.svg">
 		<img src="https://img.shields.io/badge/haversion-0.113.2-blue.svg">
-		<img src="https://img.shields.io/badge/automations-24-purple.svg">
+		<img src="https://img.shields.io/badge/automations-25-purple.svg">
 	</p>
 </p>
 
