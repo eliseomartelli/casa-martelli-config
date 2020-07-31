@@ -1,7 +1,0 @@
-[locks]
-192.168.0.24    friendly_name="Cortile Pedonale"    template='{"NAME":"Generic","GPIO":[17,255,255,255,255,0,0,0,21,56,255,0,0],"FLAG":0,"BASE":1}'
-
-[plugs]
-
-[lights]
-192.168.0.25    friendly_name="Cameretta Testiera"  template='{"NAME":"Light Controll","GPIO":[0,0,0,0,51,37,0,0,38,39,0,0,0],"FLAG":0,"BASE":18}'

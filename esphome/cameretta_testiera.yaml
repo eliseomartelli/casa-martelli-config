@@ -1,0 +1,290 @@
+substitutions:
+  device_name: cameretta_testiera
+  friendly_name: Cameretta Testiera
+  device_description: Cameretta testiera light.
+
+
+esphome:
+  name: ${device_name}
+  comment: ${device_description}
+  platform: ESP8266
+  board: esp01_1m
+  esp8266_restore_from_flash: true
+
+wifi:
+  ssid: !secret wifissid
+  password: !secret wifipass
+  fast_connect: on
+  ap:
+    ssid: ${friendly_name}_AP
+    password: !secret wifipass
+  output_power: 11db
+
+captive_portal:
+
+logger:
+
+api:
+
+ota:
+
+web_server:
+
+remote_receiver:
+  pin:
+    number: GPIO4
+    inverted: True
+  dump: lg
+
+output:
+  - platform: esp8266_pwm
+    id: red_output
+    pin: GPIO5
+  - platform: esp8266_pwm
+    id: green_output
+    pin: GPIO12
+  - platform: esp8266_pwm
+    id: blue_output
+    pin: GPIO13
+
+light:
+  - platform: rgb
+    name: ${friendly_name}
+    red: red_output
+    green: green_output
+    blue: blue_output
+    id: rgb_light
+    effects:
+      - random:
+      - strobe:
+      - flicker:
+
+binary_sensor:
+  - platform: remote_receiver
+    name: ${friendly_name} Remote 1 Power
+    internal: true
+    lg:
+      data: 0x00F7C03F
+      nbits: 32
+    on_press:
+      then:
+        - light.toggle: rgb_light
+
+  - platform: remote_receiver
+    name: ${friendly_name} Remote 1 Brightness Down
+    internal: true
+    lg:
+      data: 0x00F7807F
+      nbits: 32
+    on_press:
+      then:
+        - light.dim_relative:
+            id: rgb_light
+            relative_brightness: -5%
+
+  - platform: remote_receiver
+    name: ${friendly_name} Remote 1 Brightness Up
+    internal: true
+    lg:
+      data: 0x00F700FF
+      nbits: 32
+    on_press:
+      then:
+        - light.dim_relative:
+            id: rgb_light
+            relative_brightness: 5%
+
+  - platform: remote_receiver
+    name: ${friendly_name} Remote 1 RED
+    internal: true
+    lg:
+      data: 0x00F720DF
+      nbits: 32
+    on_press:
+      then:
+        - light.control:
+            id: rgb_light
+            state: on
+            red: 100%
+            green: 0
+            blue: 0
+
+
+  - platform: remote_receiver
+    name: ${friendly_name} Remote 1 GREEN
+    internal: true
+    lg:
+      data: 0x00F7A05F
+      nbits: 32
+    on_press:
+      then:
+        - light.control:
+            id: rgb_light
+            state: on
+            red: 0
+            green: 100%
+            blue: 0
+  - platform: remote_receiver
+    name: ${friendly_name} Remote 1 BLUE
+    internal: true
+    lg:
+      data: 0x00F7609F
+      nbits: 32
+    on_press:
+      then:
+        - light.control:
+            id: rgb_light
+            state: on
+            red: 0
+            green: 0
+            blue: 100%
+  - platform: remote_receiver
+    name: ${friendly_name} Remote 1 WHITE
+    internal: true
+    lg:
+      data: 0x00F7E01F
+      nbits: 32
+    on_press:
+      then:
+        - light.control:
+            id: rgb_light
+            state: on
+            red: 1
+            green: 1
+            blue: 1
+
+  - platform: remote_receiver
+    name: ${friendly_name} Remote 1 BELL
+    lg:
+      data: 0x00F76897
+      nbits: 32
+  - platform: remote_receiver
+    name: ${friendly_name} Remote 1 FN1
+    lg:
+      data: 0x00F7D02F
+      nbits: 32
+
+  - platform: remote_receiver
+    name: ${friendly_name} Remote 1 FN2
+    lg:
+      data: 0x00F7F00F
+      nbits: 32
+  - platform: remote_receiver
+    name: ${friendly_name} Remote 1 FN3
+    lg:
+      data: 0x00F7C837
+      nbits: 32
+
+## Remote 2
+  - platform: remote_receiver
+    name: ${friendly_name} Remote 2 Power
+    internal: true
+    lg:
+      data: 0x00FFB04F
+      nbits: 32
+    on_press:
+      then:
+        - light.toggle: rgb_light
+
+  - platform: remote_receiver
+    name: ${friendly_name} Remote 2 Brightness Down
+    internal: true
+    lg:
+      data: 0x00FFB847
+      nbits: 32
+    on_press:
+      then:
+        - light.dim_relative:
+            id: rgb_light
+            relative_brightness: -5%
+
+  - platform: remote_receiver
+    name: ${friendly_name} Remote 2 Brightness Up
+    internal: true
+    lg:
+      data: 0x00FF906F
+      nbits: 32
+    on_press:
+      then:
+        - light.dim_relative:
+            id: rgb_light
+            relative_brightness: 5%
+
+  - platform: remote_receiver
+    name: ${friendly_name} Remote 2 RED
+    internal: true
+    lg:
+      data: 0x00FF9867
+      nbits: 32
+    on_press:
+      then:
+        - light.control:
+            id: rgb_light
+            state: on
+            red: 100%
+            green: 0
+            blue: 0
+
+  - platform: remote_receiver
+    name: ${friendly_name} Remote 2 GREEN
+    internal: true
+    lg:
+      data: 0x00FFD827
+      nbits: 32
+    on_press:
+      then:
+        - light.control:
+            id: rgb_light
+            state: on
+            red: 0
+            green: 100%
+            blue: 0
+  - platform: remote_receiver
+    name: ${friendly_name} Remote 2 BLUE
+    internal: true
+    lg:
+      data: 0x00FF8877
+      nbits: 32
+    on_press:
+      then:
+        - light.control:
+            id: rgb_light
+            state: on
+            red: 0
+            green: 0
+            blue: 100%
+  - platform: remote_receiver
+    name: ${friendly_name} Remote 2 WHITE
+    internal: true
+    lg:
+      data: 0x00FFA857
+      nbits: 32
+    on_press:
+      then:
+        - light.control:
+            id: rgb_light
+            state: on
+            red: 1
+            green: 1
+            blue: 1
+
+  - platform: remote_receiver
+    name: ${friendly_name} Remote 2 BELL
+    lg:
+      data: 0x00FFF00F
+      nbits: 32
+  - platform: remote_receiver
+    name: ${friendly_name} Remote 2 FN1
+    lg:
+      data: 0x00FFB24D
+      nbits: 32
+  - platform: remote_receiver
+    name: ${friendly_name} Remote 2 FN2
+    lg:
+      data: 0x00FF00FF
+      nbits: 32
+  - platform: remote_receiver
+    name: ${friendly_name} Remote 2 FN3
+    lg:
+      data: "0x00FF58A7"
+      nbits: 32

@@ -17,9 +17,3 @@ repos:
       - id: ansible-lint
         args: [provision/playbook.yaml]
         files: ^provision/
-  - repo: https://github.com/ansible/ansible-lint.git
-    rev: v4.2.0
-    hooks:
-      - id: ansible-lint
-        args: [tasmota/playbook.yaml]
-        files: ^tasmota/
