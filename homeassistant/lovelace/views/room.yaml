@@ -54,6 +54,18 @@
               # {% endfor %}
     # {% endif %}
 
+    # {% if room.climate %}
+    - type: vertical-stack
+      cards:
+        - !include
+          - ../includes/section.yaml
+          - title: Clima
+        # {% for c in room.climate %}
+        - type: thermostat
+          entity: {{ c.entity_id }}
+        # {% endfor %}
+    # {% endif %}
+
     # {% if room.media_players %}
     - type: vertical-stack
       cards:
