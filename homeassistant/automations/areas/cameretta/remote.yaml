@@ -1,0 +1,53 @@
+---
+# Manage Cameretta Remote
+#
+id: 6962E946-C06F-4053-A6EF-958BACEF2BE4
+alias: Cameretta Remote
+trigger:
+  - platform: state
+    entity_id:
+      - binary_sensor.cameretta_testiera_remote_1_fn1
+      - binary_sensor.cameretta_testiera_remote_1_fn2
+      - binary_sensor.cameretta_testiera_remote_1_fn3
+      - binary_sensor.cameretta_testiera_remote_2_fn1
+      - binary_sensor.cameretta_testiera_remote_2_fn2
+      - binary_sensor.cameretta_testiera_remote_2_fn3
+    to: 'on'
+action:
+  - choose:
+      - conditions:
+          - condition: or
+            conditions:
+              - condition: state
+                entity_id: binary_sensor.cameretta_testiera_remote_1_fn1
+                state: 'on'
+              - condition: state
+                entity_id: binary_sensor.cameretta_testiera_remote_2_fn1
+                state: 'on'
+        sequence:
+          - service: light.toggle
+            entity_id: light.cameretta_principale
+      - conditions:
+          - condition: or
+            conditions:
+              - condition: state
+                entity_id: binary_sensor.cameretta_testiera_remote_1_fn2
+                state: 'on'
+              - condition: state
+                entity_id: binary_sensor.cameretta_testiera_remote_2_fn2
+                state: 'on'
+        sequence:
+          - service: light.toggle
+            entity_id: light.cameretta_scrivania
+      - conditions:
+          - condition: or
+            conditions:
+              - condition: state
+                entity_id: binary_sensor.cameretta_testiera_remote_1_fn3
+                state: 'on'
+              - condition: state
+                entity_id: binary_sensor.cameretta_testiera_remote_2_fn3
+                state: 'on'
+        sequence:
+          - service: light.toggle
+            entity_id: light.corridoio_notturna
