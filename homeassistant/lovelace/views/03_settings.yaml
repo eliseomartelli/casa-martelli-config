@@ -39,6 +39,7 @@
           entities:
             - sensor.adguard_dns_queries_blocked
             - switch.adguard_filtering
+            - sensor.adguard_average_processing_speed
 
     - type: vertical-stack
       cards:
