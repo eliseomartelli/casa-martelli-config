@@ -24,7 +24,7 @@
             }
             .icon-image svg {
               height: 28px;
-              margin-bottom: -10px !important;
+              margin-bottom: -06px !important;
             }
             .info, .temp-attribute, .temp, .icon-image, svg, .content {
               display: inline !important;

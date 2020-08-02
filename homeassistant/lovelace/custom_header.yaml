@@ -10,8 +10,7 @@ exceptions:
       footer_mode: true
       chevrons: false
       indicator_top: true
-      all_tabs_css: "width: calc(25vw - 9px) !important; padding: 0px !important;"
-      header_css: 'padding-left: 0px !important; padding-right: 0px !important;'
-      view_css: 'padding-top: 104px !important;
+      all_tabs_css: "width: 21vw !important; padding: 0px !important;"
+      view_css: 'padding-top: 88px !important;
                  padding-left: 8px !important;
                  padding-right: 8px !important;'
