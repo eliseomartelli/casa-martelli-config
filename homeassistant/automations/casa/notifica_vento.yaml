@@ -7,7 +7,7 @@ mode: single
 trigger:
   - platform: template
     value_template: >
-      {{ state_attr("weather.home", "wind_speed") | float > 40 }}
+      {{ state_attr("weather.home", "wind_speed") | float > 20 }}
 condition:
   - condition: state
     entity_id: group.family
