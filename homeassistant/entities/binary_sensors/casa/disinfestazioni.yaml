@@ -1,0 +1,14 @@
+---
+# Rest sensor to check if there'll be water at night.
+#
+platform: rest
+resource: https://comunemozzagrogna.it/web/wp-json/wp/v2/posts?per_page=1
+verify_ssl: false
+name: Casa Disinfestazioni
+value_template: >
+  {{
+    (value_json[0].content.rendered | regex_search("(?i)disinfestazion."))
+  }}
+device_class: gas
+headers:
+  User-Agent: Mozilla/5.0

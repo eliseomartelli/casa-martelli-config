@@ -1,0 +1,20 @@
+---
+# Send a notification if there's going to be pest control.
+#
+id: 2144017E-820B-497D-B5E6-D1989C39B6CA
+alias: Casa Notifica Disinfestazioni
+trigger:
+  - platform: state
+    entity_id: binary_sensor.casa_disinfestazioni
+    from: 'off'
+    to: 'on'
+  - platform: time
+    at: '18:30:00'
+condition:
+  - condition: state
+    entity_id: binary_sensor.casa_disinfestazioni
+    state: 'on'
+action:
+  - service: script.sistema_text_and_announce
+    data_template:
+      message: "Ci saranno delle disinfestazioni. Ricordarsi di chiudere le finestre."
