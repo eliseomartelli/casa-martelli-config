@@ -1,0 +1,58 @@
+---
+# Play music on Sunday morning
+#
+id: E2296A6B-9A18-4688-8E91-B8C403F79D0E
+alias: Soggiorno Sunday Music
+trigger:
+  - platform: state
+    entity_id: group.areas_soggiorno
+    to: 'on'
+  - platform: template
+    value_template: >
+      {{
+        not
+        (state_attr("sensor.telefono_antonella_battery_state", "is_charging") or
+        state_attr("sensor.telefono_antonio_battery_state", "is_charging") or
+        state_attr("sensor.telefono_gioele_battery_state", "is_charging") or
+        state_attr("sensor.telefono_eliseo_battery_state", "is_charging"))
+      }}
+condition:
+  - condition: time
+    after: '00:07:00'
+    before: '00:09:00'
+    weekday:
+      - sat
+      - sun
+  - condition: state
+    entity_id: group.family
+    state: 'home'
+  - condition: not
+    conditions:
+      - condition: state
+        entity_id: media_player.soggiorno_speaker
+        state: 'playing'
+action:
+  - service: media_player.volume_set
+    data:
+      entity_id: media_player.soggiorno_speaker
+      volume_level: 0.3
+  - service: notify.alexa_media
+    data_template:
+      data:
+        type: announce
+      message: "Buongiorno! Metto un po' di musica"
+      target:
+        - media_player.soggiorno_speaker
+  - service: media_player.play_media
+    data_template:
+      media_content_type: "AMAZON_MUSIC"
+      media_content_id: >
+        Playlist {{
+          [
+            "Risveglio Rock",
+            "Buona Giornata !",
+            "Road Trip",
+            "Dance Mix Anni '80'",
+            "Dance Mix Anni '90'"
+          ] | random
+        }}
