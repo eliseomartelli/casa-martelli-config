@@ -13,7 +13,7 @@ condition:
     after: '07:00:00'
     before: '22:30:00'
 action:
-  - service: service.sistema_text_and_announce
+  - service: script.sistema_text_and_announce
     data_template:
       message: >
         {% set data = trigger.from_state.entity_id.split(".")[1].split("_") %}
