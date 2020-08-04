@@ -16,3 +16,4 @@ recorder:
       - sensor.speedtest_download
       - sensor.speedtest_upload
       - switch.soggiorno_tv
+      - sensor.sistema_temperatura_cpu
