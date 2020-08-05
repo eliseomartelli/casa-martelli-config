@@ -1,8 +1,0 @@
----
-# Sensor to get the base URL
-#
-platform: template
-sensors:
-  sistema_base_url:
-    friendly_name: Sistema Base URL
-    value_template: !secret base_url

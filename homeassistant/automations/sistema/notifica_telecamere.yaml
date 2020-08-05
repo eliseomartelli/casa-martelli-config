@@ -23,6 +23,6 @@ action:
       message: Mi sembra di aver visto del movimento
       data:
         image: >
-          {{ states("sensor.sistema_base_url") }}{{ state_attr("camera." + (trigger.from_state.entity_id.split(".")[1] | replace("_presenza", "")), "entity_picture") }}
+          /api/camera_proxy/camera.{{ trigger.from_state.entity_id.split(".")[1] | replace("_presenza") }}
   - delay:
       minutes: 5
