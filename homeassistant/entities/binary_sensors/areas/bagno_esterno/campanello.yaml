@@ -1,0 +1,8 @@
+---
+platform: mqtt
+name: "Bagno Esterno Campanello"
+off_delay: 5
+payload_on: "AC0391"
+device_class: sound
+state_topic: "tele/tasmota_434508/RESULT"
+value_template: "{{ value_json.RfReceived.Data }}"

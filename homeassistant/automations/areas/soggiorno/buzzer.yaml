@@ -11,6 +11,7 @@ trigger:
     entity_id:
       - binary_sensor.cameretta_testiera_remote_1_bell
       - binary_sensor.cameretta_testiera_remote_2_bell
+      - binary_sensor.bagno_esterno_campanello
     to: 'on'
 action:
   - service: script.soggiorno_buzzer
