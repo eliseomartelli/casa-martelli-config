@@ -6,3 +6,6 @@ payload_on: "AC0391"
 device_class: sound
 state_topic: "tele/tasmota_434508/RESULT"
 value_template: "{{ value_json.RfReceived.Data }}"
+availability_topic: "tele/tasmota_434508/LWT"
+payload_available: "Online"
+payload_not_available: "Offline"
