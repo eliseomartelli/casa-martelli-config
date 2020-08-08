@@ -23,7 +23,7 @@ action:
   - service: media_player.volume_set
     data:
       entity_id: media_player.soggiorno_speaker
-      volume_level: 0.3
+      volume_level: 0.2
   - service: notify.alexa_media
     data_template:
       data:
