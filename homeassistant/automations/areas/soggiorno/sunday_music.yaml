@@ -5,7 +5,9 @@ id: E2296A6B-9A18-4688-8E91-B8C403F79D0E
 alias: Soggiorno Sunday Music
 trigger:
   - platform: state
-    entity_id: group.areas_soggiorno
+    entity_id:
+      - light.soggiorno_faretti
+      - light.soggiorno_principale
     to: 'on'
 condition:
   - condition: time
@@ -14,11 +16,6 @@ condition:
   - condition: state
     entity_id: group.family
     state: 'home'
-  - condition: not
-    conditions:
-      - condition: state
-        entity_id: media_player.soggiorno_speaker
-        state: 'playing'
   - condition: state
     entity_id: binary_sensor.sistema_giorno_lavorativo
     state: 'off'
@@ -48,3 +45,5 @@ action:
             "Dance Mix Anni '90'"
           ] | random
         }}
+  # Just one time a day
+  - delay: '00:03:00'
