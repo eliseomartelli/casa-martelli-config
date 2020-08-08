@@ -7,22 +7,10 @@ trigger:
   - platform: state
     entity_id: group.areas_soggiorno
     to: 'on'
-  - platform: template
-    value_template: >
-      {{
-        not
-        (state_attr("sensor.telefono_antonella_battery_state", "is_charging") or
-        state_attr("sensor.telefono_antonio_battery_state", "is_charging") or
-        state_attr("sensor.telefono_gioele_battery_state", "is_charging") or
-        state_attr("sensor.telefono_eliseo_battery_state", "is_charging"))
-      }}
 condition:
   - condition: time
     after: '00:07:00'
     before: '00:09:00'
-    weekday:
-      - sat
-      - sun
   - condition: state
     entity_id: group.family
     state: 'home'
@@ -31,6 +19,9 @@ condition:
       - condition: state
         entity_id: media_player.soggiorno_speaker
         state: 'playing'
+  - condition: state
+    entity_id: binary_sensor.sistema_giorno_lavorativo
+    state: 'off'
 action:
   - service: media_player.volume_set
     data:
