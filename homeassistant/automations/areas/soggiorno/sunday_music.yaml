@@ -11,8 +11,8 @@ trigger:
     to: 'on'
 condition:
   - condition: time
-    after: '00:07:00'
-    before: '00:09:00'
+    after: '07:00:00'
+    before: '09:30:00'
   - condition: state
     entity_id: group.family
     state: 'home'
@@ -46,4 +46,4 @@ action:
           ] | random
         }}
   # Just one time a day
-  - delay: '00:03:00'
+  - delay: '03:00:00'
