@@ -16,6 +16,8 @@ trigger:
       minutes: 15
   - platform: time
     at: '23:00:00'
+  - platform: state
+    entity_id: input_boolean.casa_ospiti
 action:
   - choose:
       # Lights off but it's evening or bedtime
@@ -29,5 +31,8 @@ action:
             - service: light.turn_on
               entity_id: light.cortile_frontale
     default:
+      - condition: state
+        entity_id: input_boolean.casa_ospiti
+        state: 'off'
       - service: homeassistant.turn_off
         entity_id: group.areas_cortile
