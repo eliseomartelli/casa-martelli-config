@@ -7,9 +7,9 @@ trigger:
   - platform: homeassistant
     event: start
   - platform: time
-    at: '04:30:00'
-  - platform: time
-    at: '21:15:00'
+    at:
+      - '04:30:00'
+      - '21:15:00'
   - platform: state
     entity_id: group.family
 action:
