@@ -1,0 +1,46 @@
+---
+id: 3D013D6E-03A0-46F4-AFED-8D0FEE130A92
+alias: Soggiorno Phone Ringing
+trigger:
+  - platform: state
+    entity_id:
+      - sensor.telefono_eliseo_phone_state
+condition:
+  - condition: time
+    after: '08:00:00'
+    before: '22:00:00'
+action:
+  - choose:
+      - conditions:
+          - condition: or
+            conditions:
+              - condition: and
+                conditions:
+                  - condition: state
+                    entity_id: sensor.telefono_eliseo_phone_state
+                    state: ringing
+                  - condition: state
+                    entity_id: person.eliseo_martelli
+                    state: 'home'
+        sequence:
+          - service: notify.alexa_media
+            data_template:
+              data:
+                type: announce
+              message: >
+                Sta squillando il {{ trigger.to_state.attributes.friendly_name }}.
+              target:
+                - media_player.soggiorno_speaker
+          - service: scene.create
+            data:
+              scene_id: soggiorno_phone_ringing
+              snapshot_entities:
+                - media_player.soggiorno_tv
+                - media_player.soggiorno_speaker
+          - service: media_player.media_pause
+            entity_id:
+              - media_player.soggiorno_tv
+              - media_player.soggiorno_speaker
+    default:
+      - service: scene.turn_on
+        entity_id: scene.soggiorno_phone_ringing
