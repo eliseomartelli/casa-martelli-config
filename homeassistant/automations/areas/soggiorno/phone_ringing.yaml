@@ -41,6 +41,28 @@ action:
             entity_id:
               - media_player.soggiorno_tv
               - media_player.soggiorno_speaker
+      - conditions:
+          - condition: or
+            conditions:
+              - condition: and
+                conditions:
+                  - condition: state
+                    entity_id: sensor.telefono_eliseo_phone_state
+                    state: offhook
+                  - condition: state
+                    entity_id: person.eliseo_martelli
+                    state: 'home'
+        sequence:
+          - service: scene.create
+            data:
+              scene_id: soggiorno_phone_ringing
+              snapshot_entities:
+                - media_player.soggiorno_tv
+                - media_player.soggiorno_speaker
+          - service: media_player.media_pause
+            entity_id:
+              - media_player.soggiorno_tv
+              - media_player.soggiorno_speaker
     default:
       - service: scene.turn_on
         entity_id: scene.soggiorno_phone_ringing
