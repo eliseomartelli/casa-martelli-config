@@ -5,6 +5,9 @@ trigger:
   - platform: state
     entity_id:
       - sensor.telefono_eliseo_phone_state
+      - sensor.telefono_gioele_phone_state
+      - sensor.telefono_antonella_phone_state
+      - sensor.telefono_antonio_phone_state
 condition:
   - condition: time
     after: '08:00:00'
