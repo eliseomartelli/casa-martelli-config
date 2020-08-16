@@ -22,6 +22,30 @@ action:
                   - condition: state
                     entity_id: person.eliseo_martelli
                     state: 'home'
+              - condition: and
+                conditions:
+                  - condition: state
+                    entity_id: sensor.telefono_antonella_phone_state
+                    state: ringing
+                  - condition: state
+                    entity_id: person.antonella_di_paolo
+                    state: 'home'
+              - condition: and
+                conditions:
+                  - condition: state
+                    entity_id: sensor.telefono_antonio_phone_state
+                    state: ringing
+                  - condition: state
+                    entity_id: person.antonio_martelli
+                    state: 'home'
+              - condition: and
+                conditions:
+                  - condition: state
+                    entity_id: sensor.telefono_gioele_phone_state
+                    state: ringing
+                  - condition: state
+                    entity_id: person.gioele_martelli
+                    state: 'home'
         sequence:
           - service: notify.alexa_media
             data_template:
@@ -51,6 +75,30 @@ action:
                     state: offhook
                   - condition: state
                     entity_id: person.eliseo_martelli
+                    state: 'home'
+              - condition: and
+                conditions:
+                  - condition: state
+                    entity_id: sensor.telefono_antonella_phone_state
+                    state: offhook
+                  - condition: state
+                    entity_id: person.antonella_di_paolo
+                    state: 'home'
+              - condition: and
+                conditions:
+                  - condition: state
+                    entity_id: sensor.telefono_antonio_phone_state
+                    state: offhook
+                  - condition: state
+                    entity_id: person.antonio_martelli
+                    state: 'home'
+              - condition: and
+                conditions:
+                  - condition: state
+                    entity_id: sensor.telefono_gioele_phone_state
+                    state: offhook
+                  - condition: state
+                    entity_id: person.gioele_martelli
                     state: 'home'
         sequence:
           - service: scene.create
