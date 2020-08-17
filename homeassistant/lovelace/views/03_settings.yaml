@@ -69,5 +69,6 @@
             - binary_sensor.casa_presenza_acqua
             - binary_sensor.iss
             - input_boolean.casa_ospiti
+            - input_boolean.casa_pulizia
             - sensor.sistema_temperatura_cpu
             - binary_sensor.sistema_giorno_lavorativo
