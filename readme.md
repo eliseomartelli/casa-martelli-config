@@ -11,7 +11,7 @@
 		</a>
 		<img alt="undefined" src="https://img.shields.io/github/license/eliseomartelli/ParentsHomeAutomation.svg">
 		<img src="https://img.shields.io/badge/haversion-0.114.0-blue.svg">
-		<img src="https://img.shields.io/badge/automations-29-purple.svg">
+		<img src="https://img.shields.io/badge/automations-31-purple.svg">
 	</p>
 </p>
 
@@ -64,5 +64,5 @@ This machine runs the latest version of **Ubuntu Server LTS.**
 
 ## Issues
 
-Issues in this repo are handled like @ccostan, @jcallaghan or @frenck.
+Issues in this repo are handled like [@ccostan](https://twitter.com/ccostan), [@jcallaghan](https://twitter.com/jamescallaghan) or [@frenck](https://twitter.com/frenck).
 They are in place to help me track what needs to be done and the priority of these tasks.
