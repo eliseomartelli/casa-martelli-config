@@ -1,0 +1,21 @@
+---
+# Turn off the stair lights after a minute.
+#
+id: 843C355C-5FAB-46DA-96FB-DC262332C1D3
+alias: Scale Luci
+trigger:
+  - platform: state
+    entity_id: light.scale_principale
+    to: 'on'
+    for:
+      minutes: 1
+  - platform: state
+    entity_id: input_boolean.casa_pulizia
+    to: 'off'
+condition:
+  - condition: state
+    entity_id: input_boolean.casa_pulizia
+    state: 'off'
+action:
+  - service: light.turn_off
+    entity_id: light.scale_principale
