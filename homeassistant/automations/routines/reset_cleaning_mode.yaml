@@ -1,0 +1,11 @@
+---
+# Turn off cleaning mode at 2 A.M.
+#
+id: F321FDDD-43A5-4FE5-93F8-785A391A3C33
+alias: Routine Reset Cleaning Mode
+trigger:
+  - platform: time
+    at: '02:00:00'
+action:
+  - service: homeassistant.turn_off
+    entity_id: input_boolean.casa_pulizia
