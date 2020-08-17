@@ -1,0 +1,6 @@
+---
+# Input boolean for cleaning mode.
+#
+casa_pulizia:
+  name: Modalità Pulizia
+  icon: mdi:broom
