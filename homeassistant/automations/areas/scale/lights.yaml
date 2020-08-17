@@ -10,12 +10,37 @@ trigger:
     for:
       minutes: 1
   - platform: state
-    entity_id: input_boolean.casa_pulizia
-    to: 'off'
+    entity_id: light.scale_principale
+    to: 'on'
+    for:
+      minutes: 5
 condition:
   - condition: state
     entity_id: input_boolean.casa_pulizia
     state: 'off'
 action:
-  - service: light.turn_off
-    entity_id: light.scale_principale
+  - choose:
+      - conditions:
+          - condition: state
+            entity_id: input_boolean.casa_ospiti
+            state: 'off'
+          - condition: state
+            entity_id: light.scale_principale
+            state: 'on'
+            for:
+              minutes: 1
+        sequence:
+          - service: light.turn_off
+            entity_id: light.scale_principale
+      - conditions:
+          - condition: state
+            entity_id: input_boolean.casa_ospiti
+            state: 'on'
+          - condition: state
+            entity_id: light.scale_principale
+            state: 'on'
+            for:
+              minutes: 5
+        sequence:
+          - service: light.turn_off
+            entity_id: light.scale_principale
