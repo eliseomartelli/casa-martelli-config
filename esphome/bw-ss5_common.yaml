@@ -1,0 +1,94 @@
+esphome:
+  name: ${device_name}
+  comment: ${device_description}
+  platform: ESP8266
+  board: esp01_1m
+  esp8266_restore_from_flash: true
+
+wifi:
+  ssid: !secret wifissid
+  password: !secret wifipass
+  fast_connect: on
+  ap:
+    ssid: ${friendly_name}_AP
+    password: !secret wifipass
+
+captive_portal:
+
+logger:
+
+api:
+
+ota:
+
+web_server:
+
+sensor:
+  - platform: pulse_counter
+    pin: GPIO13
+    update_interval: 50ms
+    internal: true
+    id: pulse_counter_1
+    filters:
+      - lambda: return x / 60;
+    unit_of_measurement: 'Hz'
+
+  - platform: pulse_counter
+    pin: GPIO12
+    update_interval: 50ms
+    internal: true
+    id: pulse_counter_2
+    filters:
+      - lambda: return x / 60;
+    unit_of_measurement: 'Hz'
+
+output:
+  - platform: gpio
+    pin: GPIO14
+    id: relay_1
+
+  - platform: gpio
+    pin: GPIO15
+    id: relay_2
+
+light:
+  - platform: binary
+    name: "${friendly_name} Light 1"
+    id: light_1
+    output: relay_1
+
+  - platform: binary
+    name: "${friendly_name} Light 2"
+    id: light_2
+    output: relay_2
+
+binary_sensor:
+  - platform: template
+    internal: true
+    id: b_sw_1
+    lambda: |-
+      if((id(pulse_counter_1).state) > 30) {
+        return true;
+      } else {
+        return false;
+      }
+    filters:
+      - delayed_on_off: 100ms
+    on_state:
+      then:
+        - light.toggle: light_1
+
+  - platform: template
+    internal: true
+    id: b_sw_2
+    lambda: |-
+      if((id(pulse_counter_2).state) > 30) {
+        return true;
+      } else {
+        return false;
+      }
+    filters:
+      - delayed_on_off: 100ms
+    on_state:
+      then:
+        - light.toggle: light_2

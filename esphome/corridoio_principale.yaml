@@ -1,0 +1,6 @@
+substitutions:
+  device_name: corridoio_principale
+  device_description: Principale e scale
+  friendly_name: Corridoio Principale
+
+<<: !include bw-ss5_common.yaml
