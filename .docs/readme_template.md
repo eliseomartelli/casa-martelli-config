@@ -64,5 +64,5 @@ This machine runs the latest version of **Ubuntu Server LTS.**
 
 ## Issues
 
-Issues in this repo are handled like @ccostan, @jcallaghan or @frenck.
+Issues in this repo are handled like [@ccostan](https://twitter.com/ccostan), [@jcallaghan](https://twitter.com/jamescallaghan) or [@frenck](https://twitter.com/frenck).
 They are in place to help me track what needs to be done and the priority of these tasks.
