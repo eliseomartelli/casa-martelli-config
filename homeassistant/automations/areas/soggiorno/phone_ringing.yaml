@@ -21,7 +21,9 @@ action:
                 conditions:
                   - condition: state
                     entity_id: sensor.telefono_eliseo_phone_state
-                    state: ringing
+                    state:
+                      - ringing
+                      - offhook
                   - condition: state
                     entity_id: person.eliseo_martelli
                     state: 'home'
@@ -29,7 +31,9 @@ action:
                 conditions:
                   - condition: state
                     entity_id: sensor.telefono_antonella_phone_state
-                    state: ringing
+                    state:
+                      - ringing
+                      - offhook
                   - condition: state
                     entity_id: person.antonella_di_paolo
                     state: 'home'
@@ -37,7 +41,9 @@ action:
                 conditions:
                   - condition: state
                     entity_id: sensor.telefono_antonio_phone_state
-                    state: ringing
+                    state:
+                      - ringing
+                      - offhook
                   - condition: state
                     entity_id: person.antonio_martelli
                     state: 'home'
@@ -45,59 +51,27 @@ action:
                 conditions:
                   - condition: state
                     entity_id: sensor.telefono_gioele_phone_state
-                    state: ringing
+                    state:
+                      - ringing
+                      - offhook
                   - condition: state
                     entity_id: person.gioele_martelli
                     state: 'home'
         sequence:
-          - service: notify.alexa_media
-            data_template:
-              data:
-                type: announce
-              message: >
-                Sta squillando il {{ trigger.to_state.attributes.friendly_name }}.
-              target:
-                - media_player.soggiorno_speaker
-          - service: media_player.volume_set
-            entity_id: media_player.soggiorno_tv
-            data:
-              volume_level: 0.1
-      - conditions:
-          - condition: or
-            conditions:
-              - condition: and
-                conditions:
-                  - condition: state
-                    entity_id: sensor.telefono_eliseo_phone_state
-                    state: offhook
-                  - condition: state
-                    entity_id: person.eliseo_martelli
-                    state: 'home'
-              - condition: and
-                conditions:
-                  - condition: state
-                    entity_id: sensor.telefono_antonella_phone_state
-                    state: offhook
-                  - condition: state
-                    entity_id: person.antonella_di_paolo
-                    state: 'home'
-              - condition: and
-                conditions:
-                  - condition: state
-                    entity_id: sensor.telefono_antonio_phone_state
-                    state: offhook
-                  - condition: state
-                    entity_id: person.antonio_martelli
-                    state: 'home'
-              - condition: and
-                conditions:
-                  - condition: state
-                    entity_id: sensor.telefono_gioele_phone_state
-                    state: offhook
-                  - condition: state
-                    entity_id: person.gioele_martelli
-                    state: 'home'
-        sequence:
+          - choose:
+              - conditions:
+                  - condition: template
+                    value_template: >
+                      {{ trigger.to_state.state == "ringing" }}
+                sequence:
+                  - service: notify.alexa_media
+                    data_template:
+                      data:
+                        type: announce
+                      message: >
+                        Sta squillando il {{ trigger.to_state.attributes.friendly_name }}.
+                      target:
+                        - media_player.soggiorno_speaker
           - service: media_player.volume_set
             entity_id: media_player.soggiorno_tv
             data:
