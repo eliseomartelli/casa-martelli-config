@@ -60,7 +60,8 @@ action:
                 - media_player.soggiorno_speaker
           - service: media_player.volume_set
             entity_id: media_player.soggiorno_tv
-            volume_level: 0.1
+            data:
+              volume_level: 0.1
       - conditions:
           - condition: or
             conditions:
@@ -99,7 +100,8 @@ action:
         sequence:
           - service: media_player.volume_set
             entity_id: media_player.soggiorno_tv
-            volume_level: 0.1
+            data:
+              volume_level: 0.1
     default:
       - service: media_player.volume_set
         entity_id: media_player.soggiorno_tv
