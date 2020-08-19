@@ -10,6 +10,7 @@
     dest: /etc/ssh/sshd_config
     regexp: "^PasswordAuthentication"
     line: "PasswordAuthentication no"
+    mode: preserve
     state: present
 
 - name: Restart ssh
