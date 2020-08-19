@@ -12,6 +12,9 @@ condition:
   - condition: time
     after: '08:00:00'
     before: '22:00:00'
+  - condition: state
+    entity_id: input_boolean.soggiorno_cinema
+    state: 'off'
 action:
   - choose:
       - conditions:
