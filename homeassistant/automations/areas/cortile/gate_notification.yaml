@@ -1,0 +1,28 @@
+---
+id: 97c26b3e-0933-4b63-a1f1-76b4b6cbc659
+alias: Cortile Notifiche Cancello
+trigger:
+  - platform: state
+    entity_id:
+      - person.antonella_di_paolo
+      - person.antonio_martelli
+      - person.eliseo_martelli
+      - person.gioele_martelli
+    to: 'home'
+action:
+  - service_template: >
+      {% if trigger.to_state.entity_id == "person.antonella_di_paolo" %}
+        notify.mobile_app_mi_a2_lite
+      {% elif trigger.to_state.entity_id == "person.antonio_martelli" %}
+        notify.mobile_app_redmi_go
+      {% elif trigger.to_state.entity_id == "person.gioele_martelli" %}
+        notify.mobile_app_gm1900
+      {% else %}
+        notify.mobile_app_mi_a3
+      {% endif %}
+    data:
+      message: "Hey, vuoi aprire il cancello?"
+      data:
+        actions:
+          - action: "open_cortile_pedonale"
+            title: "Sì"
