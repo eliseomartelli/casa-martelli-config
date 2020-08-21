@@ -4,3 +4,4 @@
 platform: mjpeg
 mjpeg_url: http://192.168.0.88:8081
 name: Cortile Piazzale
+still_image_url: http://192.168.0.88:1234/picture/1/current/
