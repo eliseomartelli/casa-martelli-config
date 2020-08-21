@@ -18,6 +18,7 @@
         # {% for c in room.cameras %}
         - type: picture-entity
           entity: "{{ c.entity_id }}"
+          camera_view: live
         # {% endfor %}
   # {% endif %}
 # {% endfor %}
