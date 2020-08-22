@@ -1,5 +1,9 @@
 name: Corridoio
 icon: mdi:checkbox-blank-outline
 lights:
+  - entity_id: light.corridoio_principale
+    name: Principale
+  - entity_id: light.scale_principale
+    name: Scale
   - entity_id: light.corridoio_notturna
     name: Notturna
