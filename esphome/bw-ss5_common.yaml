@@ -30,7 +30,7 @@ sensor:
     internal: true
     id: pulse_counter_1
     filters:
-      - lambda: return x / 60;
+      - multiply: 0.0166  # 1/60
     unit_of_measurement: 'Hz'
 
   - platform: pulse_counter
@@ -39,7 +39,7 @@ sensor:
     internal: true
     id: pulse_counter_2
     filters:
-      - lambda: return x / 60;
+      - multiply: 0.0166  # 1/60
     unit_of_measurement: 'Hz'
 
 output:
@@ -67,11 +67,7 @@ binary_sensor:
     internal: true
     id: b_sw_1
     lambda: |-
-      if((id(pulse_counter_1).state) > 30) {
-        return true;
-      } else {
-        return false;
-      }
+      return id(pulse_counter_1).state) > 30;
     filters:
       - delayed_on_off: 100ms
     on_state:
@@ -82,11 +78,7 @@ binary_sensor:
     internal: true
     id: b_sw_2
     lambda: |-
-      if((id(pulse_counter_2).state) > 30) {
-        return true;
-      } else {
-        return false;
-      }
+      return id(pulse_counter_2).state) > 30;
     filters:
       - delayed_on_off: 100ms
     on_state:
