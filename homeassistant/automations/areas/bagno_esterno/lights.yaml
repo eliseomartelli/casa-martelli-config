@@ -1,0 +1,12 @@
+---
+id: 2847a832-cfb8-4563-b63a-682fa575a530
+alias: Cortile Luci
+trigger:
+  - platform: state
+    entity_id: group.areas_bagno_esterno
+    to: 'on'
+    for:
+      minutes: 15
+action:
+  - service: homeassistant.turn_off
+    entity_id: group.areas_bagno_esterno

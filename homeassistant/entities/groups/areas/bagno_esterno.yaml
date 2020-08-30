@@ -1,0 +1,4 @@
+areas_bagno_esterno:
+  entities:
+    - light.bagno_esterno_principale
+    - light.bagno_esterno_specchio
