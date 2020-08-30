@@ -1,0 +1,9 @@
+---
+# Update Shelly Devices to the latest firmware version.
+sistema_update_shellies:
+  alias: "Aggiorno Shelly"
+  sequence:
+    - service: mqtt.publish
+      data:
+        topic: shellies/command
+        message: update_fw
