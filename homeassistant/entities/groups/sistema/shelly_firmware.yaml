@@ -1,0 +1,6 @@
+sistema_shelly_firmware:
+  entities:
+    - binary_sensor.cortile_balcone_firmware
+    - binary_sensor.soggiorno_principale_firmware
+    - binary_sensor.cortile_frontale_firmware
+    - binary_sensor.cameretta_principale_firmware
