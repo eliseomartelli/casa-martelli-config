@@ -46,22 +46,6 @@
 
         - !include
           - ../includes/section.yaml
-          - title: "Stampante"
-        - type: custom:auto-entities
-          card:
-            type: glance
-          filter:
-            include:
-              - entity_id: sensor.corridoio_stampante_*_ink
-        - type: entities
-          entities:
-            - sensor.corridoio_stampante_status
-
-    - type: vertical-stack
-      cards:
-
-        - !include
-          - ../includes/section.yaml
           - title: "Altro"
         - type: entities
           entities:
