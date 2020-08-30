@@ -7,5 +7,6 @@ lights:
     name: Scrivania
   - entity_id: light.cameretta_testiera
     name: Testiera
-climate:
-  - entity_id: climate.cameretta_condizionatore
+#climate:
+#  - entity_id: climate.cameretta_condizionatore
+#
