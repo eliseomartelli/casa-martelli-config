@@ -26,7 +26,7 @@ web_server:
 sensor:
   - platform: pulse_counter
     pin: GPIO13
-    update_interval: 300ms
+    update_interval: 50ms
     internal: true
     id: pulse_counter_1
     filters:
@@ -35,7 +35,7 @@ sensor:
 
   - platform: pulse_counter
     pin: GPIO12
-    update_interval: 300ms
+    update_interval: 50ms
     internal: true
     id: pulse_counter_2
     filters:
@@ -67,7 +67,7 @@ binary_sensor:
     internal: true
     id: b_sw_1
     lambda: |-
-      return id(pulse_counter_1).state) > 30;
+      return id(pulse_counter_1).state > 30;
     filters:
       - delayed_on_off: 100ms
     on_state:
@@ -78,7 +78,7 @@ binary_sensor:
     internal: true
     id: b_sw_2
     lambda: |-
-      return id(pulse_counter_2).state) > 30;
+      return id(pulse_counter_2).state > 30;
     filters:
       - delayed_on_off: 100ms
     on_state:

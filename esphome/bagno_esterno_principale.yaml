@@ -1,0 +1,6 @@
+substitutions:
+  device_name: bagno_esterno_principale
+  device_description: Bagno esterno
+  friendly_name: Bagno Esterno Principale
+
+<<: !include bw-ss5_common.yaml
