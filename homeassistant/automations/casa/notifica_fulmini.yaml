@@ -1,0 +1,19 @@
+---
+# Send a notification if there are lightnings.
+#
+id: bceb15ec-78c5-4270-b8e7-2ff326efbe4c
+alias: Casa Notifica Fulmini
+trigger:
+  - platform: numeric_state
+    entity_id: sensor.home_lightning_counter
+    above: 0
+condition:
+  - condition: state
+    entity_id: group.family
+    state: 'home'
+action:
+  - service: script.sistema_text_and_announce
+    data_template:
+      message: >
+        Attenzione, ci sono dei fulmini a {{ states('sensor.home_lightning_distance') }} km.
+  - delay: 02:00:00
