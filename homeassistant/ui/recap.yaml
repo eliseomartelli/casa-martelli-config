@@ -1,5 +1,5 @@
 type: markdown
-card-size: 3
+card_size: 3
 content: >
   {% set light_count = states.light | selectattr('state','equalto','on') | list | count %}
   {%- if light_count == 1 -%}
