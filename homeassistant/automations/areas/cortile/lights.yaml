@@ -18,6 +18,11 @@ trigger:
     at: '23:00:00'
   - platform: state
     entity_id: input_boolean.casa_ospiti
+  - platform: state
+    entity_id: group.areas_bagno_esterno
+    to: 'off'
+    for:
+      minutes: 1
 action:
   - choose:
         # Lights off but it's evening or bedtime
@@ -32,6 +37,9 @@ action:
             - service: light.turn_on
               entity_id: light.cortile_frontale
     default:
+      - condition: state
+        entity_id: group.areas_bagno_esterno
+        state: 'off'
       - condition: state
         entity_id: input_boolean.casa_ospiti
         state: 'off'
