@@ -15,3 +15,9 @@ trigger:
     to: 'on'
 action:
   - service: script.soggiorno_buzzer
+  - service: notify.alexa_media
+    data_template:
+      data:
+        type: announce
+      message: >
+        Campanello suonato da {{ trigger.to_state.attributes.friendly_name.replace("Campanello", "").strip() }}.
