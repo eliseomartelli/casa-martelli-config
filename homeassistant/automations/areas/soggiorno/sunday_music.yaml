@@ -31,19 +31,7 @@ action:
       message: "Buongiorno! Metto un po' di musica"
       target:
         - media_player.soggiorno_speaker
-  - service: media_player.play_media
-    data_template:
-      entity_id: media_player.soggiorno_speaker
-      media_content_type: "AMAZON_MUSIC"
-      media_content_id: >
-        Playlist {{
-          [
-            "Risveglio Rock",
-            "Buona Giornata !",
-            "Road Trip",
-            "Dance Mix Anni '80'",
-            "Dance Mix Anni '90'"
-          ] | random
-        }}
+  - service: script.turn_on
+    entity_id: script.soggiorno_playlist
   # Just one time a day
   - delay: '03:00:00'

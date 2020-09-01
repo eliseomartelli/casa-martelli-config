@@ -28,6 +28,8 @@ media_players:
         entity_id: script.soggiorno_radio_rds
       - name: Virgin
         entity_id: script.soggiorno_radio_virgin
+      - name: Playlist Shuffle
+        entity_id: script.soggiorno_playlist
   - entity_id: media_player.soggiorno_tv
     shortcuts:
       - name: Telecamere
