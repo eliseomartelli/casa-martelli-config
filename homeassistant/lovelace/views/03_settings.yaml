@@ -52,6 +52,8 @@
             - binary_sensor.casa_disinfestazioni
             - binary_sensor.casa_presenza_acqua
             - binary_sensor.iss
+            - sensor.home_lightning_counter
+            - sensor.casa_opensky
             - input_boolean.casa_ospiti
             - input_boolean.casa_pulizia
             - sensor.sistema_temperatura_cpu
