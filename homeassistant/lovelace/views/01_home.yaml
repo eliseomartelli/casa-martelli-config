@@ -44,19 +44,20 @@
         - !include
           - ../includes/section.yaml
           - title: Scene
-        - type: custom:mod-card
-          card:
-            type: custom:layout-card
-            layout: horizontal
-            min_columns: 2
-            justify_content: start
-            cards:
-              # {% for s in _global.home.scenes %}
-              - type: custom:decluttering-card
-                template: "hk_scene"
-                variables:
-                  - entity_id: {{ s.entity_id }}
-              # {% endfor %}
+
+        - type: custom:swipe-card
+          card_width: "60%"
+          parameters:
+            centeredSlides: false
+            slidesPerView: auto
+            spaceBetween: 8
+          cards:
+            # {% for s in _global.home.scenes %}
+            - type: custom:decluttering-card
+              template: "hk_scene"
+              variables:
+                - entity_id: {{ s.entity_id }}
+            # {% endfor %}
     # {% endif %}
     # {% if _global.home.most_used %}
     - type: vertical-stack

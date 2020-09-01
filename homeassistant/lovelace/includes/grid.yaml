@@ -6,7 +6,7 @@ card:
   layout: horizontal
   min_columns: 3
   justify_content: left
-  column_width: 33.333%
+  min_width: 96px
   cards:
   # {% for button in entities %}
     - type: custom:decluttering-card
@@ -17,5 +17,5 @@ card:
   # {% endfor %}
 style: |
   ha-card {
-    margin-right: -6px;
+    margin-right: 0px;
   }
