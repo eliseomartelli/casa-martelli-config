@@ -1,0 +1,6 @@
+---
+platform: group
+name: Soggiorno
+entities:
+  - light.soggiorno_faretti
+  - light.soggiorno_principale

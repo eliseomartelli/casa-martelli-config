@@ -1,4 +1,0 @@
-areas_soggiorno:
-  entities:
-    - light.soggiorno_faretti
-    - light.soggiorno_principale

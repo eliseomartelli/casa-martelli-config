@@ -1,6 +1,0 @@
-areas_cortile:
-  entities:
-    - light.cortile_balcone
-    - light.cortile_frontale
-    - light.cortile_veranda
-    - light.cortile_gazebo

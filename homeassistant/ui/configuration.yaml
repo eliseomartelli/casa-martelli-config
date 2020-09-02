@@ -3,7 +3,7 @@ weather: weather.home
 recap: !include recap.yaml
 rooms: !include_dir_list ./rooms
 most_used:
-  - entity_id: group.areas_soggiorno
+  - entity_id: light.soggiorno
     name: Soggiorno
   - entity_id: light.corridoio_notturna
     name: Corridoio

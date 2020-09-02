@@ -1,0 +1,5 @@
+---
+platform: group
+name: Corridoio
+entities:
+  - light.corridoio_notturna

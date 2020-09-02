@@ -51,9 +51,9 @@ style: |
     padding-top: 0 !important;
   }
 entity_id:
-  - group.areas_soggiorno
-  - group.areas_cortile
-  - group.areas_cameretta
+  - light.soggiorno
+  - light.cortile
+  - light.cameretta
   - light.corridoio_notturna
   - light.cucina_scolapiatti
   - group.family

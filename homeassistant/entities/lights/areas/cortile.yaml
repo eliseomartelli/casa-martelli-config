@@ -1,0 +1,7 @@
+---
+platform: group
+name: Cortile
+entities:
+  - light.cortile_balcone
+  - light.cortile_frontale
+  - light.cortile_veranda

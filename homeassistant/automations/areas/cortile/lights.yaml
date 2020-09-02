@@ -10,7 +10,7 @@ trigger:
     entity_id: sun.sun
     to: 'below_horizon'
   - platform: state
-    entity_id: group.areas_cortile
+    entity_id: light.cortile
     to: 'on'
     for:
       minutes: 15
@@ -19,7 +19,7 @@ trigger:
   - platform: state
     entity_id: input_boolean.casa_ospiti
   - platform: state
-    entity_id: group.areas_bagno_esterno
+    entity_id: light.bagno_esterno
     to: 'off'
     for:
       minutes: 1
@@ -38,10 +38,10 @@ action:
               entity_id: light.cortile_frontale
     default:
       - condition: state
-        entity_id: group.areas_bagno_esterno
+        entity_id: light.bagno_esterno
         state: 'off'
       - condition: state
         entity_id: input_boolean.casa_ospiti
         state: 'off'
       - service: homeassistant.turn_off
-        entity_id: group.areas_cortile
+        entity_id: light.cortile

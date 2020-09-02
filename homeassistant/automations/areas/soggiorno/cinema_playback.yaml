@@ -5,7 +5,7 @@ id: 691EC33E-BF87-4242-AB1D-60F1471C1B62
 alias: Soggiorno Cinema Playback
 trigger:
   - platform: state
-    entity_id: group.areas_soggiorno
+    entity_id: light.soggiorno
 condition:
   - condition: state
     entity_id: input_boolean.soggiorno_cinema
@@ -14,7 +14,7 @@ action:
   - choose:
       - conditions:
           - condition: state
-            entity_id: group.areas_soggiorno
+            entity_id: light.soggioron
             state: 'on'
         sequence:
           - service: media_player.media_pause

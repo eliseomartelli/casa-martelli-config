@@ -1,0 +1,7 @@
+---
+platform: group
+name: Cameretta
+entities:
+  - light.cameretta_principale
+  - light.cameretta_scrivania
+  - light.cameretta_testiera
