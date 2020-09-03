@@ -30,13 +30,25 @@
         - !include
             - ../includes/section.yaml
             - title: Luci
-        - !include
-            - ../includes/grid.yaml
-            - entities:
-              # {% for s in room.lights %}
-                - entity_id: {{ s.entity_id }}
-                  name: {{ s.name }}
-              # {% endfor %}
+        - type: custom:auto-entities
+          card:
+            type: custom:layout-card
+            layout: horizontal
+            min_columns: 3
+            justify_content: left
+            min_width: 96px
+            card_options:
+              type: custom:decluttering-card
+              template: hk_button
+          filter:
+            include:
+              - entity_id: '{{ room.lights }}{{ "_*" }}'
+                options:
+                  variables:
+                    - entity_id: this.entity_id
+          sort:
+            method: name
+            ignore_case: true
     # {% endif %}
 
     # {% if room.switches %}

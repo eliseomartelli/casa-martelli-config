@@ -1,12 +1,6 @@
 name: Cameretta
 icon: mdi:bed-double
-lights:
-  - entity_id: light.cameretta_principale
-    name: Principale
-  - entity_id: light.cameretta_scrivania
-    name: Scrivania
-  - entity_id: light.cameretta_testiera
-    name: Testiera
+lights: light.cameretta
 #climate:
 #  - entity_id: climate.cameretta_condizionatore
 #

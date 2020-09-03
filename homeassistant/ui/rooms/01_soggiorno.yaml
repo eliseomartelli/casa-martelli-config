@@ -7,11 +7,7 @@ icon: mdi:sofa
 #   - entity_id: sensor.bedroom_humidity
 #     name: Humidity
 #     color: purple
-lights:
-  - entity_id: light.soggiorno_principale
-    name: Principale
-  - entity_id: light.soggiorno_faretti
-    name: Faretti
+lights: light.soggiorno
 switches:
   - entity_id: switch.soggiorno_tv
     name: TV

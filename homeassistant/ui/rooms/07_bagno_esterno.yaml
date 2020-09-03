@@ -1,9 +1,5 @@
 name: Bagno Esterno
 icon: mdi:paper-roll
-lights:
-  - entity_id: light.bagno_esterno_principale
-    name: Principale
-  - entity_id: light.bagno_esterno_specchio
-    name: Specchio
+lights: light.bagno_esterno
 additional_switches:
   - entity_id: binary_sensor.bagno_esterno_campanello
