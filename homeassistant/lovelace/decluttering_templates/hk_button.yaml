@@ -4,7 +4,6 @@ hk_button:
   card:
     type: custom:button-card
     entity: '[[entity_id]]'
-    name: "[[name]]"
     show_state: true
     aspect_ratio: "[[aspect_ratio]]"
     hold_action:
