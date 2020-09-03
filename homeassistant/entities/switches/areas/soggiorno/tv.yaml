@@ -4,6 +4,7 @@
 platform: template
 switches:
   soggiorno_tv:
+    friendly_name: Soggiorno TV
     value_template: >
       {{ not is_state("media_player.soggiorno_tv", "unavailable") }}
     turn_on:
