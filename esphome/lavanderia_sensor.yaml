@@ -1,0 +1,47 @@
+substitutions:
+  device_name: lavanderia_sensore
+  friendly_name: Lavanderia Sensore
+
+esphome:
+  name: ${device_name}
+  platform: ESP8266
+  board: esp01_1m
+
+wifi:
+  ssid: !secret wifissid
+  password: !secret wifipass
+  fast_connect: on
+  ap:
+    ssid: ${friendly_name}_AP
+    password: !secret wifipass
+
+captive_portal:
+
+logger:
+
+api:
+
+ota:
+
+web_server:
+
+sensor:
+  - platform: dht
+    pin: GPIO02
+    model: DHT11
+    update_interval: 15s
+    temperature:
+      name: ${friendly_name} Temperature
+      filters:
+        - median:
+            window_size: 5
+            send_every: 5
+            send_first_at: 1
+
+    humidity:
+      name: ${friendly_name} Humidity
+      filters:
+        - median:
+            window_size: 5
+            send_every: 5
+            send_first_at: 1
