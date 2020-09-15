@@ -17,3 +17,5 @@ recorder:
       - sensor.speedtest_upload
       - switch.soggiorno_tv
       - sensor.sistema_temperatura_cpu
+      - sensor.lavanderia_humidity
+      - sensor.lavanderia_temperature
