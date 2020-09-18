@@ -1,7 +1,7 @@
 # lovelace_gen
 
 - title: Impostazioni
-  icon: mdi:settings
+  icon: mdi:cog
   path: settings
   cards:
     - !include
