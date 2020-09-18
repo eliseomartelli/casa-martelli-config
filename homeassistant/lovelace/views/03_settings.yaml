@@ -59,3 +59,4 @@
             - sensor.sistema_temperatura_cpu
             - binary_sensor.sistema_giorno_lavorativo
             - script.sistema_update_shellies
+            - media_player.spotify_gioele
