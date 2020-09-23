@@ -1,9 +1,21 @@
+globals:
+  - id: stable
+    type: bool
+    restore_value: no
+    initial_value: 'false'
+
 esphome:
   name: ${device_name}
   comment: ${device_description}
   platform: ESP8266
   board: esp01_1m
   esp8266_restore_from_flash: true
+  on_boot:
+    priority: -10
+    then:
+      - globals.set:
+          id: stable
+          value: 'true'
 
 wifi:
   ssid: !secret wifissid
@@ -67,20 +79,28 @@ binary_sensor:
     internal: true
     id: b_sw_1
     lambda: |-
-      return id(pulse_counter_1).state > 30;
+      return id(pulse_counter_1).state > 50;
     filters:
       - delayed_on_off: 100ms
     on_state:
       then:
-        - light.toggle: light_1
+        - if:
+            condition:
+              lambda: 'return id(stable);'
+            then:
+              light.toggle: light_1
 
   - platform: template
     internal: true
     id: b_sw_2
     lambda: |-
-      return id(pulse_counter_2).state > 30;
+      return id(pulse_counter_2).state > 50;
     filters:
       - delayed_on_off: 100ms
     on_state:
       then:
-        - light.toggle: light_2
+       - if:
+            condition:
+              lambda: 'return id(stable);'
+            then:
+              light.toggle: light_2
