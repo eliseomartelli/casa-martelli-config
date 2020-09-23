@@ -79,7 +79,7 @@ binary_sensor:
     internal: true
     id: b_sw_1
     lambda: |-
-      return id(pulse_counter_1).state > 50;
+      return id(pulse_counter_1).state > 30;
     filters:
       - delayed_on_off: 100ms
     on_state:
@@ -94,7 +94,7 @@ binary_sensor:
     internal: true
     id: b_sw_2
     lambda: |-
-      return id(pulse_counter_2).state > 50;
+      return id(pulse_counter_2).state > 30;
     filters:
       - delayed_on_off: 100ms
     on_state:
