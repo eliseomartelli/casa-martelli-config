@@ -1,0 +1,11 @@
+---
+platform: mqtt
+name: "Bagno Esterno Movimento"
+off_delay: 30
+payload_on: "81C506"
+device_class: motion
+state_topic: "tele/tasmota_434508/RESULT"
+value_template: "{{ value_json.RfReceived.Data }}"
+availability_topic: "tele/tasmota_434508/LWT"
+payload_available: "Online"
+payload_not_available: "Offline"
