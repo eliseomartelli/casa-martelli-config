@@ -6,9 +6,21 @@ trigger:
     entity_id: binary_sensor.bagno_esterno_movimento
     to: 'on'
 condition:
-  - condition: state
-    entity_id: sun.sun
-    state: 'below_horizon'
+  - condition: or
+    conditions:
+      - condition: state
+        entity_id: sun.sun
+        state: 'below_horizon'
+      - condition: not
+        conditions:
+          - condition: or
+            conditions:
+              - condition: state
+                entity_id: weather.home
+                state: 'sunny'
+              - condition: state
+                entity_id: weather.home
+                state: 'partlycloudy'
 action:
   - service: light.turn_on
     entity_id: light.bagno_esterno_principale
