@@ -6,7 +6,7 @@ trigger:
     entity_id: light.bagno_esterno
     to: 'on'
     for:
-      minutes: 10
+      minutes: 15
 action:
   - service: homeassistant.turn_off
     entity_id: light.bagno_esterno
