@@ -23,7 +23,7 @@ homeassistant/.cloud
 homeassistant/.storage
 
 homeassistant/deps
-
+homeassistant/image
 
 
 # Specific file ignores
