@@ -1,0 +1,3 @@
+lifx:
+  light:
+    - broadcast: 10.0.32.25
