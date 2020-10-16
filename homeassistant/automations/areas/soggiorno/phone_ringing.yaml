@@ -75,12 +75,3 @@ action:
                         Sta squillando il {{ trigger.to_state.attributes.friendly_name }}.
                       target:
                         - media_player.soggiorno_speaker
-          - service: media_player.volume_set
-            entity_id: media_player.soggiorno_tv
-            data:
-              volume_level: 0.1
-    default:
-      - service: media_player.volume_set
-        entity_id: media_player.soggiorno_tv
-        data:
-          volume_level: 1.0
