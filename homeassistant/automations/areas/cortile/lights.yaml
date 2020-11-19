@@ -1,7 +1,7 @@
 ---
 # Manage lights outside.
 #
-id: 93473694-53E8-43C2-9259-39F32D177C26
+id: d72bab94-bcd0-4eec-b3a6-697ce43f8359
 alias: Cortile Luci
 trigger:
   - platform: homeassistant

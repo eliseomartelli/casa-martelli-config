@@ -147,3 +147,4 @@ backup/
 cli.json
 multicast.json
 observer.json
+ssl/
