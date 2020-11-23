@@ -1,0 +1,3 @@
+platform: switch
+name: Cortile Piazzale
+entity_id: switch.cortile_piazzale

@@ -1,0 +1,3 @@
+platform: switch
+name: Soggiorno Faretti
+entity_id: switch.soggiorno_faretti

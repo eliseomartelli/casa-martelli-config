@@ -1,5 +1,0 @@
-[hosts]
-192.168.0.88    ansible_user=user
-
-[hosts:vars]
-ansible_python_interpreter=/usr/bin/python3
