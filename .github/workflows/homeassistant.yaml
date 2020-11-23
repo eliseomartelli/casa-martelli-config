@@ -11,7 +11,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Checking out code from GitHub
-        uses: actions/checkout@v2.3.3
+        uses: actions/checkout@v2.3.4
       - name: Set up Python 3.7
         uses: actions/setup-python@v2.1.3
         with:
@@ -31,7 +31,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Getting your configuration from GitHub
-        uses: actions/checkout@v2.3.3
+        uses: actions/checkout@v2.3.4
       - name: Copy stub files into configuration folder
         run: |
           cp .stubs/secrets.yaml homeassistant/secrets.yaml
@@ -50,7 +50,7 @@ jobs:
       runs-on: ubuntu-latest
       steps:
         - name: Getting your configuration from GitHub
-          uses: actions/checkout@v2.3.3
+          uses: actions/checkout@v2.3.4
         - name: Copy stub files into configuration folder
           run: |
             cp .stubs/secrets.yaml homeassistant/secrets.yaml
@@ -70,9 +70,9 @@ jobs:
     needs: [pre-commit]
     steps:
       - name: Getting your configuration from GitHub
-        uses: actions/checkout@v2.3.3
+        uses: actions/checkout@v2.3.4
       - name: Checking out code from GitHub
-        uses: actions/checkout@v2.3.3
+        uses: actions/checkout@v2.3.4
       - name: Set up Python 3.7
         uses: actions/setup-python@v2.1.3
         with:
