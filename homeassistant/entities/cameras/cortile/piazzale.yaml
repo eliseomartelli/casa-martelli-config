@@ -2,6 +2,6 @@
 # Motioneye camera for Piazzale.
 #
 platform: mjpeg
-mjpeg_url: http://192.168.0.88:8081
+mjpeg_url: http://192.168.16.2:8081
 name: Cortile Piazzale
-still_image_url: http://192.168.0.88:1234/picture/1/current/
+still_image_url: http://192.168.16.2:1234/picture/1/current/
