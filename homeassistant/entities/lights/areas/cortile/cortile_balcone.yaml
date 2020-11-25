@@ -1,3 +1,0 @@
-platform: switch
-name: Cortile Balcone
-entity_id: switch.cortile_balcone

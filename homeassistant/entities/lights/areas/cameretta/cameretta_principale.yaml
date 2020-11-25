@@ -1,3 +1,0 @@
-platform: switch
-name: Cameretta Principale
-entity_id: switch.cameretta_principale

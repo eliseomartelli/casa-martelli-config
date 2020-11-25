@@ -1,3 +1,0 @@
-platform: switch
-name: Cameretta Scrivania
-entity_id: switch.cameretta_scrivania
