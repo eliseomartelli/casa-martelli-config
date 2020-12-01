@@ -35,7 +35,7 @@ action:
             before: '23:00:00'
         sequence:
             - service: light.turn_on
-              entity_id: light.cortile_frontale
+              entity_id: light.cortile_piazzale
     default:
       - service: homeassistant.turn_off
         entity_id: light.cortile
