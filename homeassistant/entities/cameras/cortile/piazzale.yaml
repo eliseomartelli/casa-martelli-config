@@ -4,4 +4,5 @@
 platform: mjpeg
 mjpeg_url: http://192.168.16.2:8081
 name: Cortile Piazzale
-still_image_url: http://192.168.16.2:1234/picture/1/current/
+still_image_url: http://192.168.16.2:8123/api/hassio_ingress/981xlkVL1BoPH6eWPUvyUj-KHBC2Dfx_9RxzUlmf7R4/picture/1/current/
+
