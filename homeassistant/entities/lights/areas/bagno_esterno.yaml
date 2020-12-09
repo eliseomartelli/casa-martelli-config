@@ -1,6 +1,0 @@
----
-platform: group
-name: Bagno Esterno
-entities:
-  - light.bagno_esterno_principale
-  - light.bagno_esterno_specchio
