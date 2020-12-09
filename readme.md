@@ -10,7 +10,7 @@
 				alt="Branch">
 		</a>
 		<img alt="undefined" src="https://img.shields.io/github/license/eliseomartelli/ParentsHomeAutomation.svg">
-		<img src="https://img.shields.io/badge/haversion-0.118.2-blue.svg">
+		<img src="https://img.shields.io/badge/haversion-0.118.5-blue.svg">
 		<img src="https://img.shields.io/badge/automations-34-purple.svg">
 	</p>
 </p>
