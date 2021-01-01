@@ -3,10 +3,14 @@ id: b7bce2cc-64b4-492a-9aa4-cd05ae9d5922
 alias: Bagno Esterno Luci
 trigger:
   - platform: state
-    entity_id: light.bagno_esterno
+    entity_id: 
+      - light.bagno_esterno_principale
+      - light.bagno_esterno_specchio
     to: 'on'
     for:
       minutes: 15
 action:
   - service: homeassistant.turn_off
-    entity_id: light.bagno_esterno
+    entity_id:
+      - light.bagno_esterno_principale
+      - light.bagno_esterno_specchio
