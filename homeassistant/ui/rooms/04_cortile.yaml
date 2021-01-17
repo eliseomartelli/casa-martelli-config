@@ -1,8 +1,0 @@
-name: Cortile
-icon: mdi:tree
-lights: light.cortile
-cameras:
-  - entity_id: camera.cortile_piazzale
-  - entity_id: camera.cortile_viale
-additional_switches:
-  - entity_id: lock.cortile_pedonale
