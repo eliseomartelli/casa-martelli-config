@@ -1,9 +1,0 @@
-name: Corridoio
-icon: mdi:checkbox-blank-outline
-lights: light.corridoio
-additional_switches:
-  - entity_id: sensor.corridoio_stampante_status
-  - entity_id: sensor.corridoio_stampante_black_ink
-  - entity_id: sensor.corridoio_stampante_cyan_ink
-  - entity_id: sensor.corridoio_stampante_yellow_ink
-  - entity_id: sensor.corridoio_stampante_magenta_ink

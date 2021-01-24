@@ -1,6 +1,6 @@
 ---
 id: b7bce2cc-64b4-492a-9aa4-cd05ae9d5922
-alias: Bagno Esterno Luci
+alias: Bagno Esterno Luci Off
 trigger:
   - platform: state
     entity_id: 

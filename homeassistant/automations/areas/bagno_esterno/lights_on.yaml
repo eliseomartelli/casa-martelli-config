@@ -1,10 +1,15 @@
 ---
 id: 14048FD3-9B2E-4613-BF78-320E3B30DA03
-alias: Bagno Esterno Luci On
+alias: Bagno Esterno Lights On
 trigger:
+  - platform: homeassistant
+    event: start
+  - platform: event
+    event_type: automation_reloaded
   - platform: state
     entity_id: binary_sensor.bagno_esterno_movimento
     to: 'on'
+
 condition:
   - condition: or
     conditions:

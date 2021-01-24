@@ -2,7 +2,7 @@
 # Turn off led strip when the desk light gets switched to off.
 #
 id: 734B88A2-71AA-41B3-B71D-B26074938FB0
-alias: Cameretta Spegnimento LED
+alias: Cameretta Testiera Off
 trigger:
   - platform: state
     entity_id: light.cameretta_scrivania

@@ -1,6 +1,0 @@
-name: Bagno Esterno
-icon: mdi:paper-roll
-lights: light.bagno_esterno
-additional_switches:
-  - entity_id: binary_sensor.bagno_esterno_campanello
-  - entity_id: binary_sensor.bagno_esterno_movimento

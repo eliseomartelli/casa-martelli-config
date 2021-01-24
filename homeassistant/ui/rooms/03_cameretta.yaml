@@ -1,8 +1,0 @@
-name: Cameretta
-icon: mdi:bed-double
-lights: light.cameretta
-#climate:
-#  - entity_id: climate.cameretta_condizionatore
-#
-media_players:
-  - entity_id: media_player.cameretta_speaker
