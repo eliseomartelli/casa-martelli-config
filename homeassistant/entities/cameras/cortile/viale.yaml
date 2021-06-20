@@ -1,6 +1,0 @@
----
-# Motioneye camera for Viale.
-#
-platform: mjpeg
-mjpeg_url: http://192.168.16.2:8082
-name: Cortile Viale
