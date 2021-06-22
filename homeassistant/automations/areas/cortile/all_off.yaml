@@ -12,3 +12,4 @@ action:
     entity_id:
       - light.cortile_balcone
       - light.cortile_veranda
+      - light.cortile_gazebo
