@@ -1,0 +1,17 @@
+---
+alias: Cortile Viale Camera
+trigger:
+  - platform: state
+    entity_id: binary_sensor.cortile_viale_motion
+    to: 'on'
+condition:
+  - condition: time
+    after: '07:30:00'
+    before: '23:00:00'
+action:
+  - service: notify.notify
+    data:
+      message: C'è qualcuno al cancello
+      data:
+        image: >
+          /api/camera_proxy/camera.{{ trigger.from_state.entity_id.split(".")[1] | replace("_presenza") }}
