@@ -30,7 +30,7 @@ action:
             title: "Guarda le altre telecamere"
   - wait_for_trigger:
       - platform: event
-        eventy_type: mobile_app_notification_action
+        event_type: mobile_app_notification_action
         event_data:
           action: "{{ action_unlock }}"
     timeout:
