@@ -3,26 +3,28 @@
 # outside.
 #
 id: CC67FAD1-B90B-4847-9237-95121F117733
-alias: Sistema Notifica Telecamere
+alias: Cortile Notifica Viale 
 trigger:
   - platform: state
     entity_id:
-      - binary_sensor.cortile_viale_presenza
-      - binary_sensor.cortile_piazzale_presenza
+      - binary_sensor.cortile_viale_motion
     to: 'on'
 condition:
   - condition: time
     after: '07:30:00'
     before: '23:00:00'
-  - condition: state
-    entity_id: group.family
-    state: "not_home"
 action:
   - service: notify.notify
-    data_template:
-      message: Mi sembra di aver visto del movimento
+    data:
+      title: '🚨 C''è qualcuno al cancello!'
+      message: 'Tieni premuto per vedere la telecamera'
       data:
-        image: >
-          /api/camera_proxy/camera.{{ trigger.from_state.entity_id.split(".")[1] | replace("_presenza") }}
+        entity_id: camera.cortile_viale
+        actions:
+          - action: OPEN_GATE_1
+            title: "Apri Pedonale"
+          - action: URI
+            uri: /lovelace/telecamere
+            title: "Guarda le altre telecamere"
   - delay:
       minutes: 5
