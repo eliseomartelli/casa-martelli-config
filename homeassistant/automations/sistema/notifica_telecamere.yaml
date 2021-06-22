@@ -3,7 +3,7 @@
 # outside.
 #
 id: CC67FAD1-B90B-4847-9237-95121F117733
-alias: Cortile Notifica Viale 
+alias: Cortile Notifica Viale
 trigger:
   - platform: state
     entity_id:
@@ -14,6 +14,8 @@ condition:
     after: '07:30:00'
     before: '23:00:00'
 action:
+  - variables:
+      action_unlock: "{{ 'UNLOCK_' ~ context.id }}"
   - service: notify.notify
     data:
       title: '🚨 C''è qualcuno al cancello!'
@@ -21,10 +23,21 @@ action:
       data:
         entity_id: camera.cortile_viale
         actions:
-          - action: OPEN_GATE_1
+          - action: "{{ action_unlock }}"
             title: "Apri Pedonale"
           - action: URI
             uri: /lovelace/telecamere
             title: "Guarda le altre telecamere"
-  - delay:
-      minutes: 5
+  - wait_for_trigger:
+      - platform: event
+        eventy_type: mobile_app_notification_action
+        event_data:
+          action: "{{ action_unlock }}"
+    timeout:
+      minutes: 4
+  - choose:
+      - conditions: "{{ wait.trigger.event.data.action == action_unlock }}"
+        sequence:
+          - service: lock.unlock
+            data:
+              entity_id: lock.cortile_pedonale
